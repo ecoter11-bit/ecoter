@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+@import '@ecoter/tokens/theme.css';
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
