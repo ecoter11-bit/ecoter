@@ -1,8 +1,12 @@
+import path from 'path'
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   // Strict mode for React 19
   reactStrictMode: true,
+
+  // Monorepo: trace files from the workspace root, not just this app
+  outputFileTracingRoot: path.join(__dirname, '../../'),
 
   // Image optimization
   images: {
