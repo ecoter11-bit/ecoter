@@ -54,6 +54,11 @@ export const Default: Story = {
   },
 }
 
+/**
+ * Destructive uses `text-destructive-muted-foreground` (`@ecoter/tokens`
+ * `error.700`, ~5.5:1 on `bg-destructive/10`) instead of `text-destructive`
+ * (~3.2:1) — the a11y addon's "Violations" tab should show 0 for this story.
+ */
 export const AllVariants: Story = {
   parameters: { controls: { disable: true } },
   render: () => (

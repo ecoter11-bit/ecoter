@@ -18,7 +18,7 @@ Zero valori hardcoded. Ogni colore/spazio/raggio/ombra è una classe Tailwind ch
 
 ## Storybook
 
-`pnpm --filter @ecoter/ui storybook` (dev) / `build-storybook`. Framework `@storybook/react-vite`, styling via lo stesso `@tailwindcss/postcss` del sito (vedi `postcss.config.mjs`). Addon `a11y` sempre attivo — un finding non è automaticamente un bug da fixare subito (es. il contrasto della variante `destructive` è un debito noto, tracciato per la Fase 2), ma va sempre guardato, non ignorato in silenzio.
+`pnpm --filter @ecoter/ui storybook` (dev) / `build-storybook`. Framework `@storybook/react-vite`, styling via lo stesso `@tailwindcss/postcss` del sito (vedi `postcss.config.mjs`). Addon `a11y` sempre attivo — un finding non va mai ignorato in silenzio (il contrasto della variante `destructive` era un debito noto, risolto: usa `text-destructive-muted-foreground`, non `text-destructive`, su `bg-destructive/10`).
 
 ## Cosa NON fare
 
