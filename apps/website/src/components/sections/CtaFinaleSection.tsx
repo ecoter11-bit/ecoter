@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Mail, Phone } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@ecoter/ui'
 import { Container } from '@/components/layout'
 import {
   slideUp,
