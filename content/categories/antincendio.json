@@ -1,0 +1,19 @@
+{
+  "slug": "antincendio",
+  "name": "Antincendio",
+  "description": "Formazione per addetti alla squadra antincendio e gestione delle emergenze, conforme al D.M. 02/09/2021.",
+  "longDescription": "Il D.M. 02 settembre 2021 ha ridefinito la formazione antincendio in Italia. ECOTER Academy offre tutti i livelli previsti dal nuovo decreto: rischio basso (4h), rischio medio (8h) ed elevato (16h), con sessioni pratiche certificate e corsi di aggiornamento quinquennali.",
+  "icon": "Flame",
+  "order": 2,
+  "featured": true,
+  "seo": {
+    "title": "Corsi Antincendio – D.M. 02/09/2021 Rischio Basso Medio Elevato",
+    "description": "Corsi antincendio conformi al D.M. 02/09/2021. Tutti i livelli di rischio con parte pratica certificata. Aggiornamenti quinquennali.",
+    "keywords": [
+      "corso antincendio",
+      "dm 02 09 2021",
+      "addetto antincendio",
+      "squadra emergenza antincendio"
+    ]
+  }
+}

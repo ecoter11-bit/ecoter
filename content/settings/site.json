@@ -1,0 +1,29 @@
+{
+  "name": "ECOTER Academy",
+  "tagline": "Formazione professionale per chi costruisce la sicurezza",
+  "description": "Ente di formazione professionale specializzato in sicurezza sul lavoro, qualità, ambiente e sistemi di gestione.",
+  "url": "https://academy.ecoter.it",
+  "email": "formazione@ecoter.it",
+  "phone": "+39 0000 000000",
+  "address": {
+    "street": "Via Example, 1",
+    "city": "Milano",
+    "province": "MI",
+    "cap": "20100",
+    "country": "IT"
+  },
+  "social": {
+    "linkedin": "https://linkedin.com/company/ecoter",
+    "youtube": ""
+  },
+  "certifications": [
+    {
+      "name": "Ente Accreditato Regione Lombardia",
+      "code": "RL-XXX",
+      "logo": ""
+    }
+  ],
+  "cookiePolicy": "/legal/cookie-policy",
+  "privacyPolicy": "/legal/privacy-policy",
+  "termsOfService": "/legal/termini-e-condizioni"
+}

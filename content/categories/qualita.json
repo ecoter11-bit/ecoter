@@ -1,0 +1,19 @@
+{
+  "slug": "qualita",
+  "name": "Qualità",
+  "description": "Percorsi formativi sulla gestione della qualità, audit interni, ISO 9001 e controllo dei processi produttivi.",
+  "longDescription": "La qualità non è un reparto: è una cultura aziendale. I nostri corsi spaziano dall'introduzione ai sistemi di gestione ISO 9001:2015 alla formazione avanzata per Auditor Lead e Quality Manager, con un approccio concreto orientato al miglioramento continuo dei processi.",
+  "icon": "BadgeCheck",
+  "order": 3,
+  "featured": false,
+  "seo": {
+    "title": "Corsi Qualità – ISO 9001, Audit Interno, Controllo Processo",
+    "description": "Formazione professionale sulla gestione della qualità. Corsi ISO 9001:2015, auditor interno, SPC e strumenti lean per il miglioramento continuo.",
+    "keywords": [
+      "corsi qualita",
+      "iso 9001",
+      "auditor interno",
+      "gestione qualita aziendale"
+    ]
+  }
+}

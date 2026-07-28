@@ -1,0 +1,116 @@
+[
+  {
+    "slug": "sicurezza",
+    "name": "Sicurezza sul Lavoro",
+    "description": "Corsi obbligatori e specialistici per la prevenzione dei rischi e la tutela della salute nei luoghi di lavoro.",
+    "longDescription": "La sicurezza sul lavoro è un obbligo di legge e un valore fondamentale per ogni organizzazione. Il nostro catalogo copre l'intera gamma di formazione prevista dal D.Lgs. 81/08: dal corso lavoratori base ai percorsi avanzati per RSPP, ASPP e addetti ai lavori in quota, spazi confinati e rischio chimico.",
+    "icon": "HardHat",
+    "order": 1,
+    "featured": true,
+    "seo": {
+      "title": "Corsi Sicurezza sul Lavoro – Formazione D.Lgs. 81/08",
+      "description": "Formazione obbligatoria e specialistica in materia di sicurezza sul lavoro. Corsi per lavoratori, preposti, dirigenti, RSPP e ASPP.",
+      "keywords": [
+        "corsi sicurezza sul lavoro",
+        "formazione d.lgs 81/08",
+        "rspp aspp",
+        "prevenzione rischi"
+      ]
+    }
+  },
+  {
+    "slug": "antincendio",
+    "name": "Antincendio",
+    "description": "Formazione per addetti alla squadra antincendio e gestione delle emergenze, conforme al D.M. 02/09/2021.",
+    "longDescription": "Il D.M. 02 settembre 2021 ha ridefinito la formazione antincendio in Italia. ECOTER Academy offre tutti i livelli previsti dal nuovo decreto: rischio basso (4h), rischio medio (8h) ed elevato (16h), con sessioni pratiche certificate e corsi di aggiornamento quinquennali.",
+    "icon": "Flame",
+    "order": 2,
+    "featured": true,
+    "seo": {
+      "title": "Corsi Antincendio – D.M. 02/09/2021 Rischio Basso Medio Elevato",
+      "description": "Corsi antincendio conformi al D.M. 02/09/2021. Tutti i livelli di rischio con parte pratica certificata. Aggiornamenti quinquennali.",
+      "keywords": [
+        "corso antincendio",
+        "dm 02 09 2021",
+        "addetto antincendio",
+        "squadra emergenza antincendio"
+      ]
+    }
+  },
+  {
+    "slug": "qualita",
+    "name": "Qualità",
+    "description": "Percorsi formativi sulla gestione della qualità, audit interni, ISO 9001 e controllo dei processi produttivi.",
+    "longDescription": "La qualità non è un reparto: è una cultura aziendale. I nostri corsi spaziano dall'introduzione ai sistemi di gestione ISO 9001:2015 alla formazione avanzata per Auditor Lead e Quality Manager, con un approccio concreto orientato al miglioramento continuo dei processi.",
+    "icon": "BadgeCheck",
+    "order": 3,
+    "featured": false,
+    "seo": {
+      "title": "Corsi Qualità – ISO 9001, Audit Interno, Controllo Processo",
+      "description": "Formazione professionale sulla gestione della qualità. Corsi ISO 9001:2015, auditor interno, SPC e strumenti lean per il miglioramento continuo.",
+      "keywords": [
+        "corsi qualita",
+        "iso 9001",
+        "auditor interno",
+        "gestione qualita aziendale"
+      ]
+    }
+  },
+  {
+    "slug": "ambiente",
+    "name": "Ambiente",
+    "description": "Formazione sulla gestione ambientale, normativa ambientale italiana ed europea, ISO 14001 e sostenibilità.",
+    "longDescription": "Le normative ambientali sono in continua evoluzione e le responsabilità per le aziende crescono. I nostri corsi coprono la gestione dei rifiuti (D.Lgs. 152/06), le emissioni in atmosfera, la gestione delle acque e la transizione verso i sistemi di gestione ambientale certificati ISO 14001.",
+    "icon": "Leaf",
+    "order": 4,
+    "featured": false,
+    "seo": {
+      "title": "Corsi Ambiente – ISO 14001, Gestione Rifiuti, Normativa Ambientale",
+      "description": "Formazione professionale in materia ambientale. Corsi ISO 14001, gestione rifiuti D.Lgs. 152/06, emissioni e compliance ambientale.",
+      "keywords": [
+        "corsi ambiente",
+        "iso 14001",
+        "gestione rifiuti",
+        "normativa ambientale"
+      ]
+    }
+  },
+  {
+    "slug": "sistemi-gestione",
+    "name": "Sistemi di Gestione",
+    "description": "Percorsi per progettare, implementare e mantenere sistemi di gestione integrati conformi agli standard ISO.",
+    "longDescription": "I sistemi di gestione integrati (SGI) permettono di gestire qualità, sicurezza e ambiente in modo sinergico. ECOTER Academy propone percorsi per implementare e mantenere sistemi conformi a ISO 9001, ISO 14001, ISO 45001 e altre norme settoriali, con un approccio pratico e orientato alla certificazione.",
+    "icon": "Settings2",
+    "order": 5,
+    "featured": false,
+    "seo": {
+      "title": "Corsi Sistemi di Gestione Integrati – ISO 9001 14001 45001",
+      "description": "Formazione per implementare sistemi di gestione integrati. Percorsi ISO 9001, ISO 14001, ISO 45001 e sistemi multi-norma.",
+      "keywords": [
+        "sistemi di gestione integrati",
+        "iso 45001",
+        "sgq sgsl sga",
+        "certificazione iso"
+      ]
+    }
+  },
+  {
+    "slug": "management",
+    "name": "Management",
+    "description": "Competenze manageriali e trasversali per responsabili e team leader: leadership, gestione del rischio, comunicazione organizzativa.",
+    "longDescription": "La competenza tecnica non basta: un professionista completo sa anche gestire persone, processi e situazioni di crisi. I nostri percorsi di management sono progettati per HSE manager, quality manager e responsabili tecnici che vogliono sviluppare competenze di leadership, project management e comunicazione efficace.",
+    "icon": "Users",
+    "order": 6,
+    "featured": false,
+    "seo": {
+      "title": "Corsi Management HSE – Leadership, Gestione Rischio, Comunicazione",
+      "description": "Formazione manageriale per professionisti HSE e quality manager. Leadership, gestione del rischio d'impresa, comunicazione organizzativa.",
+      "keywords": [
+        "corsi management",
+        "leadership hse",
+        "gestione rischio impresa",
+        "hse manager"
+      ]
+    }
+  }
+]

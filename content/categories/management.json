@@ -1,0 +1,19 @@
+{
+  "slug": "management",
+  "name": "Management",
+  "description": "Competenze manageriali e trasversali per responsabili e team leader: leadership, gestione del rischio, comunicazione organizzativa.",
+  "longDescription": "La competenza tecnica non basta: un professionista completo sa anche gestire persone, processi e situazioni di crisi. I nostri percorsi di management sono progettati per HSE manager, quality manager e responsabili tecnici che vogliono sviluppare competenze di leadership, project management e comunicazione efficace.",
+  "icon": "Users",
+  "order": 6,
+  "featured": false,
+  "seo": {
+    "title": "Corsi Management HSE – Leadership, Gestione Rischio, Comunicazione",
+    "description": "Formazione manageriale per professionisti HSE e quality manager. Leadership, gestione del rischio d'impresa, comunicazione organizzativa.",
+    "keywords": [
+      "corsi management",
+      "leadership hse",
+      "gestione rischio impresa",
+      "hse manager"
+    ]
+  }
+}

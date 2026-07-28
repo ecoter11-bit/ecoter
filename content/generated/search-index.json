@@ -1,0 +1,77 @@
+[
+  {
+    "slug": "rspp-modulo-a",
+    "title": "RSPP – Modulo A: Formazione Generale",
+    "subtitle": "Il percorso obbligatorio per diventare Responsabile del Servizio di Prevenzione e Protezione",
+    "excerpt": "Formazione obbligatoria ai sensi del D.Lgs. 81/08 per chi intende svolgere il ruolo di RSPP in qualsiasi settore produttivo.",
+    "category": "sicurezza",
+    "level": "base",
+    "modality": [
+      "aula",
+      "blended"
+    ],
+    "tags": [
+      "rspp",
+      "aspp",
+      "sicurezza-lavoro",
+      "d-lgs-81-08",
+      "obbligatorio"
+    ]
+  },
+  {
+    "slug": "antincendio-rischio-medio",
+    "title": "Antincendio – Rischio Medio",
+    "subtitle": "Formazione per addetti alla prevenzione incendi in attività a rischio medio",
+    "excerpt": "Corso da 8 ore per addetti alla squadra antincendio in attività a rischio medio, conforme al D.M. 02/09/2021.",
+    "category": "antincendio",
+    "level": "base",
+    "modality": [
+      "aula"
+    ],
+    "tags": [
+      "antincendio",
+      "rischio-medio",
+      "squadra-emergenza",
+      "dm-2021",
+      "obbligatorio"
+    ]
+  },
+  {
+    "slug": "haccp-addetti-alimentare",
+    "title": "HACCP – Formazione degli Addetti al Settore Alimentare",
+    "subtitle": "Igiene e sicurezza alimentare per chi manipola, trasforma o somministra alimenti",
+    "excerpt": "Corso obbligatorio sull'HACCP per lavoratori del settore alimentare: principi, procedure e responsabilità per garantire la sicurezza dei consumatori.",
+    "category": "qualita",
+    "level": "base",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "haccp",
+      "igiene-alimentare",
+      "reg-ce-852",
+      "obbligatorio",
+      "ristorazione"
+    ]
+  },
+  {
+    "slug": "auditor-interno-iso-9001",
+    "title": "Auditor Interno ISO 9001:2015",
+    "subtitle": "Progettare e condurre audit interni efficaci nei sistemi di gestione per la qualità",
+    "excerpt": "Percorso intensivo di 16 ore per formare auditor interni competenti nella verifica di conformità ai requisiti della norma ISO 9001:2015.",
+    "category": "qualita",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "blended"
+    ],
+    "tags": [
+      "iso-9001",
+      "audit-interno",
+      "sistemi-gestione-qualita",
+      "sgq",
+      "non-conformita"
+    ]
+  }
+]

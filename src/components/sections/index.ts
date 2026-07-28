@@ -1,0 +1,8 @@
+export { HeroSection } from './HeroSection'
+export { SearchSection } from './SearchSection'
+export { AreaFormativeSection } from './AreaFormativeSection'
+export { FormazioneObbligatoriaSection } from './FormazioneObbligatoriaSection'
+export { WhyEcoterSection } from './WhyEcoterSection'
+export { ComeFunzionaSection } from './ComeFunzionaSection'
+export { FaqPreviewSection } from './FaqPreviewSection'
+export { CtaFinaleSection } from './CtaFinaleSection'

@@ -1,0 +1,19 @@
+{
+  "slug": "sicurezza",
+  "name": "Sicurezza sul Lavoro",
+  "description": "Corsi obbligatori e specialistici per la prevenzione dei rischi e la tutela della salute nei luoghi di lavoro.",
+  "longDescription": "La sicurezza sul lavoro è un obbligo di legge e un valore fondamentale per ogni organizzazione. Il nostro catalogo copre l'intera gamma di formazione prevista dal D.Lgs. 81/08: dal corso lavoratori base ai percorsi avanzati per RSPP, ASPP e addetti ai lavori in quota, spazi confinati e rischio chimico.",
+  "icon": "HardHat",
+  "order": 1,
+  "featured": true,
+  "seo": {
+    "title": "Corsi Sicurezza sul Lavoro – Formazione D.Lgs. 81/08",
+    "description": "Formazione obbligatoria e specialistica in materia di sicurezza sul lavoro. Corsi per lavoratori, preposti, dirigenti, RSPP e ASPP.",
+    "keywords": [
+      "corsi sicurezza sul lavoro",
+      "formazione d.lgs 81/08",
+      "rspp aspp",
+      "prevenzione rischi"
+    ]
+  }
+}

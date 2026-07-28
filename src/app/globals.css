@@ -1,26 +1,349 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Dark mode: DISABLED — ECOTER Academy is light-only */
+@custom-variant dark (&:is(.dark-never *));
 
+/* ─── shadcn semantic tokens → Tailwind color utilities ──────────────────── */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Fonts — set by next/font variables in layout.tsx */
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-display);
+
+  /* Radius — design system tokens */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+  --radius-4xl: 32px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─── Extended brand palette → generates bg-brand-*, text-brand-*, etc. ─── */
+@theme {
+  /* Brand — Institutional Blue (primary) */
+  --color-brand-950: #060d1f;
+  --color-brand-900: #0a1628;
+  --color-brand-800: #0e2040;
+  --color-brand-700: #132a58;
+  --color-brand-600: #1a3570;
+  --color-brand-500: #1e3e87;
+  --color-brand-400: #3557a3;
+  --color-brand-300: #5477bf;
+  --color-brand-200: #8fabda;
+  --color-brand-100: #c7d5ee;
+  --color-brand-50: #e9eff8;
+
+  /* Eco — Technical Green (accent, used sparingly) */
+  --color-eco-700: #0a5a4a;
+  --color-eco-600: #0d7361;
+  --color-eco-500: #0f8f78;
+  --color-eco-400: #18b096;
+  --color-eco-300: #3ecdb4;
+  --color-eco-100: #ccf0ea;
+  --color-eco-50: #f0faf8;
+
+  /* Neutral — Warm Gray (replaces Tailwind default neutral) */
+  --color-neutral-950: #0f1114;
+  --color-neutral-900: #1c1f26;
+  --color-neutral-800: #2d3240;
+  --color-neutral-700: #44495a;
+  --color-neutral-600: #5c6275;
+  --color-neutral-500: #7a8090;
+  --color-neutral-400: #9ba2b0;
+  --color-neutral-300: #bcc3ce;
+  --color-neutral-200: #d8dde5;
+  --color-neutral-100: #eceff3;
+  --color-neutral-50: #f4f6f9;
+  --color-neutral-25: #fafbfc;
+
+  /* Success */
+  --color-success-600: #16713a;
+  --color-success-500: #22a854;
+  --color-success-100: #dcfce7;
+  --color-success-50: #f0fdf4;
+
+  /* Warning */
+  --color-warning-600: #b45309;
+  --color-warning-500: #d97706;
+  --color-warning-100: #fef3c7;
+  --color-warning-50: #fffbeb;
+
+  /* Error */
+  --color-error-700: #b91c1c;
+  --color-error-500: #ef4444;
+  --color-error-100: #fee2e2;
+  --color-error-50: #fff5f5;
+
+  /* Amber — small accents: badge, underline, step numerals (2% del layout) */
+  --color-amber-600: #d97706;
+  --color-amber-500: #f59e0b;
+  --color-amber-400: #fbbf24;
+  --color-amber-300: #fcd34d;
+  --color-amber-100: #fef3c7;
+  --color-amber-50: #fffbeb;
+
+  /* Shadows as design tokens */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.06);
+  --shadow-2xl: 0 40px 80px rgba(0, 0, 0, 0.15);
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+
+  /* Duration tokens */
+  --duration-instant: 75ms;
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-medium: 300ms;
+  --duration-slow: 500ms;
+  --duration-deliberate: 800ms;
+
+  /* Easing tokens */
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ─── CSS custom properties — design system root values ─────────────────── */
+:root {
+  /* shadcn semantic colors — mapped to ECOTER brand */
+  --background: #fafbfc;
+  --foreground: #1c1f26;
+  --card: #ffffff;
+  --card-foreground: #1c1f26;
+  --popover: #ffffff;
+  --popover-foreground: #1c1f26;
+  --primary: #1e3e87;
+  --primary-foreground: #ffffff;
+  --secondary: #eceff3;
+  --secondary-foreground: #1c1f26;
+  --muted: #f4f6f9;
+  --muted-foreground: #7a8090;
+  --accent: #f0faf8;
+  --accent-foreground: #0a5a4a;
+  --destructive: #ef4444;
+  --border: #d8dde5;
+  --input: #d8dde5;
+  --ring: #5477bf;
+  --radius: 0.5rem;
+
+  /* Sidebar */
+  --sidebar: #f4f6f9;
+  --sidebar-foreground: #1c1f26;
+  --sidebar-primary: #1e3e87;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e9eff8;
+  --sidebar-accent-foreground: #132a58;
+  --sidebar-border: #d8dde5;
+  --sidebar-ring: #5477bf;
+
+  /* Additional surface tokens */
+  --surface-raised: #ffffff;
+  --surface-overlay: rgba(15, 17, 20, 0.6);
+  --bg-dark: #0a1628;
+  --bg-dark-subtle: #0e2040;
+}
+
+/* ─── Base styles ────────────────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply border-border;
+  }
+
+  html {
+    @apply font-sans antialiased;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    letter-spacing: -0.025em;
+  }
+  h2 {
+    letter-spacing: -0.02em;
+  }
+  h3 {
+    letter-spacing: -0.015em;
+  }
+
+  /* Focus visible — accessible, not visible on mouse click */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: calc(var(--radius) * 0.6);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: #c7d5ee;
+    color: #0a1628;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─── Utility classes ────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Container */
+  .container-default {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-default {
+      padding-inline: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-default {
+      padding-inline: 4rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container-default {
+      padding-inline: 5rem;
+    }
+  }
+
+  /* Section vertical padding */
+  .section-padding {
+    padding-block: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-block: 5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-block: 6rem;
+    }
+  }
+
+  .section-padding-lg {
+    padding-block: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding-lg {
+      padding-block: 6rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding-lg {
+      padding-block: 8rem;
+    }
+  }
+
+  /* Typography utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Overline — small uppercase label above headings */
+  .overline {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: var(--font-body);
+  }
+
+  /* Grid technical texture — dark backgrounds (Hero, Footer, CTA, Wizard) */
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  /* Shadows from design tokens */
+  .shadow-brand-sm {
+    box-shadow: 0 1px 3px rgba(30, 62, 135, 0.25);
+  }
+
+  /* Gradient overlays */
+  .gradient-dark-bottom {
+    background: linear-gradient(to bottom, transparent, rgba(10, 22, 40, 0.8));
+  }
+
+  /* Reduced motion — respect OS preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
