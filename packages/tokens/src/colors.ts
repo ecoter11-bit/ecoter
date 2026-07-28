@@ -99,6 +99,8 @@ export const semantic = {
   accent: '#f0faf8',
   accentForeground: '#0a5a4a',
   destructive: '#ef4444',
+  /** Text color for destructive content on a tinted destructive background (`bg-destructive/10`) — `text-destructive` alone is ~3.2:1, below WCAG AA. This is `error.700`. */
+  destructiveMutedForeground: '#b91c1c',
   border: '#d8dde5',
   input: '#d8dde5',
   ring: '#5477bf',
