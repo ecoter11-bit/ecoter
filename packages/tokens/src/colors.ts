@@ -3,7 +3,7 @@
  * Keep these two files in sync manually until a codegen step exists (Phase 2).
  */
 
-/** ECO-TER Decision Log semantic palette, aliased to current site values (see report for discrepancies). */
+/** ECO-TER canonical semantic palette (Decision 016). */
 export const palette = {
   midnight: '#0a1628',
   slate: '#1c1f26',

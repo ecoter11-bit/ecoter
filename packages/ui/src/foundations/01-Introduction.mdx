@@ -1,0 +1,21 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { semantic } from '@ecoter/tokens'
+
+<Meta title="Foundations/1. Introduction" />
+
+# ECOTER Academy — Design Foundations
+
+ECOTER Academy è il sito di formazione professionale accreditata (sicurezza sul lavoro, qualità, ambiente, antincendio, management) di ECOTER. Questa sezione è la parte viva della Design Bible: ogni pagina qui dentro **legge i valori direttamente da `@ecoter/tokens`** — non li ricopia. Se un token cambia, queste pagine cambiano con lui, senza bisogno di riscriverle.
+
+## Principi
+
+- **Premium, non decorativo.** Il livello di cura si vede nel dettaglio (spaziatura, allineamento, gerarchia), non in effetti aggiunti sopra.
+- **Minimal, tecnico.** Il pubblico è professionale (RSPP, responsabili qualità, HSE manager). Il tono visivo è quello di uno strumento serio, non di una landing page da startup.
+- **Scientifico.** Dati, normative, certificazioni — la UI deve trasmettere precisione, non entusiasmo.
+- **Benchmark: Stripe, Vercel, Linear.** Riferimento per il livello di rigore e restrizione, mai da copiare 1:1.
+- **Evitare il "look da AI".** Niente gradient-ovunque, blob decorativi, tutto-arrotondato-e-soffice applicato a caso, emoji come icone, layout centrato-a-prescindere. Vedi `.claude/skills/ecoter-design-system` per la lista completa di do/don't.
+
+## Palette in una riga
+
+Primary <code style={{ color: semantic.primary }}>{semantic.primary}</code>, accento{' '}
+<code style={{ color: 'var(--color-technical-green)' }}>tecnico verde</code> usato con parsimonia, tema chiaro. Dettagli completi nella pagina **Colors**.
