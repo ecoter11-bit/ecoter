@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(pnpm-lock.yaml)",
+      "Edit(pnpm-lock.yaml)",
+      "Read(**/*.tsbuildinfo)",
+      "Read(**/.next/**)",
+      "Read(**/.turbo/**)",
+      "Read(**/dist/**)",
+      "Read(**/storybook-static/**)"
+    ]
+  }
+}
