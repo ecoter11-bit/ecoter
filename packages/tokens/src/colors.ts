@@ -80,6 +80,8 @@ export const amber = {
   400: '#fbbf24',
   500: '#f59e0b',
   600: '#d97706',
+  /** Added for Badge `color="amber"` solid/soft text — amber-600 is ~3.1:1 on white/amber-50, below WCAG AA (4.5:1). Deliberately a more yellow/gold hue than `warning-600` (#b45309, orange-red) rather than reusing it — reusing it made `color="amber"` render pixel-identical to `color="warning"` on every Badge variant. Passes AA: ~4.9:1 on white, ~4.75:1 on amber-50. */
+  700: '#a16207',
 } as const
 
 /** Semantic role tokens — light theme (the site is light-only, dark mode disabled). */
