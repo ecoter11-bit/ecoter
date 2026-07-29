@@ -42,6 +42,8 @@ pnpm --filter <pkg> dev|build|lint|type-check
 
 Invocali con l'Agent tool passando `subagent_type` col nome esatto. Vedi `.claude/agents/*.md` per lo scope completo.
 
+**Nota ambiente (verificato 2026-07-29):** in alcuni host il tool Agent espone solo un roster fisso e non carica subagent di progetto da `.claude/agents/` — dispatch per nome fallisce con `Agent type 'design-reviewer' not found` (idem per `a11y-auditor`), anche se il frontmatter è conforme alle spec ufficiali. Se capita, usa le skill di fallback `design-review-fallback` / `a11y-review-fallback` (stesso checklist, letto live da `.claude/agents/*.md` e dispatchato via `subagent_type: general-purpose`). Se invece `Agent(subagent_type: "design-reviewer")` risponde senza quell'errore, il subagent di progetto è disponibile: usa quello direttamente.
+
 ## Skill di progetto
 
 `ecoter-design-system` — flusso end-to-end per costruire/modificare un componente in `packages/ui` (token → componente → varianti/stati → a11y → storia Storybook). Si autoinvoca quando il task riguarda un componente UI; vedi `.claude/skills/ecoter-design-system/SKILL.md`.
