@@ -11,7 +11,7 @@ import {
   mainNav,
   modalityNav,
 } from '@/config/nav'
-import { LogoMark, LogoWordmark } from '@/components/ui/LogoEcoter'
+import { AcademyTag, EcoterLogo } from '@/components/ui/LogoEcoter'
 import { Container } from './Container'
 import { MegaMenu } from './MegaMenu'
 import { MobileNav } from './MobileNav'
@@ -54,11 +54,15 @@ export function Header() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex shrink-0 items-center gap-2.5 rounded-lg focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
+              className="flex shrink-0 items-center gap-3 rounded-lg focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
               aria-label={`${siteConfig.name} — torna alla homepage`}
             >
-              <LogoMark size={36} />
-              <LogoWordmark className="hidden sm:block" />
+              <EcoterLogo height={34} priority />
+              <span
+                className="hidden h-6 w-px bg-neutral-200 sm:block"
+                aria-hidden="true"
+              />
+              <AcademyTag className="hidden text-neutral-600 sm:block" />
             </Link>
 
             {/* Desktop nav */}

@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 import { buttonVariants } from '@ecoter/ui'
 import { Container } from '@/components/layout'
 import { slideUp } from '@/components/motion/variants'
+import { HeroMesh } from './HeroMesh'
 
 const heroContainer = {
   hidden: {},
@@ -19,17 +20,14 @@ export function HeroSection() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden bg-brand-900 text-white"
+      className="relative overflow-hidden bg-white"
     >
-      <div className="bg-grid-pattern absolute inset-0" aria-hidden="true" />
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,color-mix(in_srgb,var(--color-brand-400)_30%,transparent),transparent)]"
+        className="pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_45%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_45%)]"
         aria-hidden="true"
-      />
-      <div
-        className="absolute right-0 bottom-0 size-96 translate-x-1/3 translate-y-1/3 rounded-full bg-eco-500/10 blur-3xl"
-        aria-hidden="true"
-      />
+      >
+        <HeroMesh />
+      </div>
 
       <Container className="relative py-24 lg:py-36">
         <motion.div
@@ -38,22 +36,22 @@ export function HeroSection() {
           animate="visible"
           className="mx-auto max-w-3xl text-center"
         >
-          <motion.p variants={slideUp} className="mb-5 text-eco-300 overline">
+          <motion.p variants={slideUp} className="mb-5 text-brand-600 overline">
             Formazione Professionale Accreditata
           </motion.p>
 
           <motion.h1
             id="hero-heading"
             variants={slideUp}
-            className="mb-6 font-heading text-4xl font-extrabold tracking-tight text-balance text-white sm:text-5xl lg:text-6xl"
+            className="mb-6 font-heading text-4xl font-light tracking-tight text-balance text-neutral-950 sm:text-5xl lg:text-6xl"
           >
             La formazione che mette{' '}
-            <span className="text-eco-300">la tua azienda in regola.</span>
+            <span className="text-brand-600">la tua azienda in regola.</span>
           </motion.h1>
 
           <motion.p
             variants={slideUp}
-            className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-pretty text-brand-200"
+            className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-pretty text-neutral-600"
           >
             Attestati validi ai fini di legge su sicurezza D.Lgs.&nbsp;81/08,
             ambiente e sistemi di gestione. Formazione in aula, online o
@@ -67,8 +65,12 @@ export function HeroSection() {
             <Link
               href="/corsi"
               className={cn(
+                // `default` alone renders unstyled here — the shadcn --color-primary
+                // alias doesn't resolve in this app's Turbopack build (pre-existing,
+                // confirmed sitewide, see CtaFinaleSection/FormazioneObbligatoriaSection
+                // for the same workaround). Overriding with the brand scale directly.
                 buttonVariants({ variant: 'default' }),
-                'h-12 gap-2 bg-eco-600 px-8 text-base font-semibold text-white hover:bg-eco-700 focus-visible:ring-eco-300'
+                'h-12 gap-2 bg-brand-600 px-8 text-base font-semibold text-white hover:bg-brand-700'
               )}
             >
               Esplora i corsi
@@ -77,8 +79,8 @@ export function HeroSection() {
             <Link
               href="/wizard"
               className={cn(
-                buttonVariants({ variant: 'outline' }),
-                'h-12 gap-2 border-brand-400 bg-transparent px-8 text-base font-semibold text-white hover:border-brand-300 hover:bg-brand-800 hover:text-white'
+                buttonVariants({ variant: 'outline-brand' }),
+                'h-12 gap-2 px-8 text-base font-semibold'
               )}
             >
               <ClipboardList className="size-4" aria-hidden="true" />

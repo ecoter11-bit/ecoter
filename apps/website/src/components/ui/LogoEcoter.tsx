@@ -1,62 +1,56 @@
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
-type LogoMarkProps = {
+/** Intrinsic ratio of Ecoter-logo-01.svg (800×272). */
+const LOGO_ASPECT_RATIO = 800 / 272
+
+type EcoterLogoProps = {
+  /** `color` = full brand-gradient lockup (light surfaces). `white` = flat white (dark surfaces). */
+  variant?: 'color' | 'white'
+  /** Rendered height in px — width is derived from the logo's intrinsic ratio. */
+  height?: number
   className?: string
-  size?: number
+  priority?: boolean
 }
 
-export function LogoMark({ className, size = 36 }: LogoMarkProps) {
+export function EcoterLogo({
+  variant = 'color',
+  height = 36,
+  className,
+  priority = false,
+}: EcoterLogoProps) {
+  const width = Math.round(height * LOGO_ASPECT_RATIO)
+
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 36 36"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <Image
+      src={
+        variant === 'white'
+          ? '/brand/ecoter-logo-white.svg'
+          : '/brand/ecoter-logo.svg'
+      }
+      alt="ECOTER Academy"
+      width={width}
+      height={height}
+      priority={priority}
       className={cn('shrink-0', className)}
-      aria-hidden="true"
-    >
-      <rect width="36" height="36" rx="8" fill="#132A58" />
-      {/* Top bar */}
-      <rect x="8.5" y="9" width="19" height="3.5" rx="1.75" fill="white" />
-      {/* Middle bar — shorter, eco-accented end */}
-      <rect x="8.5" y="16.25" width="13" height="3.5" rx="1.75" fill="white" />
-      {/* Bottom bar */}
-      <rect x="8.5" y="23.5" width="19" height="3.5" rx="1.75" fill="white" />
-      {/* Eco accent dot — aligns with middle bar */}
-      <circle cx="26" cy="18" r="3" fill="#0F8F78" />
-      <circle cx="26" cy="18" r="1.4" fill="#3ECDB4" />
-    </svg>
+    />
   )
 }
 
-type LogoWordmarkProps = {
+type AcademyTagProps = {
   className?: string
-  inverted?: boolean
 }
 
-export function LogoWordmark({
-  className,
-  inverted = false,
-}: LogoWordmarkProps) {
+/** Small "Academy" wordmark suffix — pairs with EcoterLogo to disambiguate the training arm from the parent brand. */
+export function AcademyTag({ className }: AcademyTagProps) {
   return (
-    <div className={cn('leading-none', className)}>
-      <span
-        className={cn(
-          'block font-heading text-base font-bold tracking-tight',
-          inverted ? 'text-white' : 'text-brand-800'
-        )}
-      >
-        ECOTER
-      </span>
-      <span
-        className={cn(
-          'block text-[9px] font-semibold tracking-[0.12em] uppercase',
-          inverted ? 'text-brand-300' : 'text-neutral-500'
-        )}
-      >
-        Academy
-      </span>
-    </div>
+    <span
+      className={cn(
+        'font-heading text-xs font-semibold tracking-[0.14em] uppercase',
+        className
+      )}
+    >
+      Academy
+    </span>
   )
 }

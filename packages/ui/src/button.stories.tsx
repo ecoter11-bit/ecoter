@@ -20,6 +20,7 @@ const meta = {
       options: [
         'default',
         'outline',
+        'outline-brand',
         'secondary',
         'ghost',
         'destructive',
@@ -65,6 +66,7 @@ export const AllVariants: Story = {
     <div className="flex flex-wrap items-center gap-4">
       <Button variant="default">Default</Button>
       <Button variant="outline">Outline</Button>
+      <Button variant="outline-brand">Outline brand</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="ghost">Ghost</Button>
       <Button variant="destructive">Destructive</Button>

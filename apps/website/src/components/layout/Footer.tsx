@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ExternalLink, Mail, MapPin, Phone } from 'lucide-react'
 import { siteConfig } from '@/config/site'
 import { footerNav } from '@/config/nav'
-import { LogoMark, LogoWordmark } from '@/components/ui/LogoEcoter'
+import { AcademyTag, EcoterLogo } from '@/components/ui/LogoEcoter'
 import { Container } from './Container'
 
 export function Footer() {
@@ -36,11 +36,12 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link
               href="/"
-              className="inline-flex items-center gap-2.5"
+              className="inline-flex items-center gap-3"
               aria-label={`${siteConfig.name} — homepage`}
             >
-              <LogoMark size={36} />
-              <LogoWordmark inverted />
+              <EcoterLogo variant="white" height={34} />
+              <span className="h-6 w-px bg-white/20" aria-hidden="true" />
+              <AcademyTag className="text-brand-300" />
             </Link>
 
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-brand-200">

@@ -164,6 +164,21 @@
     background: linear-gradient(to bottom, transparent, rgba(10, 22, 40, 0.8));
   }
 
+  /* Hero mesh — slow, discrete vertical drift (terrain-wireframe backdrop) */
+  .hero-mesh-drift {
+    animation: hero-mesh-drift 22s var(--ease-standard) infinite alternate;
+    will-change: transform;
+  }
+
+  @keyframes hero-mesh-drift {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-10px);
+    }
+  }
+
   /* Reduced motion — respect OS preference */
   @media (prefers-reduced-motion: reduce) {
     *,

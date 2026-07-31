@@ -17,7 +17,7 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { siteConfig } from '@/config/site'
-import { LogoMark } from '@/components/ui/LogoEcoter'
+import { EcoterLogo } from '@/components/ui/LogoEcoter'
 import type { NavCategory, NavGroup, NavItem } from '@/config/nav'
 
 const ICON_MAP: Record<string, LucideIcon> = {
@@ -140,10 +140,7 @@ export function MobileNav({
                   onClick={() => setOpen(false)}
                   aria-label={`${siteConfig.name} — homepage`}
                 >
-                  <LogoMark size={28} />
-                  <span className="font-heading text-sm font-bold text-brand-800">
-                    {siteConfig.shortName}
-                  </span>
+                  <EcoterLogo height={28} />
                 </Link>
                 <button
                   type="button"
