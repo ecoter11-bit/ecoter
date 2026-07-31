@@ -25,7 +25,7 @@ export function EmptyState({ onReset, hasFilters }: Props) {
         <button
           type="button"
           onClick={onReset}
-          className="flex items-center gap-2 rounded-lg border border-neutral-200 bg-white px-5 py-2.5 text-sm font-semibold text-neutral-700 shadow-xs transition-all duration-200 hover:border-brand-300 hover:text-brand-700 hover:shadow-sm"
+          className="flex items-center gap-2 rounded-lg border border-neutral-200 bg-white px-5 py-2.5 text-sm font-semibold text-neutral-700 shadow-xs transition-all duration-200 hover:border-brand-600 hover:text-brand-700 hover:shadow-sm"
         >
           <X className="size-4" aria-hidden="true" />
           Rimuovi tutti i filtri

@@ -295,7 +295,7 @@ export function MobileNav({
                 <Link
                   href="/contatti"
                   onClick={() => setOpen(false)}
-                  className="flex w-full items-center justify-center rounded-xl bg-brand-500 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-600"
+                  className="flex w-full items-center justify-center rounded-xl bg-brand-600 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
                 >
                   Richiedi informazioni
                 </Link>

@@ -31,7 +31,16 @@ const iconMap: Record<string, LucideIcon> = {
   Users,
 }
 
-/* Category-specific color data — full static strings for Tailwind scanner */
+/*
+ * Category-specific color data — full static strings for Tailwind scanner.
+ * Mapped onto the Decision 018 macro-category palette, same mapping as
+ * badge-mappings.ts categoryBadgeColor (sicurezza/antincendio → blue,
+ * ambiente → brand/verde, qualita/sistemi-gestione → eco/teal, management →
+ * amber/oro). `topBarClass` is a decorative, aria-hidden accent line — a
+ * Tailwind class (not an inline hex) so it stays token-driven, using each
+ * color's canonical brand stop (no text sits on it, so the AA-safe stop
+ * isn't required here).
+ */
 const categoryStyles: Record<
   string,
   {
@@ -39,59 +48,59 @@ const categoryStyles: Record<
     iconText: string
     iconHoverBg: string
     ctaText: string
-    topBarColor: string
+    topBarClass: string
   }
 > = {
   sicurezza: {
-    iconBg: 'bg-brand-50',
-    iconText: 'text-brand-600',
-    iconHoverBg: 'group-hover:bg-brand-600',
-    ctaText: 'text-brand-600',
-    topBarColor: '#1A3570',
+    iconBg: 'bg-blue-50',
+    iconText: 'text-blue-700',
+    iconHoverBg: 'group-hover:bg-blue-600',
+    ctaText: 'text-blue-700',
+    topBarClass: 'bg-blue-500',
+  },
+  antincendio: {
+    iconBg: 'bg-blue-50',
+    iconText: 'text-blue-700',
+    iconHoverBg: 'group-hover:bg-blue-600',
+    ctaText: 'text-blue-700',
+    topBarClass: 'bg-blue-500',
   },
   qualita: {
     iconBg: 'bg-eco-50',
-    iconText: 'text-eco-600',
+    iconText: 'text-eco-700',
     iconHoverBg: 'group-hover:bg-eco-600',
-    ctaText: 'text-eco-600',
-    topBarColor: '#0D7361',
+    ctaText: 'text-eco-700',
+    topBarClass: 'bg-eco-500',
   },
   ambiente: {
-    iconBg: 'bg-eco-50',
-    iconText: 'text-eco-500',
-    iconHoverBg: 'group-hover:bg-eco-500',
-    ctaText: 'text-eco-500',
-    topBarColor: '#0F8F78',
-  },
-  antincendio: {
-    iconBg: 'bg-warning-50',
-    iconText: 'text-warning-600',
-    iconHoverBg: 'group-hover:bg-warning-600',
-    ctaText: 'text-warning-600',
-    topBarColor: '#D97706',
+    iconBg: 'bg-brand-50',
+    iconText: 'text-brand-700',
+    iconHoverBg: 'group-hover:bg-brand-600',
+    ctaText: 'text-brand-700',
+    topBarClass: 'bg-brand-500',
   },
   'sistemi-gestione': {
     iconBg: 'bg-eco-50',
     iconText: 'text-eco-700',
-    iconHoverBg: 'group-hover:bg-eco-700',
+    iconHoverBg: 'group-hover:bg-eco-600',
     ctaText: 'text-eco-700',
-    topBarColor: '#0A5A4A',
+    topBarClass: 'bg-eco-500',
   },
   management: {
-    iconBg: 'bg-brand-50',
-    iconText: 'text-brand-700',
-    iconHoverBg: 'group-hover:bg-brand-700',
-    ctaText: 'text-brand-700',
-    topBarColor: '#132A58',
+    iconBg: 'bg-amber-50',
+    iconText: 'text-amber-700',
+    iconHoverBg: 'group-hover:bg-amber-700',
+    ctaText: 'text-amber-700',
+    topBarClass: 'bg-amber-400',
   },
 }
 
 const defaultStyle = {
   iconBg: 'bg-brand-50',
-  iconText: 'text-brand-600',
+  iconText: 'text-brand-700',
   iconHoverBg: 'group-hover:bg-brand-600',
-  ctaText: 'text-brand-600',
-  topBarColor: '#1A3570',
+  ctaText: 'text-brand-700',
+  topBarClass: 'bg-brand-500',
 }
 
 type Props = {
@@ -109,7 +118,7 @@ export function AreaFormativeSection({ categories }: Props) {
           viewport={viewportOnce}
         >
           <motion.div variants={slideUp} className="mb-14 text-center">
-            <p className="mb-3 text-brand-500 overline">Catalogo formativo</p>
+            <p className="mb-3 text-brand-700 overline">Catalogo formativo</p>
             <h2
               id="aree-heading"
               className="font-heading text-3xl font-extrabold tracking-tight text-balance text-neutral-950 lg:text-4xl"
@@ -134,14 +143,16 @@ export function AreaFormativeSection({ categories }: Props) {
                     className={cn(
                       'group relative flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white p-7',
                       'transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-xl',
-                      'focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-500'
+                      'focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600'
                     )}
                     aria-label={`Area ${category.name}: ${category.description}`}
                   >
                     {/* Top accent stripe */}
                     <div
-                      className="absolute inset-x-0 top-0 h-0.5 rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                      style={{ backgroundColor: styles.topBarColor }}
+                      className={cn(
+                        'absolute inset-x-0 top-0 h-0.5 rounded-t-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100',
+                        styles.topBarClass
+                      )}
                       aria-hidden="true"
                     />
 
@@ -196,7 +207,7 @@ export function AreaFormativeSection({ categories }: Props) {
           <motion.div variants={slideUp} className="mt-12 text-center">
             <Link
               href="/corsi"
-              className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-6 py-2.5 text-sm font-semibold text-neutral-700 shadow-sm transition-all duration-200 hover:border-brand-300 hover:text-brand-700 hover:shadow-md"
+              className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-6 py-2.5 text-sm font-semibold text-neutral-700 shadow-sm transition-all duration-200 hover:border-brand-600 hover:text-brand-700 hover:shadow-md"
             >
               Vedi tutti i corsi del catalogo
               <ArrowRight className="size-4" aria-hidden="true" />

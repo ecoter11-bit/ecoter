@@ -58,7 +58,7 @@ const SORT_OPTIONS = [
 const selectClass = cn(
   'h-9 rounded-lg border border-neutral-200 bg-white pl-3 pr-7 text-sm text-neutral-700',
   "appearance-none bg-[url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239BA2B0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")] bg-[position:right_0.5rem_center] bg-no-repeat",
-  'transition-colors duration-150 hover:border-neutral-300 focus:border-brand-400 focus:outline-none focus:ring-1 focus:ring-brand-300'
+  'transition-colors duration-150 hover:border-neutral-300 focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-300'
 )
 
 export function CatalogToolbar({
@@ -96,7 +96,7 @@ export function CatalogToolbar({
               aria-label="Cerca corsi"
               className={cn(
                 'h-9 w-full rounded-lg border border-neutral-200 bg-white pr-3 pl-9 text-sm text-neutral-900 placeholder:text-neutral-400',
-                'transition-colors duration-150 hover:border-neutral-300 focus:border-brand-400 focus:ring-1 focus:ring-brand-300 focus:outline-none'
+                'transition-colors duration-150 hover:border-neutral-300 focus:border-brand-600 focus:ring-1 focus:ring-brand-300 focus:outline-none'
               )}
             />
             {filters.query && (
@@ -204,7 +204,7 @@ export function CatalogToolbar({
             className={cn(
               'flex items-center gap-1.5 rounded-lg border px-3 py-2 text-sm font-medium transition-colors duration-150 lg:hidden',
               mobileOpen || activeCount > 0
-                ? 'border-brand-300 bg-brand-50 text-brand-700'
+                ? 'border-brand-600 bg-brand-50 text-brand-700'
                 : 'border-neutral-200 text-neutral-600 hover:border-neutral-300'
             )}
             aria-expanded={mobileOpen}

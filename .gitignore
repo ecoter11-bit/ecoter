@@ -41,6 +41,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local QA screenshots (not committed)
+.qa/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

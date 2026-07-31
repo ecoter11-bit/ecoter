@@ -35,7 +35,7 @@ export function FormazioneObbligatoriaSection() {
               <div className="flex-1">
                 <motion.p
                   variants={slideUp}
-                  className="mb-4 text-eco-400 overline"
+                  className="mb-4 text-eco-300 overline"
                 >
                   Sei in regola?
                 </motion.p>
@@ -81,7 +81,7 @@ export function FormazioneObbligatoriaSection() {
                     href="/wizard"
                     className={cn(
                       buttonVariants({ variant: 'default' }),
-                      'h-12 gap-2 bg-eco-500 px-8 text-base font-semibold text-white hover:bg-eco-400'
+                      'h-12 gap-2 bg-eco-600 px-8 text-base font-semibold text-white hover:bg-eco-700'
                     )}
                   >
                     Avvia il wizard

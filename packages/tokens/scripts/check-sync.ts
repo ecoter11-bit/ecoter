@@ -8,12 +8,14 @@ import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import {
   brand,
+  blue,
   eco,
   neutral,
   success,
   warning,
   error,
   amber,
+  categoryColors,
   palette,
   semantic,
   radii,
@@ -35,12 +37,14 @@ const themeCss = readFileSync(themeCssPath, 'utf8')
 //   redefined in theme.css — see that file's own header comment)
 const checked = {
   brand,
+  blue,
   eco,
   neutral,
   success,
   warning,
   error,
   amber,
+  categoryColors,
   palette,
   semantic,
   radii,

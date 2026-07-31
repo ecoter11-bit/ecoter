@@ -1,25 +1,33 @@
 import type { BadgeColor } from '@ecoter/ui'
 
 /**
- * Category → Badge color. Sicurezza/Management share `brand`, Qualità/
- * Ambiente/Sistemi di Gestione share `eco` — the label text (not the color)
- * is what distinguishes them (WCAG 1.4.1, meaning never rests on color
- * alone). See packages/ui/src/badge.stories.tsx "Uso nel catalogo".
+ * Category → Badge color, mapped onto the Decision 018 macro-category
+ * palette (`@ecoter/tokens` `categoryColors`) rather than the old ad-hoc
+ * brand/warning split. Current catalog slugs (6) map onto the 4
+ * macro-categories the real restructuring — slug renaming/consolidation —
+ * is out of scope here, see 2.3):
  *
- * `eco` on 3/6 categories is a conscious exception to "used sparingly"
- * (root CLAUDE.md, Decision 016) for the teal accent: this is unchanged
- * from the ad-hoc badges CourseCard used before this refactor (same 3
- * categories were already `eco`-tinted), and category identity needs more
- * distinct hues than `neutral`/`brand`/`eco` alone provide across 6
- * categories. Not a regression — a pre-existing tradeoff, now centralized.
+ * - sicurezza, antincendio → `blue`   (macro: sicurezza)
+ * - ambiente                → `brand` (macro: ambiente — the rebrand's green)
+ * - qualita, sistemi-gestione → `eco` (macro: sistemi-di-gestione, teal)
+ * - management              → `amber` (stand-in for benessere-psico-sociale
+ *   until 2.3 introduces that category; oro/ambra per the rebrand)
+ *
+ * `amber` is shared with `featuredBadgeColor` below — a Management course
+ * marked "in evidenza" renders two amber badges side by side. Pre-existing
+ * risk class (this file already accepted `eco` on 3/6 categories for the
+ * same reason: 4 hues across 6 slugs can't stay fully distinct until 2.3
+ * collapses the slugs to match the 4 macro-categories) — label text (never
+ * color alone, WCAG 1.4.1) keeps both badges distinguishable regardless.
+ * See packages/ui/src/badge.stories.tsx "Uso nel catalogo".
  */
 export const categoryBadgeColor: Record<string, BadgeColor> = {
-  sicurezza: 'brand',
-  antincendio: 'warning',
+  sicurezza: 'blue',
+  antincendio: 'blue',
   qualita: 'eco',
-  ambiente: 'eco',
+  ambiente: 'brand',
   'sistemi-gestione': 'eco',
-  management: 'brand',
+  management: 'amber',
 }
 
 export const categoryBadgeLabel: Record<string, string> = {

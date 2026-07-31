@@ -6,8 +6,10 @@ import { cn } from './lib/cn'
 
 /**
  * Text carries meaning; color is reinforcement only (WCAG 1.4.1) — every
- * badge always renders its label, never color/icon alone. All seven colors
+ * badge always renders its label, never color/icon alone. All eight colors
  * are AA-verified (≥4.5:1) for every variant, see packages/ui/CLAUDE.md.
+ * `blue` added for the category rebrand (Decision 018's "sicurezza" family)
+ * — same recipe as every other color, see the compoundVariants below.
  */
 const badgeVariants = cva(
   "group/badge inline-flex w-fit shrink-0 items-center justify-center gap-1 rounded-full border border-transparent font-medium whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
@@ -21,6 +23,7 @@ const badgeVariants = cva(
       color: {
         neutral: '',
         brand: '',
+        blue: '',
         eco: '',
         success: '',
         warning: '',
@@ -35,7 +38,8 @@ const badgeVariants = cva(
     compoundVariants: [
       // ─── solid — bg color-500/600/700 (darkest AA-passing stop) + text-white, ≥5:1 ─
       { variant: 'solid', color: 'neutral', class: 'bg-neutral-700 text-white hover:brightness-90' },
-      { variant: 'solid', color: 'brand', class: 'bg-brand-500 text-white hover:brightness-90' },
+      { variant: 'solid', color: 'brand', class: 'bg-brand-600 text-white hover:brightness-90' },
+      { variant: 'solid', color: 'blue', class: 'bg-blue-600 text-white hover:brightness-90' },
       { variant: 'solid', color: 'eco', class: 'bg-eco-600 text-white hover:brightness-90' },
       { variant: 'solid', color: 'success', class: 'bg-success-600 text-white hover:brightness-90' },
       { variant: 'solid', color: 'warning', class: 'bg-warning-600 text-white hover:brightness-90' },
@@ -49,6 +53,7 @@ const badgeVariants = cva(
       // → 4.42 for amber). brightness-95 keeps every color ≥4.5:1 on hover.
       { variant: 'soft', color: 'neutral', class: 'bg-neutral-100 text-neutral-700 hover:brightness-95' },
       { variant: 'soft', color: 'brand', class: 'bg-brand-50 text-brand-700 hover:brightness-95' },
+      { variant: 'soft', color: 'blue', class: 'bg-blue-50 text-blue-700 hover:brightness-95' },
       { variant: 'soft', color: 'eco', class: 'bg-eco-50 text-eco-600 hover:brightness-95' },
       { variant: 'soft', color: 'success', class: 'bg-success-50 text-success-600 hover:brightness-95' },
       { variant: 'soft', color: 'warning', class: 'bg-warning-50 text-warning-600 hover:brightness-95' },
@@ -61,7 +66,8 @@ const badgeVariants = cva(
       // color-600/700, same shade as soft (bg is white, always ≥ soft's -50
       // contrast) ───────────────────────────────────────────────────────
       { variant: 'outline', color: 'neutral', class: 'border-neutral-500 bg-white text-neutral-700 hover:bg-neutral-50' },
-      { variant: 'outline', color: 'brand', class: 'border-brand-300 bg-white text-brand-700 hover:bg-brand-50' },
+      { variant: 'outline', color: 'brand', class: 'border-brand-600 bg-white text-brand-700 hover:bg-brand-50' },
+      { variant: 'outline', color: 'blue', class: 'border-blue-500 bg-white text-blue-700 hover:bg-blue-50' },
       { variant: 'outline', color: 'eco', class: 'border-eco-500 bg-white text-eco-600 hover:bg-eco-50' },
       { variant: 'outline', color: 'success', class: 'border-success-600 bg-white text-success-600 hover:bg-success-50' },
       { variant: 'outline', color: 'warning', class: 'border-warning-600 bg-white text-warning-600 hover:bg-warning-50' },

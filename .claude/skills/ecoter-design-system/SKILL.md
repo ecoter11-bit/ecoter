@@ -37,19 +37,22 @@ Every component needs, at minimum:
 
 Storybook config lives in `packages/ui/.storybook/`; styling comes from `packages/ui/src/styles.css` (`@import 'tailwindcss'; @import '@ecoter/tokens/theme.css';`) — a component that looks right in Storybook looks right on the site, because it's the same theme file.
 
-## Canonical palette & typography (Decision 016 — supersedes the original Decision Log)
+## Canonical palette & typography (rebrand 2026-07-31 — supersedes Decision 016, which itself superseded the original Decision Log)
 
 | Role | Value |
 |---|---|
-| Primary | institutional blue `#1e3e87` |
-| Accent | teal-green `#18b096` — **sparingly**, not as a general-purpose color |
+| Primary | action green — canonical `#6fb933` (logo/decorative only); `brand-600` `#4a7c22` for text/buttons/links (the lightest stop that clears WCAG AA on white — pure `#6fb933` is ~2.4:1) |
+| Secondary | blue `#185fad` — "sicurezza" category family |
+| Accent | teal `#388081` — **sparingly**, not as a general-purpose color (categoria "sistemi di gestione"/"qualità") |
+| Accent (decorative) | oro/ambra, derived from `#FFF200` — "management" category, badges, underlines, step numerals |
+| Ink | `#313132` — real corporate text color (verified on sicurezzalavoroeambiente.it) |
 | Neutrals | warm grays (see `packages/tokens/src/colors.ts` `neutral` scale) |
 | Theme | light only — there is no dark mode (`@custom-variant dark (&:is(.dark-never *))` in `globals.css` is intentional) |
 | Headings | Plus Jakarta Sans |
 | Body | Inter |
 | Mono | JetBrains Mono |
 
-Do **not** use `#3B82F6` / `#14B86A` / General Sans / Sora / IBM Plex Mono as targets — those were the original Decision Log and are superseded. If you find code or a comment referencing them as the goal, flag it, don't "fix" current code toward them.
+All colors extracted from the parent company's live site (sicurezzalavoroeambiente.it) and its official logo (`Ecoter-logo-01.svg`) — see `packages/tokens/src/colors.ts` for the full per-stop contrast rationale. Do **not** use `#3B82F6` / `#14B86A` / General Sans / Sora / IBM Plex Mono (original Decision Log) nor `#1e3e87` / `#18b096` (Decision 016) as targets — both are superseded. If you find code or a comment referencing either as the goal, flag it, don't "fix" current code toward them.
 
 ## Motion
 
@@ -60,7 +63,7 @@ Use `packages/tokens/src/motion.ts` (`duration`, `easing`) — don't hand-write 
 - **Benchmark, don't clone.** Stripe/Vercel/Linear/Notion are a bar for craft and restraint — reference for *quality*, never copy their layouts/components verbatim.
 - **Avoid the "AI look"** (Decision 005): no gratuitous gradients-on-everything, no glowing/floating blobs for decoration's sake, no excessive rounded-everything + soft-shadow-everything combo applied uniformly regardless of context, no emoji-as-icons in production UI, no center-everything layouts that ignore real content hierarchy.
 - One primary action per view. If two buttons look equally important, that's a hierarchy bug, not a design choice.
-- Green accent is a signal (success, "go", accreditation), not a decoration — if more than ~10% of a view is teal-green, that's very likely a misuse.
+- Teal (`eco`) is a signal (success, "go", accreditation, "sistemi di gestione"), not a decoration — if more than ~10% of a view is teal, that's very likely a misuse. Green (`brand`) is different post-rebrand: it's the primary action color, used broadly (buttons, links, hero accents) — that's intentional, not the pre-rebrand "sparingly" rule.
 
 ## Naming
 

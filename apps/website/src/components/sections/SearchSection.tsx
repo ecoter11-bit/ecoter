@@ -65,13 +65,13 @@ export function SearchSection() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Es. sicurezza lavoratori, antincendio, ISO 9001…"
-                className="w-full rounded-xl border border-neutral-200 bg-white py-4 pr-28 pl-12 text-base text-neutral-900 shadow-sm transition outline-none placeholder:text-neutral-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20"
+                className="w-full rounded-xl border border-neutral-200 bg-white py-4 pr-28 pl-12 text-base text-neutral-900 shadow-sm transition outline-none placeholder:text-neutral-400 focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20"
                 autoComplete="off"
                 spellCheck="false"
               />
               <button
                 type="submit"
-                className="absolute right-2 rounded-lg bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-500"
+                className="absolute right-2 rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600"
               >
                 Cerca
               </button>
@@ -93,7 +93,7 @@ export function SearchSection() {
                   setQuery(s)
                   router.push(`/corsi?q=${encodeURIComponent(s)}`)
                 }}
-                className="rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs text-neutral-600 transition hover:border-brand-300 hover:text-brand-600"
+                className="rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs text-neutral-600 transition hover:border-brand-600 hover:text-brand-600"
               >
                 {s}
               </button>

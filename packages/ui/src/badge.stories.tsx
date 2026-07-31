@@ -11,6 +11,7 @@ const VARIANTS = ['solid', 'soft', 'outline'] as const
 const COLORS = [
   'neutral',
   'brand',
+  'blue',
   'eco',
   'success',
   'warning',
@@ -54,7 +55,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     variant: 'soft',
-    color: 'brand',
+    color: 'blue',
     size: 'md',
     children: 'Sicurezza',
   },
@@ -81,7 +82,7 @@ export const AllVariants: Story = {
 /**
  * Matrice completa variante × colore. Ogni cella è verificata ≥4.5:1
  * (WCAG AA) — l'addon a11y non deve segnalare violazioni di contrasto su
- * nessuna delle 21 combinazioni.
+ * nessuna delle 24 combinazioni.
  */
 export const VariantColorMatrix: Story = {
   parameters: { controls: { disable: true } },
@@ -90,13 +91,13 @@ export const VariantColorMatrix: Story = {
       <table className="border-separate border-spacing-3">
         <thead>
           <tr>
-            <th className="text-left text-xs font-semibold text-neutral-500">
+            <th className="text-left text-xs font-semibold text-neutral-600">
               &nbsp;
             </th>
             {VARIANTS.map((variant) => (
               <th
                 key={variant}
-                className="text-left text-xs font-semibold text-neutral-500 capitalize"
+                className="text-left text-xs font-semibold text-neutral-600 capitalize"
               >
                 {variant}
               </th>
@@ -106,7 +107,7 @@ export const VariantColorMatrix: Story = {
         <tbody>
           {COLORS.map((color) => (
             <tr key={color}>
-              <th className="pr-2 text-left text-xs font-semibold text-neutral-500 capitalize">
+              <th className="pr-2 text-left text-xs font-semibold text-neutral-600 capitalize">
                 {color}
               </th>
               {VARIANTS.map((variant) => (
@@ -192,7 +193,9 @@ export const AsLinkOrButton: Story = {
 
 /**
  * Uso reale nel catalogo — le stesse combinazioni renderizzate dalla
- * CourseCard: categoria (mappata a brand/eco/warning), livello (mappata a
+ * CourseCard: categoria (mappata alle 4 macro-categorie Decision 018 —
+ * sicurezza/antincendio→blue, ambiente→brand/verde, qualità/sistemi di
+ * gestione→eco/teal, management→amber/oro), livello (mappata a
  * success/warning/error) e "in evidenza" (amber). Vedi
  * apps/website/src/lib/badge-mappings.ts per la mappa slug → colore.
  */
@@ -202,33 +205,33 @@ export const UsoNelCatalogo: Story = {
   render: () => (
     <div className="flex flex-col gap-6">
       <div>
-        <p className="mb-2 text-xs font-semibold text-neutral-500">
+        <p className="mb-2 text-xs font-semibold text-neutral-600">
           Categoria
         </p>
         <div className="flex flex-wrap gap-2">
-          <Badge size="sm" color="brand">
+          <Badge size="sm" color="blue">
             Sicurezza
           </Badge>
-          <Badge size="sm" color="warning">
+          <Badge size="sm" color="blue">
             Antincendio
           </Badge>
           <Badge size="sm" color="eco">
             Qualità
           </Badge>
-          <Badge size="sm" color="eco">
+          <Badge size="sm" color="brand">
             Ambiente
           </Badge>
           <Badge size="sm" color="eco">
             Sistemi di Gestione
           </Badge>
-          <Badge size="sm" color="brand">
+          <Badge size="sm" color="amber">
             Management
           </Badge>
         </div>
       </div>
 
       <div>
-        <p className="mb-2 text-xs font-semibold text-neutral-500">Livello</p>
+        <p className="mb-2 text-xs font-semibold text-neutral-600">Livello</p>
         <div className="flex flex-wrap gap-2">
           <Badge size="sm" color="success">
             Base
@@ -243,7 +246,7 @@ export const UsoNelCatalogo: Story = {
       </div>
 
       <div>
-        <p className="mb-2 text-xs font-semibold text-neutral-500">
+        <p className="mb-2 text-xs font-semibold text-neutral-600">
           In evidenza
         </p>
         <div className="flex flex-wrap gap-2">
@@ -254,11 +257,11 @@ export const UsoNelCatalogo: Story = {
       </div>
 
       <div>
-        <p className="mb-2 text-xs font-semibold text-neutral-500">
+        <p className="mb-2 text-xs font-semibold text-neutral-600">
           Card corso — badge combinati
         </p>
         <div className="flex max-w-xs flex-wrap items-center gap-2 rounded-2xl border border-neutral-200 bg-white p-4">
-          <Badge size="sm" color="brand">
+          <Badge size="sm" color="blue">
             Sicurezza
           </Badge>
           <Badge size="sm" color="success">

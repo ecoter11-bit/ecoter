@@ -61,10 +61,15 @@
   --radius-3xl: 24px;
   --radius-4xl: 32px;
 
-  /* ─── ECO-TER canonical semantic palette (Decision 016) ──────────────────
-   * midnight / slate / ice / white / technical-green / blue are the
-   * canonical names. Aliased via var() so there is exactly one definition
-   * per color (here), not because these are provisional.
+  /* ─── ECO-TER canonical semantic palette — historical Decision-016 names,
+   * superseded by the 2026-07-31 rebrand ────────────────────────────────
+   * midnight / slate / ice / white / technical-green / blue are legacy
+   * names kept for continuity. Aliased via var() so there is exactly one
+   * definition per color (here). Post-rebrand `technical-green` resolves
+   * to the (recolored) teal accent and `blue` resolves to the brand GREEN
+   * primary — the names no longer describe their own hue, but neither is
+   * referenced as a Tailwind utility anywhere in the codebase (verified),
+   * so this is cosmetic, not a live bug. See colors.ts `palette`.
    */
   --color-midnight: var(--bg-dark);
   --color-slate: var(--foreground);
@@ -73,32 +78,61 @@
   --color-blue: var(--primary);
 }
 
-/* ─── Extended brand palette → generates bg-brand-*, text-brand-*, etc. ─── */
+/* ─── Extended brand palette → generates bg-brand-*, text-brand-*, etc. ───
+ * Rebrand (2026-07-31): recolored from Decision 016 (institutional blue /
+ * technical green) to the real corporate palette extracted from
+ * sicurezzalavoroeambiente.it and its logo (Ecoter-logo-01.svg). See
+ * packages/tokens/src/colors.ts for the per-stop contrast rationale.
+ */
 @theme {
-  /* Brand — Institutional Blue (primary) */
-  --color-brand-950: #060d1f;
-  --color-brand-900: #0a1628;
-  --color-brand-800: #0e2040;
-  --color-brand-700: #132a58;
-  --color-brand-600: #1a3570;
-  --color-brand-500: #1e3e87;
-  --color-brand-400: #3557a3;
-  --color-brand-300: #5477bf;
-  --color-brand-200: #8fabda;
-  --color-brand-100: #c7d5ee;
-  --color-brand-50: #e9eff8;
+  /* Brand — Action Green (primary). 500 = exact canonical brand hex
+   * (#6fb933, logo/icons/decorative) — ~2.4:1 on white, below AA, never
+   * used for text or a solid bg carrying text. 600 is the lightest stop
+   * that clears 4.5:1 on white (~5.0:1). */
+  --color-brand-950: #18280b;
+  --color-brand-900: #22380f;
+  --color-brand-800: #2e4c15;
+  --color-brand-700: #3c641c;
+  --color-brand-600: #4a7c22;
+  --color-brand-500: #6fb933;
+  --color-brand-400: #90d25b;
+  --color-brand-300: #b1df8b;
+  --color-brand-200: #ceebb7;
+  --color-brand-100: #e7f5db;
+  --color-brand-50: #f4fbef;
 
-  /* Eco — Technical Green (accent, used sparingly) */
-  --color-eco-700: #0a5a4a;
-  --color-eco-600: #0d7361;
-  --color-eco-500: #0f8f78;
-  --color-eco-400: #18b096;
-  --color-eco-300: #3ecdb4;
-  --color-eco-100: #ccf0ea;
-  --color-eco-50: #f0faf8;
+  /* Blue — secondary brand color (sicurezza category family). 500 = exact
+   * canonical hex (#185fad) — already ~6.4:1 on white, no darkened
+   * stand-in needed. */
+  --color-blue-950: #071b31;
+  --color-blue-900: #092543;
+  --color-blue-800: #0c315a;
+  --color-blue-700: #104074;
+  --color-blue-600: #144f8f;
+  --color-blue-500: #185fad;
+  --color-blue-400: #2d83e2;
+  --color-blue-300: #6ba8ea;
+  --color-blue-200: #a5caf3;
+  --color-blue-100: #d2e5f9;
+  --color-blue-50: #edf4fd;
 
-  /* Neutral — Warm Gray (replaces Tailwind default neutral) */
-  --color-neutral-950: #0f1114;
+  /* Eco — teal accent (accent, used sparingly). 500 = exact canonical hex
+   * (#388081) — clears 4.5:1 on white only barely (~4.6:1); 600 (~6.6:1)
+   * is the safer text/solid stop Badge already uses. */
+  --color-eco-700: #224e4e;
+  --color-eco-600: #2d6667;
+  --color-eco-500: #388081;
+  --color-eco-400: #49a6a7;
+  --color-eco-300: #71c0c1;
+  --color-eco-100: #d4ecec;
+  --color-eco-50: #edf7f7;
+
+  /* Neutral — Warm Gray (replaces Tailwind default neutral). 950 = #313132,
+   * the real corporate ink (verified on the parent site: h2/body/links/
+   * footer all measured to this exact hex) — every sitewide heading uses
+   * `text-neutral-950` directly, so this is where "Ink #313132" actually
+   * lands for headings; `--foreground` (body text) carries the same hex. */
+  --color-neutral-950: #313132;
   --color-neutral-900: #1c1f26;
   --color-neutral-800: #2d3240;
   --color-neutral-700: #44495a;
@@ -129,15 +163,18 @@
   --color-error-100: #fee2e2;
   --color-error-50: #fff5f5;
 
-  /* Amber — small accents: badge, underline, step numerals (2% del layout) */
-  /* 700 added for Badge color="amber" text — 600 is ~3.1:1 on white/amber-50 (below AA). Deliberately a more yellow/gold hue than warning-600 (#b45309, orange-red), not a reuse of it — reusing it made color="amber" render pixel-identical to color="warning". ~4.9:1 on white, ~4.75:1 on amber-50. */
-  --color-amber-700: #a16207;
-  --color-amber-600: #d97706;
-  --color-amber-500: #f59e0b;
-  --color-amber-400: #fbbf24;
-  --color-amber-300: #fcd34d;
-  --color-amber-100: #fef3c7;
-  --color-amber-50: #fffbeb;
+  /* Amber — "oro/ambra" accent: badge, underline, step numerals (2% del
+   * layout). Derived from the real brand yellow (#FFF200, exact hex from
+   * the logo, locked at 400) — pure yellow is ~1.2:1 on white, unusable for
+   * text. 700 is the lightest same-hue stop that clears AA — ~5.9:1 on
+   * white, ~5.8:1 on amber-50. */
+  --color-amber-700: #6b6719;
+  --color-amber-600: #968f13;
+  --color-amber-500: #c9c00d;
+  --color-amber-400: #fff200;
+  --color-amber-300: #fdfab9;
+  --color-amber-100: #fefcdc;
+  --color-amber-50: #fefef0;
 
   /* White — canonical primitive, matches Tailwind default exactly */
   --color-white: #ffffff;
@@ -222,36 +259,41 @@
 
 /* ─── CSS custom properties — design system root values ─────────────────── */
 :root {
-  /* shadcn semantic colors — mapped to ECOTER brand */
+  /* shadcn semantic colors — mapped to ECOTER brand. Rebrand (2026-07-31):
+   * foreground/ink = #313132 (real corporate text color, verified on the
+   * parent site — h2/body/links/footer all measured to this exact hex).
+   * primary/ring = brand-600 (#4a7c22, the lightest green stop that clears
+   * 4.5:1 on white) — primary-foreground stays white, it passes AA on this
+   * stop; accent = eco-50/700 (teal, was technical-green tint). */
   --background: #fafbfc;
-  --foreground: #1c1f26;
+  --foreground: #313132;
   --card: #ffffff;
-  --card-foreground: #1c1f26;
+  --card-foreground: #313132;
   --popover: #ffffff;
-  --popover-foreground: #1c1f26;
-  --primary: #1e3e87;
+  --popover-foreground: #313132;
+  --primary: #4a7c22;
   --primary-foreground: #ffffff;
   --secondary: #eceff3;
-  --secondary-foreground: #1c1f26;
+  --secondary-foreground: #313132;
   --muted: #f4f6f9;
   --muted-foreground: #7a8090;
-  --accent: #f0faf8;
-  --accent-foreground: #0a5a4a;
+  --accent: #edf7f7;
+  --accent-foreground: #224e4e;
   --destructive: #ef4444;
   --border: #d8dde5;
   --input: #d8dde5;
-  --ring: #5477bf;
+  --ring: #4a7c22;
   --radius: 0.5rem;
 
   /* Sidebar */
   --sidebar: #f4f6f9;
-  --sidebar-foreground: #1c1f26;
-  --sidebar-primary: #1e3e87;
+  --sidebar-foreground: #313132;
+  --sidebar-primary: #4a7c22;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #e9eff8;
-  --sidebar-accent-foreground: #132a58;
+  --sidebar-accent: #f4fbef;
+  --sidebar-accent-foreground: #3c641c;
   --sidebar-border: #d8dde5;
-  --sidebar-ring: #5477bf;
+  --sidebar-ring: #4a7c22;
 
   /* Additional surface tokens */
   --surface-raised: #ffffff;

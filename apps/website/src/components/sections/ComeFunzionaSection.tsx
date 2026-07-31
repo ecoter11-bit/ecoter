@@ -60,7 +60,7 @@ export function ComeFunzionaSection() {
           viewport={viewportOnce}
         >
           <motion.div variants={slideUp} className="mb-12 text-center">
-            <p className="mb-3 text-brand-500 overline">Processo semplice</p>
+            <p className="mb-3 text-brand-700 overline">Processo semplice</p>
             <h2
               id="come-funziona-heading"
               className="font-heading text-3xl font-extrabold tracking-tight text-balance text-neutral-950 lg:text-4xl"
@@ -85,7 +85,7 @@ export function ComeFunzionaSection() {
                   className="relative flex flex-col items-center text-center"
                 >
                   <div className="relative z-10 mb-6">
-                    <div className="flex size-12 items-center justify-center rounded-full border-2 border-brand-500 bg-white shadow-sm">
+                    <div className="flex size-12 items-center justify-center rounded-full border-2 border-brand-600 bg-white shadow-sm">
                       <Icon
                         className="size-5 text-brand-600"
                         aria-hidden="true"

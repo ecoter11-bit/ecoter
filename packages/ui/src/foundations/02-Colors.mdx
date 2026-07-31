@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks'
-import { brand, eco, neutral, semantic, palette } from '@ecoter/tokens'
+import { brand, blue, eco, amber, categoryColors, neutral, semantic, palette } from '@ecoter/tokens'
 import { ColorScale } from './components/ColorScale'
 import { ColorSwatch } from './components/ColorSwatch'
 
@@ -9,23 +9,64 @@ import { ColorSwatch } from './components/ColorSwatch'
 
 Ogni swatch qui sotto legge il proprio hex direttamente da `@ecoter/tokens` (`colors.ts`) — non è mai scritto a mano in questa pagina. Se un valore cambia nel package, cambia qui al prossimo build di Storybook.
 
-## Brand — blu istituzionale
+**Rebrand (2026-07-31):** la palette Decision 016 (blu istituzionale / verde tecnico) è superata dalla palette reale della casa madre (sicurezzalavoroeambiente.it), estratta dal sito e dal logo ufficiale (`Ecoter-logo-01.svg` — l'unico asset con tutte e cinque le tinte a piena saturazione). Vedi `packages/tokens/src/colors.ts` per il razionale contrasto completo di ogni stop.
 
-Colore primario del sito. `brand.500` (<code>{brand[500]}</code>) è il `primary` usato per bottoni, link e accenti principali.
+## Brand — verde d'azione
+
+Colore primario del sito. `brand.500` (<code>{brand[500]}</code>) è l'hex canonico esatto del logo — usato per icone, grafica e superfici decorative grandi, **mai** per testo o sfondi solidi con testo (~2.4:1 su bianco, sotto AA). `brand.600` (<code>{brand[600]}</code>) è lo stop più chiaro che supera 4.5:1 su bianco (~5.0:1) — è il `primary` reale usato da bottoni, link e focus ring.
 
 <ColorScale scale={brand} />
 
-## Eco — verde tecnico
+## Blue — blu secondario
 
-**Uso parsimonioso** — è un accento (certificazione, "in regola", check di successo), non un colore diffuso. Se più del 10% di una vista è verde, è quasi certamente un uso scorretto (vedi skill `ecoter-design-system`).
+Estratto dal logo reale (<code>{blue[500]}</code>). Usato per la famiglia di categoria "sicurezza" (Decision 018). A differenza di `brand`, `500` è già ≥4.5:1 su bianco (~6.4:1) — non serve uno stop scurito per testo/solid.
+
+<ColorScale scale={blue} />
+
+## Eco — teal
+
+**Uso parsimonioso** — è un accento (certificazione, "in regola", check di successo, categoria "sistemi di gestione"), non un colore diffuso. Estratto dal logo reale (<code>{eco[500]}</code>), che su bianco è ~4.6:1 (supera AA per un margine minimo) — `eco.600` (~6.6:1) è lo stop usato da Badge per testo/solid.
 
 <ColorScale scale={eco} />
 
+## Amber — oro/ambra
+
+Derivato dal giallo reale del logo, bloccato esattamente a `amber.400` (<code>{amber[400]}</code>) — il giallo puro è ~1.2:1 su bianco, inutilizzabile per testo a qualunque dimensione. `amber.700` (<code>{amber[700]}</code>, ~5.9:1) è lo stop scurito usato per badge, sottolineature, numerali di step e la categoria "benessere-psico-sociale" (oro/ambra).
+
+<ColorScale scale={amber} />
+
 ## Neutral — grigi caldi
 
-Sostituisce la scala neutral di default di Tailwind. Base di testo, bordi, superfici.
+Sostituisce la scala neutral di default di Tailwind. Base di testo, bordi, superfici. `neutral.950` (<code>{neutral[950]}</code>) è l'ink reale della casa madre — misurato sul sito (h2, body, link, footer restituiscono tutti lo stesso hex) — usato sitewide per i titoli (`text-neutral-950`).
 
 <ColorScale scale={neutral} />
+
+## Category colors — Decision 018
+
+Una tripletta soft (tinta di sfondo) / solid (sfondo pieno + testo bianco) / foreground (testo su `soft`) per ciascuna delle 4 macro-categorie, tutte AA-verificate. Chiave sulla tassonomia Dec.018 (non sugli slug attuali del catalogo, mappati in `apps/website/src/lib/badge-mappings.ts` — la ristrutturazione degli slug è il 2.3).
+
+<div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+  {Object.entries(categoryColors).map(([name, tones]) => (
+    <div key={name}>
+      <div
+        style={{
+          marginBottom: 8,
+          fontFamily: 'var(--font-mono)',
+          fontSize: 'var(--text-small)',
+          fontWeight: 600,
+          color: 'var(--foreground)',
+        }}
+      >
+        {name}
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+        <ColorSwatch name="soft" hex={tones.soft} note="Sfondo tinta" />
+        <ColorSwatch name="solid" hex={tones.solid} note="Sfondo pieno + testo bianco" />
+        <ColorSwatch name="foreground" hex={tones.foreground} note="Testo su soft" />
+      </div>
+    </div>
+  ))}
+</div>
 
 ## Ruoli semantici
 
@@ -47,9 +88,9 @@ Questi sono i nomi con cui il resto del design system ragiona — non "quale num
   />
 </div>
 
-## Nomi canonici (Decision 016)
+## Nomi canonici (Decision 016 — storici)
 
-Alias semantici sulle stesse scale sopra — pensati per essere il vocabolario condiviso del design system, non un secondo set di colori.
+Alias semantici sulle stesse scale sopra — pensati per essere il vocabolario condiviso del design system, non un secondo set di colori. `technical-green` e `blue` sono nomi storici Decision 016: dopo il rebrand risolvono rispettivamente al teal (`eco.400`) e al verde brand (`primary`) — il nome non descrive più la tinta, ma nessuno dei due è referenziato come classe Tailwind nel codice (verificato), quindi è un disallineamento cosmetico, non un bug.
 
 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
   {Object.entries(palette).map(([name, hex]) => (

@@ -101,7 +101,7 @@ export function Header() {
               {/* CTA */}
               <Link
                 href="/contatti"
-                className="hidden h-9 items-center rounded-lg bg-brand-500 px-4 text-sm font-semibold text-white transition-colors hover:bg-brand-600 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none sm:inline-flex"
+                className="hidden h-9 items-center rounded-lg bg-brand-600 px-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none sm:inline-flex"
               >
                 Richiedi info
               </Link>

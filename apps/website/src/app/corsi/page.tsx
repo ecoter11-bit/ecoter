@@ -44,7 +44,7 @@ export default function CatalogPage() {
       {/* ─── Page hero ──────────────────────────────────────────────────── */}
       <div className="border-b border-neutral-200 bg-brand-900">
         <div className="container-default py-10 lg:py-12">
-          <p className="mb-3 text-eco-400 overline">Formazione professionale</p>
+          <p className="mb-3 text-eco-300 overline">Formazione professionale</p>
           <h1 className="font-heading text-3xl font-extrabold tracking-tight text-balance text-white lg:text-4xl">
             Catalogo corsi
           </h1>

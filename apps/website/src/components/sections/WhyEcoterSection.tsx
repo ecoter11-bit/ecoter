@@ -53,7 +53,7 @@ export function WhyEcoterSection() {
           viewport={viewportOnce}
         >
           <motion.div variants={staggerContainer} className="mb-14 text-center">
-            <p className="mb-3 text-brand-500 overline">Perché sceglierci</p>
+            <p className="mb-3 text-brand-700 overline">Perché sceglierci</p>
             <h2
               id="perche-heading"
               className="font-heading text-3xl font-extrabold tracking-tight text-balance text-neutral-950 lg:text-4xl"
@@ -73,7 +73,7 @@ export function WhyEcoterSection() {
                 <motion.div
                   key={reason.title}
                   variants={slideUpGentle}
-                  className="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-brand-200 hover:shadow-md"
+                  className="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-brand-600 hover:shadow-md"
                 >
                   <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-all duration-300 group-hover:bg-brand-600 group-hover:text-white">
                     <Icon className="size-6" aria-hidden="true" />

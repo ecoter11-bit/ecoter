@@ -23,7 +23,7 @@ export function HeroSection() {
     >
       <div className="bg-grid-pattern absolute inset-0" aria-hidden="true" />
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(84,119,191,0.3),transparent)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,color-mix(in_srgb,var(--color-brand-400)_30%,transparent),transparent)]"
         aria-hidden="true"
       />
       <div
@@ -38,7 +38,7 @@ export function HeroSection() {
           animate="visible"
           className="mx-auto max-w-3xl text-center"
         >
-          <motion.p variants={slideUp} className="mb-5 text-eco-400 overline">
+          <motion.p variants={slideUp} className="mb-5 text-eco-300 overline">
             Formazione Professionale Accreditata
           </motion.p>
 
@@ -68,7 +68,7 @@ export function HeroSection() {
               href="/corsi"
               className={cn(
                 buttonVariants({ variant: 'default' }),
-                'h-12 gap-2 bg-eco-500 px-8 text-base font-semibold text-white hover:bg-eco-400 focus-visible:ring-eco-300'
+                'h-12 gap-2 bg-eco-600 px-8 text-base font-semibold text-white hover:bg-eco-700 focus-visible:ring-eco-300'
               )}
             >
               Esplora i corsi

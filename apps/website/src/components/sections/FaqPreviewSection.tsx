@@ -60,7 +60,7 @@ export function FaqPreviewSection() {
           className="mx-auto max-w-3xl"
         >
           <motion.div variants={slideUp} className="mb-10 text-center">
-            <p className="mb-3 text-brand-500 overline">Domande frequenti</p>
+            <p className="mb-3 text-brand-700 overline">Domande frequenti</p>
             <h2
               id="faq-heading"
               className="font-heading text-3xl font-extrabold tracking-tight text-balance text-neutral-950 lg:text-4xl"
@@ -88,7 +88,7 @@ export function FaqPreviewSection() {
                     aria-controls={answerId}
                     className={cn(
                       'flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition',
-                      'focus-visible:outline-inset hover:bg-neutral-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-500',
+                      'focus-visible:outline-inset hover:bg-neutral-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600',
                       isOpen && 'bg-neutral-50'
                     )}
                   >

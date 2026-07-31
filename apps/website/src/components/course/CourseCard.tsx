@@ -20,13 +20,16 @@ import {
 } from '@/lib/badge-mappings'
 import type { Course } from '@/types'
 
+// Mirrors categoryBadgeColor's mapping onto the Decision 018 macro-category
+// palette (see badge-mappings.ts) — same category, same hue, bar and badge
+// agree. Uses each color's `categoryColors[...].solid` stop directly.
 const categoryBar: Record<string, string> = {
-  sicurezza: 'bg-brand-500',
+  sicurezza: 'bg-blue-500',
+  antincendio: 'bg-blue-500',
   qualita: 'bg-eco-500',
-  ambiente: 'bg-eco-400',
-  antincendio: 'bg-warning-500',
-  'sistemi-gestione': 'bg-eco-700',
-  management: 'bg-brand-600',
+  ambiente: 'bg-brand-600',
+  'sistemi-gestione': 'bg-eco-500',
+  management: 'bg-amber-700',
 }
 const defaultCategoryBar = 'bg-neutral-400'
 
@@ -147,7 +150,7 @@ export function CourseCard({ course, className }: Props) {
             className={cn(
               'flex items-center gap-1.5 rounded-lg bg-brand-600 px-4 py-2 text-xs font-semibold text-white',
               'transition-all duration-200 group-hover:gap-2.5 hover:bg-brand-700',
-              'focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-500'
+              'focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600'
             )}
             aria-label={`Scopri il corso ${course.title}`}
           >

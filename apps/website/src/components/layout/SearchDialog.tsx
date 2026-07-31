@@ -131,7 +131,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                           key={term}
                           onClick={() => setQuery(term)}
                           type="button"
-                          className="rounded-full border border-border px-3 py-1 text-sm text-neutral-700 transition-colors hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700"
+                          className="rounded-full border border-border px-3 py-1 text-sm text-neutral-700 transition-colors hover:border-brand-600 hover:bg-brand-50 hover:text-brand-700"
                         >
                           {term}
                         </button>

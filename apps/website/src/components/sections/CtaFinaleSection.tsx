@@ -21,7 +21,7 @@ export function CtaFinaleSection() {
     >
       <div className="bg-grid-pattern absolute inset-0" aria-hidden="true" />
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_120%,rgba(15,143,120,0.2),transparent)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_120%,color-mix(in_srgb,var(--color-eco-500)_20%,transparent),transparent)]"
         aria-hidden="true"
       />
 
@@ -33,7 +33,7 @@ export function CtaFinaleSection() {
           viewport={viewportOnce}
           className="mx-auto max-w-2xl"
         >
-          <motion.p variants={slideUp} className="mb-4 text-eco-400 overline">
+          <motion.p variants={slideUp} className="mb-4 text-eco-300 overline">
             Inizia ora
           </motion.p>
 
@@ -61,7 +61,7 @@ export function CtaFinaleSection() {
               href="/contatti"
               className={cn(
                 buttonVariants({ variant: 'default' }),
-                'h-12 gap-2 bg-eco-500 px-8 text-base font-semibold text-white hover:bg-eco-400'
+                'h-12 gap-2 bg-eco-600 px-8 text-base font-semibold text-white hover:bg-eco-700'
               )}
             >
               <Mail className="size-4" aria-hidden="true" />

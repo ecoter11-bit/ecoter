@@ -24,7 +24,7 @@ export function DiscoveryCards({ categories, normativeRefs }: Props) {
     >
       <div className="container-default py-12 lg:py-16">
         <div className="mb-10 text-center">
-          <p className="mb-3 text-brand-500 overline">Trova il corso giusto</p>
+          <p className="mb-3 text-brand-700 overline">Trova il corso giusto</p>
           <h2
             id="discovery-heading"
             className="font-heading text-2xl font-bold text-balance text-neutral-950 lg:text-3xl"
@@ -51,7 +51,7 @@ export function DiscoveryCards({ categories, normativeRefs }: Props) {
                 <Link
                   key={cat.slug}
                   href={`/corsi?cat=${cat.slug}`}
-                  className="rounded-full border border-neutral-200 px-3 py-1 text-xs font-medium text-neutral-700 transition-all duration-200 hover:border-brand-300 hover:bg-brand-50 hover:text-brand-700"
+                  className="rounded-full border border-neutral-200 px-3 py-1 text-xs font-medium text-neutral-700 transition-all duration-200 hover:border-brand-600 hover:bg-brand-50 hover:text-brand-700"
                 >
                   {cat.name}
                 </Link>
@@ -83,7 +83,7 @@ export function DiscoveryCards({ categories, normativeRefs }: Props) {
                 <Link
                   key={a.href}
                   href={a.href}
-                  className="rounded-full border border-brand-700 bg-brand-800 px-3 py-1 text-xs font-medium text-brand-200 transition-all duration-200 hover:border-eco-400 hover:bg-brand-700 hover:text-white"
+                  className="rounded-full border border-brand-700 bg-brand-800 px-3 py-1 text-xs font-medium text-brand-200 transition-all duration-200 hover:border-eco-300 hover:bg-brand-700 hover:text-white"
                 >
                   {a.label}
                 </Link>
@@ -91,7 +91,7 @@ export function DiscoveryCards({ categories, normativeRefs }: Props) {
             </div>
             <Link
               href="/corsi"
-              className="mt-auto flex items-center gap-1.5 text-sm font-semibold text-eco-400 transition-all duration-200 hover:gap-2.5"
+              className="mt-auto flex items-center gap-1.5 text-sm font-semibold text-eco-300 transition-all duration-200 hover:gap-2.5"
             >
               Tutti i corsi
               <ArrowRight className="size-4" aria-hidden="true" />
@@ -115,7 +115,7 @@ export function DiscoveryCards({ categories, normativeRefs }: Props) {
                 <Link
                   key={norm}
                   href={`/corsi?norm=${encodeURIComponent(norm)}`}
-                  className="rounded-full border border-neutral-200 px-3 py-1 text-xs font-medium text-neutral-700 transition-all duration-200 hover:border-eco-300 hover:bg-eco-50 hover:text-eco-700"
+                  className="rounded-full border border-neutral-200 px-3 py-1 text-xs font-medium text-neutral-700 transition-all duration-200 hover:border-eco-500 hover:bg-eco-50 hover:text-eco-700"
                 >
                   {norm}
                 </Link>
