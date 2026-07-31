@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { fontFamily, typeScale } from '@ecoter/tokens'
+import { TypeSpecimen } from './components/TypeSpecimen'
+
+<Meta title="Foundations/3. Typography" />
+
+# Typography
+
+Famiglie e scala tipografica canoniche (Decision 016). Ogni riga sotto rende il testo con il vero `fontSize`/`lineHeight`/`fontWeight`/`letterSpacing` importato da `@ecoter/tokens` — non è una tabella scritta a mano.
+
+## Famiglie
+
+- **Heading** — {fontFamily.heading} (`display`, `h1`...`h6`)
+- **Body** — {fontFamily.body} (`body`, `small`, `caption`)
+- **Mono** — {fontFamily.mono} (codice, dati tecnici)
+
+## Scala
+
+"In use" = dimensione già presente nel sito (estratta dal markup reale). "Proposed" = livello non ancora usato da nessun componente — scala interpolata sobria, in attesa del primo uso reale. Vedi `packages/tokens/src/typography.ts` per la provenienza dettagliata di ogni voce.
+
+<div>
+  <TypeSpecimen
+    level="display"
+    spec={typeScale.display}
+    family={fontFamily.heading}
+    sample="La formazione che mette la tua azienda in regola"
+  />
+  <TypeSpecimen
+    level="h1"
+    spec={typeScale.h1}
+    family={fontFamily.heading}
+    sample="Perché ECOTER Academy"
+  />
+  <TypeSpecimen
+    level="h2"
+    spec={typeScale.h2}
+    family={fontFamily.heading}
+    sample="Formazione professionale accreditata"
+  />
+  <TypeSpecimen
+    level="h3"
+    spec={typeScale.h3}
+    family={fontFamily.heading}
+    sample="Sicurezza sul lavoro"
+  />
+  <TypeSpecimen level="h4" spec={typeScale.h4} family={fontFamily.heading} sample="Corsi disponibili" />
+  <TypeSpecimen level="h5" spec={typeScale.h5} family={fontFamily.heading} sample="RSPP — Modulo A" />
+  <TypeSpecimen level="h6" spec={typeScale.h6} family={fontFamily.heading} sample="Dettagli corso" />
+  <TypeSpecimen
+    level="body"
+    spec={typeScale.body}
+    family={fontFamily.body}
+    sample="Attestati validi ai fini di legge su sicurezza D.Lgs. 81/08, qualità ISO, antincendio e ambiente."
+  />
+  <TypeSpecimen level="small" spec={typeScale.small} family={fontFamily.body} sample="2 corsi disponibili" />
+  <TypeSpecimen level="caption" spec={typeScale.caption} family={fontFamily.body} sample="IN EVIDENZA" />
+</div>
+
+## Mono
+
+<p style={{ fontFamily: fontFamily.mono, fontSize: 'var(--text-body)' }}>
+  D.Lgs. 81/08 — UNI ISO 45001:2018 — 24h · 3 giorni
+</p>

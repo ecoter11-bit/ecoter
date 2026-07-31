@@ -1,0 +1,13 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { radii } from '@ecoter/tokens'
+import { RadiusSample } from './components/RadiusSample'
+
+<Meta title="Foundations/5. Radii" />
+
+# Radii
+
+<div style={{ display: 'flex', flexWrap: 'wrap', gap: 24 }}>
+  {Object.entries(radii).map(([name, value]) => (
+    <RadiusSample key={name} name={name} value={value} />
+  ))}
+</div>

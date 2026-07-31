@@ -1,0 +1,15 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { shadows } from '@ecoter/tokens'
+import { ShadowSample } from './components/ShadowSample'
+
+<Meta title="Foundations/6. Shadows" />
+
+# Shadows
+
+Campioni su superficie chiara (`--card`) — il sito è a tema chiaro, questi sono gli unici contesti reali.
+
+<div style={{ display: 'flex', flexWrap: 'wrap', gap: 32, padding: 16 }}>
+  {Object.entries(shadows).map(([name, value]) => (
+    <ShadowSample key={name} name={name} value={value} />
+  ))}
+</div>

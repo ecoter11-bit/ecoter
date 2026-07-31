@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { duration, easing } from '@ecoter/tokens'
+import { MotionDemo } from './components/MotionDemo'
+
+<Meta title="Foundations/7. Motion" />
+
+# Motion
+
+Passa il mouse su ogni riga — la transizione usa i veri valori `duration`/`easing` importati da `@ecoter/tokens`, non una durata scelta a occhio per la demo.
+
+## Durate (easing `standard` fisso)
+
+<div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+  {Object.entries(duration).map(([name, value]) => (
+    <MotionDemo key={name} name={name} duration={value} easing={easing.standard} />
+  ))}
+</div>
+
+## Easing (durata `normal` fissa)
+
+<div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+  {Object.entries(easing).map(([name, value]) => (
+    <MotionDemo key={name} name={name} duration={duration.normal} easing={value} />
+  ))}
+</div>
+
+## Linee guida
+
+- Default per micro-interazioni UI: `duration.normal` + `ease-standard`.
+- `deliberate` / `spring` sono riservati a momenti hero, non a hover di routine.
+- Rispetta sempre `prefers-reduced-motion` (gestito globalmente in `apps/website/src/app/globals.css`) — non bypassarlo con animazioni JS che ignorano la media query.

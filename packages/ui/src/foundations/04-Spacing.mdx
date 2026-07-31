@@ -1,0 +1,15 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { spacing } from '@ecoter/tokens'
+import { SpacingSample } from './components/SpacingSample'
+
+<Meta title="Foundations/4. Spacing" />
+
+# Spacing
+
+Scala 8pt, informativa — il sito non definisce un `--spacing` custom, usa la base di Tailwind (0.25rem / 4px), i cui passi cadono già su multipli di 8. Questa scala serve a chi scrive JS (offset di `framer-motion`, calcoli di layout) per non ripetere i numeri a mano.
+
+<div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+  {Object.entries(spacing).map(([step, value]) => (
+    <SpacingSample key={step} name={step} value={value} />
+  ))}
+</div>

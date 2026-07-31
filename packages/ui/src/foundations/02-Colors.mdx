@@ -1,0 +1,58 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { brand, eco, neutral, semantic, palette } from '@ecoter/tokens'
+import { ColorScale } from './components/ColorScale'
+import { ColorSwatch } from './components/ColorSwatch'
+
+<Meta title="Foundations/2. Colors" />
+
+# Colors
+
+Ogni swatch qui sotto legge il proprio hex direttamente da `@ecoter/tokens` (`colors.ts`) — non è mai scritto a mano in questa pagina. Se un valore cambia nel package, cambia qui al prossimo build di Storybook.
+
+## Brand — blu istituzionale
+
+Colore primario del sito. `brand.500` (<code>{brand[500]}</code>) è il `primary` usato per bottoni, link e accenti principali.
+
+<ColorScale scale={brand} />
+
+## Eco — verde tecnico
+
+**Uso parsimonioso** — è un accento (certificazione, "in regola", check di successo), non un colore diffuso. Se più del 10% di una vista è verde, è quasi certamente un uso scorretto (vedi skill `ecoter-design-system`).
+
+<ColorScale scale={eco} />
+
+## Neutral — grigi caldi
+
+Sostituisce la scala neutral di default di Tailwind. Base di testo, bordi, superfici.
+
+<ColorScale scale={neutral} />
+
+## Ruoli semantici
+
+Questi sono i nomi con cui il resto del design system ragiona — non "quale numero di scala", ma "che ruolo gioca questo colore".
+
+<div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+  <ColorSwatch name="background" hex={semantic.background} note="Sfondo pagina" />
+  <ColorSwatch name="foreground" hex={semantic.foreground} note="Testo principale" />
+  <ColorSwatch name="primary" hex={semantic.primary} note="Azione primaria" />
+  <ColorSwatch name="accent" hex={semantic.accent} note="Sfondo accento (tinta chiara)" />
+  <ColorSwatch name="muted" hex={semantic.muted} note="Superfici/testo secondario" />
+  <ColorSwatch name="border" hex={semantic.border} note="Bordi, separatori" />
+  <ColorSwatch name="ring" hex={semantic.ring} note="Focus ring" />
+  <ColorSwatch name="destructive" hex={semantic.destructive} note="Bordi/ring destructive" />
+  <ColorSwatch
+    name="destructive-muted-foreground"
+    hex={semantic.destructiveMutedForeground}
+    note="Testo su bg-destructive/10 (WCAG AA, ~5.5:1)"
+  />
+</div>
+
+## Nomi canonici (Decision 016)
+
+Alias semantici sulle stesse scale sopra — pensati per essere il vocabolario condiviso del design system, non un secondo set di colori.
+
+<div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
+  {Object.entries(palette).map(([name, hex]) => (
+    <ColorSwatch key={name} name={name} hex={hex} />
+  ))}
+</div>
