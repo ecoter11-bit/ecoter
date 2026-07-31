@@ -4,11 +4,9 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
   HardHat,
-  Flame,
-  BadgeCheck,
   Leaf,
   Settings2,
-  Users,
+  HeartHandshake,
   ArrowRight,
   type LucideIcon,
 } from 'lucide-react'
@@ -24,18 +22,16 @@ import { cn } from '@/lib/utils'
 
 const iconMap: Record<string, LucideIcon> = {
   HardHat,
-  Flame,
-  BadgeCheck,
   Leaf,
   Settings2,
-  Users,
+  HeartHandshake,
 }
 
 /*
  * Category-specific color data — full static strings for Tailwind scanner.
  * Mapped onto the Decision 018 macro-category palette, same mapping as
- * badge-mappings.ts categoryBadgeColor (sicurezza/antincendio → blue,
- * ambiente → brand/verde, qualita/sistemi-gestione → eco/teal, management →
+ * badge-mappings.ts categoryBadgeColor (sicurezza → blue, ambiente →
+ * brand/verde, sistemi-di-gestione → eco/teal, benessere-psico-sociale →
  * amber/oro). `topBarClass` is a decorative, aria-hidden accent line — a
  * Tailwind class (not an inline hex) so it stays token-driven, using each
  * color's canonical brand stop (no text sits on it, so the AA-safe stop
@@ -58,20 +54,6 @@ const categoryStyles: Record<
     ctaText: 'text-blue-700',
     topBarClass: 'bg-blue-500',
   },
-  antincendio: {
-    iconBg: 'bg-blue-50',
-    iconText: 'text-blue-700',
-    iconHoverBg: 'group-hover:bg-blue-600',
-    ctaText: 'text-blue-700',
-    topBarClass: 'bg-blue-500',
-  },
-  qualita: {
-    iconBg: 'bg-eco-50',
-    iconText: 'text-eco-700',
-    iconHoverBg: 'group-hover:bg-eco-600',
-    ctaText: 'text-eco-700',
-    topBarClass: 'bg-eco-500',
-  },
   ambiente: {
     iconBg: 'bg-brand-50',
     iconText: 'text-brand-700',
@@ -79,14 +61,14 @@ const categoryStyles: Record<
     ctaText: 'text-brand-700',
     topBarClass: 'bg-brand-500',
   },
-  'sistemi-gestione': {
+  'sistemi-di-gestione': {
     iconBg: 'bg-eco-50',
     iconText: 'text-eco-700',
     iconHoverBg: 'group-hover:bg-eco-600',
     ctaText: 'text-eco-700',
     topBarClass: 'bg-eco-500',
   },
-  management: {
+  'benessere-psico-sociale': {
     iconBg: 'bg-amber-50',
     iconText: 'text-amber-700',
     iconHoverBg: 'group-hover:bg-amber-700',
@@ -126,12 +108,12 @@ export function AreaFormativeSection({ categories }: Props) {
               Le aree formative
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-pretty text-neutral-600">
-              Sei macro-aree che coprono l&apos;intero panorama della formazione
-              professionale obbligatoria e specialistica.
+              Quattro macro-aree che coprono l&apos;intero panorama della
+              formazione professionale obbligatoria e specialistica.
             </p>
           </motion.div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {categories.map((category) => {
               const Icon: LucideIcon = iconMap[category.icon] ?? HardHat
               const styles = categoryStyles[category.slug] ?? defaultStyle

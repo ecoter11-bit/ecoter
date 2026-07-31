@@ -193,9 +193,9 @@ export const AsLinkOrButton: Story = {
 
 /**
  * Uso reale nel catalogo — le stesse combinazioni renderizzate dalla
- * CourseCard: categoria (mappata alle 4 macro-categorie Decision 018 —
- * sicurezza/antincendio→blue, ambiente→brand/verde, qualità/sistemi di
- * gestione→eco/teal, management→amber/oro), livello (mappata a
+ * CourseCard: categoria (le 4 macro-categorie Decision 018 —
+ * sicurezza→blue, ambiente→brand/verde, sistemi-di-gestione→eco/teal,
+ * benessere-psico-sociale→amber/oro), livello (mappata a
  * success/warning/error) e "in evidenza" (amber). Vedi
  * apps/website/src/lib/badge-mappings.ts per la mappa slug → colore.
  */
@@ -212,12 +212,6 @@ export const UsoNelCatalogo: Story = {
           <Badge size="sm" color="blue">
             Sicurezza
           </Badge>
-          <Badge size="sm" color="blue">
-            Antincendio
-          </Badge>
-          <Badge size="sm" color="eco">
-            Qualità
-          </Badge>
           <Badge size="sm" color="brand">
             Ambiente
           </Badge>
@@ -225,7 +219,7 @@ export const UsoNelCatalogo: Story = {
             Sistemi di Gestione
           </Badge>
           <Badge size="sm" color="amber">
-            Management
+            Benessere psico-sociale
           </Badge>
         </div>
       </div>

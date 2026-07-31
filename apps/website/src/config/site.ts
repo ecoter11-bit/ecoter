@@ -25,7 +25,7 @@ export const siteConfig = {
     titleTemplate: '%s | ECOTER Academy',
     defaultTitle: 'ECOTER Academy — Formazione Professionale Accreditata',
     defaultDescription:
-      'Corsi di formazione accreditati per aziende e professionisti: sicurezza sul lavoro, qualità ISO, ambiente, antincendio e sistemi di gestione.',
+      'Corsi di formazione accreditati per aziende e professionisti: sicurezza sul lavoro, ambiente, sistemi di gestione e benessere psico-sociale.',
   },
 } as const
 

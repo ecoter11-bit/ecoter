@@ -29,29 +29,19 @@ export const courseCategories: NavCategory[] = [
     icon: 'HardHat',
   },
   {
-    label: 'Qualità & ISO',
-    href: '/categorie/qualita',
-    icon: 'CheckCircle2',
-  },
-  {
-    label: 'Ambiente & Sostenibilità',
+    label: 'Ambiente',
     href: '/categorie/ambiente',
     icon: 'Leaf',
   },
   {
-    label: 'Antincendio & Emergenze',
-    href: '/categorie/antincendio',
-    icon: 'Flame',
-  },
-  {
     label: 'Sistemi di Gestione',
-    href: '/categorie/sistemi-gestione',
+    href: '/categorie/sistemi-di-gestione',
     icon: 'Settings2',
   },
   {
-    label: 'Formazione Manageriale',
-    href: '/categorie/management',
-    icon: 'Briefcase',
+    label: 'Benessere psico-sociale',
+    href: '/categorie/benessere-psico-sociale',
+    icon: 'HeartHandshake',
   },
 ]
 

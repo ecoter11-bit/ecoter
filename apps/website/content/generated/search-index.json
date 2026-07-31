@@ -1,5 +1,25 @@
 [
   {
+    "slug": "iso-45001-implementatore",
+    "title": "Implementatore ISO 45001:2018",
+    "subtitle": "Progettare e implementare un Sistema di Gestione per la Salute e Sicurezza sul Lavoro",
+    "excerpt": "Percorso avanzato di 24 ore per progettare, implementare e mantenere un SGSSL conforme alla ISO 45001:2018, integrabile con ISO 9001 e ISO 14001.",
+    "category": "sistemi-di-gestione",
+    "level": "avanzato",
+    "modality": [
+      "aula",
+      "blended"
+    ],
+    "tags": [
+      "iso-45001",
+      "sgssl",
+      "sistemi-di-gestione",
+      "hse",
+      "certificazione",
+      "salute-sicurezza"
+    ]
+  },
+  {
     "slug": "rspp-modulo-a",
     "title": "RSPP – Modulo A: Formazione Generale",
     "subtitle": "Il percorso obbligatorio per diventare Responsabile del Servizio di Prevenzione e Protezione",
@@ -19,11 +39,30 @@
     ]
   },
   {
+    "slug": "primo-soccorso-b",
+    "title": "Primo Soccorso – Gruppo B",
+    "subtitle": "Formazione per addetti al primo soccorso aziendale nelle attività a medio-basso rischio",
+    "excerpt": "Corso da 12 ore per addetti al primo soccorso nelle aziende del Gruppo B/C, conforme al D.M. 388/2003 e D.Lgs. 81/08.",
+    "category": "sicurezza",
+    "level": "base",
+    "modality": [
+      "aula"
+    ],
+    "tags": [
+      "primo-soccorso",
+      "dae",
+      "rcp",
+      "dm-388-2003",
+      "obbligatorio",
+      "sicurezza-lavoro"
+    ]
+  },
+  {
     "slug": "antincendio-rischio-medio",
     "title": "Antincendio – Rischio Medio",
     "subtitle": "Formazione per addetti alla prevenzione incendi in attività a rischio medio",
     "excerpt": "Corso da 8 ore per addetti alla squadra antincendio in attività a rischio medio, conforme al D.M. 02/09/2021.",
-    "category": "antincendio",
+    "category": "sicurezza",
     "level": "base",
     "modality": [
       "aula"
@@ -41,7 +80,7 @@
     "title": "HACCP – Formazione degli Addetti al Settore Alimentare",
     "subtitle": "Igiene e sicurezza alimentare per chi manipola, trasforma o somministra alimenti",
     "excerpt": "Corso obbligatorio sull'HACCP per lavoratori del settore alimentare: principi, procedure e responsabilità per garantire la sicurezza dei consumatori.",
-    "category": "qualita",
+    "category": "sistemi-di-gestione",
     "level": "base",
     "modality": [
       "aula",
@@ -52,7 +91,8 @@
       "igiene-alimentare",
       "reg-ce-852",
       "obbligatorio",
-      "ristorazione"
+      "ristorazione",
+      "qualita"
     ]
   },
   {
@@ -60,7 +100,7 @@
     "title": "Auditor Interno ISO 9001:2015",
     "subtitle": "Progettare e condurre audit interni efficaci nei sistemi di gestione per la qualità",
     "excerpt": "Percorso intensivo di 16 ore per formare auditor interni competenti nella verifica di conformità ai requisiti della norma ISO 9001:2015.",
-    "category": "qualita",
+    "category": "sistemi-di-gestione",
     "level": "intermedio",
     "modality": [
       "aula",
@@ -71,7 +111,8 @@
       "audit-interno",
       "sistemi-gestione-qualita",
       "sgq",
-      "non-conformita"
+      "non-conformita",
+      "qualita"
     ]
   }
 ]

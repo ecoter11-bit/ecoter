@@ -6,11 +6,9 @@ import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ArrowRight,
-  Briefcase,
-  CheckCircle2,
   ChevronDown,
-  Flame,
   HardHat,
+  HeartHandshake,
   Leaf,
   Settings2,
 } from 'lucide-react'
@@ -20,11 +18,9 @@ import type { NavCategory, NavGroup, NavItem } from '@/config/nav'
 
 const ICON_MAP: Record<string, LucideIcon> = {
   HardHat,
-  CheckCircle2,
   Leaf,
-  Flame,
   Settings2,
-  Briefcase,
+  HeartHandshake,
 }
 
 function CategoryIcon({

@@ -12,19 +12,7 @@
                 "label": "Sicurezza sul Lavoro",
                 "href": "/corsi/sicurezza",
                 "icon": "HardHat",
-                "description": "D.Lgs. 81/08, RSPP, ASPP, lavoratori"
-              },
-              {
-                "label": "Antincendio",
-                "href": "/corsi/antincendio",
-                "icon": "Flame",
-                "description": "D.M. 02/09/2021, tutti i livelli di rischio"
-              },
-              {
-                "label": "Qualità",
-                "href": "/corsi/qualita",
-                "icon": "BadgeCheck",
-                "description": "ISO 9001, audit interno, controllo processo"
+                "description": "D.Lgs. 81/08, RSPP, ASPP, lavoratori, antincendio, primo soccorso"
               },
               {
                 "label": "Ambiente",
@@ -34,15 +22,15 @@
               },
               {
                 "label": "Sistemi di Gestione",
-                "href": "/corsi/sistemi-gestione",
+                "href": "/corsi/sistemi-di-gestione",
                 "icon": "Settings2",
-                "description": "SGI, implementazione e mantenimento"
+                "description": "ISO 9001, ISO 45001, HACCP, audit interno"
               },
               {
-                "label": "Management",
-                "href": "/corsi/management",
-                "icon": "Users",
-                "description": "Leadership, comunicazione, gestione del rischio"
+                "label": "Benessere psico-sociale",
+                "href": "/corsi/benessere-psico-sociale",
+                "icon": "HeartHandshake",
+                "description": "Stress lavoro-correlato, mindfulness, counseling"
               }
             ]
           },

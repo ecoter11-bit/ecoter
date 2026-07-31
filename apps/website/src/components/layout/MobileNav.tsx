@@ -5,12 +5,10 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  Briefcase,
-  CheckCircle2,
   ChevronDown,
   ChevronRight,
-  Flame,
   HardHat,
+  HeartHandshake,
   Leaf,
   Menu,
   Settings2,
@@ -24,11 +22,9 @@ import type { NavCategory, NavGroup, NavItem } from '@/config/nav'
 
 const ICON_MAP: Record<string, LucideIcon> = {
   HardHat,
-  CheckCircle2,
   Leaf,
-  Flame,
   Settings2,
-  Briefcase,
+  HeartHandshake,
 }
 
 type MobileNavProps = {

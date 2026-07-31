@@ -25,11 +25,9 @@ import type { Course } from '@/types'
 // agree. Uses each color's `categoryColors[...].solid` stop directly.
 const categoryBar: Record<string, string> = {
   sicurezza: 'bg-blue-500',
-  antincendio: 'bg-blue-500',
-  qualita: 'bg-eco-500',
   ambiente: 'bg-brand-600',
-  'sistemi-gestione': 'bg-eco-500',
-  management: 'bg-amber-700',
+  'sistemi-di-gestione': 'bg-eco-600',
+  'benessere-psico-sociale': 'bg-amber-700',
 }
 const defaultCategoryBar = 'bg-neutral-400'
 

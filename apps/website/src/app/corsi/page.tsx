@@ -10,7 +10,7 @@ import { CatalogClient } from './CatalogClient'
 export const metadata: Metadata = {
   title: 'Catalogo Corsi – ECOTER Academy',
   description:
-    'Esplora il catalogo completo dei corsi di formazione professionale ECOTER Academy: sicurezza sul lavoro, qualità ISO, antincendio, ambiente e sistemi di gestione.',
+    'Esplora il catalogo completo dei corsi di formazione professionale ECOTER Academy: sicurezza sul lavoro, ambiente, sistemi di gestione e benessere psico-sociale.',
 }
 
 function extractNormativeRefs(courses: Course[]): string[] {

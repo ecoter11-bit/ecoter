@@ -19,50 +19,12 @@
     }
   },
   {
-    "slug": "antincendio",
-    "name": "Antincendio",
-    "description": "Formazione per addetti alla squadra antincendio e gestione delle emergenze, conforme al D.M. 02/09/2021.",
-    "longDescription": "Il D.M. 02 settembre 2021 ha ridefinito la formazione antincendio in Italia. ECOTER Academy offre tutti i livelli previsti dal nuovo decreto: rischio basso (4h), rischio medio (8h) ed elevato (16h), con sessioni pratiche certificate e corsi di aggiornamento quinquennali.",
-    "icon": "Flame",
-    "order": 2,
-    "featured": true,
-    "seo": {
-      "title": "Corsi Antincendio – D.M. 02/09/2021 Rischio Basso Medio Elevato",
-      "description": "Corsi antincendio conformi al D.M. 02/09/2021. Tutti i livelli di rischio con parte pratica certificata. Aggiornamenti quinquennali.",
-      "keywords": [
-        "corso antincendio",
-        "dm 02 09 2021",
-        "addetto antincendio",
-        "squadra emergenza antincendio"
-      ]
-    }
-  },
-  {
-    "slug": "qualita",
-    "name": "Qualità",
-    "description": "Percorsi formativi sulla gestione della qualità, audit interni, ISO 9001 e controllo dei processi produttivi.",
-    "longDescription": "La qualità non è un reparto: è una cultura aziendale. I nostri corsi spaziano dall'introduzione ai sistemi di gestione ISO 9001:2015 alla formazione avanzata per Auditor Lead e Quality Manager, con un approccio concreto orientato al miglioramento continuo dei processi.",
-    "icon": "BadgeCheck",
-    "order": 3,
-    "featured": false,
-    "seo": {
-      "title": "Corsi Qualità – ISO 9001, Audit Interno, Controllo Processo",
-      "description": "Formazione professionale sulla gestione della qualità. Corsi ISO 9001:2015, auditor interno, SPC e strumenti lean per il miglioramento continuo.",
-      "keywords": [
-        "corsi qualita",
-        "iso 9001",
-        "auditor interno",
-        "gestione qualita aziendale"
-      ]
-    }
-  },
-  {
     "slug": "ambiente",
     "name": "Ambiente",
     "description": "Formazione sulla gestione ambientale, normativa ambientale italiana ed europea, ISO 14001 e sostenibilità.",
     "longDescription": "Le normative ambientali sono in continua evoluzione e le responsabilità per le aziende crescono. I nostri corsi coprono la gestione dei rifiuti (D.Lgs. 152/06), le emissioni in atmosfera, la gestione delle acque e la transizione verso i sistemi di gestione ambientale certificati ISO 14001.",
     "icon": "Leaf",
-    "order": 4,
+    "order": 2,
     "featured": false,
     "seo": {
       "title": "Corsi Ambiente – ISO 14001, Gestione Rifiuti, Normativa Ambientale",
@@ -76,40 +38,43 @@
     }
   },
   {
-    "slug": "sistemi-gestione",
+    "slug": "sistemi-di-gestione",
     "name": "Sistemi di Gestione",
-    "description": "Percorsi per progettare, implementare e mantenere sistemi di gestione integrati conformi agli standard ISO.",
-    "longDescription": "I sistemi di gestione integrati (SGI) permettono di gestire qualità, sicurezza e ambiente in modo sinergico. ECOTER Academy propone percorsi per implementare e mantenere sistemi conformi a ISO 9001, ISO 14001, ISO 45001 e altre norme settoriali, con un approccio pratico e orientato alla certificazione.",
+    "description": "Percorsi per progettare, implementare e mantenere sistemi di gestione integrati: qualità, sicurezza, ambiente e sicurezza alimentare.",
+    "longDescription": "I sistemi di gestione integrati (SGI) permettono di gestire qualità, sicurezza, ambiente e sicurezza alimentare in modo sinergico. ECOTER Academy propone percorsi per implementare e mantenere sistemi conformi a ISO 9001, ISO 14001, ISO 45001 e HACCP, oltre alla formazione per auditor interni, con un approccio pratico e orientato alla certificazione.",
     "icon": "Settings2",
-    "order": 5,
+    "order": 3,
     "featured": false,
     "seo": {
-      "title": "Corsi Sistemi di Gestione Integrati – ISO 9001 14001 45001",
-      "description": "Formazione per implementare sistemi di gestione integrati. Percorsi ISO 9001, ISO 14001, ISO 45001 e sistemi multi-norma.",
+      "title": "Corsi Sistemi di Gestione – ISO 9001, 14001, 45001, HACCP",
+      "description": "Formazione per implementare sistemi di gestione integrati. Percorsi ISO 9001, ISO 14001, ISO 45001, HACCP e auditor interno.",
       "keywords": [
         "sistemi di gestione integrati",
+        "iso 9001",
         "iso 45001",
-        "sgq sgsl sga",
+        "haccp",
+        "auditor interno",
         "certificazione iso"
       ]
     }
   },
   {
-    "slug": "management",
-    "name": "Management",
-    "description": "Competenze manageriali e trasversali per responsabili e team leader: leadership, gestione del rischio, comunicazione organizzativa.",
-    "longDescription": "La competenza tecnica non basta: un professionista completo sa anche gestire persone, processi e situazioni di crisi. I nostri percorsi di management sono progettati per HSE manager, quality manager e responsabili tecnici che vogliono sviluppare competenze di leadership, project management e comunicazione efficace.",
-    "icon": "Users",
-    "order": 6,
+    "slug": "benessere-psico-sociale",
+    "name": "Benessere psico-sociale",
+    "description": "Formazione sul benessere organizzativo e la gestione dello stress lavoro-correlato: mindfulness, empowerment e counseling in azienda.",
+    "longDescription": "Il benessere psico-sociale dei lavoratori è parte integrante della prevenzione, non un tema accessorio. I nostri percorsi affrontano la valutazione e gestione dello stress lavoro-correlato, tecniche di mindfulness applicate al contesto lavorativo, empowerment personale e di team, e counseling per responsabili HR e HSE che supportano persone in difficoltà.",
+    "icon": "HeartHandshake",
+    "order": 4,
     "featured": false,
     "seo": {
-      "title": "Corsi Management HSE – Leadership, Gestione Rischio, Comunicazione",
-      "description": "Formazione manageriale per professionisti HSE e quality manager. Leadership, gestione del rischio d'impresa, comunicazione organizzativa.",
+      "title": "Corsi Benessere Psico-Sociale – Stress Lavoro-Correlato, Mindfulness",
+      "description": "Formazione sul benessere psico-sociale in azienda. Corsi su stress lavoro-correlato, mindfulness, empowerment e counseling.",
       "keywords": [
-        "corsi management",
-        "leadership hse",
-        "gestione rischio impresa",
-        "hse manager"
+        "benessere psico-sociale",
+        "stress lavoro-correlato",
+        "mindfulness aziendale",
+        "counseling hr",
+        "empowerment"
       ]
     }
   }

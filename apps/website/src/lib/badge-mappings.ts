@@ -2,41 +2,32 @@ import type { BadgeColor } from '@ecoter/ui'
 
 /**
  * Category → Badge color, mapped onto the Decision 018 macro-category
- * palette (`@ecoter/tokens` `categoryColors`) rather than the old ad-hoc
- * brand/warning split. Current catalog slugs (6) map onto the 4
- * macro-categories the real restructuring — slug renaming/consolidation —
- * is out of scope here, see 2.3):
+ * palette (`@ecoter/tokens` `categoryColors`). Since 2.3 the catalog slugs
+ * match the 4 macro-categories 1:1 — no more consolidation needed here:
  *
- * - sicurezza, antincendio → `blue`   (macro: sicurezza)
- * - ambiente                → `brand` (macro: ambiente — the rebrand's green)
- * - qualita, sistemi-gestione → `eco` (macro: sistemi-di-gestione, teal)
- * - management              → `amber` (stand-in for benessere-psico-sociale
- *   until 2.3 introduces that category; oro/ambra per the rebrand)
+ * - sicurezza               → `blue`  (D.Lgs. 81/08, RSPP/ASPP, antincendio, primo soccorso)
+ * - ambiente                → `brand` (the rebrand's green)
+ * - sistemi-di-gestione     → `eco`   (ISO 9001/14001/45001, HACCP, audit)
+ * - benessere-psico-sociale → `amber` (stress lavoro-correlato, mindfulness, counseling)
  *
- * `amber` is shared with `featuredBadgeColor` below — a Management course
- * marked "in evidenza" renders two amber badges side by side. Pre-existing
- * risk class (this file already accepted `eco` on 3/6 categories for the
- * same reason: 4 hues across 6 slugs can't stay fully distinct until 2.3
- * collapses the slugs to match the 4 macro-categories) — label text (never
- * color alone, WCAG 1.4.1) keeps both badges distinguishable regardless.
- * See packages/ui/src/badge.stories.tsx "Uso nel catalogo".
+ * `amber` is shared with `featuredBadgeColor` below — a
+ * benessere-psico-sociale course marked "in evidenza" renders two amber
+ * badges side by side. Label text (never color alone, WCAG 1.4.1) keeps
+ * both badges distinguishable regardless. See
+ * packages/ui/src/badge.stories.tsx "Uso nel catalogo".
  */
 export const categoryBadgeColor: Record<string, BadgeColor> = {
   sicurezza: 'blue',
-  antincendio: 'blue',
-  qualita: 'eco',
   ambiente: 'brand',
-  'sistemi-gestione': 'eco',
-  management: 'amber',
+  'sistemi-di-gestione': 'eco',
+  'benessere-psico-sociale': 'amber',
 }
 
 export const categoryBadgeLabel: Record<string, string> = {
   sicurezza: 'Sicurezza',
-  antincendio: 'Antincendio',
-  qualita: 'Qualità',
   ambiente: 'Ambiente',
-  'sistemi-gestione': 'Sistemi di Gestione',
-  management: 'Management',
+  'sistemi-di-gestione': 'Sistemi di Gestione',
+  'benessere-psico-sociale': 'Benessere psico-sociale',
 }
 
 export const defaultCategoryBadgeColor: BadgeColor = 'neutral'

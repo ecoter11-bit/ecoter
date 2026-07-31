@@ -1,0 +1,20 @@
+{
+  "slug": "benessere-psico-sociale",
+  "name": "Benessere psico-sociale",
+  "description": "Formazione sul benessere organizzativo e la gestione dello stress lavoro-correlato: mindfulness, empowerment e counseling in azienda.",
+  "longDescription": "Il benessere psico-sociale dei lavoratori è parte integrante della prevenzione, non un tema accessorio. I nostri percorsi affrontano la valutazione e gestione dello stress lavoro-correlato, tecniche di mindfulness applicate al contesto lavorativo, empowerment personale e di team, e counseling per responsabili HR e HSE che supportano persone in difficoltà.",
+  "icon": "HeartHandshake",
+  "order": 4,
+  "featured": false,
+  "seo": {
+    "title": "Corsi Benessere Psico-Sociale – Stress Lavoro-Correlato, Mindfulness",
+    "description": "Formazione sul benessere psico-sociale in azienda. Corsi su stress lavoro-correlato, mindfulness, empowerment e counseling.",
+    "keywords": [
+      "benessere psico-sociale",
+      "stress lavoro-correlato",
+      "mindfulness aziendale",
+      "counseling hr",
+      "empowerment"
+    ]
+  }
+}
