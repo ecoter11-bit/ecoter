@@ -130,6 +130,8 @@
   --color-error-50: #fff5f5;
 
   /* Amber — small accents: badge, underline, step numerals (2% del layout) */
+  /* 700 added for Badge color="amber" text — 600 is ~3.1:1 on white/amber-50 (below AA). Deliberately a more yellow/gold hue than warning-600 (#b45309, orange-red), not a reuse of it — reusing it made color="amber" render pixel-identical to color="warning". ~4.9:1 on white, ~4.75:1 on amber-50. */
+  --color-amber-700: #a16207;
   --color-amber-600: #d97706;
   --color-amber-500: #f59e0b;
   --color-amber-400: #fbbf24;

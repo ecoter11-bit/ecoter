@@ -7,44 +7,28 @@ import {
   Home,
   ArrowRight,
 } from 'lucide-react'
+import { Badge } from '@ecoter/ui'
 import { cn } from '@/lib/utils'
+import {
+  categoryBadgeColor,
+  categoryBadgeLabel,
+  defaultCategoryBadgeColor,
+  featuredBadgeColor,
+  featuredBadgeLabel,
+  levelBadgeColor,
+  levelBadgeLabel,
+} from '@/lib/badge-mappings'
 import type { Course } from '@/types'
 
-const categoryStyles: Record<string, { badge: string; bar: string }> = {
-  sicurezza: { badge: 'bg-brand-50 text-brand-700', bar: 'bg-brand-500' },
-  qualita: { badge: 'bg-eco-50 text-eco-700', bar: 'bg-eco-500' },
-  ambiente: { badge: 'bg-eco-50 text-eco-600', bar: 'bg-eco-400' },
-  antincendio: {
-    badge: 'bg-warning-50 text-warning-600',
-    bar: 'bg-warning-500',
-  },
-  'sistemi-gestione': { badge: 'bg-eco-50 text-eco-700', bar: 'bg-eco-700' },
-  management: { badge: 'bg-brand-50 text-brand-700', bar: 'bg-brand-600' },
+const categoryBar: Record<string, string> = {
+  sicurezza: 'bg-brand-500',
+  qualita: 'bg-eco-500',
+  ambiente: 'bg-eco-400',
+  antincendio: 'bg-warning-500',
+  'sistemi-gestione': 'bg-eco-700',
+  management: 'bg-brand-600',
 }
-const defaultCatStyle = {
-  badge: 'bg-neutral-100 text-neutral-600',
-  bar: 'bg-neutral-400',
-}
-
-const categoryLabels: Record<string, string> = {
-  sicurezza: 'Sicurezza',
-  qualita: 'Qualità',
-  ambiente: 'Ambiente',
-  antincendio: 'Antincendio',
-  'sistemi-gestione': 'Sistemi di Gestione',
-  management: 'Management',
-}
-
-const levelLabel: Record<string, string> = {
-  base: 'Base',
-  intermedio: 'Intermedio',
-  avanzato: 'Avanzato',
-}
-const levelStyle: Record<string, string> = {
-  base: 'bg-success-50 text-success-600',
-  intermedio: 'bg-warning-50 text-warning-600',
-  avanzato: 'bg-error-50 text-error-700',
-}
+const defaultCategoryBar = 'bg-neutral-400'
 
 const modalityIcon: Record<
   string,
@@ -71,8 +55,10 @@ type Props = {
 }
 
 export function CourseCard({ course, className }: Props) {
-  const catStyle = categoryStyles[course.category] ?? defaultCatStyle
-  const lvlStyle = levelStyle[course.level] ?? 'bg-neutral-100 text-neutral-600'
+  const categoryBarClass = categoryBar[course.category] ?? defaultCategoryBar
+  const categoryColor =
+    categoryBadgeColor[course.category] ?? defaultCategoryBadgeColor
+  const levelColor = levelBadgeColor[course.level] ?? 'neutral'
 
   const price =
     course.pricing.type === 'fixed'
@@ -96,33 +82,23 @@ export function CourseCard({ course, className }: Props) {
     >
       {/* Category top bar */}
       <div
-        className={cn('h-1 w-full shrink-0', catStyle.bar)}
+        className={cn('h-1 w-full shrink-0', categoryBarClass)}
         aria-hidden="true"
       />
 
       <div className="flex flex-1 flex-col p-6">
         {/* Badges */}
         <div className="mb-4 flex flex-wrap items-center gap-2">
-          <span
-            className={cn(
-              'rounded-full px-2.5 py-1 text-[10px] overline',
-              catStyle.badge
-            )}
-          >
-            {categoryLabels[course.category] ?? course.category}
-          </span>
-          <span
-            className={cn(
-              'rounded-full px-2.5 py-1 text-[10px] overline',
-              lvlStyle
-            )}
-          >
-            {levelLabel[course.level]}
-          </span>
+          <Badge size="sm" color={categoryColor}>
+            {categoryBadgeLabel[course.category] ?? course.category}
+          </Badge>
+          <Badge size="sm" color={levelColor}>
+            {levelBadgeLabel[course.level]}
+          </Badge>
           {course.featured && (
-            <span className="rounded-full bg-amber-50 px-2.5 py-1 text-[10px] text-amber-600 overline">
-              In evidenza
-            </span>
+            <Badge size="sm" color={featuredBadgeColor}>
+              {featuredBadgeLabel}
+            </Badge>
           )}
         </div>
 

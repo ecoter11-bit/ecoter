@@ -20,6 +20,17 @@ Zero valori hardcoded. Ogni colore/spazio/raggio/ombra è una classe Tailwind ch
 
 `pnpm --filter @ecoter/ui storybook` (dev) / `build-storybook`. Framework `@storybook/react-vite`, styling via lo stesso `@tailwindcss/postcss` del sito (vedi `postcss.config.mjs`). Addon `a11y` sempre attivo — un finding non va mai ignorato in silenzio (il contrasto della variante `destructive` era un debito noto, risolto: usa `text-destructive-muted-foreground`, non `text-destructive`, su `bg-destructive/10`).
 
+## Ricetta colore per componenti a stato (solid/soft/outline × colore semantico)
+
+Fissata con `badge.tsx` — riusala per il prossimo componente con la stessa forma (variante stile × colore semantico), non ri-derivare i contrasti da zero:
+
+- **solid**: bg allo stop più scuro che passa AA su testo bianco (spesso `-600`/`-700`, non `-400`/`-500` — es. `eco-400` è ~2.7:1, `eco-600` è ~5.8:1), `text-white`, hover `brightness-90` (uniforme su tutti i colori, non serve uno stop più scuro dedicato per ognuno).
+- **soft**: bg allo stop `-50` (tinta), testo allo stop più chiaro che passa comunque AA (`-600` o `-700` a seconda del colore). **Hover: `brightness-95`, non uno stop di bg più scuro** (es. `hover:bg-*-100`) — su warning/amber lo stop successivo scende sotto 4.5:1 (verificato: 4.75 → 4.42).
+- **outline**: bg bianco, bordo allo stop `-500`/`-600` (mai `-100`/`-200` — non passano mai i 3:1 richiesti da SC 1.4.11 per i confini di componenti UI: `neutral-200` è ~1.36:1), testo stesso stop di soft (contrasto su bianco è sempre ≥ contrasto su tinta `-50`).
+- **focus-visible**: `border-ring` (bordo pieno, non traslucido) + `ring-2 ring-ring/50` come glow supplementare — il ring da solo a opacità 50% è ~1.9:1 e non basta da solo per SC 1.4.11; il bordo pieno con `--ring` è ~4.4:1 su bianco.
+
+Verifica sempre i contrasti sui valori hex reali in `@ecoter/tokens` (non fidarti della posizione nella scala) — vedi `packages/ui/src/badge.tsx` per il calcolo commentato inline.
+
 ## Cosa NON fare
 
 - Non importare nulla da `apps/website` (la dipendenza va nell'altro verso).
