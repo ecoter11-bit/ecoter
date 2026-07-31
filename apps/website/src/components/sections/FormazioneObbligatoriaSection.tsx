@@ -42,7 +42,7 @@ export function FormazioneObbligatoriaSection() {
                 <motion.h2
                   id="obbligatoria-heading"
                   variants={slideUp}
-                  className="mb-4 font-heading text-2xl font-extrabold tracking-tight text-balance md:text-3xl"
+                  className="mb-4 font-heading text-2xl font-light tracking-tight text-balance md:text-3xl"
                 >
                   Formazione obbligatoria: trova il tuo percorso in pochi click
                 </motion.h2>
@@ -81,7 +81,10 @@ export function FormazioneObbligatoriaSection() {
                     href="/wizard"
                     className={cn(
                       buttonVariants({ variant: 'default' }),
-                      'h-12 gap-2 bg-eco-600 px-8 text-base font-semibold text-white hover:bg-eco-700'
+                      // The shared focus ring (`--ring` = brand-600) is AA-verified
+                      // on white but drops to ~2.6:1 here on brand-900/eco-600 —
+                      // override with brand-300 for a dark-surface-safe indicator.
+                      'h-12 gap-2 bg-eco-600 px-8 text-base font-semibold text-white hover:bg-eco-700 focus-visible:border-brand-300 focus-visible:ring-brand-300/50'
                     )}
                   >
                     Avvia il wizard

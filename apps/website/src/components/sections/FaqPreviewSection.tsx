@@ -59,11 +59,11 @@ export function FaqPreviewSection() {
           viewport={viewportOnce}
           className="mx-auto max-w-3xl"
         >
-          <motion.div variants={slideUp} className="mb-10 text-center">
+          <motion.div variants={slideUp} className="mb-14 text-center">
             <p className="mb-3 text-brand-700 overline">Domande frequenti</p>
             <h2
               id="faq-heading"
-              className="font-heading text-3xl font-extrabold tracking-tight text-balance text-neutral-950 lg:text-4xl"
+              className="font-heading text-3xl font-light tracking-tight text-balance text-neutral-950 lg:text-4xl"
             >
               Hai domande?
             </h2>
