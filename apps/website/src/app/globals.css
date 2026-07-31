@@ -1,4 +1,13 @@
 @import 'tailwindcss';
+
+/* @ecoter/ui ships source (not compiled CSS) and resolves through a pnpm
+ * workspace symlink in node_modules — Tailwind v4's automatic source
+ * detection scans from this app's own directory and excludes node_modules,
+ * so it never sees packages/ui/src on its own. Any utility written only
+ * there (Button's focus/active states, several Badge color variants) was
+ * silently dropped from the compiled CSS. Register it explicitly. */
+@source '../../../../packages/ui/src';
+
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 @import '@ecoter/tokens/theme.css';
