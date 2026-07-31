@@ -59,11 +59,11 @@ export function ComeFunzionaSection() {
           whileInView="visible"
           viewport={viewportOnce}
         >
-          <motion.div variants={slideUp} className="mb-12 text-center">
+          <motion.div variants={slideUp} className="mb-14 text-center">
             <p className="mb-3 text-brand-700 overline">Processo semplice</p>
             <h2
               id="come-funziona-heading"
-              className="font-heading text-3xl font-extrabold tracking-tight text-balance text-neutral-950 lg:text-4xl"
+              className="font-heading text-3xl font-light tracking-tight text-balance text-neutral-950 lg:text-4xl"
             >
               Come funziona
             </h2>
@@ -72,7 +72,7 @@ export function ComeFunzionaSection() {
           <div className="relative grid gap-10 md:grid-cols-3 md:gap-8">
             {/* Connector line — desktop only */}
             <div
-              className="absolute inset-x-[16.7%] top-6 hidden h-px bg-neutral-200 md:block"
+              className="absolute inset-x-[16.7%] top-7 hidden h-px bg-neutral-200 md:block"
               aria-hidden="true"
             />
 
@@ -84,15 +84,12 @@ export function ComeFunzionaSection() {
                   variants={slideUpGentle}
                   className="relative flex flex-col items-center text-center"
                 >
-                  <div className="relative z-10 mb-6">
-                    <div className="flex size-12 items-center justify-center rounded-full border-2 border-brand-600 bg-white shadow-sm">
-                      <Icon
-                        className="size-5 text-brand-600"
-                        aria-hidden="true"
-                      />
+                  <div className="relative z-10 mb-5">
+                    <div className="flex size-14 items-center justify-center rounded-full bg-brand-600 shadow-sm">
+                      <Icon className="size-6 text-white" aria-hidden="true" />
                     </div>
                     <span
-                      className="absolute -top-1.5 -right-1.5 flex size-5 items-center justify-center rounded-full bg-amber-400 text-[10px] font-bold text-brand-900"
+                      className="absolute -top-1.5 -right-1.5 flex size-5 items-center justify-center rounded-full bg-amber-400 text-caption font-bold text-brand-900"
                       aria-hidden="true"
                     >
                       {step.step}

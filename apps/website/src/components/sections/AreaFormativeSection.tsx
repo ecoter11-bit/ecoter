@@ -103,7 +103,7 @@ export function AreaFormativeSection({ categories }: Props) {
             <p className="mb-3 text-brand-700 overline">Catalogo formativo</p>
             <h2
               id="aree-heading"
-              className="font-heading text-3xl font-extrabold tracking-tight text-balance text-neutral-950 lg:text-4xl"
+              className="font-heading text-3xl font-light tracking-tight text-balance text-neutral-950 lg:text-4xl"
             >
               Le aree formative
             </h2>

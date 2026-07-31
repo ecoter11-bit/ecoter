@@ -40,7 +40,7 @@ export function CtaFinaleSection() {
           <motion.h2
             id="cta-heading"
             variants={slideUp}
-            className="mb-4 font-heading text-3xl font-extrabold tracking-tight text-balance lg:text-4xl"
+            className="mb-4 font-heading text-3xl font-light tracking-tight text-balance lg:text-4xl"
           >
             Pronto a mettere la tua azienda in regola?
           </motion.h2>
@@ -61,7 +61,10 @@ export function CtaFinaleSection() {
               href="/contatti"
               className={cn(
                 buttonVariants({ variant: 'default' }),
-                'h-12 gap-2 bg-eco-600 px-8 text-base font-semibold text-white hover:bg-eco-700'
+                // See FormazioneObbligatoriaSection: `--ring` (brand-600) fails
+                // 3:1 on this dark surface — brand-300 clears it (~8.4:1 on
+                // brand-900, ~4.3:1 on the eco-600 fill).
+                'h-12 gap-2 bg-eco-600 px-8 text-base font-semibold text-white hover:bg-eco-700 focus-visible:border-brand-300 focus-visible:ring-brand-300/50'
               )}
             >
               <Mail className="size-4" aria-hidden="true" />
@@ -73,7 +76,7 @@ export function CtaFinaleSection() {
                 href={`tel:${siteConfig.phone}`}
                 className={cn(
                   buttonVariants({ variant: 'outline' }),
-                  'h-12 gap-2 border-brand-400 bg-transparent px-8 text-base font-semibold text-white hover:border-brand-300 hover:bg-brand-800 hover:text-white'
+                  'h-12 gap-2 border-brand-400 bg-transparent px-8 text-base font-semibold text-white hover:border-brand-300 hover:bg-brand-800 hover:text-white focus-visible:border-brand-300 focus-visible:ring-brand-300/50'
                 )}
               >
                 <Phone className="size-4" aria-hidden="true" />
@@ -84,7 +87,7 @@ export function CtaFinaleSection() {
                 href="/contatti"
                 className={cn(
                   buttonVariants({ variant: 'outline' }),
-                  'h-12 gap-2 border-brand-400 bg-transparent px-8 text-base font-semibold text-white hover:border-brand-300 hover:bg-brand-800 hover:text-white'
+                  'h-12 gap-2 border-brand-400 bg-transparent px-8 text-base font-semibold text-white hover:border-brand-300 hover:bg-brand-800 hover:text-white focus-visible:border-brand-300 focus-visible:ring-brand-300/50'
                 )}
               >
                 <Phone className="size-4" aria-hidden="true" />

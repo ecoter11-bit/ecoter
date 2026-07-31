@@ -44,8 +44,25 @@ const REASONS: Reason[] = [
 
 export function WhyEcoterSection() {
   return (
-    <section aria-labelledby="perche-heading" className="bg-neutral-25">
-      <Container className="section-padding">
+    <section
+      aria-labelledby="perche-heading"
+      className="relative overflow-hidden bg-neutral-25"
+    >
+      {/* Decorative pill/dash motif (parent-brand accent) — one sober touch,
+       * sitewide, tucked behind the heading and hidden below lg so it never
+       * competes with text on small screens. */}
+      <div
+        className="pointer-events-none absolute top-28 right-0 hidden -rotate-6 lg:flex lg:gap-2.5"
+        aria-hidden="true"
+      >
+        <span className="h-3.5 w-10 rounded-full bg-amber-100" />
+        <span className="h-3.5 w-16 rounded-full bg-amber-300" />
+        <span className="h-3.5 w-8 rounded-full bg-brand-200" />
+        <span className="h-3.5 w-20 rounded-full bg-brand-100" />
+        <span className="h-3.5 w-12 rounded-full bg-eco-100" />
+      </div>
+
+      <Container className="section-padding relative">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -56,7 +73,7 @@ export function WhyEcoterSection() {
             <p className="mb-3 text-brand-700 overline">Perché sceglierci</p>
             <h2
               id="perche-heading"
-              className="font-heading text-3xl font-extrabold tracking-tight text-balance text-neutral-950 lg:text-4xl"
+              className="font-heading text-3xl font-light tracking-tight text-balance text-neutral-950 lg:text-4xl"
             >
               Perché ECOTER Academy
             </h2>
@@ -73,9 +90,9 @@ export function WhyEcoterSection() {
                 <motion.div
                   key={reason.title}
                   variants={slideUpGentle}
-                  className="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-brand-600 hover:shadow-md"
+                  className="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-600 hover:shadow-md"
                 >
-                  <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-all duration-300 group-hover:bg-brand-600 group-hover:text-white">
+                  <div className="mb-5 flex size-14 items-center justify-center rounded-full bg-brand-600 text-white transition-transform duration-300 group-hover:scale-110">
                     <Icon className="size-6" aria-hidden="true" />
                   </div>
                   <h3 className="mb-2.5 font-heading text-base font-bold text-neutral-950">
