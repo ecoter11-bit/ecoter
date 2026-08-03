@@ -1,3 +1,4 @@
+import { Building2, Monitor, Blend, Home } from 'lucide-react'
 import type { BadgeColor } from '@ecoter/ui'
 
 /**
@@ -47,3 +48,24 @@ export const levelBadgeLabel: Record<string, string> = {
 
 export const featuredBadgeColor: BadgeColor = 'amber'
 export const featuredBadgeLabel = 'In evidenza'
+
+/** Modality → icon/label, shared by CourseCard and the course detail page's meta rows. */
+export const modalityIcon: Record<
+  string,
+  React.ComponentType<{
+    className?: string
+    'aria-hidden'?: boolean | 'true' | 'false'
+  }>
+> = {
+  aula: Building2,
+  online: Monitor,
+  blended: Blend,
+  'in-house': Home,
+}
+
+export const modalityLabel: Record<string, string> = {
+  aula: 'In Aula',
+  online: 'Online',
+  blended: 'Blended',
+  'in-house': 'In House',
+}

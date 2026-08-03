@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import type { Course } from '@/types'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -61,4 +62,18 @@ export function absoluteUrl(path: string): string {
 
 export function isExternalUrl(url: string): boolean {
   return /^https?:\/\//.test(url)
+}
+
+/** `"28h · 4 giorni"` when `days` is set, else `"28 ore"` — mirrors CourseCard's original inline derivation, now shared with the course detail page. */
+export function formatCourseDuration(duration: Course['duration']): string {
+  return duration.days != null
+    ? `${duration.hours}h · ${duration.days} ${pluralize(duration.days, 'giorno', 'giorni')}`
+    : `${duration.hours} ore`
+}
+
+/** `"€ 490"` for fixed pricing, `"Su richiesta"` for on-request. */
+export function formatCoursePrice(pricing: Course['pricing']): string {
+  return pricing.type === 'fixed'
+    ? `€ ${pricing.amount.toLocaleString('it-IT')}`
+    : 'Su richiesta'
 }
