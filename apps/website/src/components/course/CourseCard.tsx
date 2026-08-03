@@ -1,14 +1,7 @@
 import Link from 'next/link'
-import {
-  Clock,
-  Building2,
-  Monitor,
-  Blend,
-  Home,
-  ArrowRight,
-} from 'lucide-react'
+import { Clock, Building2, ArrowRight } from 'lucide-react'
 import { Badge } from '@ecoter/ui'
-import { cn } from '@/lib/utils'
+import { cn, formatCourseDuration, formatCoursePrice } from '@/lib/utils'
 import {
   categoryBadgeColor,
   categoryBadgeLabel,
@@ -17,6 +10,8 @@ import {
   featuredBadgeLabel,
   levelBadgeColor,
   levelBadgeLabel,
+  modalityIcon,
+  modalityLabel,
 } from '@/lib/badge-mappings'
 import type { Course } from '@/types'
 
@@ -31,25 +26,6 @@ const categoryBar: Record<string, string> = {
 }
 const defaultCategoryBar = 'bg-neutral-400'
 
-const modalityIcon: Record<
-  string,
-  React.ComponentType<{
-    className?: string
-    'aria-hidden'?: boolean | 'true' | 'false'
-  }>
-> = {
-  aula: Building2,
-  online: Monitor,
-  blended: Blend,
-  'in-house': Home,
-}
-const modalityLabel: Record<string, string> = {
-  aula: 'In Aula',
-  online: 'Online',
-  blended: 'Blended',
-  'in-house': 'In House',
-}
-
 type Props = {
   course: Course
   className?: string
@@ -61,15 +37,8 @@ export function CourseCard({ course, className }: Props) {
     categoryBadgeColor[course.category] ?? defaultCategoryBadgeColor
   const levelColor = levelBadgeColor[course.level] ?? 'neutral'
 
-  const price =
-    course.pricing.type === 'fixed'
-      ? `€ ${course.pricing.amount.toLocaleString('it-IT')}`
-      : 'Su richiesta'
-
-  const durationLabel =
-    course.duration.days != null
-      ? `${course.duration.hours}h · ${course.duration.days} ${course.duration.days === 1 ? 'giorno' : 'giorni'}`
-      : `${course.duration.hours} ore`
+  const price = formatCoursePrice(course.pricing)
+  const durationLabel = formatCourseDuration(course.duration)
 
   const primaryNorm = course.normativeRef?.[0]
 
@@ -130,7 +99,7 @@ export function CourseCard({ course, className }: Props) {
 
         {/* Normativa pill */}
         {primaryNorm && (
-          <div className="mb-4 line-clamp-1 rounded-lg bg-neutral-50 px-3 py-2 text-[11px] font-medium text-neutral-500">
+          <div className="mb-4 line-clamp-1 rounded-lg bg-neutral-50 px-3 py-2 text-xs font-medium text-neutral-500">
             {primaryNorm}
           </div>
         )}
