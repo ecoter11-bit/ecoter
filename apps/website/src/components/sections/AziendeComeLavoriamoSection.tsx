@@ -3,8 +3,9 @@
 import { motion } from 'framer-motion'
 import {
   Search,
-  MessageSquare,
-  CalendarCheck,
+  NotebookPen,
+  Users,
+  Award,
   type LucideIcon,
 } from 'lucide-react'
 import { IconCircle } from '@ecoter/ui'
@@ -27,30 +28,37 @@ const STEPS: Step[] = [
   {
     step: '01',
     icon: Search,
-    title: 'Trova il corso',
+    title: 'Analisi del fabbisogno',
     description:
-      'Cerca nel catalogo per area tematica o usa il wizard per identificare il percorso obbligatorio per la tua figura professionale.',
+      'Ascoltiamo la tua organizzazione per capire ruoli, mansioni e obblighi normativi da coprire.',
   },
   {
     step: '02',
-    icon: MessageSquare,
-    title: 'Richiedi informazioni',
+    icon: NotebookPen,
+    title: 'Piano formativo',
     description:
-      'Contattaci via form, email o telefono. Risponderemo rapidamente con un preventivo personalizzato per la tua organizzazione.',
+      'Costruiamo un piano su misura: corsi, modalità e calendario coerenti con le esigenze rilevate.',
   },
   {
     step: '03',
-    icon: CalendarCheck,
-    title: 'Organizza la formazione',
+    icon: Users,
+    title: 'Erogazione',
     description:
-      'Scegli data, luogo e modalità. Gestiamo la logistica: in aula, online o direttamente in azienda con i tuoi collaboratori.',
+      'Eroghiamo la formazione in aula, online, in house o blended, con docenti qualificati.',
+  },
+  {
+    step: '04',
+    icon: Award,
+    title: 'Attestati',
+    description:
+      'Rilasciamo attestati validi ai fini di legge, con registri e documentazione a supporto.',
   },
 ]
 
-export function ComeFunzionaSection() {
+export function AziendeComeLavoriamoSection() {
   return (
     <section
-      aria-labelledby="come-funziona-heading"
+      aria-labelledby="come-lavoriamo-heading"
       className="border-y border-neutral-200 bg-neutral-50"
     >
       <Container className="section-padding">
@@ -61,19 +69,19 @@ export function ComeFunzionaSection() {
           viewport={viewportOnce}
         >
           <motion.div variants={slideUp} className="mb-14 text-center">
-            <p className="mb-3 text-brand-700 overline">Processo semplice</p>
+            <p className="mb-3 text-brand-700 overline">Il percorso</p>
             <h2
-              id="come-funziona-heading"
+              id="come-lavoriamo-heading"
               className="font-heading text-3xl font-light tracking-tight text-balance text-neutral-950 lg:text-4xl"
             >
-              Come funziona
+              Come lavoriamo
             </h2>
           </motion.div>
 
-          <div className="relative grid gap-10 md:grid-cols-3 md:gap-8">
+          <div className="relative grid gap-10 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
             {/* Connector line — desktop only */}
             <div
-              className="absolute inset-x-[16.7%] top-7 hidden h-px bg-neutral-200 md:block"
+              className="absolute inset-x-[12.5%] top-7 hidden h-px bg-neutral-200 lg:block"
               aria-hidden="true"
             />
 

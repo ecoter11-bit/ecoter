@@ -1,6 +1,8 @@
 export { Badge, badgeVariants } from './badge'
 export type { BadgeColor } from './badge'
 export { Button, buttonVariants } from './button'
+export { IconCircle, iconCircleVariants } from './icon-circle'
+export type { IconCircleColor } from './icon-circle'
 export {
   Accordion,
   AccordionItem,

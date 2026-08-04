@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Award, BookOpen, Globe, Wrench, type LucideIcon } from 'lucide-react'
+import { IconCircle } from '@ecoter/ui'
 import { Container } from '@/components/layout'
 import {
   slideUpGentle,
@@ -92,9 +93,11 @@ export function WhyEcoterSection() {
                   variants={slideUpGentle}
                   className="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-600 hover:shadow-md"
                 >
-                  <div className="mb-5 flex size-14 items-center justify-center rounded-full bg-brand-600 text-white transition-transform duration-300 group-hover:scale-110">
-                    <Icon className="size-6" aria-hidden="true" />
-                  </div>
+                  <IconCircle
+                    color="brand"
+                    icon={<Icon aria-hidden="true" />}
+                    className="mb-5 transition-transform duration-300 group-hover:scale-110"
+                  />
                   <h3 className="mb-2.5 font-heading text-base font-bold text-neutral-950">
                     {reason.title}
                   </h3>
