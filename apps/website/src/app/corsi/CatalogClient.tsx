@@ -235,6 +235,7 @@ export function CatalogClient({ courses, categories, normativeRefs }: Props) {
                 : `${filteredCourses.length} corsi trovati`}
             {activeCount > 0 && (
               <span className="ml-1.5 text-neutral-400">
+                {' '}
                 con {activeCount}{' '}
                 {activeCount === 1 ? 'filtro attivo' : 'filtri attivi'}
               </span>
