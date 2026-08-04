@@ -1,5 +1,969 @@
 [
   {
+    "slug": "addetti-alla-conduzione-di-carrelli-elevatori-semoventi",
+    "title": "Addetti alla conduzione di carrelli elevatori semoventi",
+    "subtitle": "Abilitazione per la conduzione di carrelli elevatori semoventi",
+    "excerpt": "Abilitazione per la conduzione di carrelli elevatori semoventi, ai sensi di D.Lgs 81/08 art. 73, della durata di 12 ore.",
+    "category": "sicurezza",
+    "level": "base",
+    "modality": [
+      "aula"
+    ],
+    "tags": [
+      "sicurezza",
+      "carrelli-elevatori"
+    ]
+  },
+  {
+    "slug": "addetti-alla-conduzione-di-gru-per-autocarro",
+    "title": "Addetti alla conduzione di gru per autocarro",
+    "subtitle": "Abilitazione per la conduzione di gru per autocarro",
+    "excerpt": "Abilitazione per la conduzione di gru per autocarro, ai sensi di D.Lgs 81/08 art. 73, della durata di 12 ore.",
+    "category": "sicurezza",
+    "level": "base",
+    "modality": [
+      "aula"
+    ],
+    "tags": [
+      "sicurezza",
+      "gru"
+    ]
+  },
+  {
+    "slug": "addetti-alle-piattaforme-di-lavoro-mobili-elevabili-ple",
+    "title": "Addetti alle piattaforme di lavoro mobili elevabili (PLE)",
+    "subtitle": "Abilitazione per la conduzione di piattaforme di lavoro mobili elevabili, con o senza stabilizzatori",
+    "excerpt": "Abilitazione per la conduzione di piattaforme di lavoro mobili elevabili, con o senza stabilizzatori, ai sensi di D.Lgs 81/08 art. 73, della durata di 10 ore.",
+    "category": "sicurezza",
+    "level": "base",
+    "modality": [
+      "aula"
+    ],
+    "tags": [
+      "sicurezza",
+      "ple"
+    ]
+  },
+  {
+    "slug": "aggiornamento-addetti-carrelli-elevatori-semoventi",
+    "title": "Aggiornamento addetti carrelli elevatori semoventi",
+    "subtitle": "Aggiornamento periodico per addetti alla conduzione di carrelli elevatori semoventi",
+    "excerpt": "Aggiornamento periodico per addetti alla conduzione di carrelli elevatori semoventi, ai sensi di D.Lgs 81/08 art. 73, della durata di 4 ore.",
+    "category": "sicurezza",
+    "level": "base",
+    "modality": [
+      "aula"
+    ],
+    "tags": [
+      "sicurezza",
+      "carrelli-elevatori",
+      "aggiornamento"
+    ]
+  },
+  {
+    "slug": "aggiornamento-addetti-gru-per-autocarro",
+    "title": "Aggiornamento addetti gru per autocarro",
+    "subtitle": "Aggiornamento periodico per addetti alla conduzione di gru per autocarro",
+    "excerpt": "Aggiornamento periodico per addetti alla conduzione di gru per autocarro, ai sensi di D.Lgs 81/08 art. 73, della durata di 4 ore.",
+    "category": "sicurezza",
+    "level": "base",
+    "modality": [
+      "aula"
+    ],
+    "tags": [
+      "sicurezza",
+      "gru",
+      "aggiornamento"
+    ]
+  },
+  {
+    "slug": "aggiornamento-addetti-ple",
+    "title": "Aggiornamento addetti PLE",
+    "subtitle": "Aggiornamento periodico per addetti alla conduzione di PLE",
+    "excerpt": "Aggiornamento periodico per addetti alla conduzione di PLE, ai sensi di D.Lgs 81/08 art. 73, della durata di 4 ore.",
+    "category": "sicurezza",
+    "level": "base",
+    "modality": [
+      "aula"
+    ],
+    "tags": [
+      "sicurezza",
+      "ple",
+      "aggiornamento"
+    ]
+  },
+  {
+    "slug": "aggiornamento-ambienti-sospetti-di-inquinamento-o-confinati-d-p-r-177-2011",
+    "title": "Aggiornamento – Ambienti sospetti di inquinamento o confinati (D.P.R. 177/2011)",
+    "subtitle": "Aggiornamento periodico per chi opera in ambienti sospetti di inquinamento o confinati",
+    "excerpt": "Aggiornamento periodico per chi opera in ambienti sospetti di inquinamento o confinati, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 4 ore.",
+    "category": "sicurezza",
+    "level": "avanzato",
+    "modality": [
+      "aula"
+    ],
+    "tags": [
+      "sicurezza",
+      "ambienti-confinati",
+      "aggiornamento"
+    ]
+  },
+  {
+    "slug": "aggiornamento-aspp-tutti-i-settori-20h",
+    "title": "Aggiornamento ASPP – Tutti i settori – 20h",
+    "subtitle": "Aggiornamento periodico per ASPP di tutti i settori",
+    "excerpt": "Aggiornamento periodico per ASPP di tutti i settori, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 20 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "aspp",
+      "aggiornamento"
+    ]
+  },
+  {
+    "slug": "aggiornamento-coordinatori-csp-cse-40h",
+    "title": "Aggiornamento coordinatori CSP/CSE – 40h",
+    "subtitle": "Aggiornamento periodico per i coordinatori CSP/CSE",
+    "excerpt": "Aggiornamento periodico per i coordinatori CSP/CSE, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 40 ore.",
+    "category": "sicurezza",
+    "level": "avanzato",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "cspcse",
+      "aggiornamento"
+    ]
+  },
+  {
+    "slug": "aggiornamento-datori-di-lavoro-rspp-settori-sp1-sp5-8h",
+    "title": "Aggiornamento datori di lavoro RSPP – Settori SP1-SP5 – 8h",
+    "subtitle": "Aggiornamento periodico per datori di lavoro RSPP operanti nei settori SP1-SP5",
+    "excerpt": "Aggiornamento periodico per datori di lavoro RSPP operanti nei settori SP1-SP5, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 8 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "datori-rspp",
+      "aggiornamento"
+    ]
+  },
+  {
+    "slug": "aggiornamento-datori-di-lavoro",
+    "title": "Aggiornamento datori di lavoro",
+    "subtitle": "Aggiornamento periodico obbligatorio per i datori di lavoro",
+    "excerpt": "Aggiornamento periodico obbligatorio per i datori di lavoro, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 6 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "datori-di-lavoro",
+      "aggiornamento"
+    ]
+  },
+  {
+    "slug": "aggiornamento-dirigenti",
+    "title": "Aggiornamento dirigenti",
+    "subtitle": "Aggiornamento periodico obbligatorio per i dirigenti",
+    "excerpt": "Aggiornamento periodico obbligatorio per i dirigenti, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 6 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "dirigenti",
+      "aggiornamento"
+    ]
+  },
+  {
+    "slug": "aggiornamento-formatori-della-sicurezza-24h",
+    "title": "Aggiornamento formatori della sicurezza – 24h",
+    "subtitle": "Aggiornamento periodico per i formatori della sicurezza",
+    "excerpt": "Aggiornamento periodico per i formatori della sicurezza, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 24 ore.",
+    "category": "sicurezza",
+    "level": "avanzato",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "formatori",
+      "aggiornamento"
+    ]
+  },
+  {
+    "slug": "aggiornamento-lavoratori-rischio-basso-medio-e-alto",
+    "title": "Aggiornamento lavoratori – Rischio basso, medio e alto",
+    "subtitle": "Aggiornamento periodico della formazione lavoratori per tutti i livelli di rischio specifico",
+    "excerpt": "Aggiornamento periodico della formazione lavoratori per tutti i livelli di rischio specifico, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 6 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "lavoratori",
+      "aggiornamento"
+    ]
+  },
+  {
+    "slug": "aggiornamento-pes-pav-norme-cei-11-27-2025",
+    "title": "Aggiornamento PES/PAV (Norme CEI 11-27:2025)",
+    "subtitle": "Aggiornamento periodico per PES/PAV",
+    "excerpt": "Aggiornamento periodico per PES/PAV, ai sensi di D.Lgs 81/08 art. 82, della durata di 6 ore.",
+    "category": "sicurezza",
+    "level": "avanzato",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "pes-pav",
+      "aggiornamento"
+    ]
+  },
+  {
+    "slug": "aggiornamento-preposti-validita-biennale",
+    "title": "Aggiornamento preposti (validità biennale)",
+    "subtitle": "Aggiornamento periodico obbligatorio per i preposti",
+    "excerpt": "Aggiornamento periodico obbligatorio per i preposti, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 6 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "preposti",
+      "aggiornamento"
+    ]
+  },
+  {
+    "slug": "aggiornamento-rls",
+    "title": "Aggiornamento RLS",
+    "subtitle": "Aggiornamento periodico obbligatorio per l’RLS",
+    "excerpt": "Aggiornamento periodico obbligatorio per l’RLS, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 8 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula"
+    ],
+    "tags": [
+      "sicurezza",
+      "rls",
+      "aggiornamento"
+    ]
+  },
+  {
+    "slug": "aggiornamento-rspp-tutti-i-settori-40h",
+    "title": "Aggiornamento RSPP – Tutti i settori – 40h",
+    "subtitle": "Aggiornamento periodico per RSPP di tutti i settori",
+    "excerpt": "Aggiornamento periodico per RSPP di tutti i settori, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 40 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "rspp",
+      "aggiornamento"
+    ]
+  },
+  {
+    "slug": "analisi-del-benessere-organizzativo",
+    "title": "Analisi del benessere organizzativo",
+    "subtitle": "Valutazione per elevare il livello di benessere percepito all’interno dell’organizzazione",
+    "excerpt": "Valutazione per elevare il livello di benessere percepito all’interno dell’organizzazione, della durata di 4 ore.",
+    "category": "benessere-psico-sociale",
+    "level": "base",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "benessere-psico-sociale",
+      "benessere-organizzativo"
+    ]
+  },
+  {
+    "slug": "bilancio-delle-competenze",
+    "title": "Bilancio delle competenze",
+    "subtitle": "Percorso di analisi e valorizzazione delle competenze professionali",
+    "excerpt": "Percorso di analisi e valorizzazione delle competenze professionali, della durata di 3.4 ore.",
+    "category": "benessere-psico-sociale",
+    "level": "base",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "benessere-psico-sociale",
+      "bilancio-competenze"
+    ]
+  },
+  {
+    "slug": "cam-nel-processo-edilizio-dalla-progettazione-al-cantiere",
+    "title": "CAM nel processo edilizio – Dalla progettazione al cantiere",
+    "subtitle": "Formazione sui Criteri Ambientali Minimi (CAM) applicati al processo edilizio",
+    "excerpt": "Formazione sui Criteri Ambientali Minimi (CAM) applicati al processo edilizio, ai sensi di Criteri Ambientali Minimi (CAM), della durata di 4 ore.",
+    "category": "ambiente",
+    "level": "base",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "ambiente",
+      "cam-edilizia"
+    ]
+  },
+  {
+    "slug": "coordinatori-per-la-sicurezza-in-progettazione-ed-esecuzione-csp-cse-120h",
+    "title": "Coordinatori per la sicurezza in progettazione ed esecuzione (CSP/CSE) – 120h",
+    "subtitle": "Percorso completo per coordinatori della sicurezza nei cantieri temporanei o mobili",
+    "excerpt": "Percorso completo per coordinatori della sicurezza nei cantieri temporanei o mobili, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 120 ore.",
+    "category": "sicurezza",
+    "level": "avanzato",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "cspcse"
+    ]
+  },
+  {
+    "slug": "counseling",
+    "title": "Counseling",
+    "subtitle": "Percorso individuale per favorire il benessere psicologico",
+    "excerpt": "Percorso individuale per favorire il benessere psicologico, della durata di 9.2 ore.",
+    "category": "benessere-psico-sociale",
+    "level": "base",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "benessere-psico-sociale",
+      "counseling"
+    ]
+  },
+  {
+    "slug": "datori-di-lavoro-modulo-aggiuntivo-cantieri",
+    "title": "Datori di lavoro – Modulo aggiuntivo cantieri",
+    "subtitle": "Modulo integrativo per datori di lavoro operanti in cantieri temporanei o mobili",
+    "excerpt": "Modulo integrativo per datori di lavoro operanti in cantieri temporanei o mobili, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 6 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "datori-di-lavoro"
+    ]
+  },
+  {
+    "slug": "datori-di-lavoro-rspp-modulo-comune-8h",
+    "title": "Datori di lavoro RSPP – Modulo comune – 8h",
+    "subtitle": "Modulo comune per datori di lavoro che svolgono direttamente il ruolo di RSPP (da integrare con il corso Datori di lavoro – A11)",
+    "excerpt": "Modulo comune per datori di lavoro che svolgono direttamente il ruolo di RSPP (da integrare con il corso Datori di lavoro – A11), ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 8 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "datori-rspp"
+    ]
+  },
+  {
+    "slug": "datori-di-lavoro-rspp-modulo-integrativo-settore-sp2-12h",
+    "title": "Datori di lavoro RSPP – Modulo integrativo settore SP2 – 12h",
+    "subtitle": "Modulo integrativo settoriale per datori di lavoro che svolgono il ruolo di RSPP nel settore pesca (SP2)",
+    "excerpt": "Modulo integrativo settoriale per datori di lavoro che svolgono il ruolo di RSPP nel settore pesca (SP2), ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 12 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "datori-rspp"
+    ]
+  },
+  {
+    "slug": "datori-di-lavoro-rspp-modulo-integrativo-settori-sp1-sp3-sp4-sp5-16h",
+    "title": "Datori di lavoro RSPP – Modulo integrativo settori SP1, SP3, SP4, SP5 – 16h",
+    "subtitle": "Modulo integrativo settoriale per datori di lavoro che svolgono il ruolo di RSPP",
+    "excerpt": "Modulo integrativo settoriale per datori di lavoro che svolgono il ruolo di RSPP, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 16 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "datori-rspp"
+    ]
+  },
+  {
+    "slug": "datori-di-lavoro",
+    "title": "Datori di lavoro",
+    "subtitle": "Formazione per datori di lavoro che svolgono direttamente compiti di prevenzione e protezione",
+    "excerpt": "Formazione per datori di lavoro che svolgono direttamente compiti di prevenzione e protezione, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 16 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "datori-di-lavoro"
+    ]
+  },
+  {
+    "slug": "dirigenti-modulo-aggiuntivo-cantieri",
+    "title": "Dirigenti – Modulo aggiuntivo cantieri",
+    "subtitle": "Modulo integrativo per dirigenti operanti in cantieri temporanei o mobili",
+    "excerpt": "Modulo integrativo per dirigenti operanti in cantieri temporanei o mobili, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 6 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "dirigenti"
+    ]
+  },
+  {
+    "slug": "dirigenti",
+    "title": "Dirigenti",
+    "subtitle": "Formazione obbligatoria per dirigenti in materia di sicurezza sul lavoro",
+    "excerpt": "Formazione obbligatoria per dirigenti in materia di sicurezza sul lavoro, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 12 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "dirigenti"
+    ]
+  },
+  {
+    "slug": "empowerment",
+    "title": "Empowerment",
+    "subtitle": "Percorso personale di potenziamento delle risorse individuali",
+    "excerpt": "Percorso personale di potenziamento delle risorse individuali, della durata di 8 ore.",
+    "category": "benessere-psico-sociale",
+    "level": "base",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "benessere-psico-sociale",
+      "empowerment"
+    ]
+  },
+  {
+    "slug": "formatori-della-sicurezza-24h",
+    "title": "Formatori della sicurezza – 24h",
+    "subtitle": "Percorso per chi intende svolgere attività di docenza in materia di sicurezza sul lavoro",
+    "excerpt": "Percorso per chi intende svolgere attività di docenza in materia di sicurezza sul lavoro, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 24 ore.",
+    "category": "sicurezza",
+    "level": "avanzato",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "formatori"
+    ]
+  },
+  {
+    "slug": "gestione-delle-emergenze-ambientali",
+    "title": "Gestione delle emergenze ambientali",
+    "subtitle": "Formazione sulla gestione delle emergenze ambientali in azienda",
+    "excerpt": "Formazione sulla gestione delle emergenze ambientali in azienda, ai sensi di D.Lgs 152/06, della durata di 4 ore.",
+    "category": "ambiente",
+    "level": "base",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "ambiente",
+      "emergenze-ambientali"
+    ]
+  },
+  {
+    "slug": "gestione-delle-terre-e-rocce-da-scavo",
+    "title": "Gestione delle terre e rocce da scavo",
+    "subtitle": "Formazione sulla gestione delle terre e rocce da scavo alla luce dei decreti vigenti",
+    "excerpt": "Formazione sulla gestione delle terre e rocce da scavo alla luce dei decreti vigenti, ai sensi di D.Lgs 152/06, della durata di 4 ore.",
+    "category": "ambiente",
+    "level": "base",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "ambiente",
+      "terre-rocce-scavo"
+    ]
+  },
+  {
+    "slug": "gestione-e-valutazione-del-rischio-biologico",
+    "title": "Gestione e valutazione del rischio biologico",
+    "subtitle": "Formazione sulla gestione e valutazione del rischio biologico nei luoghi di lavoro",
+    "excerpt": "Formazione sulla gestione e valutazione del rischio biologico nei luoghi di lavoro, ai sensi di D.Lgs 81/08, della durata di 4 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "rischio-biologico"
+    ]
+  },
+  {
+    "slug": "gestione-e-valutazione-del-rischio-chimico",
+    "title": "Gestione e valutazione del rischio chimico",
+    "subtitle": "Formazione sulla gestione e valutazione del rischio chimico nei luoghi di lavoro",
+    "excerpt": "Formazione sulla gestione e valutazione del rischio chimico nei luoghi di lavoro, ai sensi di D.Lgs 81/08, della durata di 4 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "rischio-chimico"
+    ]
+  },
+  {
+    "slug": "gestione-e-valutazione-del-rischio-movimentazione-manuale-dei-carichi-mmc",
+    "title": "Gestione e valutazione del rischio movimentazione manuale dei carichi (MMC)",
+    "subtitle": "Formazione sulla gestione e valutazione del rischio da movimentazione manuale dei carichi",
+    "excerpt": "Formazione sulla gestione e valutazione del rischio da movimentazione manuale dei carichi, ai sensi di D.Lgs 81/08, della durata di 4 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "movimentazione-carichi"
+    ]
+  },
+  {
+    "slug": "gestione-e-valutazione-del-rischio-rumore",
+    "title": "Gestione e valutazione del rischio rumore",
+    "subtitle": "Formazione sulla gestione e valutazione del rischio rumore nei luoghi di lavoro",
+    "excerpt": "Formazione sulla gestione e valutazione del rischio rumore nei luoghi di lavoro, ai sensi di D.Lgs 81/08, della durata di 4 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "rischio-rumore"
+    ]
+  },
+  {
+    "slug": "gestione-e-valutazione-del-rischio-vibrazioni",
+    "title": "Gestione e valutazione del rischio vibrazioni",
+    "subtitle": "Formazione sulla gestione e valutazione del rischio vibrazioni nei luoghi di lavoro",
+    "excerpt": "Formazione sulla gestione e valutazione del rischio vibrazioni nei luoghi di lavoro, ai sensi di D.Lgs 81/08, della durata di 4 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "rischio-vibrazioni"
+    ]
+  },
+  {
+    "slug": "gestione-operativa-dei-rifiuti",
+    "title": "Gestione operativa dei rifiuti",
+    "subtitle": "Formazione sulla gestione operativa dei rifiuti ai sensi del D.Lgs 152/06",
+    "excerpt": "Formazione sulla gestione operativa dei rifiuti ai sensi del D.Lgs 152/06, ai sensi di D.Lgs 152/06, della durata di 4 ore.",
+    "category": "ambiente",
+    "level": "base",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "ambiente",
+      "gestione-rifiuti"
+    ]
+  },
+  {
+    "slug": "identificazione-ed-esercizio-di-impianti-e-attrezzature-a-pressione",
+    "title": "Identificazione ed esercizio di impianti e attrezzature a pressione",
+    "subtitle": "Formazione su Direttiva PED, DM 329/04 e pratiche CIVA-INAIL per impianti e attrezzature a pressione",
+    "excerpt": "Formazione su Direttiva PED, DM 329/04 e pratiche CIVA-INAIL per impianti e attrezzature a pressione, ai sensi di Direttiva PED, della durata di 4 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "attrezzature-pressione"
+    ]
+  },
+  {
+    "slug": "lavoratori-e-datori-di-lavoro-ambienti-sospetti-di-inquinamento-o-confinati-d-p-r-177-2011",
+    "title": "Lavoratori e datori di lavoro – Ambienti sospetti di inquinamento o confinati (D.P.R. 177/2011)",
+    "subtitle": "Formazione specialistica per attività in ambienti sospetti di inquinamento o confinati",
+    "excerpt": "Formazione specialistica per attività in ambienti sospetti di inquinamento o confinati, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 12 ore.",
+    "category": "sicurezza",
+    "level": "avanzato",
+    "modality": [
+      "aula"
+    ],
+    "tags": [
+      "sicurezza",
+      "ambienti-confinati"
+    ]
+  },
+  {
+    "slug": "lavoratori-rischio-generale",
+    "title": "Lavoratori – Rischio generale",
+    "subtitle": "Formazione base obbligatoria per lavoratori in aziende a rischio generale",
+    "excerpt": "Formazione base obbligatoria per lavoratori in aziende a rischio generale, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 4 ore.",
+    "category": "sicurezza",
+    "level": "base",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "lavoratori"
+    ]
+  },
+  {
+    "slug": "lavoratori-rischio-specifico-alto",
+    "title": "Lavoratori – Rischio specifico alto",
+    "subtitle": "Formazione specifica obbligatoria per lavoratori in attività a rischio alto",
+    "excerpt": "Formazione specifica obbligatoria per lavoratori in attività a rischio alto, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 12 ore.",
+    "category": "sicurezza",
+    "level": "avanzato",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "lavoratori"
+    ]
+  },
+  {
+    "slug": "lavoratori-rischio-specifico-basso",
+    "title": "Lavoratori – Rischio specifico basso",
+    "subtitle": "Formazione specifica obbligatoria per lavoratori in attività a rischio basso",
+    "excerpt": "Formazione specifica obbligatoria per lavoratori in attività a rischio basso, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 4 ore.",
+    "category": "sicurezza",
+    "level": "base",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "lavoratori"
+    ]
+  },
+  {
+    "slug": "lavoratori-rischio-specifico-medio",
+    "title": "Lavoratori – Rischio specifico medio",
+    "subtitle": "Formazione specifica obbligatoria per lavoratori in attività a rischio medio",
+    "excerpt": "Formazione specifica obbligatoria per lavoratori in attività a rischio medio, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 8 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "lavoratori"
+    ]
+  },
+  {
+    "slug": "mindfulness",
+    "title": "Mindfulness",
+    "subtitle": "Percorso per favorire il benessere psicologico e la gestione dello stress",
+    "excerpt": "Percorso per favorire il benessere psicologico e la gestione dello stress, della durata di 12 ore.",
+    "category": "benessere-psico-sociale",
+    "level": "base",
+    "modality": [
+      "aula"
+    ],
+    "tags": [
+      "benessere-psico-sociale",
+      "mindfulness"
+    ]
+  },
+  {
+    "slug": "pei-persone-idonee-all-esecuzione-norme-cei-11-27-2025",
+    "title": "PEI – Persone idonee all'esecuzione (Norme CEI 11-27:2025)",
+    "subtitle": "Formazione per l’esecuzione di semplici manovre e verifiche su impianti elettrici",
+    "excerpt": "Formazione per l’esecuzione di semplici manovre e verifiche su impianti elettrici, ai sensi di D.Lgs 81/08 art. 82, della durata di 6 ore.",
+    "category": "sicurezza",
+    "level": "base",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "pei"
+    ]
+  },
+  {
+    "slug": "pes-pav-persone-esperte-e-avvertite-norme-cei-11-27-2025",
+    "title": "PES/PAV – Persone esperte e avvertite (Norme CEI 11-27:2025)",
+    "subtitle": "Formazione per l'abilitazione a lavori elettrici sotto tensione o in prossimità",
+    "excerpt": "Formazione per l'abilitazione a lavori elettrici sotto tensione o in prossimità, ai sensi di D.Lgs 81/08 art. 82, della durata di 16 ore.",
+    "category": "sicurezza",
+    "level": "avanzato",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "pes-pav"
+    ]
+  },
+  {
+    "slug": "preposti",
+    "title": "Preposti",
+    "subtitle": "Formazione obbligatoria per lavoratori con funzioni di preposto",
+    "excerpt": "Formazione obbligatoria per lavoratori con funzioni di preposto, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 12 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "preposti"
+    ]
+  },
+  {
+    "slug": "rappresentante-dei-lavoratori-per-la-sicurezza-rls",
+    "title": "Rappresentante dei lavoratori per la sicurezza (RLS)",
+    "subtitle": "Formazione obbligatoria per il rappresentante dei lavoratori per la sicurezza",
+    "excerpt": "Formazione obbligatoria per il rappresentante dei lavoratori per la sicurezza, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 32 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "rls"
+    ]
+  },
+  {
+    "slug": "responsabili-e-addetti-alla-manutenzione-delle-cabine-elettriche-cei-78-17",
+    "title": "Responsabili e addetti alla manutenzione delle cabine elettriche (CEI 78-17)",
+    "subtitle": "Formazione specialistica per la manutenzione delle cabine elettriche",
+    "excerpt": "Formazione specialistica per la manutenzione delle cabine elettriche, ai sensi di D.Lgs 81/08 art. 82, della durata di 8 ore.",
+    "category": "sicurezza",
+    "level": "avanzato",
+    "modality": [
+      "aula"
+    ],
+    "tags": [
+      "sicurezza",
+      "cabine-elettriche"
+    ]
+  },
+  {
+    "slug": "rspp-modulo-b-propedeutico-a-tutti-i-settori-48h",
+    "title": "RSPP – Modulo B: propedeutico a tutti i settori – 48h",
+    "subtitle": "Modulo settoriale del percorso RSPP, propedeutico per chi ha già conseguito il Modulo A",
+    "excerpt": "Modulo settoriale del percorso RSPP, propedeutico per chi ha già conseguito il Modulo A, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 48 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "rspp"
+    ]
+  },
+  {
+    "slug": "rspp-modulo-b-sp1-agricoltura-silvicoltura-e-zootecnia-16h",
+    "title": "RSPP – Modulo B SP1: Agricoltura, silvicoltura e zootecnia – 16h",
+    "subtitle": "Modulo settoriale RSPP per il macrosettore agricoltura-silvicoltura-zootecnia",
+    "excerpt": "Modulo settoriale RSPP per il macrosettore agricoltura-silvicoltura-zootecnia, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 16 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "rspp"
+    ]
+  },
+  {
+    "slug": "rspp-modulo-b-sp2-settore-pesca-12h",
+    "title": "RSPP – Modulo B SP2: Settore pesca – 12h",
+    "subtitle": "Modulo settoriale RSPP per il settore pesca",
+    "excerpt": "Modulo settoriale RSPP per il settore pesca, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 12 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "rspp"
+    ]
+  },
+  {
+    "slug": "rspp-modulo-b-sp3-settore-costruzioni-16h",
+    "title": "RSPP – Modulo B SP3: Settore costruzioni – 16h",
+    "subtitle": "Modulo settoriale RSPP per il settore costruzioni",
+    "excerpt": "Modulo settoriale RSPP per il settore costruzioni, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 16 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "rspp"
+    ]
+  },
+  {
+    "slug": "rspp-modulo-b-sp4-settore-sanita-residenziale-12h",
+    "title": "RSPP – Modulo B SP4: Settore sanità residenziale – 12h",
+    "subtitle": "Modulo settoriale RSPP per il settore sanità residenziale",
+    "excerpt": "Modulo settoriale RSPP per il settore sanità residenziale, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 12 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "rspp"
+    ]
+  },
+  {
+    "slug": "rspp-modulo-b-sp5-settore-chimico-petrolchimico-16h",
+    "title": "RSPP – Modulo B SP5: Settore chimico-petrolchimico – 16h",
+    "subtitle": "Modulo settoriale RSPP per il settore chimico-petrolchimico",
+    "excerpt": "Modulo settoriale RSPP per il settore chimico-petrolchimico, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 16 ore.",
+    "category": "sicurezza",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "rspp"
+    ]
+  },
+  {
+    "slug": "rspp-modulo-c-gestione-e-organizzazione-24h",
+    "title": "RSPP – Modulo C: Gestione e organizzazione – 24h",
+    "subtitle": "Modulo gestionale-organizzativo conclusivo del percorso RSPP, comune a tutti i settori",
+    "excerpt": "Modulo gestionale-organizzativo conclusivo del percorso RSPP, comune a tutti i settori, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 24 ore.",
+    "category": "sicurezza",
+    "level": "avanzato",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "sicurezza",
+      "rspp"
+    ]
+  },
+  {
+    "slug": "sostenibilita-per-le-pmi-il-bilancio-di-sostenibilita-come-strumento-strategico",
+    "title": "Sostenibilità per le PMI – Il bilancio di sostenibilità come strumento strategico",
+    "subtitle": "Formazione sulla sostenibilità per le PMI e sul bilancio di sostenibilità come strumento strategico",
+    "excerpt": "Formazione sulla sostenibilità per le PMI e sul bilancio di sostenibilità come strumento strategico, ai sensi di D.Lgs 152/06, della durata di 4 ore.",
+    "category": "ambiente",
+    "level": "intermedio",
+    "modality": [
+      "aula",
+      "online"
+    ],
+    "tags": [
+      "ambiente",
+      "sostenibilita"
+    ]
+  },
+  {
     "slug": "iso-45001-implementatore",
     "title": "Implementatore ISO 45001:2018",
     "subtitle": "Progettare e implementare un Sistema di Gestione per la Salute e Sicurezza sul Lavoro",
