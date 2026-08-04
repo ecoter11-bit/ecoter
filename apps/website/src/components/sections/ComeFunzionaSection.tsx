@@ -7,6 +7,7 @@ import {
   CalendarCheck,
   type LucideIcon,
 } from 'lucide-react'
+import { IconCircle } from '@ecoter/ui'
 import { Container } from '@/components/layout'
 import {
   slideUp,
@@ -85,9 +86,11 @@ export function ComeFunzionaSection() {
                   className="relative flex flex-col items-center text-center"
                 >
                   <div className="relative z-10 mb-5">
-                    <div className="flex size-14 items-center justify-center rounded-full bg-brand-600 shadow-sm">
-                      <Icon className="size-6 text-white" aria-hidden="true" />
-                    </div>
+                    <IconCircle
+                      color="brand"
+                      icon={<Icon aria-hidden="true" />}
+                      className="shadow-sm"
+                    />
                     <span
                       className="absolute -top-1.5 -right-1.5 flex size-5 items-center justify-center rounded-full bg-amber-400 text-caption font-bold text-brand-900"
                       aria-hidden="true"
