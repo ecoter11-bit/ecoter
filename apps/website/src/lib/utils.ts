@@ -64,11 +64,23 @@ export function isExternalUrl(url: string): boolean {
   return /^https?:\/\//.test(url)
 }
 
-/** `"28h · 4 giorni"` when `days` is set, else `"28 ore"` — mirrors CourseCard's original inline derivation, now shared with the course detail page. */
+const HALF_DAY_HOURS = 4
+
+/**
+ * `"28h · 4 giorni"` when `days` is set, else `"28 ore"`. When the average
+ * hours per session is under half a day (e.g. counseling 50', mindfulness
+ * 1h30'), uses `"incontri"` instead of `"giorni"` — "N giorni" is misleading
+ * for short-session courses. Mirrors CourseCard's original inline
+ * derivation, now shared with the course detail page.
+ */
 export function formatCourseDuration(duration: Course['duration']): string {
-  return duration.days != null
-    ? `${duration.hours}h · ${duration.days} ${pluralize(duration.days, 'giorno', 'giorni')}`
-    : `${duration.hours} ore`
+  if (duration.days == null) return `${duration.hours} ore`
+  const hoursPerSession = duration.hours / duration.days
+  const [singular, plural] =
+    hoursPerSession < HALF_DAY_HOURS
+      ? ['incontro', 'incontri']
+      : ['giorno', 'giorni']
+  return `${duration.hours}h · ${duration.days} ${pluralize(duration.days, singular, plural)}`
 }
 
 /** `"€ 490"` for fixed pricing, `"Su richiesta"` for on-request. */

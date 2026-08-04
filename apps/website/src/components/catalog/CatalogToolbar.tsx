@@ -1,7 +1,7 @@
 'use client'
 
 import { Search, X, SlidersHorizontal } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/utils'
 import type { CategoryWithCount } from '@/types'
 
@@ -48,6 +48,8 @@ const DURATION_OPTIONS = [
   { value: 'intensivo', label: 'Intensivo (> 24h)' },
 ]
 
+const SEARCH_DEBOUNCE_MS = 280
+
 const SORT_OPTIONS = [
   { value: 'recente', label: 'Più recenti' },
   { value: 'durata-asc', label: 'Durata crescente' },
@@ -72,6 +74,57 @@ export function CatalogToolbar({
 }: Props) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
+  /* Local, immediately-responsive search text — decoupled from the URL so
+     typing never waits on a router transition. `lastSentQuery` tracks the
+     value WE last asked the parent to commit (set synchronously the moment
+     we call onChange, not when the prop echo for it arrives) — comparing
+     filters.query against that, rather than against the last prop seen,
+     means a slow round trip for an older keystroke can't clobber newer
+     local typing that happened while it was in flight. Synced during render
+     (not in an effect) per React's "adjusting state when a prop changes"
+     pattern. Reset/clear update both pieces of state synchronously so their
+     own echo is never mistaken for an external change either. */
+  const [localQuery, setLocalQuery] = useState(filters.query)
+  const [lastSentQuery, setLastSentQuery] = useState(filters.query)
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  if (filters.query !== lastSentQuery) {
+    setLastSentQuery(filters.query)
+    setLocalQuery(filters.query)
+  }
+
+  useEffect(() => {
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current)
+    }
+  }, [])
+
+  function handleQueryChange(value: string) {
+    setLocalQuery(value)
+    if (debounceRef.current) clearTimeout(debounceRef.current)
+    debounceRef.current = setTimeout(() => {
+      setLastSentQuery(value)
+      onChange('query', value)
+    }, SEARCH_DEBOUNCE_MS)
+  }
+
+  function handleQueryClear() {
+    setLocalQuery('')
+    setLastSentQuery('')
+    if (debounceRef.current) clearTimeout(debounceRef.current)
+    onChange('query', '')
+  }
+
+  /* Reset clears the query locally in the same tick rather than waiting for
+     the URL round trip, so a debounce already in flight can't reintroduce
+     the just-cleared text after Reset navigates the URL away from it. */
+  function handleReset() {
+    setLocalQuery('')
+    setLastSentQuery('')
+    if (debounceRef.current) clearTimeout(debounceRef.current)
+    onReset()
+  }
+
   return (
     <div
       className={cn(
@@ -90,8 +143,8 @@ export function CatalogToolbar({
             />
             <input
               type="search"
-              value={filters.query}
-              onChange={(e) => onChange('query', e.target.value)}
+              value={localQuery}
+              onChange={(e) => handleQueryChange(e.target.value)}
               placeholder="Cerca corsi, normative, temi…"
               aria-label="Cerca corsi"
               className={cn(
@@ -99,10 +152,10 @@ export function CatalogToolbar({
                 'transition-colors duration-150 hover:border-neutral-300 focus:border-brand-600 focus:ring-1 focus:ring-brand-300 focus:outline-none'
               )}
             />
-            {filters.query && (
+            {localQuery && (
               <button
                 type="button"
-                onClick={() => onChange('query', '')}
+                onClick={handleQueryClear}
                 className="absolute top-1/2 right-2 -translate-y-1/2 rounded p-0.5 text-neutral-400 hover:text-neutral-700"
                 aria-label="Cancella ricerca"
               >
@@ -185,7 +238,7 @@ export function CatalogToolbar({
             {activeCount > 0 && (
               <button
                 type="button"
-                onClick={onReset}
+                onClick={handleReset}
                 className="flex items-center gap-1.5 rounded-lg border border-neutral-200 px-3 py-1.5 text-xs font-semibold text-neutral-600 transition-all duration-150 hover:border-neutral-300 hover:text-neutral-900"
               >
                 <X className="size-3" aria-hidden="true" />
@@ -315,7 +368,7 @@ export function CatalogToolbar({
             {activeCount > 0 && (
               <button
                 type="button"
-                onClick={onReset}
+                onClick={handleReset}
                 className="col-span-2 flex items-center justify-center gap-1.5 rounded-lg border border-neutral-200 py-2 text-sm font-semibold text-neutral-600 transition-colors duration-150 hover:text-neutral-900"
               >
                 <X className="size-3.5" aria-hidden="true" />
