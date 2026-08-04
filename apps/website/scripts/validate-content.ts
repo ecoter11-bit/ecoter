@@ -2,11 +2,16 @@ import { existsSync, readdirSync, readFileSync } from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
 import { ZodError } from 'zod'
-import { courseFrontmatterSchema, categorySchema } from '@/lib/validation'
+import {
+  courseFrontmatterSchema,
+  categorySchema,
+  siteSettingsSchema,
+} from '@/lib/validation'
 
 const CONTENT_DIR = join(process.cwd(), 'content')
 const COURSES_DIR = join(CONTENT_DIR, 'courses')
 const CATEGORIES_DIR = join(CONTENT_DIR, 'categories')
+const SETTINGS_FILE = join(CONTENT_DIR, 'settings', 'site.json')
 
 let errors = 0
 let validated = 0
@@ -73,9 +78,39 @@ function validateCategories(): void {
   }
 }
 
+function validateSettings(): void {
+  if (!existsSync(SETTINGS_FILE)) {
+    console.warn(`[WARN] File impostazioni non trovato: ${SETTINGS_FILE}`)
+    return
+  }
+
+  console.log(`\n📂 Impostazioni sito`)
+
+  try {
+    const raw = readFileSync(SETTINGS_FILE, 'utf-8')
+    const data: unknown = JSON.parse(raw)
+    const settings = siteSettingsSchema.parse(data)
+    console.log(`  ✓ site.json`)
+    if (settings.contactInfoProvisional) {
+      console.warn(
+        `  ⚠ Recapiti contrassegnati come provvisori (contactInfoProvisional: true) — ${settings.contactInfoNote ?? 'da confermare prima del lancio.'}`
+      )
+    }
+    validated++
+  } catch (err) {
+    errors++
+    if (err instanceof ZodError) {
+      console.error(`  ✗ site.json\n${formatZodError(err)}`)
+    } else {
+      console.error(`  ✗ site.json: ${String(err)}`)
+    }
+  }
+}
+
 console.log('🔍 ECOTER Academy – Validazione contenuti\n')
 validateCourses()
 validateCategories()
+validateSettings()
 
 console.log(`\n${'─'.repeat(40)}`)
 if (errors === 0) {
