@@ -8,17 +8,24 @@ export const siteConfig = {
   locale: 'it_IT',
   language: 'it',
   founder: 'ECOTER Srl',
-  email: 'formazione@ecoter.it',
-  phone: '',
+  /**
+   * Contact fields mirror `content/settings/site.json` (loaded via
+   * `getSiteSettings()` for /contatti) — inherited from the parent company
+   * (ECOTER Srl, sicurezzalavoroeambiente.it), NOT yet confirmed as the
+   * Academy's own. Keep both in sync until there's a single source of
+   * truth; see `content/settings/site.json`'s `contactInfoProvisional`.
+   */
+  email: 'info@eco-ter.com',
+  phone: '+39 051 4690064',
   address: {
-    street: '',
-    city: '',
-    postalCode: '',
-    region: '',
+    street: 'Via del Lavoro, 2',
+    city: 'Pianoro (BO)',
+    postalCode: '40065',
+    region: 'Emilia-Romagna',
     country: 'IT',
   },
   socials: {
-    linkedin: '',
+    linkedin: 'https://linkedin.com/company/ecoter',
   },
   seo: {
     titleSeparator: '|',

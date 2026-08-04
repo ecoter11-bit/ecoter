@@ -1,9 +1,8 @@
 import Link from 'next/link'
-import { Clock, Award, Mail, Phone } from 'lucide-react'
+import { Clock, Award, Mail, MessageCircle } from 'lucide-react'
 import { buttonVariants } from '@ecoter/ui'
 import { cn, formatCourseDuration, formatCoursePrice } from '@/lib/utils'
 import { modalityIcon, modalityLabel } from '@/lib/badge-mappings'
-import { siteConfig } from '@/config/site'
 import type { Course } from '@/types'
 
 type Props = {
@@ -76,29 +75,20 @@ export function CourseSidebarCta({ course, className }: Props) {
           Richiedi informazioni
         </Link>
 
-        {siteConfig.phone ? (
-          <a
-            href={`tel:${siteConfig.phone}`}
-            className={cn(
-              buttonVariants({ variant: 'outline-brand' }),
-              'h-12 w-full gap-2 px-6 text-base font-semibold'
-            )}
-          >
-            <Phone className="size-4" aria-hidden="true" />
-            Chiama ora
-          </a>
-        ) : (
-          <Link
-            href="/contatti"
-            className={cn(
-              buttonVariants({ variant: 'outline-brand' }),
-              'h-12 w-full gap-2 px-6 text-base font-semibold'
-            )}
-          >
-            <Phone className="size-4" aria-hidden="true" />
-            Parla con noi
-          </Link>
-        )}
+        {/* Always /contatti (course pre-filled), not tel: — both CTAs on
+         * this card funnel into the same form by design, so the icon reads
+         * as "get in touch" rather than "place a call" (MessageCircle, not
+         * Phone — the number itself is only ever a tel: link on /contatti). */}
+        <Link
+          href={`/contatti?corso=${course.slug}`}
+          className={cn(
+            buttonVariants({ variant: 'outline-brand' }),
+            'h-12 w-full gap-2 px-6 text-base font-semibold'
+          )}
+        >
+          <MessageCircle className="size-4" aria-hidden="true" />
+          Parla con noi
+        </Link>
       </div>
     </div>
   )
