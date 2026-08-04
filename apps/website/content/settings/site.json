@@ -3,15 +3,19 @@
   "tagline": "Formazione professionale per chi costruisce la sicurezza",
   "description": "Ente di formazione professionale specializzato in sicurezza sul lavoro, qualità, ambiente e sistemi di gestione.",
   "url": "https://academy.ecoter.it",
-  "email": "formazione@ecoter.it",
-  "phone": "+39 0000 000000",
+  "email": "info@eco-ter.com",
+  "phone": "+39 051 4690064",
   "address": {
-    "street": "Via Example, 1",
-    "city": "Milano",
-    "province": "MI",
-    "cap": "20100",
+    "street": "Via del Lavoro, 2",
+    "city": "Pianoro",
+    "province": "BO",
+    "cap": "40065",
     "country": "IT"
   },
+  "hours": "Lun–Ven 9:00–13:00, 14:00–18:00",
+  "vatNumber": "02252491200",
+  "contactInfoProvisional": true,
+  "contactInfoNote": "Recapiti ereditati dalla casa madre ECOTER Srl (sicurezzalavoroeambiente.it) — da confermare/aggiornare con i recapiti dedicati di ECOTER Academy prima del lancio.",
   "social": {
     "linkedin": "https://linkedin.com/company/ecoter",
     "youtube": ""
