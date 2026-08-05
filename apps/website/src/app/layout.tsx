@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
 import { defaultMetadata } from '@/config/seo'
 import { SiteLayout } from '@/components/layout'
+import { MotionProvider } from '@/components/motion/MotionProvider'
 import './globals.css'
 
 /* ─── Fonts ───────────────────────────────────────────────────────────────── */
@@ -49,7 +50,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-background text-foreground antialiased">
-        <SiteLayout>{children}</SiteLayout>
+        <MotionProvider>
+          <SiteLayout>{children}</SiteLayout>
+        </MotionProvider>
       </body>
     </html>
   )
