@@ -25,8 +25,10 @@ export const siteConfig = {
     country: 'IT',
   },
   socials: {
-    linkedin: 'https://linkedin.com/company/ecoter',
+    linkedin: 'https://www.linkedin.com/company/eco-ter-srl/',
   },
+  /** Parent company site (ECOTER Srl) — linked from the footer. */
+  parentSite: 'https://sicurezzalavoroeambiente.it/',
   seo: {
     titleSeparator: '|',
     titleTemplate: '%s | ECOTER Academy',

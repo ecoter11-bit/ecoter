@@ -15,17 +15,8 @@ import { siteConfig } from '@/config/site'
 
 export function CtaFinaleSection() {
   return (
-    <section
-      aria-labelledby="cta-heading"
-      className="relative overflow-hidden bg-brand-900 text-white"
-    >
-      <div className="bg-grid-pattern absolute inset-0" aria-hidden="true" />
-      <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_120%,color-mix(in_srgb,var(--color-eco-500)_20%,transparent),transparent)]"
-        aria-hidden="true"
-      />
-
-      <Container className="section-padding relative text-center">
+    <section aria-labelledby="cta-heading" className="bg-brand-50">
+      <Container className="section-padding text-center">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -33,21 +24,21 @@ export function CtaFinaleSection() {
           viewport={viewportOnce}
           className="mx-auto max-w-2xl"
         >
-          <motion.p variants={slideUp} className="mb-4 text-eco-300 overline">
+          <motion.p variants={slideUp} className="mb-4 text-brand-600 overline">
             Inizia ora
           </motion.p>
 
           <motion.h2
             id="cta-heading"
             variants={slideUp}
-            className="mb-4 font-heading text-3xl font-light tracking-tight text-balance lg:text-4xl"
+            className="mb-4 font-heading text-3xl font-light tracking-tight text-balance text-neutral-950 lg:text-4xl"
           >
             Pronto a mettere la tua azienda in regola?
           </motion.h2>
 
           <motion.p
             variants={slideUp}
-            className="mb-10 text-lg text-pretty text-brand-200"
+            className="mb-10 text-lg text-pretty text-neutral-600"
           >
             Contattaci per ricevere un preventivo gratuito e personalizzato.
             Rispondiamo entro un giorno lavorativo.
@@ -61,10 +52,7 @@ export function CtaFinaleSection() {
               href="/contatti"
               className={cn(
                 buttonVariants({ variant: 'default' }),
-                // See FormazioneObbligatoriaSection: `--ring` (brand-600) fails
-                // 3:1 on this dark surface — brand-300 clears it (~8.4:1 on
-                // brand-900, ~4.3:1 on the eco-600 fill).
-                'h-12 gap-2 bg-eco-600 px-8 text-base font-semibold text-white hover:bg-eco-700 focus-visible:border-brand-300 focus-visible:ring-brand-300/50'
+                'h-12 gap-2 bg-brand-600 px-8 text-base font-semibold text-white hover:bg-brand-700'
               )}
             >
               <Mail className="size-4" aria-hidden="true" />
@@ -75,8 +63,8 @@ export function CtaFinaleSection() {
               <a
                 href={`tel:${siteConfig.phone}`}
                 className={cn(
-                  buttonVariants({ variant: 'outline' }),
-                  'h-12 gap-2 border-brand-400 bg-transparent px-8 text-base font-semibold text-white hover:border-brand-300 hover:bg-brand-800 hover:text-white focus-visible:border-brand-300 focus-visible:ring-brand-300/50'
+                  buttonVariants({ variant: 'outline-brand' }),
+                  'h-12 gap-2 px-8 text-base font-semibold'
                 )}
               >
                 <Phone className="size-4" aria-hidden="true" />
@@ -86,8 +74,8 @@ export function CtaFinaleSection() {
               <Link
                 href="/contatti"
                 className={cn(
-                  buttonVariants({ variant: 'outline' }),
-                  'h-12 gap-2 border-brand-400 bg-transparent px-8 text-base font-semibold text-white hover:border-brand-300 hover:bg-brand-800 hover:text-white focus-visible:border-brand-300 focus-visible:ring-brand-300/50'
+                  buttonVariants({ variant: 'outline-brand' }),
+                  'h-12 gap-2 px-8 text-base font-semibold'
                 )}
               >
                 <Phone className="size-4" aria-hidden="true" />

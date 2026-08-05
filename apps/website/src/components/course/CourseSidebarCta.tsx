@@ -11,7 +11,7 @@ type Props = {
 }
 
 export function CourseSidebarCta({ course, className }: Props) {
-  const price = formatCoursePrice(course.pricing)
+  const isFixedPrice = course.pricing.type === 'fixed'
 
   return (
     <div
@@ -20,16 +20,23 @@ export function CourseSidebarCta({ course, className }: Props) {
         className
       )}
     >
-      <p className="font-heading text-3xl font-bold text-neutral-950">
-        {price}
-      </p>
-      {course.pricing.type === 'fixed' && (
-        <p className="mt-1 text-xs text-neutral-500">
-          IVA esclusa, a partecipante
-        </p>
+      {isFixedPrice && (
+        <>
+          <p className="font-heading text-3xl font-bold text-neutral-950">
+            {formatCoursePrice(course.pricing)}
+          </p>
+          <p className="mt-1 text-xs text-neutral-600">
+            IVA esclusa, a partecipante
+          </p>
+        </>
       )}
 
-      <dl className="mt-5 space-y-3 border-t border-neutral-100 pt-5 text-sm text-neutral-600">
+      <dl
+        className={cn(
+          'space-y-3 text-sm text-neutral-600',
+          isFixedPrice && 'mt-5 border-t border-neutral-100 pt-5'
+        )}
+      >
         <div className="flex items-center gap-2.5">
           <Clock
             className="size-4 shrink-0 text-brand-600"
