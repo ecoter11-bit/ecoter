@@ -37,7 +37,7 @@ export function CourseCard({ course, className }: Props) {
     categoryBadgeColor[course.category] ?? defaultCategoryBadgeColor
   const levelColor = levelBadgeColor[course.level] ?? 'neutral'
 
-  const price = formatCoursePrice(course.pricing)
+  const isFixedPrice = course.pricing.type === 'fixed'
   const durationLabel = formatCourseDuration(course.duration)
 
   const primaryNorm = course.normativeRef?.[0]
@@ -110,8 +110,17 @@ export function CourseCard({ course, className }: Props) {
         </p>
 
         {/* Footer */}
-        <div className="mt-5 flex items-center justify-between border-t border-neutral-100 pt-5">
-          <span className="text-base font-bold text-neutral-950">{price}</span>
+        <div
+          className={cn(
+            'mt-5 flex items-center border-t border-neutral-100 pt-5',
+            isFixedPrice ? 'justify-between' : 'justify-end'
+          )}
+        >
+          {isFixedPrice && (
+            <span className="text-base font-bold text-neutral-950">
+              {formatCoursePrice(course.pricing)}
+            </span>
+          )}
           <Link
             href={`/corsi/${course.slug}`}
             className={cn(

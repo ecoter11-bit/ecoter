@@ -42,7 +42,7 @@ export function DiscoveryCards({ categories, normativeRefs }: Props) {
             <h3 className="mb-2 font-heading text-lg font-bold text-neutral-950">
               Per argomento
             </h3>
-            <p className="mb-5 text-sm leading-relaxed text-neutral-500">
+            <p className="mb-5 text-sm leading-relaxed text-neutral-600">
               Sfoglia il catalogo per area tematica e trova i corsi della
               materia che ti serve.
             </p>
@@ -66,15 +66,15 @@ export function DiscoveryCards({ categories, normativeRefs }: Props) {
             </Link>
           </div>
 
-          {/* Card 2 — Per figura professionale (dark) */}
-          <div className="flex flex-col overflow-hidden rounded-2xl border border-brand-800 bg-brand-900 p-7">
-            <div className="mb-5 flex size-12 items-center justify-center rounded-xl bg-brand-800">
-              <Users className="size-6 text-eco-400" aria-hidden="true" />
+          {/* Card 2 — Per figura professionale */}
+          <div className="flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white p-7">
+            <div className="mb-5 flex size-12 items-center justify-center rounded-xl bg-blue-50">
+              <Users className="size-6 text-blue-600" aria-hidden="true" />
             </div>
-            <h3 className="mb-2 font-heading text-lg font-bold text-white">
+            <h3 className="mb-2 font-heading text-lg font-bold text-neutral-950">
               Per figura professionale
             </h3>
-            <p className="mb-5 text-sm leading-relaxed text-brand-200">
+            <p className="mb-5 text-sm leading-relaxed text-neutral-600">
               Scegli il tuo ruolo e visualizza i percorsi formativi rilevanti
               per te.
             </p>
@@ -83,7 +83,7 @@ export function DiscoveryCards({ categories, normativeRefs }: Props) {
                 <Link
                   key={a.href}
                   href={a.href}
-                  className="rounded-full border border-brand-700 bg-brand-800 px-3 py-1 text-xs font-medium text-brand-200 transition-all duration-200 hover:border-eco-300 hover:bg-brand-700 hover:text-white"
+                  className="rounded-full border border-neutral-200 px-3 py-1 text-xs font-medium text-neutral-700 transition-all duration-200 hover:border-blue-500 hover:bg-blue-50 hover:text-blue-700"
                 >
                   {a.label}
                 </Link>
@@ -91,7 +91,7 @@ export function DiscoveryCards({ categories, normativeRefs }: Props) {
             </div>
             <Link
               href="/corsi"
-              className="mt-auto flex items-center gap-1.5 text-sm font-semibold text-eco-300 transition-all duration-200 hover:gap-2.5"
+              className="mt-auto flex items-center gap-1.5 text-sm font-semibold text-blue-600 transition-all duration-200 hover:gap-2.5"
             >
               Tutti i corsi
               <ArrowRight className="size-4" aria-hidden="true" />
@@ -106,7 +106,7 @@ export function DiscoveryCards({ categories, normativeRefs }: Props) {
             <h3 className="mb-2 font-heading text-lg font-bold text-neutral-950">
               Per normativa
             </h3>
-            <p className="mb-5 text-sm leading-relaxed text-neutral-500">
+            <p className="mb-5 text-sm leading-relaxed text-neutral-600">
               Parti dalla legge che devi rispettare e trova i corsi che ti
               mettono in regola.
             </p>

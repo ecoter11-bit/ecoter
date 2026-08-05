@@ -29,26 +29,26 @@ export function FormazioneObbligatoriaSection() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
-            className="overflow-hidden rounded-2xl bg-brand-900 p-8 text-white md:p-12"
+            className="overflow-hidden rounded-2xl border border-brand-100 bg-white p-8 md:p-12"
           >
             <div className="lg:flex lg:items-center lg:gap-12">
               <div className="flex-1">
                 <motion.p
                   variants={slideUp}
-                  className="mb-4 text-eco-300 overline"
+                  className="mb-4 text-brand-600 overline"
                 >
                   Sei in regola?
                 </motion.p>
                 <motion.h2
                   id="obbligatoria-heading"
                   variants={slideUp}
-                  className="mb-4 font-heading text-2xl font-light tracking-tight text-balance md:text-3xl"
+                  className="mb-4 font-heading text-2xl font-light tracking-tight text-balance text-neutral-950 md:text-3xl"
                 >
                   Formazione obbligatoria: trova il tuo percorso in pochi click
                 </motion.h2>
                 <motion.p
                   variants={slideUp}
-                  className="mb-6 text-pretty text-brand-200"
+                  className="mb-6 text-pretty text-neutral-600"
                 >
                   La normativa prevede percorsi formativi diversi a seconda
                   della figura professionale, del settore ATECO e del livello di
@@ -65,10 +65,10 @@ export function FormazioneObbligatoriaSection() {
                     <motion.li
                       key={item}
                       variants={slideUp}
-                      className="flex items-start gap-3 text-sm text-brand-200"
+                      className="flex items-start gap-3 text-sm text-neutral-600"
                     >
                       <ShieldCheck
-                        className="mt-0.5 size-4 shrink-0 text-eco-400"
+                        className="mt-0.5 size-4 shrink-0 text-brand-600"
                         aria-hidden="true"
                       />
                       {item}
@@ -81,10 +81,7 @@ export function FormazioneObbligatoriaSection() {
                     href="/wizard"
                     className={cn(
                       buttonVariants({ variant: 'default' }),
-                      // The shared focus ring (`--ring` = brand-600) is AA-verified
-                      // on white but drops to ~2.6:1 here on brand-900/eco-600 —
-                      // override with brand-300 for a dark-surface-safe indicator.
-                      'h-12 gap-2 bg-eco-600 px-8 text-base font-semibold text-white hover:bg-eco-700 focus-visible:border-brand-300 focus-visible:ring-brand-300/50'
+                      'h-12 gap-2 bg-brand-600 px-8 text-base font-semibold text-white hover:bg-brand-700'
                     )}
                   >
                     Avvia il wizard
@@ -98,8 +95,8 @@ export function FormazioneObbligatoriaSection() {
                 className="mt-10 hidden shrink-0 lg:mt-0 lg:block"
                 aria-hidden="true"
               >
-                <div className="flex size-40 items-center justify-center rounded-full bg-brand-800/60 ring-1 ring-brand-700">
-                  <ShieldCheck className="size-20 text-eco-400" />
+                <div className="flex size-40 items-center justify-center rounded-full bg-brand-50 ring-1 ring-brand-100">
+                  <ShieldCheck className="size-20 text-brand-600" />
                 </div>
               </motion.div>
             </div>

@@ -42,13 +42,15 @@ export default function CatalogPage() {
   return (
     <>
       {/* ─── Page hero ──────────────────────────────────────────────────── */}
-      <div className="border-b border-neutral-200 bg-brand-900">
+      <div className="border-b border-neutral-200 bg-white">
         <div className="container-default py-10 lg:py-12">
-          <p className="mb-3 text-eco-300 overline">Formazione professionale</p>
-          <h1 className="font-heading text-3xl font-extrabold tracking-tight text-balance text-white lg:text-4xl">
+          <p className="mb-3 text-brand-600 overline">
+            Formazione professionale
+          </p>
+          <h1 className="font-heading text-3xl font-light tracking-tight text-balance text-neutral-950 lg:text-4xl">
             Catalogo corsi
           </h1>
-          <p className="mt-3 max-w-xl text-pretty text-brand-200">
+          <p className="mt-3 max-w-xl text-pretty text-neutral-600">
             Trova il percorso formativo giusto per la tua azienda o il tuo ruolo
             professionale — attestati validi ai fini di legge, sempre aggiornati
             alle normative vigenti.
