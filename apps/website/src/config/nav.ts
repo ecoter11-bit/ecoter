@@ -57,10 +57,10 @@ export const audienceNav: NavGroup = {
 export const modalityNav: NavGroup = {
   label: 'Modalità di erogazione',
   items: [
-    { label: 'In Aula', href: '/corsi?modalita=aula' },
-    { label: 'Online', href: '/corsi?modalita=online' },
+    { label: 'In Aula', href: '/corsi?mod=aula' },
+    { label: 'Online', href: '/corsi?mod=online' },
     { label: 'In House', href: '/soluzioni/in-house' },
-    { label: 'Blended', href: '/corsi?modalita=blended' },
+    { label: 'Blended', href: '/corsi?mod=blended' },
   ],
 }
 

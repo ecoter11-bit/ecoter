@@ -145,7 +145,7 @@ export function CatalogToolbar({
               type="search"
               value={localQuery}
               onChange={(e) => handleQueryChange(e.target.value)}
-              placeholder="Cerca corsi, normative, temi…"
+              placeholder="Cerca corsi…"
               aria-label="Cerca corsi"
               className={cn(
                 'h-9 w-full rounded-lg border border-neutral-200 bg-white pr-3 pl-9 text-sm text-neutral-900 placeholder:text-neutral-400',
