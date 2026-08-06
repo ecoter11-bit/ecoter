@@ -4,9 +4,24 @@ import { Footer } from './Footer'
 
 type SiteLayoutProps = {
   children: React.ReactNode
+  privacyPolicyHref: string
+  cookiePolicyHref: string
 }
 
-export function SiteLayout({ children }: SiteLayoutProps) {
+/**
+ * Legal URLs are threaded in as props (not read here via `getSiteSettings()`)
+ * because this component — like `Footer` — is re-exported from the shared
+ * `@/components/layout` barrel that client components import `Container`
+ * from. Any `fs`-touching import reachable from a barrel-exported module
+ * breaks client bundling, even if the client component never renders this
+ * one. Only the root `layout.tsx` (never imported by client code) reads
+ * settings from disk.
+ */
+export function SiteLayout({
+  children,
+  privacyPolicyHref,
+  cookiePolicyHref,
+}: SiteLayoutProps) {
   return (
     <>
       <SkipToContent />
@@ -14,7 +29,10 @@ export function SiteLayout({ children }: SiteLayoutProps) {
       <main id="main-content" className="flex-1">
         {children}
       </main>
-      <Footer />
+      <Footer
+        privacyPolicyHref={privacyPolicyHref}
+        cookiePolicyHref={cookiePolicyHref}
+      />
     </>
   )
 }

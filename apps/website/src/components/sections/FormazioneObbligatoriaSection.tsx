@@ -52,8 +52,8 @@ export function FormazioneObbligatoriaSection() {
                 >
                   La normativa prevede percorsi formativi diversi a seconda
                   della figura professionale, del settore ATECO e del livello di
-                  rischio dell&apos;azienda. Il nostro wizard ti guida nella
-                  scelta corretta.
+                  rischio dell&apos;azienda. Filtra il catalogo per normativa e
+                  trova subito il percorso corretto.
                 </motion.p>
 
                 <motion.ul
@@ -78,13 +78,13 @@ export function FormazioneObbligatoriaSection() {
 
                 <motion.div variants={slideUp}>
                   <Link
-                    href="/wizard"
+                    href="/corsi"
                     className={cn(
                       buttonVariants({ variant: 'default' }),
                       'h-12 gap-2 bg-brand-600 px-8 text-base font-semibold text-white hover:bg-brand-700'
                     )}
                   >
-                    Avvia il wizard
+                    Trova il corso per normativa
                     <ChevronRight className="size-4" aria-hidden="true" />
                   </Link>
                 </motion.div>

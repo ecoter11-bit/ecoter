@@ -32,9 +32,9 @@ export const siteSettingsSchema = z.object({
     youtube: z.string().default(''),
   }),
   certifications: z.array(siteCertificationSchema).default([]),
+  /** External URLs on the parent company's site (sicurezzalavoroeambiente.it) — ECOTER Academy has no legal pages of its own. */
   cookiePolicy: z.string(),
   privacyPolicy: z.string(),
-  termsOfService: z.string(),
 })
 
 export type SiteSettings = z.infer<typeof siteSettingsSchema>

@@ -30,14 +30,12 @@ const ICON_MAP: Record<string, LucideIcon> = {
 type MobileNavProps = {
   mainNav: NavItem[]
   courseCategories: NavCategory[]
-  audienceNav: NavGroup
   modalityNav: NavGroup
 }
 
 export function MobileNav({
   mainNav,
   courseCategories,
-  audienceNav,
   modalityNav,
 }: MobileNavProps) {
   const [open, setOpen] = useState(false)
@@ -213,29 +211,6 @@ export function MobileNav({
                                 </li>
                               )
                             })}
-                          </ul>
-
-                          <div className="my-3 border-t border-border" />
-
-                          <p className="mb-1.5 px-2 text-[10px] font-semibold tracking-wider text-neutral-400 uppercase">
-                            {audienceNav.label}
-                          </p>
-                          <ul className="space-y-0.5" role="list">
-                            {audienceNav.items.map((item) => (
-                              <li key={item.href}>
-                                <Link
-                                  href={item.href}
-                                  onClick={() => setOpen(false)}
-                                  className="flex items-center gap-2 rounded-lg px-2.5 py-2 text-sm text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-foreground"
-                                >
-                                  <ChevronRight
-                                    className="h-3.5 w-3.5 text-neutral-400"
-                                    aria-hidden="true"
-                                  />
-                                  {item.label}
-                                </Link>
-                              </li>
-                            ))}
                           </ul>
 
                           <div className="my-3 border-t border-border" />

@@ -6,6 +6,11 @@ import { footerNav } from '@/config/nav'
 import { AcademyTag, EcoterLogo } from '@/components/ui/LogoEcoter'
 import { Container } from './Container'
 
+type FooterProps = {
+  privacyPolicyHref: string
+  cookiePolicyHref: string
+}
+
 /**
  * lucide-react ships no brand/logo icons (LinkedIn included) — inlined here
  * rather than adding an icon library for one glyph, same call as the
@@ -19,19 +24,14 @@ function LinkedinIcon(props: React.ComponentProps<'svg'>) {
   )
 }
 
-export function Footer() {
+export function Footer({ privacyPolicyHref, cookiePolicyHref }: FooterProps) {
   const year = new Date().getFullYear()
 
   // Cast to string to avoid narrowing issues with `as const` literal types
   const phone = siteConfig.phone as string
   const linkedin = siteConfig.socials.linkedin as string
 
-  const navSections = [
-    footerNav.courses,
-    footerNav.solutions,
-    footerNav.resources,
-    footerNav.company,
-  ] as const
+  const navSections = [footerNav.courses, footerNav.company] as const
 
   return (
     <footer
@@ -40,7 +40,7 @@ export function Footer() {
     >
       <Container>
         {/* Main grid */}
-        <div className="grid gap-10 pt-14 pb-10 sm:grid-cols-2 lg:grid-cols-6">
+        <div className="grid gap-10 pt-14 pb-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link
@@ -171,28 +171,34 @@ export function Footer() {
           <nav aria-label="Link legali">
             <ul className="flex flex-wrap items-center gap-4">
               <li>
-                <Link
-                  href="/privacy"
-                  className="transition-colors hover:text-brand-700"
+                <a
+                  href={privacyPolicyHref}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-1 transition-colors hover:text-brand-700"
                 >
                   Privacy Policy
-                </Link>
+                  <ExternalLink className="size-3" aria-hidden="true" />
+                  <span className="sr-only">
+                    {' '}
+                    (si apre in una nuova scheda, sito ECO-TER Srl)
+                  </span>
+                </a>
               </li>
               <li>
-                <Link
-                  href="/cookie"
-                  className="transition-colors hover:text-brand-700"
+                <a
+                  href={cookiePolicyHref}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-1 transition-colors hover:text-brand-700"
                 >
                   Cookie Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/note-legali"
-                  className="transition-colors hover:text-brand-700"
-                >
-                  Note Legali
-                </Link>
+                  <ExternalLink className="size-3" aria-hidden="true" />
+                  <span className="sr-only">
+                    {' '}
+                    (si apre in una nuova scheda, sito ECO-TER Srl)
+                  </span>
+                </a>
               </li>
             </ul>
           </nav>

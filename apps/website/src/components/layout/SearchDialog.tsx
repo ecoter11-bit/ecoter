@@ -22,7 +22,7 @@ const POPULAR_SEARCHES = [
 
 const QUICK_LINKS = [
   { label: 'Tutti i corsi', href: '/corsi' },
-  { label: 'Calendario corsi', href: '/calendario' },
+  { label: 'Domande frequenti', href: '/faq' },
   { label: 'Soluzioni aziendali', href: '/soluzioni/aziende' },
 ]
 

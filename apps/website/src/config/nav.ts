@@ -25,41 +25,31 @@ export const mainNav: NavItem[] = [
 export const courseCategories: NavCategory[] = [
   {
     label: 'Sicurezza sul Lavoro',
-    href: '/categorie/sicurezza',
+    href: '/corsi?cat=sicurezza',
     icon: 'HardHat',
   },
   {
     label: 'Ambiente',
-    href: '/categorie/ambiente',
+    href: '/corsi?cat=ambiente',
     icon: 'Leaf',
   },
   {
     label: 'Sistemi di Gestione',
-    href: '/categorie/sistemi-di-gestione',
+    href: '/corsi?cat=sistemi-di-gestione',
     icon: 'Settings2',
   },
   {
     label: 'Benessere psico-sociale',
-    href: '/categorie/benessere-psico-sociale',
+    href: '/corsi?cat=benessere-psico-sociale',
     icon: 'HeartHandshake',
   },
 ]
-
-export const audienceNav: NavGroup = {
-  label: 'Per destinatario',
-  items: [
-    { label: 'Aziende e HR', href: '/soluzioni/aziende' },
-    { label: 'Professionisti', href: '/soluzioni/professionisti' },
-    { label: 'Enti Pubblici', href: '/soluzioni/enti-pubblici' },
-  ],
-}
 
 export const modalityNav: NavGroup = {
   label: 'Modalità di erogazione',
   items: [
     { label: 'In Aula', href: '/corsi?mod=aula' },
     { label: 'Online', href: '/corsi?mod=online' },
-    { label: 'In House', href: '/soluzioni/in-house' },
     { label: 'Blended', href: '/corsi?mod=blended' },
   ],
 }
@@ -69,28 +59,12 @@ export const footerNav = {
     label: 'Corsi',
     items: courseCategories.map((c) => ({ label: c.label, href: c.href })),
   },
-  solutions: {
-    label: 'Soluzioni',
-    items: [
-      { label: 'Per Aziende', href: '/soluzioni/aziende' },
-      { label: 'Per Professionisti', href: '/soluzioni/professionisti' },
-      { label: 'In House', href: '/soluzioni/in-house' },
-      { label: 'Calendario', href: '/calendario' },
-    ],
-  },
-  resources: {
-    label: 'Risorse',
-    items: [
-      { label: 'Blog', href: '/blog' },
-      { label: 'Download', href: '/download' },
-      { label: 'FAQ', href: '/faq' },
-    ],
-  },
   company: {
     label: 'Azienda',
     items: [
+      { label: 'Soluzioni Aziendali', href: '/soluzioni/aziende' },
       { label: 'Chi Siamo', href: '/chi-siamo' },
-      { label: 'Certificazioni', href: '/certificazioni' },
+      { label: 'FAQ', href: '/faq' },
       { label: 'Contatti', href: '/contatti' },
     ],
   },

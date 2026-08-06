@@ -38,14 +38,12 @@ function CategoryIcon({
 type MegaMenuProps = {
   mainNav: NavItem[]
   courseCategories: NavCategory[]
-  audienceNav: NavGroup
   modalityNav: NavGroup
 }
 
 export function MegaMenu({
   mainNav,
   courseCategories,
-  audienceNav,
   modalityNav,
 }: MegaMenuProps) {
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
@@ -165,31 +163,8 @@ export function MegaMenu({
                         </Link>
                       </div>
 
-                      {/* Right: audience + modality */}
+                      {/* Right: modality */}
                       <div className="flex flex-col gap-5 bg-neutral-50 p-5">
-                        <div>
-                          <p className="mb-2 text-xs font-semibold tracking-wider text-neutral-500 uppercase">
-                            {audienceNav.label}
-                          </p>
-                          <ul className="space-y-0.5" role="list">
-                            {audienceNav.items.map((navItem) => (
-                              <li key={navItem.href}>
-                                <Link
-                                  href={navItem.href}
-                                  onClick={close}
-                                  className="flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm text-neutral-600 transition-colors hover:bg-white hover:text-foreground"
-                                >
-                                  <ArrowRight
-                                    className="h-3 w-3 text-neutral-400"
-                                    aria-hidden="true"
-                                  />
-                                  {navItem.label}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
                         <div>
                           <p className="mb-2 text-xs font-semibold tracking-wider text-neutral-500 uppercase">
                             {modalityNav.label}

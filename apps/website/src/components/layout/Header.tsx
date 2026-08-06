@@ -5,12 +5,7 @@ import Link from 'next/link'
 import { Search } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { siteConfig } from '@/config/site'
-import {
-  audienceNav,
-  courseCategories,
-  mainNav,
-  modalityNav,
-} from '@/config/nav'
+import { courseCategories, mainNav, modalityNav } from '@/config/nav'
 import { AcademyTag, EcoterLogo } from '@/components/ui/LogoEcoter'
 import { Container } from './Container'
 import { MegaMenu } from './MegaMenu'
@@ -69,7 +64,6 @@ export function Header() {
             <MegaMenu
               mainNav={mainNav}
               courseCategories={courseCategories}
-              audienceNav={audienceNav}
               modalityNav={modalityNav}
             />
 
@@ -114,7 +108,6 @@ export function Header() {
               <MobileNav
                 mainNav={mainNav}
                 courseCategories={courseCategories}
-                audienceNav={audienceNav}
                 modalityNav={modalityNav}
               />
             </div>
