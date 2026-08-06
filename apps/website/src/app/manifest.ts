@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { brand, neutral } from '@ecoter/tokens'
 import { siteConfig } from '@/config/site'
 
 export default function manifest(): MetadataRoute.Manifest {
@@ -8,8 +9,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: siteConfig.description,
     start_url: '/',
     display: 'standalone',
-    background_color: '#FAFBFC',
-    theme_color: '#1E3E87',
+    background_color: neutral[25],
+    theme_color: brand[500],
     orientation: 'portrait-primary',
     icons: [
       {

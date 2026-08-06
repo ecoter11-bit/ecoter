@@ -8,7 +8,7 @@ import { CourseGridSkeleton } from '@/components/course/CourseCardSkeleton'
 import { CatalogClient } from './CatalogClient'
 
 export const metadata: Metadata = {
-  title: 'Catalogo Corsi – ECOTER Academy',
+  title: 'Catalogo Corsi',
   description:
     'Esplora il catalogo completo dei corsi di formazione professionale ECOTER Academy: sicurezza sul lavoro, ambiente, sistemi di gestione e benessere psico-sociale.',
 }

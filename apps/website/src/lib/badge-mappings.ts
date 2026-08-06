@@ -1,4 +1,4 @@
-import { Building2, Monitor, Blend, Home } from 'lucide-react'
+import { Building2, Monitor, Combine, Home } from 'lucide-react'
 import type { BadgeColor } from '@ecoter/ui'
 
 /**
@@ -59,7 +59,7 @@ export const modalityIcon: Record<
 > = {
   aula: Building2,
   online: Monitor,
-  blended: Blend,
+  blended: Combine,
   'in-house': Home,
 }
 

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
+import { brand } from '@ecoter/tokens'
 import { defaultMetadata } from '@/config/seo'
 import { SiteLayout } from '@/components/layout'
 import { MotionProvider } from '@/components/motion/MotionProvider'
@@ -33,7 +34,7 @@ export const metadata: Metadata = defaultMetadata
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#1E3E87',
+  themeColor: brand[500],
 }
 
 /* ─── Root Layout ─────────────────────────────────────────────────────────── */
