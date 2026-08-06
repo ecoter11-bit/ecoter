@@ -77,7 +77,7 @@ export function HeroSection() {
               <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
             <Link
-              href="/wizard"
+              href="/corsi"
               className={cn(
                 buttonVariants({ variant: 'outline-brand' }),
                 'h-12 gap-2 px-8 text-base font-semibold'

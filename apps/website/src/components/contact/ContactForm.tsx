@@ -2,7 +2,13 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
-import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react'
+import {
+  Send,
+  CheckCircle2,
+  AlertCircle,
+  Loader2,
+  ExternalLink,
+} from 'lucide-react'
 import {
   FormField,
   Input,
@@ -275,9 +281,13 @@ export function ContactForm({
               Ho letto e accetto la{' '}
               <Link
                 href={privacyPolicyHref}
-                className="font-medium text-brand-700 underline decoration-brand-300 underline-offset-2 hover:text-brand-800"
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-1 font-medium text-brand-700 underline decoration-brand-300 underline-offset-2 hover:text-brand-800"
               >
                 privacy policy
+                <ExternalLink className="size-3" aria-hidden="true" />
+                <span className="sr-only"> (si apre in una nuova scheda)</span>
               </Link>
               *
             </>

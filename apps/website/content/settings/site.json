@@ -27,7 +27,6 @@
       "logo": ""
     }
   ],
-  "cookiePolicy": "/legal/cookie-policy",
-  "privacyPolicy": "/legal/privacy-policy",
-  "termsOfService": "/legal/termini-e-condizioni"
+  "cookiePolicy": "https://sicurezzalavoroeambiente.it/cookie-policy/",
+  "privacyPolicy": "https://sicurezzalavoroeambiente.it/privacy-policy/"
 }

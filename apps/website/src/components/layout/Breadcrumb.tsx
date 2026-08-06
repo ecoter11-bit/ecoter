@@ -17,28 +17,17 @@ type BreadcrumbProps = {
 
 const SEGMENT_LABELS: Record<string, string> = {
   corsi: 'Corsi',
-  categorie: 'Categorie',
   soluzioni: 'Soluzioni',
-  calendario: 'Calendario',
   'chi-siamo': 'Chi Siamo',
   risorse: 'Risorse',
-  blog: 'Blog',
   faq: 'FAQ',
   contatti: 'Contatti',
   aziende: 'Aziende',
-  professionisti: 'Professionisti',
-  'enti-pubblici': 'Enti Pubblici',
-  'in-house': 'In House',
   sicurezza: 'Sicurezza sul Lavoro',
   ambiente: 'Ambiente',
   'sistemi-di-gestione': 'Sistemi di Gestione',
   'benessere-psico-sociale': 'Benessere psico-sociale',
-  download: 'Download',
   newsletter: 'Newsletter',
-  certificazioni: 'Certificazioni',
-  'note-legali': 'Note Legali',
-  privacy: 'Privacy Policy',
-  cookie: 'Cookie Policy',
 }
 
 function labelForSegment(segment: string): string {

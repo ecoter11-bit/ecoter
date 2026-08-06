@@ -4,6 +4,7 @@ import { brand } from '@ecoter/tokens'
 import { defaultMetadata } from '@/config/seo'
 import { SiteLayout } from '@/components/layout'
 import { MotionProvider } from '@/components/motion/MotionProvider'
+import { getSiteSettings } from '@/lib/content'
 import './globals.css'
 
 /* ─── Fonts ───────────────────────────────────────────────────────────────── */
@@ -44,6 +45,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const settings = getSiteSettings()
+
   return (
     <html
       lang="it"
@@ -52,7 +55,12 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col bg-background text-foreground antialiased">
         <MotionProvider>
-          <SiteLayout>{children}</SiteLayout>
+          <SiteLayout
+            privacyPolicyHref={settings.privacyPolicy}
+            cookiePolicyHref={settings.cookiePolicy}
+          >
+            {children}
+          </SiteLayout>
         </MotionProvider>
       </body>
     </html>
