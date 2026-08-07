@@ -3,9 +3,8 @@ import type { Metadata } from 'next'
 import type { Course } from '@/types'
 import { getAllCourses } from '@/lib/content/courses'
 import { getAllCategoriesWithCount } from '@/lib/content/categories'
-import { DiscoveryCards } from '@/components/catalog/DiscoveryCards'
+import { GuidedCatalog } from '@/components/catalog/GuidedCatalog'
 import { CourseGridSkeleton } from '@/components/course/CourseCardSkeleton'
-import { CatalogClient } from './CatalogClient'
 
 export const metadata: Metadata = {
   title: 'Catalogo Corsi',
@@ -58,12 +57,9 @@ export default function CatalogPage() {
         </div>
       </div>
 
-      {/* ─── Discovery cards ────────────────────────────────────────────── */}
-      <DiscoveryCards categories={categories} normativeRefs={normativeRefs} />
-
-      {/* ─── Catalog (toolbar + grid) ───────────────────────────────────── */}
+      {/* ─── Flusso guidato a 3 passi (scelta modalità → selezione → risultati) ── */}
       <Suspense fallback={<CatalogFallback />}>
-        <CatalogClient
+        <GuidedCatalog
           courses={courses}
           categories={categories}
           normativeRefs={normativeRefs}

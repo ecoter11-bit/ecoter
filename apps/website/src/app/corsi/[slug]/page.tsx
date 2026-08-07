@@ -101,7 +101,7 @@ export default async function CourseDetailPage({ params }: Props) {
               { label: 'Corsi', href: '/corsi' },
               {
                 label: categoryDisplayName,
-                href: `/corsi?cat=${course.category}`,
+                href: `/corsi?step=3&cat=${course.category}`,
               },
               { label: course.title, href: `/corsi/${course.slug}` },
             ]}

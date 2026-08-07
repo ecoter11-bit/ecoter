@@ -48,10 +48,21 @@ function Checkbox({
         id={inputId}
         data-slot="checkbox"
         className={cn(
-          'mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-md border border-input bg-white text-white transition-colors outline-none',
-          'hover:not-data-disabled:border-neutral-400',
+          // `border-neutral-500` (not the `border-input`/neutral-200 token) —
+          // a checkbox's resting boundary is a UI-component boundary (SC
+          // 1.4.11, needs ≥3:1); neutral-200/300/400 all measure <3:1 against
+          // white (verified against packages/tokens/src/colors.ts hexes:
+          // 200≈1.36:1, 300≈1.77:1, 400≈2.56:1), only 500+ clears it (≈3.95:1).
+          'mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-md border border-neutral-500 bg-white text-white transition-colors outline-none',
+          'hover:not-data-disabled:border-neutral-600',
           'focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50',
           'data-checked:border-brand-600 data-checked:bg-brand-600',
+          // Checked + focused: the resting checked border and `--ring` are
+          // the same brand-600 hex, so the default focus ring (which relies
+          // on the border-color *change* for its contrast) is invisible on
+          // an already-checked box. Force a full-opacity, thicker ring for
+          // this compound state so focus stays perceivable (SC 2.4.7).
+          'data-checked:focus-visible:ring-4 data-checked:focus-visible:ring-ring',
           'disabled:cursor-not-allowed disabled:opacity-50',
           'aria-invalid:border-error-500',
           className

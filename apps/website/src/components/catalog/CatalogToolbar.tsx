@@ -3,17 +3,16 @@
 import { Search, X, SlidersHorizontal } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/utils'
+import type { FilterState } from '@/lib/catalog-filters'
+import {
+  AUDIENCE_OPTIONS,
+  MODALITY_OPTIONS,
+  DURATION_OPTIONS,
+  SORT_OPTIONS,
+} from '@/lib/catalog-options'
 import type { CategoryWithCount } from '@/types'
 
-export type FilterState = {
-  query: string
-  category: string
-  audience: string
-  modality: string
-  duration: string
-  sort: string
-  norm: string
-}
+export type { FilterState }
 
 type Props = {
   filters: FilterState
@@ -25,37 +24,7 @@ type Props = {
   onReset: () => void
 }
 
-const AUDIENCE_OPTIONS = [
-  { value: 'rspp-aspp', label: 'RSPP / ASPP' },
-  { value: 'datori', label: 'Datori di lavoro' },
-  { value: 'lavoratori', label: 'Lavoratori' },
-  { value: 'dirigenti', label: 'Dirigenti / Preposti' },
-  { value: 'qualita', label: 'Responsabili Qualità' },
-  { value: 'alimentare', label: 'Settore Alimentare' },
-  { value: 'squadra-emergenza', label: 'Squadra Emergenza' },
-]
-
-const MODALITY_OPTIONS = [
-  { value: 'aula', label: 'In Aula' },
-  { value: 'online', label: 'Online' },
-  { value: 'blended', label: 'Blended' },
-  { value: 'in-house', label: 'In House' },
-]
-
-const DURATION_OPTIONS = [
-  { value: 'breve', label: 'Breve (< 8h)' },
-  { value: 'medio', label: 'Medio (8–24h)' },
-  { value: 'intensivo', label: 'Intensivo (> 24h)' },
-]
-
 const SEARCH_DEBOUNCE_MS = 280
-
-const SORT_OPTIONS = [
-  { value: 'recente', label: 'Più recenti' },
-  { value: 'durata-asc', label: 'Durata crescente' },
-  { value: 'durata-desc', label: 'Durata decrescente' },
-  { value: 'prezzo-asc', label: 'Prezzo crescente' },
-]
 
 const selectClass = cn(
   'h-9 rounded-lg border border-neutral-200 bg-white pl-3 pr-7 text-sm text-neutral-700',

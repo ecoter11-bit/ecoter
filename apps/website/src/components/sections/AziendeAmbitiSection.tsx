@@ -71,7 +71,7 @@ export function AziendeAmbitiSection({ categories }: Props) {
               return (
                 <motion.div key={category.slug} variants={slideUpGentle}>
                   <Link
-                    href={`/corsi?cat=${category.slug}`}
+                    href={`/corsi?step=3&cat=${category.slug}`}
                     className="group flex h-full flex-col rounded-2xl border border-neutral-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-600 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600"
                   >
                     <IconCircle

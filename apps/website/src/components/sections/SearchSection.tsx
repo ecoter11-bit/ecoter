@@ -26,7 +26,7 @@ export function SearchSection() {
     e.preventDefault()
     const trimmed = query.trim()
     if (trimmed) {
-      router.push(`/corsi?q=${encodeURIComponent(trimmed)}`)
+      router.push(`/corsi?step=3&q=${encodeURIComponent(trimmed)}`)
     }
   }
 
@@ -91,7 +91,7 @@ export function SearchSection() {
                 type="button"
                 onClick={() => {
                   setQuery(s)
-                  router.push(`/corsi?q=${encodeURIComponent(s)}`)
+                  router.push(`/corsi?step=3&q=${encodeURIComponent(s)}`)
                 }}
                 className="rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs text-neutral-600 transition hover:border-brand-600 hover:text-brand-600"
               >
