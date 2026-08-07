@@ -6,10 +6,21 @@ import { cn } from './lib/cn'
 
 /**
  * Text carries meaning; color is reinforcement only (WCAG 1.4.1) — every
- * badge always renders its label, never color/icon alone. All eight colors
- * are AA-verified (≥4.5:1) for every variant, see packages/ui/CLAUDE.md.
+ * badge always renders its label, never color/icon alone. All colors are
+ * AA-verified (≥4.5:1) for every variant, see packages/ui/CLAUDE.md.
  * `blue` added for the category rebrand (Decision 018's "sicurezza" family)
  * — same recipe as every other color, see the compoundVariants below.
+ *
+ * `level-1`/`level-2`/`level-3` are an ordinal-progression axis, not a
+ * semantic-status one: same neutral hue, increasing depth per step
+ * (soft bg-200/700 → bg-300/800 → bg-400/900), so "highest level" reads as
+ * "boldest neutral", never as an alert. Deliberately one stop bolder than
+ * `neutral`'s own soft (bg-100/700) at every step — `level-1` must not
+ * double as an even-fainter restyle of the generic default color, it needs
+ * its own floor of visibility as a chip, not just AA text contrast. Do not
+ * repurpose `success`/`warning`/`error` for ordinal scales like course level
+ * again — those carry status meaning (validation, callouts) and a red
+ * "Avanzato" reads as an error state.
  */
 const badgeVariants = cva(
   "group/badge inline-flex w-fit shrink-0 items-center justify-center gap-1 rounded-full border border-transparent font-medium whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-1 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
@@ -29,6 +40,9 @@ const badgeVariants = cva(
         warning: '',
         error: '',
         amber: '',
+        'level-1': '',
+        'level-2': '',
+        'level-3': '',
       },
       size: {
         sm: "h-5 gap-1 px-2 text-caption [&_svg:not([class*='size-'])]:size-3",
@@ -45,6 +59,9 @@ const badgeVariants = cva(
       { variant: 'solid', color: 'warning', class: 'bg-warning-600 text-white hover:brightness-90' },
       { variant: 'solid', color: 'error', class: 'bg-error-700 text-white hover:brightness-90' },
       { variant: 'solid', color: 'amber', class: 'bg-amber-700 text-white hover:brightness-90' },
+      { variant: 'solid', color: 'level-1', class: 'bg-neutral-700 text-white hover:brightness-90' },
+      { variant: 'solid', color: 'level-2', class: 'bg-neutral-800 text-white hover:brightness-90' },
+      { variant: 'solid', color: 'level-3', class: 'bg-neutral-900 text-white hover:brightness-90' },
 
       // ─── soft — bg color-50 (tint) + text color-600/700, AA ≥4.5:1. Hover
       // uses `brightness-95` (uniform, scales bg+text together) rather than
@@ -59,6 +76,9 @@ const badgeVariants = cva(
       { variant: 'soft', color: 'warning', class: 'bg-warning-50 text-warning-600 hover:brightness-95' },
       { variant: 'soft', color: 'error', class: 'bg-error-50 text-error-700 hover:brightness-95' },
       { variant: 'soft', color: 'amber', class: 'bg-amber-50 text-amber-700 hover:brightness-95' },
+      { variant: 'soft', color: 'level-1', class: 'bg-neutral-200 text-neutral-700 hover:brightness-95' },
+      { variant: 'soft', color: 'level-2', class: 'bg-neutral-300 text-neutral-800 hover:brightness-95' },
+      { variant: 'soft', color: 'level-3', class: 'bg-neutral-400 text-neutral-900 hover:brightness-95' },
 
       // ─── outline — bg-white border color-500/600 (darker than soft's -50/
       // -100 tints: SC 1.4.11 needs ≥3:1 for UI-component boundaries, which
@@ -73,6 +93,9 @@ const badgeVariants = cva(
       { variant: 'outline', color: 'warning', class: 'border-warning-600 bg-white text-warning-600 hover:bg-warning-50' },
       { variant: 'outline', color: 'error', class: 'border-error-500 bg-white text-error-700 hover:bg-error-50' },
       { variant: 'outline', color: 'amber', class: 'border-amber-700 bg-white text-amber-700 hover:bg-amber-50' },
+      { variant: 'outline', color: 'level-1', class: 'border-neutral-600 bg-white text-neutral-700 hover:bg-neutral-50' },
+      { variant: 'outline', color: 'level-2', class: 'border-neutral-700 bg-white text-neutral-800 hover:bg-neutral-50' },
+      { variant: 'outline', color: 'level-3', class: 'border-neutral-800 bg-white text-neutral-900 hover:bg-neutral-50' },
     ],
     defaultVariants: {
       variant: 'soft',

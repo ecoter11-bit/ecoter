@@ -76,12 +76,12 @@ export function CourseCard({ course, className }: Props) {
         <h3 className="mb-1.5 line-clamp-2 font-heading text-lg leading-snug font-bold text-neutral-950 transition-colors duration-200 group-hover:text-brand-700">
           {course.title}
         </h3>
-        <p className="mb-4 line-clamp-1 text-sm leading-relaxed text-neutral-500">
+        <p className="mb-4 line-clamp-1 text-sm leading-relaxed text-muted-foreground">
           {course.subtitle}
         </p>
 
         {/* Meta row */}
-        <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-neutral-500">
+        <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-muted-foreground">
           <span className="flex items-center gap-1.5">
             <Clock className="size-3.5 shrink-0" aria-hidden="true" />
             {durationLabel}
@@ -99,7 +99,7 @@ export function CourseCard({ course, className }: Props) {
 
         {/* Normativa pill */}
         {primaryNorm && (
-          <div className="mb-4 line-clamp-1 rounded-lg bg-neutral-50 px-3 py-2 text-xs font-medium text-neutral-500">
+          <div className="mb-4 line-clamp-1 rounded-lg bg-neutral-50 px-3 py-2 text-xs font-medium text-muted-foreground">
             {primaryNorm}
           </div>
         )}

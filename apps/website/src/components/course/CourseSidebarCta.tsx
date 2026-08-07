@@ -31,7 +31,7 @@ export function CourseSidebarCta({ course, className }: Props) {
         </>
       )}
 
-      <dl
+      <div
         className={cn(
           'space-y-3 text-sm text-neutral-600',
           isFixedPrice && 'mt-5 border-t border-neutral-100 pt-5'
@@ -42,8 +42,10 @@ export function CourseSidebarCta({ course, className }: Props) {
             className="size-4 shrink-0 text-brand-600"
             aria-hidden="true"
           />
-          <dt className="sr-only">Durata</dt>
-          <dd>{formatCourseDuration(course.duration)}</dd>
+          <dl>
+            <dt className="sr-only">Durata</dt>
+            <dd>{formatCourseDuration(course.duration)}</dd>
+          </dl>
         </div>
         {course.modality.map((m) => {
           const Icon = modalityIcon[m] ?? Clock
@@ -53,8 +55,10 @@ export function CourseSidebarCta({ course, className }: Props) {
                 className="size-4 shrink-0 text-brand-600"
                 aria-hidden="true"
               />
-              <dt className="sr-only">Modalità</dt>
-              <dd>{modalityLabel[m] ?? m}</dd>
+              <dl>
+                <dt className="sr-only">Modalità</dt>
+                <dd>{modalityLabel[m] ?? m}</dd>
+              </dl>
             </div>
           )
         })}
@@ -64,11 +68,13 @@ export function CourseSidebarCta({ course, className }: Props) {
               className="mt-0.5 size-4 shrink-0 text-brand-600"
               aria-hidden="true"
             />
-            <dt className="sr-only">Attestato</dt>
-            <dd>{course.certification}</dd>
+            <dl>
+              <dt className="sr-only">Attestato</dt>
+              <dd>{course.certification}</dd>
+            </dl>
           </div>
         )}
-      </dl>
+      </div>
 
       <div className="mt-6 flex flex-col gap-2.5 border-t border-neutral-100 pt-5">
         <Link

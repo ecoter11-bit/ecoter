@@ -17,6 +17,9 @@ const COLORS = [
   'warning',
   'error',
   'amber',
+  'level-1',
+  'level-2',
+  'level-3',
 ] as const
 
 /**
@@ -82,7 +85,7 @@ export const AllVariants: Story = {
 /**
  * Matrice completa variante × colore. Ogni cella è verificata ≥4.5:1
  * (WCAG AA) — l'addon a11y non deve segnalare violazioni di contrasto su
- * nessuna delle 24 combinazioni.
+ * nessuna delle 33 combinazioni.
  */
 export const VariantColorMatrix: Story = {
   parameters: { controls: { disable: true } },
@@ -195,8 +198,9 @@ export const AsLinkOrButton: Story = {
  * Uso reale nel catalogo — le stesse combinazioni renderizzate dalla
  * CourseCard: categoria (le 4 macro-categorie Decision 018 —
  * sicurezza→blue, ambiente→brand/verde, sistemi-di-gestione→eco/teal,
- * benessere-psico-sociale→amber/oro), livello (mappata a
- * success/warning/error) e "in evidenza" (amber). Vedi
+ * benessere-psico-sociale→amber/oro), livello (progressione neutra
+ * level-1/level-2/level-3 — stessa tonalità, profondità crescente, non la
+ * palette di stato) e "in evidenza" (amber). Vedi
  * apps/website/src/lib/badge-mappings.ts per la mappa slug → colore.
  */
 export const UsoNelCatalogo: Story = {
@@ -227,13 +231,13 @@ export const UsoNelCatalogo: Story = {
       <div>
         <p className="mb-2 text-xs font-semibold text-neutral-600">Livello</p>
         <div className="flex flex-wrap gap-2">
-          <Badge size="sm" color="success">
+          <Badge size="sm" color="level-1">
             Base
           </Badge>
-          <Badge size="sm" color="warning">
+          <Badge size="sm" color="level-2">
             Intermedio
           </Badge>
-          <Badge size="sm" color="error">
+          <Badge size="sm" color="level-3">
             Avanzato
           </Badge>
         </div>
@@ -258,7 +262,7 @@ export const UsoNelCatalogo: Story = {
           <Badge size="sm" color="blue">
             Sicurezza
           </Badge>
-          <Badge size="sm" color="success">
+          <Badge size="sm" color="level-1">
             Base
           </Badge>
           <Badge size="sm" color="amber">

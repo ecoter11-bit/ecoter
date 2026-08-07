@@ -268,7 +268,7 @@ export function MobileNav({
                   Richiedi informazioni
                 </Link>
                 {siteConfig.email && (
-                  <p className="mt-3 text-center text-xs text-neutral-500">
+                  <p className="mt-3 text-center text-xs text-muted-foreground">
                     <a
                       href={`mailto:${siteConfig.email}`}
                       className="transition-colors hover:text-foreground"

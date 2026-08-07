@@ -174,7 +174,8 @@ export const semantic = {
   secondary: '#eceff3',
   secondaryForeground: '#313132',
   muted: '#f4f6f9',
-  mutedForeground: '#7a8090',
+  /** neutral-600, not neutral-500 (#7a8090, ~3.95:1 on white/muted bg) — muted-foreground is real body text, needs ≥4.5:1 AA. */
+  mutedForeground: '#5c6275',
   accent: '#edf7f7',
   accentForeground: '#224e4e',
   destructive: '#ef4444',

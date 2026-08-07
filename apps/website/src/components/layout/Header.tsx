@@ -73,12 +73,11 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="hidden h-9 items-center gap-2 rounded-lg border border-border bg-neutral-50 pr-2.5 pl-3 text-sm text-neutral-500 transition-colors hover:border-neutral-300 hover:bg-white hover:text-foreground lg:flex"
-                aria-label="Cerca corsi (⌘K)"
+                className="hidden h-9 items-center gap-2 rounded-lg border border-border bg-neutral-50 pr-2.5 pl-3 text-sm text-muted-foreground transition-colors hover:border-neutral-300 hover:bg-white hover:text-foreground lg:flex"
               >
                 <Search className="h-3.5 w-3.5" aria-hidden="true" />
                 <span>Cerca corsi…</span>
-                <kbd className="ml-1.5 rounded border border-neutral-200 bg-white px-1 py-0.5 font-mono text-[10px] text-neutral-400">
+                <kbd className="ml-1.5 rounded border border-neutral-200 bg-white px-1 py-0.5 font-mono text-[10px] text-muted-foreground">
                   ⌘K
                 </kbd>
               </button>
