@@ -62,7 +62,7 @@ export function CourseHeader({ course }: Props) {
         )}
 
         {/* Riga meta — durata, attestato, normativa (modalità è già nei badge sopra, non ripetuta qui) */}
-        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-neutral-500">
+        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
           <span className="flex items-center gap-2">
             <Clock
               className="size-4 shrink-0 text-brand-600"

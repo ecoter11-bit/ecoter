@@ -276,7 +276,10 @@
   --secondary: #eceff3;
   --secondary-foreground: #313132;
   --muted: #f4f6f9;
-  --muted-foreground: #7a8090;
+  /* neutral-600, not neutral-500 (#7a8090, ~3.95:1 on white/muted bg) —
+     muted-foreground is meant for real body text, needs the AA text
+     stop (≥4.5:1), see packages/tokens/src/colors.ts semantic.mutedForeground. */
+  --muted-foreground: #5c6275;
   --accent: #edf7f7;
   --accent-foreground: #224e4e;
   --destructive: #ef4444;

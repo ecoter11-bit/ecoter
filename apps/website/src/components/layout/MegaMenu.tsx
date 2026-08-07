@@ -126,7 +126,7 @@ export function MegaMenu({
                     <div className="grid grid-cols-[1fr_220px] divide-x divide-border">
                       {/* Left: categories */}
                       <div className="p-5">
-                        <p className="mb-3 text-xs font-semibold tracking-wider text-neutral-500 uppercase">
+                        <p className="mb-3 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
                           Aree tematiche
                         </p>
                         <ul className="grid grid-cols-2 gap-1" role="list">
@@ -166,7 +166,7 @@ export function MegaMenu({
                       {/* Right: modality */}
                       <div className="flex flex-col gap-5 bg-neutral-50 p-5">
                         <div>
-                          <p className="mb-2 text-xs font-semibold tracking-wider text-neutral-500 uppercase">
+                          <p className="mb-2 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
                             {modalityNav.label}
                           </p>
                           <ul className="space-y-0.5" role="list">

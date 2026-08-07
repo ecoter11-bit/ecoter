@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -108,7 +108,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
               )}
               <button
                 onClick={onClose}
-                className="ml-1 rounded-md border border-border px-2 py-1 text-xs text-neutral-500 transition-colors hover:bg-neutral-50"
+                className="ml-1 rounded-md border border-border px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-neutral-50"
                 aria-label="Chiudi ricerca"
                 type="button"
               >
@@ -121,7 +121,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
               {query.trim() === '' ? (
                 <div className="space-y-5">
                   <section>
-                    <p className="mb-2.5 flex items-center gap-1.5 text-xs font-semibold tracking-wider text-neutral-500 uppercase">
+                    <p className="mb-2.5 flex items-center gap-1.5 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
                       <TrendingUp className="h-3.5 w-3.5" aria-hidden="true" />
                       Ricerche popolari
                     </p>
@@ -140,7 +140,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   </section>
 
                   <section>
-                    <p className="mb-2 flex items-center gap-1.5 text-xs font-semibold tracking-wider text-neutral-500 uppercase">
+                    <p className="mb-2 flex items-center gap-1.5 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
                       <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                       Link rapidi
                     </p>
@@ -169,7 +169,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     className="mx-auto mb-3 h-8 w-8 text-neutral-200"
                     aria-hidden="true"
                   />
-                  <p className="text-sm text-neutral-500">
+                  <p className="text-sm text-muted-foreground">
                     Ricerca per{' '}
                     <strong className="text-foreground">
                       &ldquo;{query}&rdquo;
@@ -183,16 +183,16 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
             </div>
 
             {/* Footer */}
-            <div className="flex items-center justify-between border-t border-border bg-neutral-50 px-4 py-2 text-xs text-neutral-400">
+            <div className="flex items-center justify-between border-t border-border bg-neutral-50 px-4 py-2 text-xs text-muted-foreground">
               <span>
                 Premi{' '}
-                <kbd className="mx-0.5 rounded border border-neutral-200 bg-white px-1 py-0.5 font-mono text-neutral-500">
+                <kbd className="mx-0.5 rounded border border-neutral-200 bg-white px-1 py-0.5 font-mono text-muted-foreground">
                   ↵
                 </kbd>{' '}
                 per cercare
               </span>
               <span>
-                <kbd className="mr-0.5 rounded border border-neutral-200 bg-white px-1 py-0.5 font-mono text-neutral-500">
+                <kbd className="mr-0.5 rounded border border-neutral-200 bg-white px-1 py-0.5 font-mono text-muted-foreground">
                   ⌘K
                 </kbd>{' '}
                 per aprire / chiudere

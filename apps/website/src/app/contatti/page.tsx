@@ -83,13 +83,13 @@ export default async function ContattiPage({ searchParams }: Props) {
                 <h2 className="mb-5 font-heading text-lg font-bold text-neutral-950">
                   Recapiti
                 </h2>
-                <dl className="space-y-4 text-sm text-neutral-600">
+                <div className="space-y-4 text-sm text-neutral-600">
                   <div className="flex items-start gap-2.5">
                     <MapPin
                       className="mt-0.5 size-4 shrink-0 text-brand-600"
                       aria-hidden="true"
                     />
-                    <div>
+                    <dl>
                       <dt className="sr-only">Indirizzo</dt>
                       <dd>
                         {settings.address.street}
@@ -97,14 +97,14 @@ export default async function ContattiPage({ searchParams }: Props) {
                         {settings.address.cap} {settings.address.city} (
                         {settings.address.province})
                       </dd>
-                    </div>
+                    </dl>
                   </div>
                   <div className="flex items-center gap-2.5">
                     <Phone
                       className="size-4 shrink-0 text-brand-600"
                       aria-hidden="true"
                     />
-                    <div>
+                    <dl>
                       <dt className="sr-only">Telefono</dt>
                       <dd>
                         <a
@@ -114,14 +114,14 @@ export default async function ContattiPage({ searchParams }: Props) {
                           {settings.phone}
                         </a>
                       </dd>
-                    </div>
+                    </dl>
                   </div>
                   <div className="flex items-center gap-2.5">
                     <Mail
                       className="size-4 shrink-0 text-brand-600"
                       aria-hidden="true"
                     />
-                    <div>
+                    <dl>
                       <dt className="sr-only">Email</dt>
                       <dd>
                         <a
@@ -131,7 +131,7 @@ export default async function ContattiPage({ searchParams }: Props) {
                           {settings.email}
                         </a>
                       </dd>
-                    </div>
+                    </dl>
                   </div>
                   {settings.hours && (
                     <div className="flex items-start gap-2.5">
@@ -139,13 +139,13 @@ export default async function ContattiPage({ searchParams }: Props) {
                         className="mt-0.5 size-4 shrink-0 text-brand-600"
                         aria-hidden="true"
                       />
-                      <div>
+                      <dl>
                         <dt className="sr-only">Orari</dt>
                         <dd>{settings.hours}</dd>
-                      </div>
+                      </dl>
                     </div>
                   )}
-                </dl>
+                </div>
               </div>
 
               {/* Riquadro statico — nessuna dipendenza esterna/API key richiesta */}

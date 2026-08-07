@@ -123,19 +123,23 @@ export function CatalogClient({ courses, categories, normativeRefs }: Props) {
         className="bg-neutral-25"
       >
         <div className="container-default py-10">
+          <h2 className="sr-only">Risultati catalogo</h2>
+
           {/* Result count */}
           <p
-            className="mb-6 text-sm text-neutral-500"
+            className="mb-6 text-sm text-muted-foreground"
             aria-live="polite"
             aria-atomic="true"
           >
-            {filteredCourses.length === 0
-              ? 'Nessun corso trovato'
-              : filteredCourses.length === 1
-                ? '1 corso trovato'
-                : `${filteredCourses.length} corsi trovati`}
+            <span className="font-semibold text-neutral-700">
+              {filteredCourses.length === 0
+                ? 'Nessun corso trovato'
+                : filteredCourses.length === 1
+                  ? '1 corso trovato'
+                  : `${filteredCourses.length} corsi trovati`}
+            </span>
             {activeCount > 0 && (
-              <span className="ml-1.5 text-neutral-400">
+              <span className="ml-1.5">
                 {' '}
                 con {activeCount}{' '}
                 {activeCount === 1 ? 'filtro attivo' : 'filtri attivi'}

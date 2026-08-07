@@ -32,7 +32,7 @@ const categoryIcon: Record<string, LucideIcon> = {
 /** Mirrors `categoryBadgeColor` (badge-mappings.ts) so the same category reads
  * the same hue here as everywhere else (CourseCard, badges) — narrowed to
  * `IconCircleColor` since IconCircle doesn't support Badge's extra semantic
- * colors (success/warning/error). */
+ * colors (success/warning/error/level-1/level-2/level-3). */
 const categoryIconColor: Record<string, IconCircleColor> = {
   sicurezza: 'blue',
   ambiente: 'brand',

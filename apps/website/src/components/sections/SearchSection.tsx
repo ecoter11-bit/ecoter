@@ -82,7 +82,7 @@ export function SearchSection() {
             variants={slideUp}
             className="mt-4 flex flex-wrap items-center gap-2"
           >
-            <span className="text-xs text-neutral-500">
+            <span className="text-xs text-muted-foreground">
               Ricerche frequenti:
             </span>
             {SUGGESTED.map((s) => (

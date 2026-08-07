@@ -16,7 +16,7 @@ export function EmptyState({ onReset, hasFilters }: Props) {
       <h3 className="mb-3 font-heading text-xl font-bold text-neutral-950">
         Nessun corso trovato
       </h3>
-      <p className="mb-8 max-w-sm text-sm leading-relaxed text-neutral-500">
+      <p className="mb-8 max-w-sm text-sm leading-relaxed text-muted-foreground">
         {hasFilters
           ? 'Nessun corso corrisponde ai filtri selezionati. Prova a modificare la ricerca o a rimuovere qualche filtro.'
           : 'Il catalogo non contiene ancora corsi pubblicati.'}

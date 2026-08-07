@@ -33,11 +33,16 @@ export const categoryBadgeLabel: Record<string, string> = {
 
 export const defaultCategoryBadgeColor: BadgeColor = 'neutral'
 
-/** Level → Badge color, reusing the status palette (base=success, intermedio=warning, avanzato=error). */
+/**
+ * Level → Badge color. Ordinal progression, not status — same neutral hue,
+ * increasing depth per step (see packages/ui/src/badge.tsx). Previously
+ * reused the status palette (base=success, intermedio=warning,
+ * avanzato=error), which read "Avanzato" as an alert; do not revert to that.
+ */
 export const levelBadgeColor: Record<string, BadgeColor> = {
-  base: 'success',
-  intermedio: 'warning',
-  avanzato: 'error',
+  base: 'level-1',
+  intermedio: 'level-2',
+  avanzato: 'level-3',
 }
 
 export const levelBadgeLabel: Record<string, string> = {
