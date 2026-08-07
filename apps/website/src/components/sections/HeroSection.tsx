@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, ClipboardList } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { buttonVariants } from '@ecoter/ui'
 import { Container } from '@/components/layout'
@@ -75,16 +75,6 @@ export function HeroSection() {
             >
               Esplora i corsi
               <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
-            <Link
-              href="/corsi"
-              className={cn(
-                buttonVariants({ variant: 'outline-brand' }),
-                'h-12 gap-2 px-8 text-base font-semibold'
-              )}
-            >
-              <ClipboardList className="size-4" aria-hidden="true" />
-              Trova il corso obbligatorio
             </Link>
           </motion.div>
         </motion.div>

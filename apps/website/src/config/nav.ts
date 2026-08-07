@@ -25,22 +25,22 @@ export const mainNav: NavItem[] = [
 export const courseCategories: NavCategory[] = [
   {
     label: 'Sicurezza sul Lavoro',
-    href: '/corsi?cat=sicurezza',
+    href: '/corsi?step=3&cat=sicurezza',
     icon: 'HardHat',
   },
   {
     label: 'Ambiente',
-    href: '/corsi?cat=ambiente',
+    href: '/corsi?step=3&cat=ambiente',
     icon: 'Leaf',
   },
   {
     label: 'Sistemi di Gestione',
-    href: '/corsi?cat=sistemi-di-gestione',
+    href: '/corsi?step=3&cat=sistemi-di-gestione',
     icon: 'Settings2',
   },
   {
     label: 'Benessere psico-sociale',
-    href: '/corsi?cat=benessere-psico-sociale',
+    href: '/corsi?step=3&cat=benessere-psico-sociale',
     icon: 'HeartHandshake',
   },
 ]
@@ -48,9 +48,9 @@ export const courseCategories: NavCategory[] = [
 export const modalityNav: NavGroup = {
   label: 'Modalità di erogazione',
   items: [
-    { label: 'In Aula', href: '/corsi?mod=aula' },
-    { label: 'Online', href: '/corsi?mod=online' },
-    { label: 'Blended', href: '/corsi?mod=blended' },
+    { label: 'In Aula', href: '/corsi?step=3&mod=aula' },
+    { label: 'Online', href: '/corsi?step=3&mod=online' },
+    { label: 'Blended', href: '/corsi?step=3&mod=blended' },
   ],
 }
 
