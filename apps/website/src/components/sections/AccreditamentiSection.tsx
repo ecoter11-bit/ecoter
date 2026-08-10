@@ -1,8 +1,7 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { AlertTriangle } from 'lucide-react'
-import { Alert } from '@ecoter/ui'
 import { Container } from '@/components/layout'
 import {
   slideUp,
@@ -29,19 +28,34 @@ export function AccreditamentiSection() {
             variants={slideUp}
             className="mb-6 font-heading text-2xl font-light tracking-tight text-balance text-neutral-950 lg:text-3xl"
           >
-            In fase di aggiornamento
+            Il nostro ente accreditatore
           </motion.h2>
 
-          <motion.div variants={slideUp}>
-            <Alert
-              tone="warning"
-              icon={<AlertTriangle className="size-4" />}
-              className="text-left"
-            >
-              Gli accreditamenti e le certificazioni specifiche di ECOTER
-              Academy sono in fase di verifica e verranno pubblicati non appena
-              confermati.
-            </Alert>
+          <motion.div
+            variants={slideUp}
+            className="flex flex-col items-center rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm md:p-10"
+          >
+            {/* Logo su sfondo nero: tile scuro (neutral-950, l'ink di brand)
+                per evitare un riquadro nero "a caso" su pagina chiara. */}
+            <div className="mb-5 inline-flex rounded-xl border border-neutral-800 bg-neutral-950 p-3">
+              <Image
+                src="/brand/af24-associazione-formatori.png"
+                alt="Logo Associazione Formatori 24 (AF24)"
+                width={600}
+                height={600}
+                className="size-24 rounded-md sm:size-28"
+              />
+            </div>
+
+            <p className="font-heading text-lg font-semibold text-neutral-950">
+              Associazione Formatori 24 (AF24)
+            </p>
+            {/* Numero/dettaglio di accreditamento da confermare con Davide
+                prima di aggiungerlo: qui resta solo l'affermazione fattuale
+                concordata, senza date o codici non verificati. */}
+            <p className="mt-2 max-w-md text-sm text-pretty text-neutral-600">
+              ECOTER Academy opera come ente di formazione accreditato.
+            </p>
           </motion.div>
         </motion.div>
       </Container>
