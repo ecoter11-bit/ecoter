@@ -6,7 +6,10 @@
  *
  * Not a Tailwind `@theme` namespace (Tailwind v4 has no themeable `--z-index-*`
  * — its z-* utilities are a fixed scale). Use these as plain custom properties
- * via arbitrary values, e.g. `z-[var(--z-index-modal)]`.
+ * via inline style, e.g. `style={{ zIndex: 'var(--z-index-modal)' }}` — NOT
+ * the Tailwind arbitrary-value syntax `z-[var(--z-index-modal)]`, which
+ * Turbopack's dev-mode CSS parser fails to parse (prod build is unaffected,
+ * but dev breaks on the `--` inside the brackets).
  */
 export const zIndex = {
   base: 0,

@@ -115,7 +115,8 @@ function Select({
 
       <SelectPrimitive.Portal>
         <SelectPrimitive.Positioner
-          className="z-[var(--z-index-dropdown)] outline-none select-none"
+          className="outline-none select-none"
+          style={{ zIndex: 'var(--z-index-dropdown)' }}
           sideOffset={4}
         >
           <SelectPrimitive.Popup
