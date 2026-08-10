@@ -1,7 +1,11 @@
 import { NextResponse } from 'next/server'
 import { contactFormSchema } from '@/lib/validation'
 import type { ContactFormErrors } from '@/lib/validation'
-import { sendContactEmail } from '@/lib/contact/send-contact-email'
+import {
+  sendContactEmail,
+  ContactEmailNotConfiguredError,
+} from '@/lib/contact/send-contact-email'
+import { getSiteSettings } from '@/lib/content/settings'
 
 export async function POST(request: Request) {
   let payload: unknown
@@ -40,6 +44,18 @@ export async function POST(request: Request) {
     await sendContactEmail(values)
   } catch (error) {
     console.error('[contact] Invio email fallito:', error)
+
+    if (error instanceof ContactEmailNotConfiguredError) {
+      const { email, phone } = getSiteSettings()
+      return NextResponse.json(
+        {
+          ok: false,
+          message: `Al momento l'invio non è disponibile — scrivici a ${email} o chiama ${phone}.`,
+        },
+        { status: 503 }
+      )
+    }
+
     return NextResponse.json(
       {
         ok: false,
