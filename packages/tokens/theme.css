@@ -305,8 +305,10 @@
   --bg-dark-subtle: #0e2040;
 
   /* ─── Semantic z-index scale — plain custom properties, not a Tailwind
-   * theme namespace (there is no themeable --z-index-*). Use via arbitrary
-   * values, e.g. z-[var(--z-index-modal)]. Mirrors src/zIndex.ts. */
+   * theme namespace (there is no themeable --z-index-*). Use via inline
+   * style, e.g. style={{ zIndex: 'var(--z-index-modal)' }} — NOT the
+   * Tailwind arbitrary-value syntax z-[var(--z-index-modal)], which breaks
+   * Turbopack's dev-mode CSS parser. Mirrors src/zIndex.ts. */
   --z-index-base: 0;
   --z-index-dropdown: 1000;
   --z-index-sticky: 1100;
