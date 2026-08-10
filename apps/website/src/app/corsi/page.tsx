@@ -5,11 +5,15 @@ import { getAllCourses } from '@/lib/content/courses'
 import { getAllCategoriesWithCount } from '@/lib/content/categories'
 import { GuidedCatalog } from '@/components/catalog/GuidedCatalog'
 import { CourseGridSkeleton } from '@/components/course/CourseCardSkeleton'
+import { absoluteUrl } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Catalogo Corsi',
   description:
     'Esplora il catalogo completo dei corsi di formazione professionale ECOTER Academy: sicurezza sul lavoro, ambiente, sistemi di gestione e benessere psico-sociale.',
+  alternates: {
+    canonical: absoluteUrl('/corsi'),
+  },
 }
 
 function extractNormativeRefs(courses: Course[]): string[] {

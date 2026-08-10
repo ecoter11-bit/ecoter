@@ -61,7 +61,7 @@ export function CtaFinaleSection() {
 
             {siteConfig.phone ? (
               <a
-                href={`tel:${siteConfig.phone}`}
+                href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
                 className={cn(
                   buttonVariants({ variant: 'outline-brand' }),
                   'h-12 gap-2 px-8 text-base font-semibold'

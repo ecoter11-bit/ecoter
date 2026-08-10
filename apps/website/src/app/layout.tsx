@@ -51,6 +51,7 @@ export default function RootLayout({
     <html
       lang="it"
       className={`${plusJakartaSans.variable} ${inter.variable} ${jetbrainsMono.variable} h-full`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-background text-foreground antialiased">
