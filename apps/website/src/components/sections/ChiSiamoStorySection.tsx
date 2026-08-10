@@ -98,8 +98,8 @@ export function ChiSiamoStorySection() {
               target="_blank"
               rel="noopener"
               className={cn(
-                buttonVariants({ variant: 'outline-brand', size: 'lg' }),
-                'h-11 gap-2 px-6'
+                buttonVariants({ variant: 'outline-brand' }),
+                'h-12 gap-2 px-8 text-base font-semibold'
               )}
             >
               Visita il sito del gruppo ECO-TER
