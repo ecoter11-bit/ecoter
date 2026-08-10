@@ -59,7 +59,7 @@ export function AziendeHeroSection() {
             all&apos;attestato.
           </motion.p>
 
-          <motion.div variants={slideUp}>
+          <motion.div variants={slideUp} className="mt-10">
             <Link
               href="/contatti"
               className={cn(
