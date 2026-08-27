@@ -1,8 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Building2, Calendar, MapPin } from 'lucide-react'
+import { Building2, Calendar, ExternalLink, MapPin } from 'lucide-react'
+import { buttonVariants } from '@ecoter/ui'
 import { Container } from '@/components/layout'
+import { siteConfig } from '@/config/site'
+import { cn } from '@/lib/utils'
 import {
   slideUp,
   slideUpGentle,
@@ -87,6 +90,22 @@ export function ChiSiamoStorySection() {
               un&apos;esperienza maturata direttamente sul campo, non solo
               teoria da manuale.
             </motion.p>
+          </motion.div>
+
+          <motion.div variants={slideUp} className="mt-8 flex justify-center">
+            <a
+              href={siteConfig.parentSite}
+              target="_blank"
+              rel="noopener"
+              className={cn(
+                buttonVariants({ variant: 'outline-brand' }),
+                'h-12 gap-2 px-8 text-base font-semibold'
+              )}
+            >
+              Visita il sito del gruppo ECO-TER
+              <ExternalLink className="size-4" aria-hidden="true" />
+              <span className="sr-only"> (si apre in una nuova scheda)</span>
+            </a>
           </motion.div>
         </motion.div>
       </Container>
