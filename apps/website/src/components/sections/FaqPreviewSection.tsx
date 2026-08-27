@@ -10,6 +10,9 @@ import {
   AccordionPanel,
 } from '@ecoter/ui'
 import { FAQS } from '@/lib/content/faq'
+
+/** Teaser stays short — the full list lives on /faq; showing all of it here would make the "Tutte le domande frequenti" link below redundant. */
+const PREVIEW_FAQS = FAQS.slice(0, 4)
 import { Container } from '@/components/layout'
 import {
   slideUp,
@@ -39,8 +42,8 @@ export function FaqPreviewSection() {
           </motion.div>
 
           <motion.div variants={slideUp}>
-            <Accordion defaultValue={[FAQS[0]?.id ?? '']}>
-              {FAQS.map((faq) => (
+            <Accordion defaultValue={[PREVIEW_FAQS[0]?.id ?? '']}>
+              {PREVIEW_FAQS.map((faq) => (
                 <AccordionItem key={faq.id} value={faq.id}>
                   <AccordionTrigger>{faq.question}</AccordionTrigger>
                   <AccordionPanel>{faq.answer}</AccordionPanel>

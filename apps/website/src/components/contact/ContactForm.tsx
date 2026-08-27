@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import Link from 'next/link'
 import {
   Send,
   CheckCircle2,
@@ -279,7 +278,7 @@ export function ContactForm({
           label={
             <>
               Ho letto e accetto la{' '}
-              <Link
+              <a
                 href={privacyPolicyHref}
                 target="_blank"
                 rel="noopener"
@@ -288,7 +287,7 @@ export function ContactForm({
                 privacy policy
                 <ExternalLink className="size-3" aria-hidden="true" />
                 <span className="sr-only"> (si apre in una nuova scheda)</span>
-              </Link>
+              </a>
               *
             </>
           }

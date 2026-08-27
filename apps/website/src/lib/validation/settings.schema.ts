@@ -8,12 +8,6 @@ export const siteAddressSchema = z.object({
   country: z.string(),
 })
 
-export const siteCertificationSchema = z.object({
-  name: z.string(),
-  code: z.string(),
-  logo: z.string().default(''),
-})
-
 export const siteSettingsSchema = z.object({
   name: z.string(),
   tagline: z.string(),
@@ -31,7 +25,6 @@ export const siteSettingsSchema = z.object({
     linkedin: z.string().default(''),
     youtube: z.string().default(''),
   }),
-  certifications: z.array(siteCertificationSchema).default([]),
   /** External URLs on the parent company's site (sicurezzalavoroeambiente.it) — ECOTER Academy has no legal pages of its own. */
   cookiePolicy: z.string(),
   privacyPolicy: z.string(),

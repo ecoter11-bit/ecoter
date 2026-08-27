@@ -129,12 +129,15 @@ export function StepSelection({
             label: a.label,
             icon: Users,
             color: 'brand' as const,
+            meta: applyFilters(courses, { ...EMPTY_FILTERS, audience: a.value })
+              .length,
           }))
         : normativeRefs.map((n) => ({
             value: n,
             label: n,
             icon: FileText,
             color: 'brand' as const,
+            meta: applyFilters(courses, { ...EMPTY_FILTERS, norm: n }).length,
           }))
 
   const selected = new Set(splitMulti(searchParams.get(meta.urlParam) ?? ''))
@@ -224,7 +227,10 @@ export function StepSelection({
                       </span>
                       {typeof opt.meta === 'number' && (
                         <span className="text-xs font-medium text-neutral-600">
-                          {opt.meta}
+                          <span aria-hidden="true">{opt.meta}</span>
+                          <span className="sr-only">
+                            {opt.meta === 1 ? '1 corso' : `${opt.meta} corsi`}
+                          </span>
                         </span>
                       )}
                     </span>
