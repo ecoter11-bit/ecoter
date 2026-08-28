@@ -33,19 +33,17 @@ export function AccreditamentiSection() {
 
           <motion.div
             variants={slideUp}
-            className="flex flex-col items-center rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm md:p-10"
+            className="flex flex-col items-center rounded-2xl border border-neutral-200 bg-white p-10 shadow-sm md:p-12"
           >
-            {/* Logo su sfondo nero: tile scuro (neutral-950, l'ink di brand)
-                per evitare un riquadro nero "a caso" su pagina chiara. */}
-            <div className="mb-5 inline-flex rounded-xl border border-neutral-800 bg-neutral-950 p-3">
-              <Image
-                src="/brand/af24-associazione-formatori.png"
-                alt="Logo Associazione Formatori 24 (AF24)"
-                width={600}
-                height={600}
-                className="size-24 rounded-md sm:size-28"
-              />
-            </div>
+            {/* Il logo ha già sfondo bianco: nessun tile di contenimento,
+                appoggia direttamente sulla card chiara. */}
+            <Image
+              src="/brand/af24-associazione-formatori.png"
+              alt="Logo Associazione Formatori 24 (AF24)"
+              width={600}
+              height={600}
+              className="mb-6 size-24 sm:size-28"
+            />
 
             <p className="font-heading text-lg font-semibold text-neutral-950">
               Associazione Formatori 24 (AF24)
