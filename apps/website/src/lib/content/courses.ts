@@ -3,11 +3,14 @@ import { join } from 'path'
 import matter from 'gray-matter'
 import { courseFrontmatterSchema } from '@/lib/validation'
 import type { Course, CourseLevel, CourseModality, CourseStatus } from '@/types'
+import { resolveSubcategory } from './subcategory-mapping'
 
 export type CourseData = Course & { body: string }
 
 export type CourseFilters = {
   category?: string
+  /** Slug di sotto-area (solo categoria `sicurezza`). */
+  subcategory?: string
   level?: CourseLevel
   modality?: CourseModality
   featured?: boolean
@@ -37,6 +40,8 @@ function parseCourseFile(filepath: string, filename: string): CourseData {
     subtitle: fm.subtitle,
     excerpt: fm.excerpt ?? deriveExcerpt(content),
     category: fm.category,
+    code: fm.code,
+    subcategory: resolveSubcategory(fm),
     level: fm.level,
     modality: fm.modality,
     duration: fm.duration,
@@ -78,6 +83,9 @@ export function getAllCourses(filters?: CourseFilters): CourseData[] {
   return courses
     .filter((c) => c.status === targetStatus)
     .filter((c) => !filters?.category || c.category === filters.category)
+    .filter(
+      (c) => !filters?.subcategory || c.subcategory === filters.subcategory
+    )
     .filter((c) => !filters?.level || c.level === filters.level)
     .filter(
       (c) =>

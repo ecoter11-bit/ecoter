@@ -1,0 +1,8 @@
+{
+  "slug": "lavoratori-preposti-dirigenti",
+  "parent": "sicurezza",
+  "name": "Lavoratori, preposti e dirigenti",
+  "description": "Formazione obbligatoria generale e specifica per lavoratori, preposti, dirigenti, datori di lavoro e RLS (D.Lgs. 81/08, artt. 36-37).",
+  "icon": "Users",
+  "order": 1
+}

@@ -1,0 +1,8 @@
+{
+  "slug": "ruoli-abilitazioni",
+  "parent": "sicurezza",
+  "name": "Ruoli e abilitazioni",
+  "description": "Percorsi qualificanti per chi ricopre un ruolo tecnico nella sicurezza: RSPP e ASPP, coordinatori CSP/CSE, formatori della sicurezza.",
+  "icon": "BadgeCheck",
+  "order": 2
+}

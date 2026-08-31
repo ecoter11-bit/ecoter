@@ -34,6 +34,15 @@ export const courseFrontmatterSchema = z.object({
   subtitle: z.string().default(''),
   excerpt: z.string().optional(),
   category: z.string().min(1, 'Categoria obbligatoria'),
+  /** Codice di catalogo ECOTER (es. A06, C03): una lettera di area seguita
+   * da due cifre. Il prefisso alfabetico è la fonte da cui si deriva la
+   * sotto-area dei corsi di sicurezza quando `subcategory` non è
+   * esplicitata. */
+  code: z.string().optional(),
+  /** Sotto-area del catalogo (usata solo dalla categoria `sicurezza`). Se
+   * assente viene derivata da `code` / slug — vedi
+   * `lib/content/subcategories.ts`. */
+  subcategory: z.string().optional(),
   level: z.enum(['base', 'intermedio', 'avanzato']),
   modality: z.array(z.enum(['aula', 'online', 'blended', 'in-house'])).min(1),
   duration: z.object({

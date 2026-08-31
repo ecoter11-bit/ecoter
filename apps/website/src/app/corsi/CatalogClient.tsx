@@ -5,29 +5,46 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import { CourseCard } from '@/components/course/CourseCard'
 import { CatalogToolbar } from '@/components/catalog/CatalogToolbar'
 import { EmptyState } from '@/components/catalog/EmptyState'
+import { SubcategoryResults } from '@/components/catalog/SubcategoryResults'
 import { applyFilters, type FilterState } from '@/lib/catalog-filters'
+import { isSubcategoryContext } from '@/lib/subcategory-ui'
 import type { Course } from '@/types'
-import type { CategoryWithCount } from '@/types'
+import type { CategoryWithCount, SubcategoryWithCount } from '@/types'
 
 /* ─── Props ──────────────────────────────────────────────────────────────── */
 
 type Props = {
   courses: Course[]
   categories: CategoryWithCount[]
+  subcategories: SubcategoryWithCount[]
   normativeRefs: string[]
 }
 
 /* ─── Component ──────────────────────────────────────────────────────────── */
 
-export function CatalogClient({ courses, categories, normativeRefs }: Props) {
+export function CatalogClient({
+  courses,
+  categories,
+  subcategories,
+  normativeRefs,
+}: Props) {
   const searchParams = useSearchParams()
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
 
+  /* Raggruppare e filtrare per sotto-area ha senso solo dentro Sicurezza:
+     è l'unica categoria sotto-articolata, e in una lista mista i gruppi
+     coprirebbero una parte sola dei risultati. Fuori da quel contesto `sub`
+     viene ignorato invece di restare un filtro attivo ma senza comando
+     visibile (es. un URL costruito a mano con due categorie). */
+  const categoryParam = searchParams.get('cat') ?? ''
+  const groupBySubcategory = isSubcategoryContext(categoryParam)
+
   /* Read filter state from URL — derived at render time, no state sync */
   const filters: FilterState = {
     query: searchParams.get('q') ?? '',
-    category: searchParams.get('cat') ?? '',
+    category: categoryParam,
+    subcategory: groupBySubcategory ? (searchParams.get('sub') ?? '') : '',
     audience: searchParams.get('aud') ?? '',
     modality: searchParams.get('mod') ?? '',
     duration: searchParams.get('dur') ?? '',
@@ -43,6 +60,7 @@ export function CatalogClient({ courses, categories, normativeRefs }: Props) {
       courses,
       filters.query,
       filters.category,
+      filters.subcategory,
       filters.audience,
       filters.modality,
       filters.norm,
@@ -54,6 +72,7 @@ export function CatalogClient({ courses, categories, normativeRefs }: Props) {
   const activeCount = [
     filters.query,
     filters.category,
+    filters.subcategory,
     filters.audience,
     filters.modality,
     filters.duration,
@@ -68,15 +87,17 @@ export function CatalogClient({ courses, categories, normativeRefs }: Props) {
         ? 'q'
         : key === 'category'
           ? 'cat'
-          : key === 'audience'
-            ? 'aud'
-            : key === 'modality'
-              ? 'mod'
-              : key === 'duration'
-                ? 'dur'
-                : key === 'norm'
-                  ? 'norm'
-                  : key /* sort */
+          : key === 'subcategory'
+            ? 'sub'
+            : key === 'audience'
+              ? 'aud'
+              : key === 'modality'
+                ? 'mod'
+                : key === 'duration'
+                  ? 'dur'
+                  : key === 'norm'
+                    ? 'norm'
+                    : key /* sort */
 
     if (value && value !== 'recente') {
       params.set(paramKey, value)
@@ -110,6 +131,8 @@ export function CatalogClient({ courses, categories, normativeRefs }: Props) {
       <CatalogToolbar
         filters={filters}
         categories={categories}
+        subcategories={subcategories}
+        showSubcategory={groupBySubcategory}
         normativeRefs={normativeRefs}
         activeCount={activeCount}
         isPending={isPending}
@@ -149,6 +172,11 @@ export function CatalogClient({ courses, categories, normativeRefs }: Props) {
 
           {filteredCourses.length === 0 ? (
             <EmptyState onReset={handleReset} hasFilters={activeCount > 0} />
+          ) : groupBySubcategory ? (
+            <SubcategoryResults
+              courses={filteredCourses}
+              subcategories={subcategories}
+            />
           ) : (
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {filteredCourses.map((course) => (

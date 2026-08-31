@@ -1,0 +1,8 @@
+{
+  "slug": "attrezzature",
+  "parent": "sicurezza",
+  "name": "Attrezzature di lavoro",
+  "description": "Abilitazioni all'uso di attrezzature che richiedono una specifica competenza: PLE, gru per autocarro, carrelli elevatori (D.Lgs. 81/08, art. 73).",
+  "icon": "Forklift",
+  "order": 3
+}
