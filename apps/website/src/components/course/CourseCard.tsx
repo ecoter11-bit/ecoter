@@ -36,10 +36,23 @@ type Props = {
    * corso (WCAG 1.3.1).
    */
   headingLevel?: 2 | 3 | 4
+  /**
+   * Mostra il badge "In evidenza" per i corsi con `featured: true`. Default
+   * `true` (catalogo, correlati). Va messo a `false` dove la sezione che
+   * contiene la card è già una vetrina — es. "Corsi in evidenza" in home:
+   * lì il badge non distingue nulla e, comparendo solo su alcune card, fa
+   * sembrare le altre meno in evidenza delle vicine.
+   */
+  showFeaturedBadge?: boolean
   className?: string
 }
 
-export function CourseCard({ course, headingLevel = 3, className }: Props) {
+export function CourseCard({
+  course,
+  headingLevel = 3,
+  showFeaturedBadge = true,
+  className,
+}: Props) {
   const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4'
   const categoryBarClass = categoryBar[course.category] ?? defaultCategoryBar
   const categoryColor =
@@ -73,7 +86,7 @@ export function CourseCard({ course, headingLevel = 3, className }: Props) {
           <Badge size="sm" color={levelColor}>
             {levelBadgeLabel[course.level]}
           </Badge>
-          {course.featured && (
+          {showFeaturedBadge && course.featured && (
             <Badge size="sm" color={featuredBadgeColor}>
               {featuredBadgeLabel}
             </Badge>

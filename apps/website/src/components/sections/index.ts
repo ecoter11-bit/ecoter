@@ -1,5 +1,5 @@
 export { HeroSection } from './HeroSection'
-export { SearchSection } from './SearchSection'
+export { FeaturedCoursesSection } from './FeaturedCoursesSection'
 export { AreaFormativeSection } from './AreaFormativeSection'
 export { WhyEcoterSection } from './WhyEcoterSection'
 export { ComeFunzionaSection } from './ComeFunzionaSection'

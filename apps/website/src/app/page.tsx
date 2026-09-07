@@ -1,7 +1,10 @@
-import { getAllCategoriesWithCount } from '@/lib/content'
+import {
+  getAllCategoriesWithCount,
+  getHomeFeaturedCourses,
+} from '@/lib/content'
 import {
   HeroSection,
-  SearchSection,
+  FeaturedCoursesSection,
   AreaFormativeSection,
   WhyEcoterSection,
   ComeFunzionaSection,
@@ -11,11 +14,12 @@ import {
 
 export default function HomePage() {
   const categories = getAllCategoriesWithCount()
+  const featuredCourses = getHomeFeaturedCourses()
 
   return (
     <>
       <HeroSection />
-      <SearchSection />
+      <FeaturedCoursesSection courses={featuredCourses} />
       <AreaFormativeSection categories={categories} />
       <WhyEcoterSection />
       <ComeFunzionaSection />

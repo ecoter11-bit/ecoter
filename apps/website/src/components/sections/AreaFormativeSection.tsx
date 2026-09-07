@@ -10,6 +10,7 @@ import {
   ArrowRight,
   type LucideIcon,
 } from 'lucide-react'
+import { buttonVariants } from '@ecoter/ui'
 import type { CategoryWithCount } from '@/types'
 import { Container } from '@/components/layout'
 import {
@@ -187,9 +188,15 @@ export function AreaFormativeSection({ categories }: Props) {
           </div>
 
           <motion.div variants={slideUp} className="mt-12 text-center">
+            {/* Secondaria e neutra: la CTA brand per il catalogo è già in
+             * "Corsi in evidenza", una sezione più su. Stessa destinazione,
+             * peso visivo diverso — qui si chiude il blocco, non si apre. */}
             <Link
               href="/corsi"
-              className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-6 py-2.5 text-sm font-semibold text-neutral-700 shadow-sm transition-all duration-200 hover:border-brand-600 hover:text-brand-700 hover:shadow-md"
+              className={cn(
+                buttonVariants({ variant: 'outline' }),
+                'h-11 gap-2 rounded-full bg-white px-6 font-semibold text-neutral-700 shadow-sm transition-all duration-200 hover:border-brand-600 hover:bg-white hover:text-brand-700 hover:shadow-md'
+              )}
             >
               Vedi tutti i corsi del catalogo
               <ArrowRight className="size-4" aria-hidden="true" />
