@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import type { Course } from '@/types'
 import { getAllCourses } from '@/lib/content/courses'
 import { getAllCategoriesWithCount } from '@/lib/content/categories'
+import { getAllSubcategoriesWithCount } from '@/lib/content/subcategories'
 import { GuidedCatalog } from '@/components/catalog/GuidedCatalog'
 import { CourseGridSkeleton } from '@/components/course/CourseCardSkeleton'
 import { absoluteUrl } from '@/lib/utils'
@@ -34,6 +35,7 @@ function CatalogFallback() {
 export default function CatalogPage() {
   const courseData = getAllCourses({ status: 'published' })
   const categories = getAllCategoriesWithCount()
+  const subcategories = getAllSubcategoriesWithCount()
 
   /* Strip MDX body — only Course fields needed on client */
   const courses: Course[] = courseData.map(
@@ -66,6 +68,7 @@ export default function CatalogPage() {
         <GuidedCatalog
           courses={courses}
           categories={categories}
+          subcategories={subcategories}
           normativeRefs={normativeRefs}
         />
       </Suspense>

@@ -1,0 +1,8 @@
+{
+  "slug": "rischi-specifici",
+  "parent": "sicurezza",
+  "name": "Rischi specifici e impianti",
+  "description": "Valutazione e gestione dei rischi specifici — chimico, rumore, vibrazioni, movimentazione manuale dei carichi, biologico — e impianti e attrezzature a pressione.",
+  "icon": "TriangleAlert",
+  "order": 5
+}

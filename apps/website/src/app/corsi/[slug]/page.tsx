@@ -12,6 +12,7 @@ import {
   getAllCourseSlugs,
   getCoursesByCategory,
   getCategory,
+  getSubcategory,
 } from '@/lib/content'
 import { absoluteUrl } from '@/lib/utils'
 import { buildCourseJsonLd } from '@/lib/seo/course-schema'
@@ -74,6 +75,12 @@ export default async function CourseDetailPage({ params }: Props) {
   const categoryDisplayName =
     category?.name ?? categoryBadgeLabel[course.category] ?? course.category
 
+  /* Le sotto-aree esistono solo per Sicurezza: sugli altri corsi il breadcrumb
+     resta a quattro livelli, senza gradino intermedio. */
+  const subcategory = course.subcategory
+    ? getSubcategory(course.subcategory)
+    : undefined
+
   const related = getCoursesByCategory(course.category)
     .filter((c) => c.slug !== course.slug)
     .slice(0, 3)
@@ -103,6 +110,14 @@ export default async function CourseDetailPage({ params }: Props) {
                 label: categoryDisplayName,
                 href: `/corsi?step=3&cat=${course.category}`,
               },
+              ...(subcategory
+                ? [
+                    {
+                      label: subcategory.name,
+                      href: `/corsi?step=3&cat=${course.category}&sub=${subcategory.slug}`,
+                    },
+                  ]
+                : []),
               { label: course.title, href: `/corsi/${course.slug}` },
             ]}
           />

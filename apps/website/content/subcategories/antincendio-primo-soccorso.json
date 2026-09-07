@@ -1,0 +1,8 @@
+{
+  "slug": "antincendio-primo-soccorso",
+  "parent": "sicurezza",
+  "name": "Antincendio e primo soccorso",
+  "description": "Formazione delle squadre di emergenza aziendali: addetti alla prevenzione incendi e addetti al primo soccorso.",
+  "icon": "Flame",
+  "order": 6
+}

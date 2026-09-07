@@ -11,6 +11,7 @@ export type {
   CourseStatus,
 } from './course'
 export type { Category, CategorySeo, CategoryWithCount } from './category'
+export type { Subcategory, SubcategoryWithCount } from './subcategory'
 
 /* ─── Shared primitives ───────────────────────────────────────────────────── */
 

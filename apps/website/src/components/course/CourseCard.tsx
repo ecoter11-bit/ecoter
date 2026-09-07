@@ -28,10 +28,19 @@ const defaultCategoryBar = 'bg-neutral-400'
 
 type Props = {
   course: Course
+  /**
+   * Livello dell'intestazione del titolo. Default `3`, come nella griglia
+   * piatta del catalogo. Nei risultati raggruppati per sotto-area la sezione
+   * ha già una `h3` col nome del gruppo, quindi le card scendono a `h4`:
+   * senza, la navigazione per intestazioni non distinguerebbe un gruppo da un
+   * corso (WCAG 1.3.1).
+   */
+  headingLevel?: 2 | 3 | 4
   className?: string
 }
 
-export function CourseCard({ course, className }: Props) {
+export function CourseCard({ course, headingLevel = 3, className }: Props) {
+  const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4'
   const categoryBarClass = categoryBar[course.category] ?? defaultCategoryBar
   const categoryColor =
     categoryBadgeColor[course.category] ?? defaultCategoryBadgeColor
@@ -73,9 +82,9 @@ export function CourseCard({ course, className }: Props) {
         </div>
 
         {/* Title + subtitle */}
-        <h3 className="mb-1.5 line-clamp-2 font-heading text-lg leading-snug font-bold text-neutral-950 transition-colors duration-200 group-hover:text-brand-700">
+        <Heading className="mb-1.5 line-clamp-2 font-heading text-lg leading-snug font-bold text-neutral-950 transition-colors duration-200 group-hover:text-brand-700">
           {course.title}
-        </h3>
+        </Heading>
         <p className="mb-4 line-clamp-1 text-sm leading-relaxed text-muted-foreground">
           {course.subtitle}
         </p>

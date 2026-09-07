@@ -12,7 +12,7 @@ Next.js 16 (App Router, Turbopack) + React 19 + Tailwind v4 + MDX + framer-motio
 - `src/app/` — route: home, `/corsi` (catalogo, con `CatalogClient.tsx` lato client), manifest/robots/sitemap.
 - `src/components/sections/` — blocchi di homepage (Hero, WhyEcoter, AreaFormative, FaqPreview, CtaFinale, ...).
 - `src/components/layout/`, `src/components/catalog/`, `src/components/course/` — layout, catalogo, card corso.
-- `src/lib/content/` + `content/` alla radice del package — corsi/categorie come MDX + JSON, validati da `src/lib/validation/*.schema.ts` (zod).
+- `src/lib/content/` + `content/` alla radice del package — corsi/categorie/sotto-aree come MDX + JSON, validati da `src/lib/validation/*.schema.ts` (zod). Le **sotto-aree** (`content/subcategories/`) esistono solo per `sicurezza`: la sotto-area di un corso si deriva dal prefisso del `code` di catalogo (A-F) in `src/lib/content/subcategory-mapping.ts`, salvo `subcategory` esplicita in frontmatter; `pnpm validate` verifica che ogni corso di sicurezza ne abbia esattamente una.
 - `scripts/validate-content.ts` (`pnpm validate`) e `scripts/build-search-index.ts` (`pnpm build:search`) — rigenerano `content/generated/`.
 - Tema **chiaro, dark mode disabilitato** (`@custom-variant dark (&:is(.dark-never *))` in `globals.css` — non è un residuo, è intenzionale).
 

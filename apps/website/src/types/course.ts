@@ -43,6 +43,10 @@ export type Course = {
   subtitle: string
   excerpt: string
   category: string
+  /** Codice di catalogo ECOTER (es. A06). */
+  code?: string
+  /** Sotto-area risolta (solo `sicurezza`) — vedi `lib/content/subcategories.ts`. */
+  subcategory?: string
   level: CourseLevel
   modality: CourseModality[]
   duration: CourseDuration
@@ -66,6 +70,8 @@ export type Course = {
 export type CourseCard = Pick<
   Course,
   | 'slug'
+  | 'code'
+  | 'subcategory'
   | 'title'
   | 'subtitle'
   | 'excerpt'

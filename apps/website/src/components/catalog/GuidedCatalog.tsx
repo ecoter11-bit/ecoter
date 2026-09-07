@@ -6,16 +6,17 @@ import { ArrowLeft } from 'lucide-react'
 import { StepModeCards } from './StepModeCards'
 import { StepSelection, type GuidedMode } from './StepSelection'
 import { CatalogClient } from '@/app/corsi/CatalogClient'
-import type { Course, CategoryWithCount } from '@/types'
+import type { Course, CategoryWithCount, SubcategoryWithCount } from '@/types'
 
 type Props = {
   courses: Course[]
   categories: CategoryWithCount[]
+  subcategories: SubcategoryWithCount[]
   normativeRefs: string[]
 }
 
 const VALID_MODES: GuidedMode[] = ['argomento', 'ruolo', 'normativa']
-const FILTER_PARAMS = ['q', 'cat', 'aud', 'mod', 'dur', 'norm']
+const FILTER_PARAMS = ['q', 'cat', 'sub', 'aud', 'mod', 'dur', 'norm']
 
 const MODE_LABEL: Record<GuidedMode, string> = {
   argomento: 'Per argomento',
@@ -31,7 +32,12 @@ const MODE_LABEL: Record<GuidedMode, string> = {
  * direttamente al passo 3 invece di intercettarli sulla schermata "Come vuoi
  * cercare?".
  */
-export function GuidedCatalog({ courses, categories, normativeRefs }: Props) {
+export function GuidedCatalog({
+  courses,
+  categories,
+  subcategories,
+  normativeRefs,
+}: Props) {
   const searchParams = useSearchParams()
 
   const stepParam = searchParams.get('step')
@@ -63,6 +69,7 @@ export function GuidedCatalog({ courses, categories, normativeRefs }: Props) {
         mode={mode}
         courses={courses}
         categories={categories}
+        subcategories={subcategories}
         normativeRefs={normativeRefs}
       />
     )
@@ -108,6 +115,7 @@ export function GuidedCatalog({ courses, categories, normativeRefs }: Props) {
       <CatalogClient
         courses={courses}
         categories={categories}
+        subcategories={subcategories}
         normativeRefs={normativeRefs}
       />
     </>

@@ -10,13 +10,17 @@ import {
   DURATION_OPTIONS,
   SORT_OPTIONS,
 } from '@/lib/catalog-options'
-import type { CategoryWithCount } from '@/types'
+import type { CategoryWithCount, SubcategoryWithCount } from '@/types'
 
 export type { FilterState }
 
 type Props = {
   filters: FilterState
   categories: CategoryWithCount[]
+  subcategories: SubcategoryWithCount[]
+  /** Mostra il filtro "Sotto-area": vero solo in contesto Sicurezza, l'unica
+   *  categoria sotto-articolata (vedi `isSubcategoryContext`). */
+  showSubcategory: boolean
   normativeRefs: string[]
   activeCount: number
   isPending: boolean
@@ -25,6 +29,17 @@ type Props = {
 }
 
 const SEARCH_DEBOUNCE_MS = 280
+
+/**
+ * Valore fittizio per lo stato "più sotto-aree attive" del select
+ * "Sotto-area". Il drill-down del passo 2 è multi-selezione (`sub=a,b`), un
+ * `<select>` nativo no: senza questa opzione il controllo non troverebbe
+ * corrispondenza e mostrerebbe il placeholder, dichiarando "nessun filtro"
+ * mentre due sono attivi. L'opzione è `disabled`: comunica lo stato, non è
+ * una scelta: per cambiare si sceglie una singola sotto-area, per azzerare
+ * il placeholder.
+ */
+const SUBCATEGORY_MULTI = '__multi__'
 
 const selectClass = cn(
   'h-9 rounded-lg border border-neutral-200 bg-white pl-3 pr-7 text-sm text-neutral-700',
@@ -35,6 +50,8 @@ const selectClass = cn(
 export function CatalogToolbar({
   filters,
   categories,
+  subcategories,
+  showSubcategory,
   normativeRefs,
   activeCount,
   isPending,
@@ -42,6 +59,15 @@ export function CatalogToolbar({
   onReset,
 }: Props) {
   const [mobileOpen, setMobileOpen] = useState(false)
+
+  const selectedSubcategories = filters.subcategory
+    .split(',')
+    .map((v) => v.trim())
+    .filter(Boolean)
+  const hasMultipleSubcategories = selectedSubcategories.length > 1
+  const subcategoryValue = hasMultipleSubcategories
+    ? SUBCATEGORY_MULTI
+    : filters.subcategory
 
   /* Local, immediately-responsive search text — decoupled from the URL so
      typing never waits on a router transition. `lastSentQuery` tracks the
@@ -104,8 +130,16 @@ export function CatalogToolbar({
       <div className="container-default py-3">
         {/* Primary row — always visible */}
         <div className="flex items-center gap-2">
-          {/* Search input */}
-          <div className="relative min-w-0 flex-1">
+          {/* Search input — il minimo su desktop scatta solo in contesto
+              Sicurezza, dove la fila porta un select in più: senza, la ricerca
+              verrebbe schiacciata a pochi pixel. Fuori da quel contesto la
+              toolbar resta esattamente com'era, su una riga sola. */}
+          <div
+            className={cn(
+              'relative min-w-0 flex-1',
+              showSubcategory && 'lg:min-w-48'
+            )}
+          >
             <Search
               className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-neutral-400"
               aria-hidden="true"
@@ -133,8 +167,10 @@ export function CatalogToolbar({
             )}
           </div>
 
-          {/* Desktop selects */}
-          <div className="hidden items-center gap-2 lg:flex">
+          {/* Desktop selects — `flex-wrap` + `min-w-0`: quando compare anche
+              "Sotto-area" i select vanno a capo invece di comprimere la
+              ricerca. */}
+          <div className="hidden min-w-0 flex-wrap items-center justify-end gap-2 lg:flex">
             <select
               value={filters.category}
               onChange={(e) => onChange('category', e.target.value)}
@@ -148,6 +184,27 @@ export function CatalogToolbar({
                 </option>
               ))}
             </select>
+
+            {showSubcategory && (
+              <select
+                value={subcategoryValue}
+                onChange={(e) => onChange('subcategory', e.target.value)}
+                aria-label="Filtra per sotto-area della Sicurezza"
+                className={selectClass}
+              >
+                <option value="">Sotto-area</option>
+                {hasMultipleSubcategories && (
+                  <option value={SUBCATEGORY_MULTI} disabled>
+                    {selectedSubcategories.length} sotto-aree selezionate
+                  </option>
+                )}
+                {subcategories.map((sub) => (
+                  <option key={sub.slug} value={sub.slug}>
+                    {sub.name} ({sub.courseCount})
+                  </option>
+                ))}
+              </select>
+            )}
 
             <select
               value={filters.audience}
@@ -275,6 +332,27 @@ export function CatalogToolbar({
                 </option>
               ))}
             </select>
+
+            {showSubcategory && (
+              <select
+                value={subcategoryValue}
+                onChange={(e) => onChange('subcategory', e.target.value)}
+                aria-label="Filtra per sotto-area della Sicurezza"
+                className={cn(selectClass, 'w-full')}
+              >
+                <option value="">Sotto-area</option>
+                {hasMultipleSubcategories && (
+                  <option value={SUBCATEGORY_MULTI} disabled>
+                    {selectedSubcategories.length} sotto-aree selezionate
+                  </option>
+                )}
+                {subcategories.map((sub) => (
+                  <option key={sub.slug} value={sub.slug}>
+                    {sub.name} ({sub.courseCount})
+                  </option>
+                ))}
+              </select>
+            )}
 
             <select
               value={filters.audience}

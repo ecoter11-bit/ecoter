@@ -1,0 +1,8 @@
+{
+  "slug": "lavori-elettrici",
+  "parent": "sicurezza",
+  "name": "Lavori elettrici (PES/PAV/PEI)",
+  "description": "Qualificazione del personale che opera su impianti elettrici secondo le Norme CEI 11-27 e la manutenzione delle cabine CEI 78-17.",
+  "icon": "Zap",
+  "order": 4
+}

@@ -29,14 +29,22 @@ export const AUDIENCE_GROUPS: AudienceGroup[] = [
 /* ─── Filter state ───────────────────────────────────────────────────────── */
 
 /**
- * `category`, `audience` and `norm` accept either a single value or a
- * comma-separated list (multi-select from the guided catalog flow, passo 2).
- * `CatalogToolbar`'s selects only ever write a single value; the guided
- * flow's chip selection is what produces the comma-joined form.
+ * `category`, `audience`, `norm` and `subcategory` accept either a single
+ * value or a comma-separated list (multi-select from the guided catalog flow,
+ * passo 2). `CatalogToolbar`'s selects only ever write a single value; the
+ * guided flow's chip selection is what produces the comma-joined form.
  */
 export type FilterState = {
   query: string
   category: string
+  /**
+   * Sotto-area (drill-down della sola categoria "Sicurezza sul Lavoro"). Le
+   * altre categorie non hanno sotto-aree: un corso fuori da `sicurezza` non ha
+   * `subcategory` e viene quindi escluso appena questo filtro è valorizzato —
+   * comportamento voluto, dato che l'unico modo di valorizzarlo è passare dal
+   * drill-down di Sicurezza.
+   */
+  subcategory: string
   audience: string
   modality: string
   duration: string
@@ -76,6 +84,14 @@ export function applyFilters(
   if (filters.category) {
     const cats = splitMulti(filters.category)
     result = result.filter((c) => cats.includes(c.category))
+  }
+
+  /* sotto-area (multi) */
+  if (filters.subcategory) {
+    const subs = splitMulti(filters.subcategory)
+    result = result.filter(
+      (c) => !!c.subcategory && subs.includes(c.subcategory)
+    )
   }
 
   /* audience (multi) */
