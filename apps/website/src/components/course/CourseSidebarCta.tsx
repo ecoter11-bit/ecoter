@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Clock, Award, Mail, MessageCircle } from 'lucide-react'
 import { buttonVariants } from '@ecoter/ui'
-import { cn, formatCourseDuration, formatCoursePrice } from '@/lib/utils'
+import { cn, formatCourseDuration } from '@/lib/utils'
 import { modalityIcon, modalityLabel } from '@/lib/badge-mappings'
 import type { Course } from '@/types'
 
@@ -11,8 +11,6 @@ type Props = {
 }
 
 export function CourseSidebarCta({ course, className }: Props) {
-  const isFixedPrice = course.pricing.type === 'fixed'
-
   return (
     <div
       className={cn(
@@ -20,23 +18,7 @@ export function CourseSidebarCta({ course, className }: Props) {
         className
       )}
     >
-      {isFixedPrice && (
-        <>
-          <p className="font-heading text-3xl font-bold text-neutral-950">
-            {formatCoursePrice(course.pricing)}
-          </p>
-          <p className="mt-1 text-xs text-neutral-600">
-            IVA esclusa, a partecipante
-          </p>
-        </>
-      )}
-
-      <div
-        className={cn(
-          'space-y-3 text-sm text-neutral-600',
-          isFixedPrice && 'mt-5 border-t border-neutral-100 pt-5'
-        )}
-      >
+      <div className="space-y-3 text-sm text-neutral-600">
         <div className="flex items-center gap-2.5">
           <Clock
             className="size-4 shrink-0 text-brand-600"

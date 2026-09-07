@@ -143,12 +143,6 @@ export function applyFilters(
     sorted.sort((a, b) => a.duration.hours - b.duration.hours)
   } else if (filters.sort === 'durata-desc') {
     sorted.sort((a, b) => b.duration.hours - a.duration.hours)
-  } else if (filters.sort === 'prezzo-asc') {
-    sorted.sort((a, b) => {
-      const pa = a.pricing.type === 'fixed' ? a.pricing.amount : Infinity
-      const pb = b.pricing.type === 'fixed' ? b.pricing.amount : Infinity
-      return pa - pb
-    })
   }
   /* 'recente' — already sorted by publishedAt from server */
 

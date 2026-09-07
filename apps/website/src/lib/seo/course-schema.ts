@@ -38,15 +38,9 @@ export function buildCourseJsonLd(course: Course): Record<string, unknown> {
     })),
   }
 
-  if (course.pricing.type === 'fixed') {
-    json.offers = {
-      '@type': 'Offer',
-      price: course.pricing.amount,
-      priceCurrency: course.pricing.currency,
-      availability: 'https://schema.org/InStock',
-      url,
-    }
-  }
+  // Nessun `offers`: i prezzi non sono più pubblicati sul sito e un `Offer`
+  // senza `price`/`priceCurrency` è invalido per Google — meglio ometterlo
+  // che emettere structured data incompleto.
 
   if (course.certification) {
     json.educationalCredentialAwarded = course.certification
