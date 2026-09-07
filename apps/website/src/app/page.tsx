@@ -3,7 +3,6 @@ import {
   HeroSection,
   SearchSection,
   AreaFormativeSection,
-  FormazioneObbligatoriaSection,
   WhyEcoterSection,
   ComeFunzionaSection,
   FaqPreviewSection,
@@ -18,7 +17,6 @@ export default function HomePage() {
       <HeroSection />
       <SearchSection />
       <AreaFormativeSection categories={categories} />
-      <FormazioneObbligatoriaSection />
       <WhyEcoterSection />
       <ComeFunzionaSection />
       <FaqPreviewSection />

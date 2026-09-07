@@ -67,8 +67,8 @@ export function HeroSection() {
               className={cn(
                 // `default` alone renders unstyled here — the shadcn --color-primary
                 // alias doesn't resolve in this app's Turbopack build (pre-existing,
-                // confirmed sitewide, see CtaFinaleSection/FormazioneObbligatoriaSection
-                // for the same workaround). Overriding with the brand scale directly.
+                // confirmed sitewide, see CtaFinaleSection for the same
+                // workaround). Overriding with the brand scale directly.
                 buttonVariants({ variant: 'default' }),
                 'h-12 gap-2 bg-brand-600 px-8 text-base font-semibold text-white hover:bg-brand-700'
               )}
