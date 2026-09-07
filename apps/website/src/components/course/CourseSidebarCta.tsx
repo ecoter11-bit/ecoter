@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Clock, Award, Mail, MessageCircle } from 'lucide-react'
+import { Clock, Award, Mail, ClipboardList } from 'lucide-react'
 import { buttonVariants } from '@ecoter/ui'
 import { cn, formatCourseDuration } from '@/lib/utils'
 import { modalityIcon, modalityLabel } from '@/lib/badge-mappings'
@@ -70,19 +70,20 @@ export function CourseSidebarCta({ course, className }: Props) {
           Richiedi informazioni
         </Link>
 
-        {/* Always /contatti (course pre-filled), not tel: — both CTAs on
-         * this card funnel into the same form by design, so the icon reads
-         * as "get in touch" rather than "place a call" (MessageCircle, not
-         * Phone — the number itself is only ever a tel: link on /contatti). */}
+        {/* Secondo CTA = richiesta d'acquisto, non un secondo canale di
+         * contatto: porta al form /ottieni-corso col corso già selezionato,
+         * dove si raccolgono i dati di fatturazione. Nessun pagamento
+         * online, quindi l'icona è un modulo (ClipboardList), non un
+         * carrello — non promettiamo un checkout. */}
         <Link
-          href={`/contatti?corso=${course.slug}`}
+          href={`/ottieni-corso?corso=${course.slug}`}
           className={cn(
             buttonVariants({ variant: 'outline-brand' }),
             'h-12 w-full gap-2 px-6 text-base font-semibold'
           )}
         >
-          <MessageCircle className="size-4" aria-hidden="true" />
-          Parla con noi
+          <ClipboardList className="size-4" aria-hidden="true" />
+          Ottieni corso
         </Link>
       </div>
     </div>

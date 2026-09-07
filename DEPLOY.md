@@ -43,6 +43,7 @@ Nessun segreto è nel repo — vedi `apps/website/.env.example` per la lista com
 |---|---|---|
 | `RESEND_API_KEY` | No | Senza questa (+ `CONTACT_TO_EMAIL`), il form contatti valida e risponde OK ma logga invece di inviare l'email (stub, vedi `src/lib/contact/send-contact-email.ts`) |
 | `CONTACT_TO_EMAIL` | No | Indirizzo che riceve le richieste dal form contatti. Va impostata insieme a `RESEND_API_KEY` per attivare l'invio reale |
+| `ORDER_TO_EMAIL` | No | Destinatario delle richieste dal form "Ottieni corso" (`/ottieni-corso`). Senza, ricade su `academy@eco-ter.com`. L'invio reale richiede comunque `RESEND_API_KEY` |
 | `CONTACT_FROM_EMAIL` | No | Mittente delle email inviate. Senza dominio verificato su Resend, ricade sul sandbox `onboarding@resend.dev` (ok per test, non per produzione) |
 | `NEXT_PUBLIC_SITE_URL` | No | URL base per canonical/JSON-LD. Senza, usa `https://academy.ecoter.it`. Utile solo se il dominio finale è diverso |
 | `ENABLE_EXPERIMENTAL_COREPACK` | **Sì** | Vedi sopra — serve a far rispettare la versione pnpm pinnata |
