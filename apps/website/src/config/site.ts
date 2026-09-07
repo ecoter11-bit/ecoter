@@ -10,12 +10,13 @@ export const siteConfig = {
   founder: 'ECOTER Srl',
   /**
    * Contact fields mirror `content/settings/site.json` (loaded via
-   * `getSiteSettings()` for /contatti) — inherited from the parent company
-   * (ECOTER Srl, sicurezzalavoroeambiente.it), NOT yet confirmed as the
-   * Academy's own. Keep both in sync until there's a single source of
-   * truth; see `content/settings/site.json`'s `contactInfoProvisional`.
+   * `getSiteSettings()` for /contatti). `email` è la casella dedicata di
+   * ECOTER Academy; telefono e sede restano quelli della casa madre (ECOTER
+   * Srl, sicurezzalavoroeambiente.it). Keep both in sync until there's a
+   * single source of truth; see `content/settings/site.json`'s
+   * `contactInfoNote`.
    */
-  email: 'info@eco-ter.com',
+  email: 'academy@eco-ter.com',
   phone: '+39 051 4690064',
   address: {
     street: 'Via del Lavoro, 2',

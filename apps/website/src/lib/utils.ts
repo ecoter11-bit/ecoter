@@ -82,10 +82,3 @@ export function formatCourseDuration(duration: Course['duration']): string {
       : ['giorno', 'giorni']
   return `${duration.hours}h · ${duration.days} ${pluralize(duration.days, singular, plural)}`
 }
-
-/** `"€ 490"` for fixed pricing, `"Su richiesta"` for on-request. */
-export function formatCoursePrice(pricing: Course['pricing']): string {
-  return pricing.type === 'fixed'
-    ? `€ ${pricing.amount.toLocaleString('it-IT')}`
-    : 'Su richiesta'
-}

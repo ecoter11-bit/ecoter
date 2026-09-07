@@ -1040,26 +1040,6 @@
     ]
   },
   {
-    "slug": "haccp-addetti-alimentare",
-    "title": "HACCP – Formazione degli Addetti al Settore Alimentare",
-    "subtitle": "Igiene e sicurezza alimentare per chi manipola, trasforma o somministra alimenti",
-    "excerpt": "Corso obbligatorio sull'HACCP per lavoratori del settore alimentare: principi, procedure e responsabilità per garantire la sicurezza dei consumatori.",
-    "category": "sistemi-di-gestione",
-    "level": "base",
-    "modality": [
-      "aula",
-      "online"
-    ],
-    "tags": [
-      "haccp",
-      "igiene-alimentare",
-      "reg-ce-852",
-      "obbligatorio",
-      "ristorazione",
-      "qualita"
-    ]
-  },
-  {
     "slug": "auditor-interno-iso-9001",
     "title": "Auditor Interno ISO 9001:2015",
     "subtitle": "Progettare e condurre audit interni efficaci nei sistemi di gestione per la qualità",

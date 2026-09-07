@@ -31,5 +31,4 @@ export const SORT_OPTIONS = [
   { value: 'recente', label: 'Più recenti' },
   { value: 'durata-asc', label: 'Durata crescente' },
   { value: 'durata-desc', label: 'Durata decrescente' },
-  { value: 'prezzo-asc', label: 'Prezzo crescente' },
 ]

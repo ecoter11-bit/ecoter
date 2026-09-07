@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Clock, Building2, ArrowRight } from 'lucide-react'
 import { Badge } from '@ecoter/ui'
-import { cn, formatCourseDuration, formatCoursePrice } from '@/lib/utils'
+import { cn, formatCourseDuration } from '@/lib/utils'
 import {
   categoryBadgeColor,
   categoryBadgeLabel,
@@ -46,7 +46,6 @@ export function CourseCard({ course, headingLevel = 3, className }: Props) {
     categoryBadgeColor[course.category] ?? defaultCategoryBadgeColor
   const levelColor = levelBadgeColor[course.level] ?? 'neutral'
 
-  const isFixedPrice = course.pricing.type === 'fixed'
   const durationLabel = formatCourseDuration(course.duration)
 
   const primaryNorm = course.normativeRef?.[0]
@@ -119,17 +118,7 @@ export function CourseCard({ course, headingLevel = 3, className }: Props) {
         </p>
 
         {/* Footer */}
-        <div
-          className={cn(
-            'mt-5 flex items-center border-t border-neutral-100 pt-5',
-            isFixedPrice ? 'justify-between' : 'justify-end'
-          )}
-        >
-          {isFixedPrice && (
-            <span className="text-base font-bold text-neutral-950">
-              {formatCoursePrice(course.pricing)}
-            </span>
-          )}
+        <div className="mt-5 flex items-center justify-end border-t border-neutral-100 pt-5">
           <Link
             href={`/corsi/${course.slug}`}
             className={cn(
