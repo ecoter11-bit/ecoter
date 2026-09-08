@@ -8,7 +8,7 @@ import type { BadgeColor } from '@ecoter/ui'
  *
  * - sicurezza               → `blue`  (D.Lgs. 81/08, RSPP/ASPP, antincendio, primo soccorso)
  * - ambiente                → `brand` (the rebrand's green)
- * - sistemi-di-gestione     → `eco`   (ISO 9001/14001/45001, HACCP, audit)
+ * - sistemi-di-gestione     → `eco`   (ISO 9001/14001/45001, audit interni)
  * - benessere-psico-sociale → `amber` (stress lavoro-correlato, mindfulness, counseling)
  *
  * `amber` is shared with `featuredBadgeColor` below — a

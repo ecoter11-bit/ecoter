@@ -45,7 +45,7 @@ Nessun segreto è nel repo — vedi `apps/website/.env.example` per la lista com
 | `CONTACT_TO_EMAIL` | No | Indirizzo che riceve le richieste dal form contatti. Va impostata insieme a `RESEND_API_KEY` per attivare l'invio reale |
 | `ORDER_TO_EMAIL` | No | Destinatario delle richieste dal form "Ottieni corso" (`/ottieni-corso`). Senza, ricade su `academy@eco-ter.com`. L'invio reale richiede comunque `RESEND_API_KEY` |
 | `CONTACT_FROM_EMAIL` | No | Mittente delle email inviate. Senza dominio verificato su Resend, ricade sul sandbox `onboarding@resend.dev` (ok per test, non per produzione) |
-| `NEXT_PUBLIC_SITE_URL` | No | URL base per canonical/JSON-LD. Senza, usa `https://academy.ecoter.it`. Utile solo se il dominio finale è diverso |
+| `NEXT_PUBLIC_SITE_URL` | No | URL base per canonical/JSON-LD. Senza, usa `https://ecoteracademy.it` (dominio reale, registrato su Aruba). Utile solo per preview/staging su un dominio diverso |
 | `ENABLE_EXPERIMENTAL_COREPACK` | **Sì** | Vedi sopra — serve a far rispettare la versione pnpm pinnata |
 
 Per attivare davvero l'invio email in produzione servono un account [Resend](https://resend.com) (piano gratuito disponibile), una API key e un dominio mittente verificato lì — passaggio da fare quando pronti, non blocca il primo deploy.
@@ -59,8 +59,8 @@ Da qui in poi, ogni push su `master` genera un deploy di produzione automatico; 
 ## 5. Collegare un dominio
 
 1. Project → **Settings → Domains**.
-2. Aggiungi il dominio (es. `academy.ecoter.it`).
+2. Aggiungi il dominio `ecoteracademy.it` (registrato su Aruba, intestato a ECO-TER SRL) — i record DNS vanno creati nel pannello Aruba.
 3. Vercel mostra i record DNS da creare (in genere un `CNAME` verso `cname.vercel-dns.com`, o un record `A` se è il dominio apex) — vanno aggiunti presso il provider DNS del dominio.
 4. Attendi la propagazione (di solito minuti, può arrivare a qualche ora) — Vercel emette automaticamente il certificato TLS una volta verificato il DNS.
 
-Se il dominio finale è diverso da `academy.ecoter.it`, aggiorna anche `NEXT_PUBLIC_SITE_URL` (punto 3) per correggere canonical URL e dati strutturati.
+`ecoteracademy.it` è già il default nel codice (`apps/website/src/config/site.ts` + `content/settings/site.json`), quindi `NEXT_PUBLIC_SITE_URL` **non serve** in produzione. Impostala solo su deploy che girano su un dominio diverso (preview/staging), per correggere canonical URL e dati strutturati.

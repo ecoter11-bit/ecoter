@@ -91,7 +91,7 @@ export const WithSelect: Story = {
           placeholder="Seleziona un corso…"
           items={[
             { label: 'RSPP – Modulo A', value: 'rspp-modulo-a' },
-            { label: 'HACCP – Addetti Alimentare', value: 'haccp-addetti-alimentare' },
+            { label: 'Auditor Interno ISO 9001', value: 'auditor-interno-iso-9001' },
           ]}
         />
       )}

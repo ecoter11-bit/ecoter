@@ -181,7 +181,15 @@ export const semantic = {
   destructive: '#ef4444',
   /** Text color for destructive content on a tinted destructive background (`bg-destructive/10`) — `text-destructive` alone is ~3.2:1, below WCAG AA. This is `error.700`. */
   destructiveMutedForeground: '#b91c1c',
+  /** neutral-200 — decorative separators/dividers, exempt from SC 1.4.11. */
   border: '#d8dde5',
-  input: '#d8dde5',
+  /**
+   * neutral-500, not neutral-200 — `--input` is the *resting boundary of a UI
+   * component* (Input/Select/Textarea), which SC 1.4.11 requires at ≥3:1
+   * against the adjacent background. neutral-200 measures ≈1.36:1 on white,
+   * 300 ≈1.77:1, 400 ≈2.56:1; only 500 clears it (≈3.95:1). Same reasoning,
+   * same stop as the checkbox boundary — see packages/ui/src/checkbox.tsx.
+   */
+  input: '#7a8090',
   ring: '#4a7c22',
 } as const

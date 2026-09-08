@@ -41,10 +41,27 @@ const SEARCH_DEBOUNCE_MS = 280
  */
 const SUBCATEGORY_MULTI = '__multi__'
 
+/**
+ * I controlli della toolbar sono `<select>`/`<input>` nativi in versione
+ * compatta (h-9), non `Select`/`Input` di `@ecoter/ui` (h-10): qui servono
+ * un menu nativo — vedi la nota su `SUBCATEGORY_MULTI` — e una barra sticky
+ * bassa. Il *colore* però resta quello del design system: `border-input`
+ * (neutral-500, ≈3.95:1) e non `border-neutral-200` (≈1.36:1), perché il
+ * bordo a riposo di un controllo è un confine di componente UI e SC 1.4.11
+ * chiede ≥3:1. Stessa ragione per il chevron e l'icona lente: neutral-500,
+ * non neutral-400 (≈2.56:1).
+ */
 const selectClass = cn(
-  'h-9 rounded-lg border border-neutral-200 bg-white pl-3 pr-7 text-sm text-neutral-700',
-  "appearance-none bg-[url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239BA2B0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E\")] bg-[position:right_0.5rem_center] bg-no-repeat",
-  'transition-colors duration-150 hover:border-neutral-300 focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-300'
+  'h-9 rounded-lg border border-input bg-white pl-3 pr-7 text-sm text-neutral-700',
+  // Chevron come data URI: niente virgolette e niente spazi letterali nel
+  // valore arbitrario — Tailwind estrae il candidato dal *sorgente*, quindi
+  // le virgolette escapate del TSX finirebbero nel CSS generato (url()
+  // malformata, chevron invisibile) e ogni spazio spezzerebbe la classe in
+  // due per clsx/tailwind-merge (che così mangiava anche `bg-white`). Apici
+  // → %27, spazi → %20. Colore: neutral-500 (#7A8090, ≈3.95:1), non
+  // neutral-400 — è parte del controllo, vale SC 1.4.11.
+  'appearance-none bg-[url(data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%2712%27%20height=%2712%27%20viewBox=%270%200%2024%2024%27%20fill=%27none%27%20stroke=%27%237A8090%27%20stroke-width=%272%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27%3E%3Cpath%20d=%27m6%209%206%206%206-6%27/%3E%3C/svg%3E)] bg-[position:right_0.5rem_center] bg-no-repeat',
+  'transition-colors duration-150 hover:border-neutral-600 focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-300'
 )
 
 export function CatalogToolbar({
@@ -141,7 +158,7 @@ export function CatalogToolbar({
             )}
           >
             <Search
-              className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-neutral-400"
+              className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-neutral-500"
               aria-hidden="true"
             />
             <input
@@ -151,15 +168,15 @@ export function CatalogToolbar({
               placeholder="Cerca corsi…"
               aria-label="Cerca corsi"
               className={cn(
-                'h-9 w-full rounded-lg border border-neutral-200 bg-white pr-3 pl-9 text-sm text-neutral-900 placeholder:text-neutral-400',
-                'transition-colors duration-150 hover:border-neutral-300 focus:border-brand-600 focus:ring-1 focus:ring-brand-300 focus:outline-none'
+                'h-9 w-full rounded-lg border border-input bg-white pr-3 pl-9 text-sm text-neutral-900 placeholder:text-neutral-600',
+                'transition-colors duration-150 hover:border-neutral-600 focus:border-brand-600 focus:ring-1 focus:ring-brand-300 focus:outline-none'
               )}
             />
             {localQuery && (
               <button
                 type="button"
                 onClick={handleQueryClear}
-                className="absolute top-1/2 right-2 -translate-y-1/2 rounded p-0.5 text-neutral-400 hover:text-neutral-700"
+                className="absolute top-1/2 right-2 -translate-y-1/2 rounded p-0.5 text-neutral-600 hover:text-neutral-900"
                 aria-label="Cancella ricerca"
               >
                 <X className="size-3.5" />
@@ -265,7 +282,7 @@ export function CatalogToolbar({
               <button
                 type="button"
                 onClick={handleReset}
-                className="flex items-center gap-1.5 rounded-lg border border-neutral-200 px-3 py-1.5 text-xs font-semibold text-neutral-600 transition-all duration-150 hover:border-neutral-300 hover:text-neutral-900"
+                className="flex items-center gap-1.5 rounded-lg border border-input px-3 py-1.5 text-xs font-semibold text-neutral-600 transition-all duration-150 hover:border-neutral-600 hover:text-neutral-900"
               >
                 <X className="size-3" aria-hidden="true" />
                 Reset
@@ -284,7 +301,7 @@ export function CatalogToolbar({
               'flex items-center gap-1.5 rounded-lg border px-3 py-2 text-sm font-medium transition-colors duration-150 lg:hidden',
               mobileOpen || activeCount > 0
                 ? 'border-brand-600 bg-brand-50 text-brand-700'
-                : 'border-neutral-200 text-neutral-600 hover:border-neutral-300'
+                : 'border-input text-neutral-600 hover:border-neutral-600'
             )}
             aria-expanded={mobileOpen}
             aria-controls="mobile-filters"
@@ -416,7 +433,7 @@ export function CatalogToolbar({
               <button
                 type="button"
                 onClick={handleReset}
-                className="col-span-2 flex items-center justify-center gap-1.5 rounded-lg border border-neutral-200 py-2 text-sm font-semibold text-neutral-600 transition-colors duration-150 hover:text-neutral-900"
+                className="col-span-2 flex items-center justify-center gap-1.5 rounded-lg border border-input py-2 text-sm font-semibold text-neutral-600 transition-colors duration-150 hover:text-neutral-900"
               >
                 <X className="size-3.5" aria-hidden="true" />
                 Rimuovi {activeCount} {activeCount === 1 ? 'filtro' : 'filtri'}

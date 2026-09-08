@@ -9,6 +9,7 @@
     "lint": "turbo run lint",
     "type-check": "turbo run type-check",
     "build-storybook": "turbo run build-storybook",
+    "validate": "turbo run validate",
     "format": "turbo run format",
     "prepare": "husky"
   },
