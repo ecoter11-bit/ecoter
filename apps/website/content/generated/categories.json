@@ -40,19 +40,19 @@
   {
     "slug": "sistemi-di-gestione",
     "name": "Sistemi di Gestione",
-    "description": "Percorsi per progettare, implementare e mantenere sistemi di gestione integrati: qualità, sicurezza, ambiente e sicurezza alimentare.",
-    "longDescription": "I sistemi di gestione integrati (SGI) permettono di gestire qualità, sicurezza, ambiente e sicurezza alimentare in modo sinergico. ECOTER Academy propone percorsi per implementare e mantenere sistemi conformi a ISO 9001, ISO 14001, ISO 45001 e HACCP, oltre alla formazione per auditor interni, con un approccio pratico e orientato alla certificazione.",
+    "description": "Percorsi per progettare, implementare e mantenere sistemi di gestione integrati: qualità, sicurezza e ambiente.",
+    "longDescription": "I sistemi di gestione integrati (SGI) permettono di governare qualità, sicurezza e ambiente in modo sinergico, con un'unica struttura di processi, indicatori e audit conforme alle norme ISO 9001, ISO 14001 e ISO 45001. ECOTER Academy affianca le aziende sui due ruoli che reggono un sistema nel tempo: l'auditor interno ISO 9001, che verifica e mantiene il sistema qualità, e l'implementatore ISO 45001, che struttura il sistema di gestione della salute e sicurezza sul lavoro. Approccio pratico, orientato alla certificazione.",
     "icon": "Settings2",
     "order": 3,
     "featured": false,
     "seo": {
-      "title": "Corsi Sistemi di Gestione – ISO 9001, 14001, 45001, HACCP",
-      "description": "Formazione per implementare sistemi di gestione integrati. Percorsi ISO 9001, ISO 14001, ISO 45001, HACCP e auditor interno.",
+      "title": "Corsi Sistemi di Gestione – Auditor ISO 9001, Implementatore ISO 45001",
+      "description": "Formazione sui sistemi di gestione integrati ISO: auditor interno ISO 9001 e implementatore ISO 45001, con approccio pratico orientato alla certificazione.",
       "keywords": [
         "sistemi di gestione integrati",
         "iso 9001",
+        "iso 14001",
         "iso 45001",
-        "haccp",
         "auditor interno",
         "certificazione iso"
       ]

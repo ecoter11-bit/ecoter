@@ -70,7 +70,7 @@ export const AreaInteresse: Story = {
       aria-label="Corso o area di interesse"
       items={[
         { label: 'RSPP – Modulo A: Formazione Generale', value: 'rspp-modulo-a' },
-        { label: 'HACCP – Formazione Addetti Alimentare', value: 'haccp-addetti-alimentare' },
+        { label: 'Auditor Interno ISO 9001:2015', value: 'auditor-interno-iso-9001' },
         { label: 'Altro / non specificato', value: 'altro' },
       ]}
       defaultValue="rspp-modulo-a"

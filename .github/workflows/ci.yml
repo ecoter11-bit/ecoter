@@ -38,5 +38,8 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Validate content
+        run: pnpm validate
+
       - name: Build Storybook
         run: pnpm build-storybook

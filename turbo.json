@@ -20,6 +20,9 @@
       "dependsOn": ["^build"],
       "outputs": ["storybook-static/**"]
     },
+    "validate": {
+      "cache": false
+    },
     "format": {
       "cache": false
     }

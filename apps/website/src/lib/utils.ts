@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import { siteConfig } from '@/config/site'
 import type { Course } from '@/types'
 
 export function cn(...inputs: ClassValue[]) {
@@ -56,7 +57,7 @@ export function formatHours(hours: number): string {
 }
 
 export function absoluteUrl(path: string): string {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://academy.ecoter.it'
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? siteConfig.url
   return `${base}${path}`
 }
 

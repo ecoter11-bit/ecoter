@@ -283,8 +283,14 @@
   --accent: #edf7f7;
   --accent-foreground: #224e4e;
   --destructive: #ef4444;
+  /* neutral-200 — separatori decorativi, esenti da SC 1.4.11. */
   --border: #d8dde5;
-  --input: #d8dde5;
+  /* neutral-500, non neutral-200 — --input è il bordo a riposo di un
+     componente UI (Input/Select/Textarea) e SC 1.4.11 chiede ≥3:1 sullo
+     sfondo adiacente. neutral-200 ≈1.36:1 su bianco, 300 ≈1.77:1,
+     400 ≈2.56:1; solo 500 passa (≈3.95:1). Stesso stop del bordo checkbox,
+     vedi packages/ui/src/checkbox.tsx e semantic.input in src/colors.ts. */
+  --input: #7a8090;
   --ring: #4a7c22;
   --radius: 0.5rem;
 

@@ -119,7 +119,10 @@ function RadioGroup({
             disabled={option.disabled}
             data-slot="radio"
             className={cn(
-              'mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full border border-neutral-500 bg-white transition-colors outline-none',
+              // `border-input`, come il checkbox: è il confine a riposo di un
+              // controllo form, non un separatore — SC 1.4.11 chiede ≥3:1 e il
+              // token risolve a neutral-500 (≈3.95:1 su bianco).
+              'mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full border border-input bg-white transition-colors outline-none',
               'hover:not-data-disabled:border-neutral-600',
               'focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50',
               'data-checked:border-brand-600 data-checked:bg-brand-600',
