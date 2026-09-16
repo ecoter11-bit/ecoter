@@ -10,7 +10,6 @@ import {
   HardHat,
   HeartHandshake,
   Leaf,
-  Settings2,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -19,7 +18,6 @@ import type { NavCategory, NavGroup, NavItem } from '@/config/nav'
 const ICON_MAP: Record<string, LucideIcon> = {
   HardHat,
   Leaf,
-  Settings2,
   HeartHandshake,
 }
 

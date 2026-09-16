@@ -54,7 +54,7 @@ export function HeroSection() {
             className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-pretty text-neutral-600"
           >
             Attestati validi ai fini di legge su sicurezza D.Lgs.&nbsp;81/08,
-            ambiente e sistemi di gestione. Formazione in aula, online o
+            ambiente e benessere psico-sociale. Formazione in aula, online o
             direttamente in azienda — sempre aggiornata alle normative vigenti.
           </motion.p>
 

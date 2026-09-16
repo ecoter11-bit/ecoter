@@ -11,7 +11,6 @@ import {
   HeartHandshake,
   Leaf,
   ListFilter,
-  Settings2,
   Users,
   X,
   type LucideIcon,
@@ -34,7 +33,6 @@ export type GuidedMode = 'argomento' | 'ruolo' | 'normativa'
 const categoryIcon: Record<string, LucideIcon> = {
   HardHat,
   Leaf,
-  Settings2,
   HeartHandshake,
 }
 
@@ -45,7 +43,6 @@ const categoryIcon: Record<string, LucideIcon> = {
 const categoryIconColor: Record<string, IconCircleColor> = {
   sicurezza: 'blue',
   ambiente: 'brand',
-  'sistemi-di-gestione': 'eco',
   'benessere-psico-sociale': 'amber',
 }
 
@@ -161,7 +158,7 @@ export function StepSelection({
   const subSelected = new Set(splitMulti(searchParams.get('sub') ?? ''))
 
   /* Il drill-down per sotto-area compare solo quando la scelta è "Sicurezza
-     sul Lavoro" e nient'altro: è l'unica categoria abbastanza grande (53
+     sul Lavoro" e nient'altro: è l'unica categoria abbastanza grande (51
      corsi) da giustificarlo, e mescolarla ad altre renderebbe il conteggio
      ambiguo. Le altre aree restano una scelta diretta, come prima. */
   const showSubcategories =
@@ -246,10 +243,7 @@ export function StepSelection({
     return `/corsi?${params.toString()}`
   })()
 
-  const gridCols =
-    mode === 'argomento'
-      ? 'sm:grid-cols-2 lg:grid-cols-4'
-      : 'sm:grid-cols-2 lg:grid-cols-3'
+  const gridCols = 'sm:grid-cols-2 lg:grid-cols-3'
 
   // scroll-mb-24 — clears the sticky "Mostra i corsi" bar (~65-73px tall) so a
   // keyboard-focused card near the bottom of a long list (es. normativa) never

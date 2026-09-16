@@ -9,8 +9,7 @@
  * Un corso di sicurezza prende la sotto-area, nell'ordine:
  *
  *  1. dal campo `subcategory` in frontmatter, se presente — è la via per i
- *     pochi corsi storici senza `code` (antincendio, primo soccorso, RSPP
- *     modulo A);
+ *     pochi corsi storici senza `code` (RSPP modulo A);
  *  2. dal prefisso alfabetico del `code` di catalogo (A06 → `A`), secondo
  *     `CODE_PREFIX_TO_SUBCATEGORY`.
  *

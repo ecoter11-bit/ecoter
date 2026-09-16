@@ -49,7 +49,7 @@ export const FAQS: Faq[] = [
     id: 'faq-7',
     question: 'A chi sono rivolti i corsi ECOTER Academy?',
     answer:
-      'I nostri percorsi si rivolgono sia a lavoratori, dirigenti, preposti e figure specialistiche (es. RSPP/ASPP, addetti alle emergenze) sia ad aziende ed enti che devono formare il proprio personale su sicurezza, ambiente, sistemi di gestione e benessere organizzativo. Ogni scheda corso indica i destinatari specifici.',
+      'I nostri percorsi si rivolgono sia a lavoratori, dirigenti, preposti e figure specialistiche (es. RSPP/ASPP, addetti alle emergenze) sia ad aziende ed enti che devono formare il proprio personale su sicurezza, ambiente e benessere organizzativo. Ogni scheda corso indica i destinatari specifici.',
   },
   {
     id: 'faq-8',

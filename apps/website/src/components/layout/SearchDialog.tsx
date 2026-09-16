@@ -14,10 +14,10 @@ type SearchDialogProps = {
 const POPULAR_SEARCHES = [
   'Sicurezza sul lavoro',
   'RSPP',
-  'Antincendio',
-  'ISO 9001',
-  'Privacy GDPR',
-  'Primo soccorso',
+  'Preposti',
+  'Carrelli elevatori',
+  'Rischio chimico',
+  'Ambienti confinati',
 ]
 
 const QUICK_LINKS = [

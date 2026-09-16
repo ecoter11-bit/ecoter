@@ -2,7 +2,7 @@ export const siteConfig = {
   name: 'ECOTER Academy',
   shortName: 'ECOTER',
   description:
-    'Formazione professionale accreditata per aziende e professionisti. Corsi di sicurezza sul lavoro, qualità, ambiente e gestione.',
+    'Formazione professionale accreditata per aziende e professionisti. Corsi di sicurezza sul lavoro, ambiente e benessere psico-sociale.',
   /** Dominio reale, registrato su Aruba e intestato a ECO-TER SRL. */
   url: 'https://ecoteracademy.it',
   ogImage: '/og/default.jpg',
@@ -36,7 +36,7 @@ export const siteConfig = {
     titleTemplate: '%s | ECOTER Academy',
     defaultTitle: 'ECOTER Academy — Formazione Professionale Accreditata',
     defaultDescription:
-      'Corsi di formazione accreditati per aziende e professionisti: sicurezza sul lavoro, ambiente, sistemi di gestione e benessere psico-sociale.',
+      'Corsi di formazione accreditati per aziende e professionisti: sicurezza sul lavoro, ambiente e benessere psico-sociale.',
   },
 } as const
 
