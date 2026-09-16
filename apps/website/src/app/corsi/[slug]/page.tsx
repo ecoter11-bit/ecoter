@@ -14,7 +14,7 @@ import {
   getCategory,
   getSubcategory,
 } from '@/lib/content'
-import { absoluteUrl } from '@/lib/utils'
+import { absoluteUrl, cn } from '@/lib/utils'
 import { buildCourseJsonLd } from '@/lib/seo/course-schema'
 import { categoryBadgeLabel } from '@/lib/badge-mappings'
 import { Breadcrumb, Container } from '@/components/layout'
@@ -188,8 +188,18 @@ export default async function CourseDetailPage({ params }: Props) {
               )}
 
               {/* A chi è rivolto + Prerequisiti */}
+              {/* Due colonne solo quando ci sono davvero due blocchi: con uno
+                  solo (es. i corsi di aggiornamento, che non hanno
+                  prerequisiti) la griglia lascerebbe mezza riga vuota. */}
               {hasAudienceOrPrereqs && (
-                <div className="mt-12 grid gap-10 sm:grid-cols-2">
+                <div
+                  className={cn(
+                    'mt-12 grid gap-10',
+                    course.targetAudience.length > 0 &&
+                      course.prerequisites.length > 0 &&
+                      'sm:grid-cols-2'
+                  )}
+                >
                   {course.targetAudience.length > 0 && (
                     <section aria-labelledby="destinatari-heading">
                       <h2

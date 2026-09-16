@@ -297,8 +297,8 @@
   {
     "slug": "analisi-del-benessere-organizzativo",
     "title": "Analisi del benessere organizzativo",
-    "subtitle": "Valutazione per elevare il livello di benessere percepito all’interno dell’organizzazione",
-    "excerpt": "Valutazione per elevare il livello di benessere percepito all’interno dell’organizzazione, della durata di 4 ore.",
+    "subtitle": "Valutazione per rilevare il livello di benessere percepito all’interno dell’organizzazione (EWQ)",
+    "excerpt": "Valutazione per rilevare il livello di benessere percepito all’interno dell’organizzazione, della durata di 4 ore.",
     "category": "benessere-psico-sociale",
     "level": "base",
     "modality": [
@@ -362,7 +362,7 @@
     "slug": "counseling",
     "title": "Counseling",
     "subtitle": "Percorso individuale per favorire il benessere psicologico",
-    "excerpt": "Percorso individuale per favorire il benessere psicologico, della durata di 9.2 ore.",
+    "excerpt": "Percorso individuale per favorire il benessere psicologico, della durata di 9.0 ore.",
     "category": "benessere-psico-sociale",
     "level": "base",
     "modality": [
@@ -424,9 +424,9 @@
   },
   {
     "slug": "datori-di-lavoro-rspp-modulo-integrativo-settori-sp1-sp3-sp4-sp5-16h",
-    "title": "Datori di lavoro RSPP – Modulo integrativo settori SP1, SP3, SP4, SP5 – 16h",
-    "subtitle": "Modulo integrativo settoriale per datori di lavoro che svolgono il ruolo di RSPP",
-    "excerpt": "Modulo integrativo settoriale per datori di lavoro che svolgono il ruolo di RSPP, ai sensi di D.Lgs 81/08 (CSP/CSE, RSPP/ASPP, Formatori), della durata di 16 ore.",
+    "title": "Datori di lavoro RSPP – Modulo integrativo settori SP1, SP3, SP5 – 16h",
+    "subtitle": "Modulo integrativo settoriale per datori di lavoro che svolgono il ruolo di RSPP nei settori agricoltura, costruzioni e chimico-petrolchimico",
+    "excerpt": "Modulo integrativo di 16 ore per datori di lavoro che svolgono direttamente i compiti di RSPP nei settori agricoltura-silvicoltura-zootecnia, costruzioni e chimico-petrolchimico.",
     "category": "sicurezza",
     "level": "intermedio",
     "modality": [
@@ -521,7 +521,7 @@
   {
     "slug": "gestione-delle-emergenze-ambientali",
     "title": "Gestione delle emergenze ambientali",
-    "subtitle": "Formazione sulla gestione delle emergenze ambientali in azienda",
+    "subtitle": "Formazione sulla gestione pratica delle emergenze ambientali in azienda",
     "excerpt": "Formazione sulla gestione delle emergenze ambientali in azienda, ai sensi di D.Lgs 152/06, della durata di 4 ore.",
     "category": "ambiente",
     "level": "base",
@@ -652,7 +652,7 @@
     "subtitle": "Formazione su Direttiva PED, DM 329/04 e pratiche CIVA-INAIL per impianti e attrezzature a pressione",
     "excerpt": "Formazione su Direttiva PED, DM 329/04 e pratiche CIVA-INAIL per impianti e attrezzature a pressione, ai sensi di Direttiva PED, della durata di 4 ore.",
     "category": "sicurezza",
-    "level": "intermedio",
+    "level": "base",
     "modality": [
       "aula",
       "online"
@@ -758,9 +758,9 @@
   },
   {
     "slug": "pei-persone-idonee-all-esecuzione-norme-cei-11-27-2025",
-    "title": "PEI – Persone idonee all'esecuzione (Norme CEI 11-27:2025)",
-    "subtitle": "Formazione per l’esecuzione di semplici manovre e verifiche su impianti elettrici",
-    "excerpt": "Formazione per l’esecuzione di semplici manovre e verifiche su impianti elettrici, ai sensi di D.Lgs 81/08 art. 82, della durata di 6 ore.",
+    "title": "PEI – Persona Idonea (Norme CEI 11-27:2025)",
+    "subtitle": "Formazione per lavoratori PES o PAV che devono intervenire su impianti BT sotto tensione.",
+    "excerpt": "Formazione per il lavoratore PES o PAV che devono eseguire lavori su impianti elettrici sotto tensione, della durata di 6 ore.",
     "category": "sicurezza",
     "level": "base",
     "modality": [
@@ -775,7 +775,7 @@
   {
     "slug": "pes-pav-persone-esperte-e-avvertite-norme-cei-11-27-2025",
     "title": "PES/PAV – Persone esperte e avvertite (Norme CEI 11-27:2025)",
-    "subtitle": "Formazione per l'abilitazione a lavori elettrici sotto tensione o in prossimità",
+    "subtitle": "Formazione per l'abilitazione a lavori elettrici fuori tensione, sotto tensione o in prossimità",
     "excerpt": "Formazione per l'abilitazione a lavori elettrici sotto tensione o in prossimità, ai sensi di D.Lgs 81/08 art. 82, della durata di 16 ore.",
     "category": "sicurezza",
     "level": "avanzato",
@@ -791,8 +791,8 @@
   {
     "slug": "preposti",
     "title": "Preposti",
-    "subtitle": "Formazione obbligatoria per lavoratori con funzioni di preposto",
-    "excerpt": "Formazione obbligatoria per lavoratori con funzioni di preposto, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 12 ore.",
+    "subtitle": "Formazione obbligatoria per lavoratori con mansioni di preposto",
+    "excerpt": "Formazione obbligatoria per lavoratori con mansioni di preposto, ai sensi di D.Lgs 81/08 art. 36-37, della durata di 12 ore.",
     "category": "sicurezza",
     "level": "intermedio",
     "modality": [
@@ -953,7 +953,7 @@
     "subtitle": "Formazione sulla sostenibilità per le PMI e sul bilancio di sostenibilità come strumento strategico",
     "excerpt": "Formazione sulla sostenibilità per le PMI e sul bilancio di sostenibilità come strumento strategico, ai sensi di D.Lgs 152/06, della durata di 4 ore.",
     "category": "ambiente",
-    "level": "intermedio",
+    "level": "base",
     "modality": [
       "aula",
       "online"
