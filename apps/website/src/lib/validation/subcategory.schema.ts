@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 /**
  * Sotto-area di catalogo — un livello sotto la categoria, oggi usato solo da
- * "Sicurezza sul Lavoro" (53 corsi, troppi per una lista piatta). Le altre
+ * "Sicurezza sul Lavoro" (51 corsi, troppi per una lista piatta). Le altre
  * categorie restano volutamente senza sotto-aree: `parent` esiste proprio
  * perché il modello resti generico se un domani ne servissero altrove.
  */

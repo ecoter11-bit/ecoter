@@ -243,7 +243,16 @@ export function StepSelection({
     return `/corsi?${params.toString()}`
   })()
 
-  const gridCols = 'sm:grid-cols-2 lg:grid-cols-3'
+  /* Le colonne seguono il numero di opzioni, per non lasciare mai l'ultima
+     riga con una sola card spaiata: 3 aree passano da 1 a 3 colonne saltando
+     il gradino a 2, 4 ruoli fanno 2×2 e poi 4 in fila, e le normative —
+     lista lunga e di lunghezza variabile — restano sul 2/3 di prima. */
+  const gridCols =
+    options.length === 3
+      ? 'md:grid-cols-3'
+      : options.length === 4
+        ? 'sm:grid-cols-2 lg:grid-cols-4'
+        : 'sm:grid-cols-2 lg:grid-cols-3'
 
   // scroll-mb-24 — clears the sticky "Mostra i corsi" bar (~65-73px tall) so a
   // keyboard-focused card near the bottom of a long list (es. normativa) never
@@ -377,7 +386,7 @@ export function StepSelection({
               )}
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-3">
               {subcategories.map((sub) => (
                 <Checkbox
                   key={sub.slug}

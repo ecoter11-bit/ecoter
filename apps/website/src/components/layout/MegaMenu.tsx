@@ -127,7 +127,7 @@ export function MegaMenu({
                         <p className="mb-3 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
                           Aree tematiche
                         </p>
-                        <ul className="grid grid-cols-2 gap-1" role="list">
+                        <ul className="grid gap-1" role="list">
                           {courseCategories.map((cat) => (
                             <li key={cat.href}>
                               <Link
