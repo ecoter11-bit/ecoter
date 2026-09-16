@@ -4,11 +4,10 @@ import type { BadgeColor } from '@ecoter/ui'
 /**
  * Category → Badge color, mapped onto the Decision 018 macro-category
  * palette (`@ecoter/tokens` `categoryColors`). Since 2.3 the catalog slugs
- * match the 4 macro-categories 1:1 — no more consolidation needed here:
+ * match the macro-categories 1:1 — no more consolidation needed here:
  *
- * - sicurezza               → `blue`  (D.Lgs. 81/08, RSPP/ASPP, antincendio, primo soccorso)
+ * - sicurezza               → `blue`  (D.Lgs. 81/08, RSPP/ASPP, attrezzature, lavori elettrici)
  * - ambiente                → `brand` (the rebrand's green)
- * - sistemi-di-gestione     → `eco`   (ISO 9001/14001/45001, audit interni)
  * - benessere-psico-sociale → `amber` (stress lavoro-correlato, mindfulness, counseling)
  *
  * `amber` is shared with `featuredBadgeColor` below — a
@@ -20,14 +19,12 @@ import type { BadgeColor } from '@ecoter/ui'
 export const categoryBadgeColor: Record<string, BadgeColor> = {
   sicurezza: 'blue',
   ambiente: 'brand',
-  'sistemi-di-gestione': 'eco',
   'benessere-psico-sociale': 'amber',
 }
 
 export const categoryBadgeLabel: Record<string, string> = {
   sicurezza: 'Sicurezza',
   ambiente: 'Ambiente',
-  'sistemi-di-gestione': 'Sistemi di Gestione',
   'benessere-psico-sociale': 'Benessere psico-sociale',
 }
 

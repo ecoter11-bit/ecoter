@@ -1,6 +1,5 @@
 import {
   BadgeCheck,
-  Flame,
   Forklift,
   TriangleAlert,
   Users,
@@ -22,7 +21,6 @@ export const subcategoryIcon: Record<string, LucideIcon> = {
   Forklift,
   Zap,
   TriangleAlert,
-  Flame,
 }
 
 export const defaultSubcategoryIcon: LucideIcon = Users
@@ -30,8 +28,8 @@ export const defaultSubcategoryIcon: LucideIcon = Users
 /**
  * Tutte le sotto-aree condividono l'azzurro della categoria padre
  * (`categoryBadgeColor.sicurezza`): sono un livello di dettaglio dentro
- * Sicurezza, non quattro nuove macro-aree, e differenziarne il colore le
- * farebbe leggere come categorie di pari rango.
+ * Sicurezza, non nuove macro-aree, e differenziarne il colore le farebbe
+ * leggere come categorie di pari rango.
  */
 export const subcategoryIconColor: IconCircleColor = 'blue'
 

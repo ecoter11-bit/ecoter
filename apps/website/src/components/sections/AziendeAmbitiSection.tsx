@@ -5,7 +5,6 @@ import { motion } from 'framer-motion'
 import {
   HardHat,
   Leaf,
-  Settings2,
   HeartHandshake,
   ArrowRight,
   type LucideIcon,
@@ -23,7 +22,6 @@ import {
 const iconMap: Record<string, LucideIcon> = {
   HardHat,
   Leaf,
-  Settings2,
   HeartHandshake,
 }
 
@@ -31,7 +29,6 @@ const iconMap: Record<string, LucideIcon> = {
 const colorMap: Record<string, IconCircleColor> = {
   sicurezza: 'blue',
   ambiente: 'brand',
-  'sistemi-di-gestione': 'eco',
   'benessere-psico-sociale': 'amber',
 }
 
@@ -55,15 +52,16 @@ export function AziendeAmbitiSection({ categories }: Props) {
               id="ambiti-heading"
               className="font-heading text-3xl font-light tracking-tight text-balance text-neutral-950 lg:text-4xl"
             >
-              Quattro aree, un unico interlocutore
+              Tre aree, un unico interlocutore
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-pretty text-neutral-600">
               Copriamo l&apos;intero fabbisogno formativo della tua azienda,
-              dalla sicurezza obbligatoria ai sistemi di gestione certificati.
+              dalla sicurezza obbligatoria alla gestione ambientale e al
+              benessere delle persone.
             </p>
           </motion.div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 lg:grid-cols-3">
             {categories.map((category) => {
               const Icon = iconMap[category.icon] ?? HardHat
               const color = colorMap[category.slug] ?? 'brand'

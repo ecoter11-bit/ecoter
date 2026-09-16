@@ -25,7 +25,6 @@ const SEGMENT_LABELS: Record<string, string> = {
   aziende: 'Aziende',
   sicurezza: 'Sicurezza sul Lavoro',
   ambiente: 'Ambiente',
-  'sistemi-di-gestione': 'Sistemi di Gestione',
   'benessere-psico-sociale': 'Benessere psico-sociale',
   newsletter: 'Newsletter',
 }

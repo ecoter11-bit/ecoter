@@ -9,9 +9,6 @@ export const AUDIENCE_OPTIONS = [
   { value: 'datori', label: 'Datori di lavoro' },
   { value: 'lavoratori', label: 'Lavoratori' },
   { value: 'dirigenti', label: 'Dirigenti / Preposti' },
-  { value: 'qualita', label: 'Responsabili Qualità' },
-  { value: 'alimentare', label: 'Settore Alimentare' },
-  { value: 'squadra-emergenza', label: 'Squadra Emergenza' },
 ]
 
 export const MODALITY_OPTIONS = [

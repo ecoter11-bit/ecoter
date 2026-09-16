@@ -12,18 +12,6 @@ export const AUDIENCE_GROUPS: AudienceGroup[] = [
     value: 'dirigenti',
     keywords: ['dirigenti', 'preposti', 'responsabili di stabilimento'],
   },
-  {
-    value: 'qualita',
-    keywords: ['qualità', 'quality', 'auditor', 'consulenti di sistema'],
-  },
-  {
-    value: 'alimentare',
-    keywords: ['alimentar', 'ristorant', 'catering', 'mense', 'bar,'],
-  },
-  {
-    value: 'squadra-emergenza',
-    keywords: ['squadra', 'addetti alla squadra', 'addetti alla prevenzione'],
-  },
 ]
 
 /* ─── Filter state ───────────────────────────────────────────────────────── */

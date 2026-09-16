@@ -21,7 +21,6 @@ import type { Course } from '@/types'
 const categoryBar: Record<string, string> = {
   sicurezza: 'bg-blue-500',
   ambiente: 'bg-brand-600',
-  'sistemi-di-gestione': 'bg-eco-600',
   'benessere-psico-sociale': 'bg-amber-700',
 }
 const defaultCategoryBar = 'bg-neutral-400'

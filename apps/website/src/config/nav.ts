@@ -34,11 +34,6 @@ export const courseCategories: NavCategory[] = [
     icon: 'Leaf',
   },
   {
-    label: 'Sistemi di Gestione',
-    href: '/corsi?step=3&cat=sistemi-di-gestione',
-    icon: 'Settings2',
-  },
-  {
     label: 'Benessere psico-sociale',
     href: '/corsi?step=3&cat=benessere-psico-sociale',
     icon: 'HeartHandshake',

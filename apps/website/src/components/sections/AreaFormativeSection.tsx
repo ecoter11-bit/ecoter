@@ -5,7 +5,6 @@ import { motion } from 'framer-motion'
 import {
   HardHat,
   Leaf,
-  Settings2,
   HeartHandshake,
   ArrowRight,
   type LucideIcon,
@@ -24,7 +23,6 @@ import { cn } from '@/lib/utils'
 const iconMap: Record<string, LucideIcon> = {
   HardHat,
   Leaf,
-  Settings2,
   HeartHandshake,
 }
 
@@ -32,8 +30,8 @@ const iconMap: Record<string, LucideIcon> = {
  * Category-specific color data — full static strings for Tailwind scanner.
  * Mapped onto the Decision 018 macro-category palette, same mapping as
  * badge-mappings.ts categoryBadgeColor (sicurezza → blue, ambiente →
- * brand/verde, sistemi-di-gestione → eco/teal, benessere-psico-sociale →
- * amber/oro). `topBarClass` is a decorative, aria-hidden accent line — a
+ * brand/verde, benessere-psico-sociale → amber/oro). `topBarClass` is a
+ * decorative, aria-hidden accent line — a
  * Tailwind class (not an inline hex) so it stays token-driven, using each
  * color's canonical brand stop (no text sits on it, so the AA-safe stop
  * isn't required here).
@@ -61,13 +59,6 @@ const categoryStyles: Record<
     iconHoverBg: 'group-hover:bg-brand-600',
     ctaText: 'text-brand-700',
     topBarClass: 'bg-brand-500',
-  },
-  'sistemi-di-gestione': {
-    iconBg: 'bg-eco-50',
-    iconText: 'text-eco-700',
-    iconHoverBg: 'group-hover:bg-eco-600',
-    ctaText: 'text-eco-700',
-    topBarClass: 'bg-eco-500',
   },
   'benessere-psico-sociale': {
     iconBg: 'bg-amber-50',
@@ -109,12 +100,12 @@ export function AreaFormativeSection({ categories }: Props) {
               Le aree formative
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-pretty text-neutral-600">
-              Quattro macro-aree che coprono l&apos;intero panorama della
-              formazione professionale obbligatoria e specialistica.
+              Tre macro-aree che coprono l&apos;intero panorama della formazione
+              professionale obbligatoria e specialistica.
             </p>
           </motion.div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 lg:grid-cols-3">
             {categories.map((category) => {
               const Icon: LucideIcon = iconMap[category.icon] ?? HardHat
               const styles = categoryStyles[category.slug] ?? defaultStyle

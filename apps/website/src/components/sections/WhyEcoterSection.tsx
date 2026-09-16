@@ -27,7 +27,7 @@ const REASONS: Reason[] = [
     icon: BookOpen,
     title: 'Conformità garantita',
     description:
-      'Ogni corso è progettato nel rispetto di D.Lgs. 81/08, ISO 9001, D.M. 02/09/2021 e delle normative di riferimento del settore.',
+      'Ogni corso è progettato nel rispetto di D.Lgs. 81/08, Accordo Stato-Regioni 2025, D.Lgs. 152/06 e delle normative di riferimento del settore.',
   },
   {
     icon: Globe,
