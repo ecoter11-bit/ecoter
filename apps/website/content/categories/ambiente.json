@@ -1,19 +1,21 @@
 {
   "slug": "ambiente",
   "name": "Ambiente",
-  "description": "Formazione sulla gestione ambientale, normativa ambientale italiana ed europea, ISO 14001 e sostenibilità.",
-  "longDescription": "Le normative ambientali sono in continua evoluzione e le responsabilità per le aziende crescono. I nostri corsi coprono la gestione dei rifiuti (D.Lgs. 152/06), le emissioni in atmosfera, la gestione delle acque e la transizione verso i sistemi di gestione ambientale certificati ISO 14001.",
+  "description": "Formazione sulla gestione dei rifiuti e delle terre e rocce da scavo, sulle emergenze ambientali, sui Criteri Ambientali Minimi in edilizia e sul bilancio di sostenibilità.",
+  "longDescription": "Cinque percorsi brevi, tutti da 4 ore in aula o online, per chi segue gli adempimenti ambientali in azienda e in cantiere: la gestione operativa dei rifiuti e la gestione delle terre e rocce da scavo ai sensi del D.Lgs. 152/06, la gestione delle emergenze ambientali, i Criteri Ambientali Minimi (CAM) applicati al processo edilizio e il bilancio di sostenibilità come strumento strategico per le PMI.",
   "icon": "Leaf",
   "order": 2,
   "featured": false,
   "seo": {
-    "title": "Corsi Ambiente – ISO 14001, Gestione Rifiuti, Normativa Ambientale",
-    "description": "Formazione professionale in materia ambientale. Corsi ISO 14001, gestione rifiuti D.Lgs. 152/06, emissioni e compliance ambientale.",
+    "title": "Corsi Ambiente – Rifiuti, Terre e Rocce da Scavo, CAM, Sostenibilità",
+    "description": "Formazione professionale in materia ambientale. Corsi su gestione operativa dei rifiuti, terre e rocce da scavo, emergenze ambientali, CAM in edilizia e bilancio di sostenibilità.",
     "keywords": [
       "corsi ambiente",
-      "iso 14001",
       "gestione rifiuti",
-      "normativa ambientale"
+      "terre e rocce da scavo",
+      "emergenze ambientali",
+      "criteri ambientali minimi",
+      "bilancio di sostenibilità"
     ]
   }
 }
