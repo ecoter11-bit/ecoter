@@ -48,6 +48,11 @@ export const courseFrontmatterSchema = z.object({
   duration: z.object({
     hours: z.number().positive(),
     days: z.number().positive().optional(),
+    /** Etichetta mostrata al posto del formato "Xh · N incontri". Serve ai
+     * percorsi la cui fonte esprime la durata in incontri e minuti e non in
+     * ore: `hours` resta il dato numerico su cui lavorano i filtri,
+     * l'ordinamento del catalogo e `courseWorkload` nei dati strutturati. */
+    label: z.string().optional(),
   }),
   pricing: coursePricingSchema,
   certification: z.string().optional(),

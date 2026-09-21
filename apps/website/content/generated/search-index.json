@@ -295,35 +295,19 @@
     ]
   },
   {
-    "slug": "analisi-del-benessere-organizzativo",
-    "title": "Analisi del benessere organizzativo",
-    "subtitle": "Valutazione per rilevare il livello di benessere percepito all’interno dell’organizzazione (EWQ)",
-    "excerpt": "Valutazione per rilevare il livello di benessere percepito all’interno dell’organizzazione, della durata di 4 ore.",
+    "slug": "analisi-delle-risorse-e-delle-competenze",
+    "title": "Analisi delle risorse e delle competenze",
+    "subtitle": "Assessment e sviluppo personale",
+    "excerpt": "Un percorso individuale per analizzare caratteristiche personali, competenze, punti di forza e aree di sviluppo.",
     "category": "benessere-psico-sociale",
     "level": "base",
     "modality": [
-      "aula",
       "online"
     ],
     "tags": [
       "benessere-psico-sociale",
-      "benessere-organizzativo"
-    ]
-  },
-  {
-    "slug": "bilancio-delle-competenze",
-    "title": "Bilancio delle competenze",
-    "subtitle": "Percorso di analisi e valorizzazione delle competenze professionali",
-    "excerpt": "Percorso di analisi e valorizzazione delle competenze professionali, della durata di 3.4 ore.",
-    "category": "benessere-psico-sociale",
-    "level": "base",
-    "modality": [
-      "aula",
-      "online"
-    ],
-    "tags": [
-      "benessere-psico-sociale",
-      "bilancio-competenze"
+      "assessment",
+      "15fq-plus"
     ]
   },
   {
@@ -343,6 +327,22 @@
     ]
   },
   {
+    "slug": "coaching-psicologico-individuale",
+    "title": "Coaching psicologico individuale",
+    "subtitle": "Sviluppo delle risorse personali",
+    "excerpt": "Un percorso finalizzato a sviluppare risorse personali utili ad affrontare con maggiore consapevolezza ed efficacia le situazioni professionali.",
+    "category": "benessere-psico-sociale",
+    "level": "base",
+    "modality": [
+      "online"
+    ],
+    "tags": [
+      "benessere-psico-sociale",
+      "coaching-psicologico",
+      "risorse-personali"
+    ]
+  },
+  {
     "slug": "coordinatori-per-la-sicurezza-in-progettazione-ed-esecuzione-csp-cse-120h",
     "title": "Coordinatori per la sicurezza in progettazione ed esecuzione (CSP/CSE) – 120h",
     "subtitle": "Percorso completo per coordinatori della sicurezza nei cantieri temporanei o mobili",
@@ -356,22 +356,6 @@
     "tags": [
       "sicurezza",
       "cspcse"
-    ]
-  },
-  {
-    "slug": "counseling",
-    "title": "Counseling",
-    "subtitle": "Percorso individuale per favorire il benessere psicologico",
-    "excerpt": "Percorso individuale per favorire il benessere psicologico, della durata di 9.0 ore.",
-    "category": "benessere-psico-sociale",
-    "level": "base",
-    "modality": [
-      "aula",
-      "online"
-    ],
-    "tags": [
-      "benessere-psico-sociale",
-      "counseling"
     ]
   },
   {
@@ -484,22 +468,6 @@
     "tags": [
       "sicurezza",
       "dirigenti"
-    ]
-  },
-  {
-    "slug": "empowerment",
-    "title": "Empowerment",
-    "subtitle": "Percorso personale di potenziamento delle risorse individuali",
-    "excerpt": "Percorso personale di potenziamento delle risorse individuali, della durata di 8 ore.",
-    "category": "benessere-psico-sociale",
-    "level": "base",
-    "modality": [
-      "aula",
-      "online"
-    ],
-    "tags": [
-      "benessere-psico-sociale",
-      "empowerment"
     ]
   },
   {
@@ -742,21 +710,6 @@
     ]
   },
   {
-    "slug": "mindfulness",
-    "title": "Mindfulness",
-    "subtitle": "Percorso per favorire il benessere psicologico e la gestione dello stress",
-    "excerpt": "Percorso per favorire il benessere psicologico e la gestione dello stress, della durata di 12 ore.",
-    "category": "benessere-psico-sociale",
-    "level": "base",
-    "modality": [
-      "aula"
-    ],
-    "tags": [
-      "benessere-psico-sociale",
-      "mindfulness"
-    ]
-  },
-  {
     "slug": "pei-persone-idonee-all-esecuzione-norme-cei-11-27-2025",
     "title": "PEI – Persona Idonea (Norme CEI 11-27:2025)",
     "subtitle": "Formazione per lavoratori PES o PAV che devono intervenire su impianti BT sotto tensione.",
@@ -961,6 +914,22 @@
     "tags": [
       "ambiente",
       "sostenibilita"
+    ]
+  },
+  {
+    "slug": "sportello-di-ascolto-e-supporto-psicologico",
+    "title": "Sportello di ascolto e supporto psicologico",
+    "subtitle": "Benessere psicologico",
+    "excerpt": "Uno spazio individuale e riservato dedicato ai lavoratori per affrontare situazioni di stress, difficoltà relazionali e momenti di disagio.",
+    "category": "benessere-psico-sociale",
+    "level": "base",
+    "modality": [
+      "online"
+    ],
+    "tags": [
+      "benessere-psico-sociale",
+      "sportello-di-ascolto",
+      "supporto-psicologico"
     ]
   },
   {

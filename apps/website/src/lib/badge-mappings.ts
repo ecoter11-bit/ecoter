@@ -8,7 +8,7 @@ import type { BadgeColor } from '@ecoter/ui'
  *
  * - sicurezza               → `blue`  (D.Lgs. 81/08, RSPP/ASPP, attrezzature, lavori elettrici)
  * - ambiente                → `brand` (the rebrand's green)
- * - benessere-psico-sociale → `amber` (stress lavoro-correlato, mindfulness, counseling)
+ * - benessere-psico-sociale → `amber` (sportello di ascolto, coaching psicologico, assessment)
  *
  * `amber` is shared with `featuredBadgeColor` below — a
  * benessere-psico-sociale course marked "in evidenza" renders two amber
