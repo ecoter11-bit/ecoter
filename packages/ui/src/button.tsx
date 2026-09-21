@@ -14,6 +14,26 @@ const buttonVariants = cva(
         /** Brand-colored outline — same outline recipe as badge.tsx (`border-brand-600 bg-white text-brand-700`, AA-verified), for a secondary CTA that still reads as on-brand next to a `default` primary action. */
         'outline-brand':
           'border-brand-600 bg-white text-brand-700 hover:bg-brand-50',
+        /**
+         * White outline for a CTA sitting on a dark surface (`neutral-950`, or
+         * a photo behind a `neutral-950/75` scrim — see the website's
+         * `FeaturedCoursesSection`). The fill stays transparent on purpose:
+         * every point of white added to the background lifts it toward the
+         * text. Measured on the darkest-guaranteed case, a photo scrim whose
+         * brightest composited pixel is L≈0.128 — white text reads 5.9:1 at
+         * rest and 4.7:1 over `hover:bg-white/10`, both AA; a `/15` fill would
+         * already fall to 4.2:1. The white border is ~5.9:1 against the same
+         * background, clearing the 3:1 SC 1.4.11 asks of a component boundary.
+         * Focus stays white on both parts, and both overrides are load-bearing
+         * against the base recipe: `focus-visible:border-ring` would repaint
+         * the border brand green (`#4a7c22`, ~1.2:1 on the scrim — it reads as
+         * the border disappearing), and `ring-ring/50` would leave white at
+         * 50% as the only indicator, ~2.8:1 against that same worst-case
+         * background, under the 3:1 a focus indicator needs. At full opacity
+         * the ring reads ~5.9:1.
+         */
+        'outline-inverse':
+          'border-white bg-transparent text-white hover:bg-white/10 focus-visible:border-white focus-visible:ring-white',
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground',
         ghost:
