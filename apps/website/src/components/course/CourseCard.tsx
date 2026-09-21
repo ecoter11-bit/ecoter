@@ -92,13 +92,21 @@ export function CourseCard({
           )}
         </div>
 
-        {/* Title + subtitle */}
-        <Heading className="mb-1.5 line-clamp-2 font-heading text-lg leading-snug font-bold text-neutral-950 transition-colors duration-200 group-hover:text-brand-700">
+        {/* Title + subtitle (facoltativo: senza, il titolo si prende lui il
+            margine inferiore, così non resta una riga vuota nella card) */}
+        <Heading
+          className={cn(
+            'line-clamp-2 font-heading text-lg leading-snug font-bold text-neutral-950 transition-colors duration-200 group-hover:text-brand-700',
+            course.subtitle ? 'mb-1.5' : 'mb-4'
+          )}
+        >
           {course.title}
         </Heading>
-        <p className="mb-4 line-clamp-1 text-sm leading-relaxed text-muted-foreground">
-          {course.subtitle}
-        </p>
+        {course.subtitle && (
+          <p className="mb-4 line-clamp-1 text-sm leading-relaxed text-muted-foreground">
+            {course.subtitle}
+          </p>
+        )}
 
         {/* Meta row */}
         <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-muted-foreground">

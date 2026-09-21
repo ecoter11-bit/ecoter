@@ -31,7 +31,10 @@ export const courseSeoSchema = z.object({
 
 export const courseFrontmatterSchema = z.object({
   title: z.string().min(1, 'Titolo obbligatorio'),
-  subtitle: z.string().default(''),
+  /** Sottotitolo facoltativo: va omesso quando non aggiunge nulla al titolo
+   * (es. se ripeterebbe il nome dell'area). Dove viene mostrato è reso solo
+   * se presente — niente riga né spaziatura vuota quando manca. */
+  subtitle: z.string().min(1).optional(),
   excerpt: z.string().optional(),
   category: z.string().min(1, 'Categoria obbligatoria'),
   /** Codice di catalogo ECOTER (es. A06, C03): una lettera di area seguita

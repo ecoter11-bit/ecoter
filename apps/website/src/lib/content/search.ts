@@ -3,7 +3,7 @@ import { getAllCourses, type CourseData, type CourseFilters } from './courses'
 export type SearchResult = {
   slug: string
   title: string
-  subtitle: string
+  subtitle?: string
   excerpt: string
   category: string
   level: CourseData['level']
@@ -26,7 +26,7 @@ function scoreMatch(course: CourseData, query: string): number {
   let score = 0
 
   if (course.title.toLowerCase().includes(q)) score += 10
-  if (course.subtitle.toLowerCase().includes(q)) score += 5
+  if (course.subtitle?.toLowerCase().includes(q)) score += 5
   if (course.excerpt.toLowerCase().includes(q)) score += 3
   if (course.tags.some((t) => t.toLowerCase().includes(q))) score += 4
   if (course.category.toLowerCase().includes(q)) score += 2
@@ -78,7 +78,7 @@ export function searchCourses(options: SearchOptions = {}): SearchResult[] {
 export type SearchIndexEntry = {
   slug: string
   title: string
-  subtitle: string
+  subtitle?: string
   excerpt: string
   category: string
   level: string
