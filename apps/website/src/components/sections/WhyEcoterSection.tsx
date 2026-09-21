@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Award, BookOpen, Globe, Wrench, type LucideIcon } from 'lucide-react'
 import { IconCircle } from '@ecoter/ui'
@@ -47,21 +48,46 @@ export function WhyEcoterSection() {
   return (
     <section
       aria-labelledby="perche-heading"
-      className="relative overflow-hidden bg-neutral-25"
+      className="relative isolate overflow-hidden bg-neutral-950"
     >
-      {/* Decorative pill/dash motif (parent-brand accent) — one sober touch,
-       * sitewide, tucked behind the heading and hidden below lg so it never
-       * competes with text on small screens. */}
-      <div
-        className="pointer-events-none absolute top-28 right-0 hidden -rotate-6 lg:flex lg:gap-2.5"
-        aria-hidden="true"
-      >
-        <span className="h-3.5 w-10 rounded-full bg-amber-100" />
-        <span className="h-3.5 w-16 rounded-full bg-amber-300" />
-        <span className="h-3.5 w-8 rounded-full bg-brand-200" />
-        <span className="h-3.5 w-20 rounded-full bg-brand-100" />
-        <span className="h-3.5 w-12 rounded-full bg-eco-100" />
-      </div>
+      {/*
+        Foto decorativa a tutta larghezza (`alt=""`: l'ufficio tecnico non
+        aggiunge informazione alle quattro ragioni che gli stanno sopra).
+        `fill` + `object-cover` la lasciano coprire la sezione a qualsiasi
+        rapporto d'aspetto — l'originale è 2000×668, quindi sotto ~900px di
+        viewport resta la banda centrale, quella con il tavolo e i due tecnici.
+
+        Niente `priority`, a differenza della vetrina «Corsi in evidenza»:
+        questa è la quarta sezione della home e non è mai visibile al primo
+        paint, quindi il preload eager si porterebbe via banda dall'LCP vero
+        senza esserlo. Il lazy loading di default di `next/image` è quello
+        giusto qui — non "allinearlo" a FeaturedCoursesSection copiando il
+        `priority`.
+      */}
+      <Image
+        src="/images/perche-ecoter.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="-z-10 object-cover object-center"
+      />
+      {/*
+        Velatura di leggibilità. `neutral-950/80` — uno stop più forte del
+        `/75` della vetrina «Corsi in evidenza», e il motivo è misurato: questa
+        foto ha luminanza relativa mediana 0.40 contro 0.32 (p90 0.76), cioè
+        molta più superficie chiara sotto al testo, ed è fittissima di
+        dettaglio (monitor accesi, scale, scrivanie bianche) che a velatura
+        leggera continuerebbe a leggersi attraverso i caratteri sottili del
+        titolo. Il pixel peggiore è bianco pieno — `rgb(255,255,255)` a
+        (1325,99), il soffitto in controluce: `neutral-950` (`#313132`) all'80%
+        lo porta a `rgb(90,90,91)`, e lì sopra il testo misura bianco 6.9:1,
+        `neutral-100` 6.0:1, `brand-100` 6.0:1 — tutti AA abbondante per testo
+        normale. Il margine serve perché `object-cover` ritaglia in modo
+        diverso a ogni viewport: qualunque punto della foto può finire sotto al
+        testo. Non scendere sotto l'80% senza rifare il conto sul pixel
+        peggiore.
+      */}
+      <div className="absolute inset-0 -z-10 bg-neutral-950/80" />
 
       <Container className="section-padding relative">
         <motion.div
@@ -71,14 +97,14 @@ export function WhyEcoterSection() {
           viewport={viewportOnce}
         >
           <motion.div variants={staggerContainer} className="mb-14 text-center">
-            <p className="mb-3 text-brand-700 overline">Perché sceglierci</p>
+            <p className="mb-3 text-brand-100 overline">Perché sceglierci</p>
             <h2
               id="perche-heading"
-              className="font-heading text-3xl font-light tracking-tight text-balance text-neutral-950 lg:text-4xl"
+              className="font-heading text-3xl font-light tracking-tight text-balance text-white lg:text-4xl"
             >
               Perché ECOTER Academy
             </h2>
-            <p className="mx-auto mt-4 max-w-lg text-pretty text-neutral-600">
+            <p className="mx-auto mt-4 max-w-lg text-pretty text-neutral-100">
               Quattro ragioni concrete per affidarci la formazione della tua
               organizzazione.
             </p>
@@ -88,10 +114,18 @@ export function WhyEcoterSection() {
             {REASONS.map((reason) => {
               const Icon = reason.icon
               return (
+                /* `shadow-lg` da ferme perché le card galleggino sulla foto
+                   invece di appoggiarcisi, e `hover:shadow-xl` uno stop sopra
+                   — con l'`hover:shadow-md` di prima l'ombra sarebbe *calata*
+                   al passaggio del mouse. Fondo `bg-white` pieno, mai
+                   traslucido: così il testo `neutral-950` / `neutral-600` e i
+                   cerchietti `IconCircle color="brand"` restano sui contrasti
+                   già validati su bianco, qualunque cosa passi sotto la card
+                   al variare del ritaglio della foto. */
                 <motion.div
                   key={reason.title}
                   variants={slideUpGentle}
-                  className="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-600 hover:shadow-md"
+                  className="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-7 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-brand-600 hover:shadow-xl"
                 >
                   <IconCircle
                     color="brand"
