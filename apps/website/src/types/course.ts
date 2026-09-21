@@ -8,6 +8,8 @@ export type CoursePricing =
 export type CourseDuration = {
   hours: number
   days?: number
+  /** Etichetta che sostituisce il formato derivato — vedi `course.schema.ts`. */
+  label?: string
 }
 
 export type CourseModule = {

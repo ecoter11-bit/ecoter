@@ -42,20 +42,20 @@
   {
     "slug": "benessere-psico-sociale",
     "name": "Benessere psico-sociale",
-    "description": "Formazione sul benessere organizzativo e la gestione dello stress lavoro-correlato: mindfulness, empowerment e counseling in azienda.",
-    "longDescription": "Il benessere psico-sociale dei lavoratori è parte integrante della prevenzione, non un tema accessorio. I nostri percorsi affrontano la valutazione e gestione dello stress lavoro-correlato, tecniche di mindfulness applicate al contesto lavorativo, empowerment personale e di team, e counseling per responsabili HR e HSE che supportano persone in difficoltà.",
+    "description": "Servizi di supporto psicologico individuale online per le aziende: sportello di ascolto, coaching psicologico e analisi delle risorse e delle competenze con 15FQ+.",
+    "longDescription": "Percorsi individuali online condotti da psicologi, dedicati ai lavoratori e alle organizzazioni. Lo sportello di ascolto e supporto psicologico offre uno spazio riservato per affrontare situazioni di stress, difficoltà relazionali e momenti di disagio. Il coaching psicologico individuale sviluppa le risorse personali utili ad affrontare le situazioni professionali. L'analisi delle risorse e delle competenze integra colloqui individuali strutturati e il questionario psicometrico 15FQ+ per valutare caratteristiche personali, punti di forza e aree di sviluppo, a supporto della crescita professionale e delle decisioni organizzative.",
     "icon": "HeartHandshake",
     "order": 3,
     "featured": false,
     "seo": {
-      "title": "Corsi Benessere Psico-Sociale – Stress Lavoro-Correlato, Mindfulness",
-      "description": "Formazione sul benessere psico-sociale in azienda. Corsi su stress lavoro-correlato, mindfulness, empowerment e counseling.",
+      "title": "Supporto Psicologico in Azienda – Sportello di Ascolto e Coaching",
+      "description": "Servizi di supporto psicologico individuale online per aziende: sportello di ascolto, coaching psicologico individuale e assessment delle competenze con 15FQ+.",
       "keywords": [
         "benessere psico-sociale",
-        "stress lavoro-correlato",
-        "mindfulness aziendale",
-        "counseling hr",
-        "empowerment"
+        "sportello di ascolto aziendale",
+        "supporto psicologico lavoratori",
+        "coaching psicologico individuale",
+        "assessment competenze 15FQ+"
       ]
     }
   }

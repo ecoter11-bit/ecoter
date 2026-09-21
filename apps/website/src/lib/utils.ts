@@ -68,13 +68,20 @@ export function isExternalUrl(url: string): boolean {
 const HALF_DAY_HOURS = 4
 
 /**
- * `"28h · 4 giorni"` when `days` is set, else `"28 ore"`. When the average
- * hours per session is under half a day (e.g. counseling 50', mindfulness
- * 1h30'), uses `"incontri"` instead of `"giorni"` — "N giorni" is misleading
- * for short-session courses. Mirrors CourseCard's original inline
- * derivation, now shared with the course detail page.
+ * `duration.label` quando c'è: i percorsi di benessere psico-sociale
+ * esprimono la durata in incontri e minuti ("5 incontri da 50 minuti") e non
+ * in ore, e la fonte non dà un monte ore — `hours` resta il dato numerico su
+ * cui lavorano filtri, ordinamento e `courseWorkload`, ma non va mostrato.
+ *
+ * Altrimenti `"28h · 4 giorni"` quando `days` è valorizzato, else `"28 ore"`.
+ * Quando la media di ore per sessione sta sotto la mezza giornata (es.
+ * sessioni da 50', da 1h30'), usa `"incontri"` invece di `"giorni"` — "N
+ * giorni" è fuorviante per i corsi a sessioni brevi. Rispecchia la
+ * derivazione inline originale di CourseCard, ora condivisa con la pagina di
+ * dettaglio del corso.
  */
 export function formatCourseDuration(duration: Course['duration']): string {
+  if (duration.label) return duration.label
   if (duration.days == null) return `${duration.hours} ore`
   const hoursPerSession = duration.hours / duration.days
   const [singular, plural] =
