@@ -61,7 +61,7 @@ export function applyFilters(
     result = result.filter(
       (c) =>
         c.title.toLowerCase().includes(q) ||
-        c.subtitle.toLowerCase().includes(q) ||
+        c.subtitle?.toLowerCase().includes(q) ||
         c.excerpt.toLowerCase().includes(q) ||
         c.tags.some((t) => t.toLowerCase().includes(q)) ||
         c.targetAudience.some((a) => a.toLowerCase().includes(q))

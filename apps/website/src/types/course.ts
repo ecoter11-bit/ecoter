@@ -42,7 +42,8 @@ export type CourseSeo = {
 export type Course = {
   slug: string
   title: string
-  subtitle: string
+  /** Sottotitolo facoltativo — vedi `course.schema.ts`. */
+  subtitle?: string
   excerpt: string
   category: string
   /** Codice di catalogo ECOTER (es. A06). */
