@@ -327,9 +327,23 @@
     ]
   },
   {
-    "slug": "coaching-psicologico-individuale",
-    "title": "Coaching psicologico individuale",
-    "subtitle": "Sviluppo delle risorse personali",
+    "slug": "coaching-psicologico-individuale-avanzato",
+    "title": "Coaching psicologico individuale – Avanzato",
+    "excerpt": "Un percorso finalizzato a sviluppare risorse personali utili ad affrontare con maggiore consapevolezza ed efficacia le situazioni professionali.",
+    "category": "benessere-psico-sociale",
+    "level": "avanzato",
+    "modality": [
+      "online"
+    ],
+    "tags": [
+      "benessere-psico-sociale",
+      "coaching-psicologico",
+      "risorse-personali"
+    ]
+  },
+  {
+    "slug": "coaching-psicologico-individuale-base",
+    "title": "Coaching psicologico individuale – Base",
     "excerpt": "Un percorso finalizzato a sviluppare risorse personali utili ad affrontare con maggiore consapevolezza ed efficacia le situazioni professionali.",
     "category": "benessere-psico-sociale",
     "level": "base",
@@ -917,11 +931,41 @@
     ]
   },
   {
-    "slug": "sportello-di-ascolto-e-supporto-psicologico",
-    "title": "Sportello di ascolto e supporto psicologico",
+    "slug": "sportello-di-ascolto-e-supporto-psicologico-avanzato",
+    "title": "Sportello di ascolto e supporto psicologico – Avanzato",
+    "excerpt": "Uno spazio individuale e riservato dedicato ai lavoratori per affrontare situazioni di stress, difficoltà relazionali e momenti di disagio.",
+    "category": "benessere-psico-sociale",
+    "level": "intermedio",
+    "modality": [
+      "online"
+    ],
+    "tags": [
+      "benessere-psico-sociale",
+      "sportello-di-ascolto",
+      "supporto-psicologico"
+    ]
+  },
+  {
+    "slug": "sportello-di-ascolto-e-supporto-psicologico-base",
+    "title": "Sportello di ascolto e supporto psicologico – Base",
     "excerpt": "Uno spazio individuale e riservato dedicato ai lavoratori per affrontare situazioni di stress, difficoltà relazionali e momenti di disagio.",
     "category": "benessere-psico-sociale",
     "level": "base",
+    "modality": [
+      "online"
+    ],
+    "tags": [
+      "benessere-psico-sociale",
+      "sportello-di-ascolto",
+      "supporto-psicologico"
+    ]
+  },
+  {
+    "slug": "sportello-di-ascolto-e-supporto-psicologico-estensivo",
+    "title": "Sportello di ascolto e supporto psicologico – Estensivo",
+    "excerpt": "Uno spazio individuale e riservato dedicato ai lavoratori per affrontare situazioni di stress, difficoltà relazionali e momenti di disagio.",
+    "category": "benessere-psico-sociale",
+    "level": "avanzato",
     "modality": [
       "online"
     ],
