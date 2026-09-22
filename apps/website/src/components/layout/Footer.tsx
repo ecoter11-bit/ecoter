@@ -119,6 +119,13 @@ export function Footer({ privacyPolicyHref, cookiePolicyHref }: FooterProps) {
               >
                 Sito del gruppo ECO-TER
                 <ExternalLink className="size-3.5" aria-hidden="true" />
+                {/* L'icona è decorativa: l'avviso di nuova scheda deve
+                    arrivare anche a chi non la vede. Ora che le informative
+                    sono interne, questo è l'unico link che esce dal sito. */}
+                <span className="sr-only">
+                  {' '}
+                  (si apre in una nuova scheda, sito ECO-TER Srl)
+                </span>
               </a>
 
               {linkedin && (
@@ -170,35 +177,24 @@ export function Footer({ privacyPolicyHref, cookiePolicyHref }: FooterProps) {
           </p>
           <nav aria-label="Link legali">
             <ul className="flex flex-wrap items-center gap-4">
+              {/* Pagine interne dell'Academy (non più le informative della
+                  casa madre): link normali, nessun indicatore di link
+                  esterno / nuova scheda. */}
               <li>
-                <a
+                <Link
                   href={privacyPolicyHref}
-                  target="_blank"
-                  rel="noopener"
-                  className="inline-flex items-center gap-1 transition-colors hover:text-brand-700"
+                  className="transition-colors hover:text-brand-700"
                 >
                   Privacy Policy
-                  <ExternalLink className="size-3" aria-hidden="true" />
-                  <span className="sr-only">
-                    {' '}
-                    (si apre in una nuova scheda, sito ECO-TER Srl)
-                  </span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href={cookiePolicyHref}
-                  target="_blank"
-                  rel="noopener"
-                  className="inline-flex items-center gap-1 transition-colors hover:text-brand-700"
+                  className="transition-colors hover:text-brand-700"
                 >
                   Cookie Policy
-                  <ExternalLink className="size-3" aria-hidden="true" />
-                  <span className="sr-only">
-                    {' '}
-                    (si apre in una nuova scheda, sito ECO-TER Srl)
-                  </span>
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>

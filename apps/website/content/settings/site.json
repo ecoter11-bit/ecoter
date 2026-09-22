@@ -20,6 +20,6 @@
     "linkedin": "https://www.linkedin.com/company/eco-ter-srl/",
     "youtube": ""
   },
-  "cookiePolicy": "https://sicurezzalavoroeambiente.it/cookie-policy/",
-  "privacyPolicy": "https://sicurezzalavoroeambiente.it/privacy-policy/"
+  "cookiePolicy": "/cookie-policy",
+  "privacyPolicy": "/privacy-policy"
 }

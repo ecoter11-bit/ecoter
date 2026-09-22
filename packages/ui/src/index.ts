@@ -11,6 +11,8 @@ export {
 } from './accordion'
 export { Alert, alertVariants } from './alert'
 export type { AlertProps } from './alert'
+export { Prose, ProseColophon, proseVariants } from './prose'
+export type { ProseProps, ProseColophonProps } from './prose'
 export { Label } from './label'
 export { Input } from './input'
 export { Textarea } from './textarea'

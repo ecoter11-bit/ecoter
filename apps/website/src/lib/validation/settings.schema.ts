@@ -25,7 +25,7 @@ export const siteSettingsSchema = z.object({
     linkedin: z.string().default(''),
     youtube: z.string().default(''),
   }),
-  /** External URLs on the parent company's site (sicurezzalavoroeambiente.it) — ECOTER Academy has no legal pages of its own. */
+  /** Percorsi interni (`/cookie-policy`, `/privacy-policy`): dal 2026-09-22 l'Academy ha informative proprie e non rimanda più a quelle della casa madre. Restano `z.string()` e non un enum di percorsi fissi perché il campo è il punto in cui si cambia destinazione senza toccare il codice (footer e consensi dei moduli leggono da qui). */
   cookiePolicy: z.string(),
   privacyPolicy: z.string(),
 })

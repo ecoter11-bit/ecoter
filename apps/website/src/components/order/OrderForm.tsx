@@ -1,13 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect, useId } from 'react'
-import {
-  Send,
-  CheckCircle2,
-  AlertCircle,
-  Loader2,
-  ExternalLink,
-} from 'lucide-react'
+import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react'
 import {
   FormField,
   Input,
@@ -636,14 +630,16 @@ export function OrderForm({ course, courseOptions, privacyPolicyHref }: Props) {
             label={
               <>
                 Ho letto e accetto la{' '}
+                {/* Nuova scheda anche se la destinazione è interna: stesso
+                    motivo del ContactForm (non perdere i dati già inseriti).
+                    Nessuna icona di link esterno, avviso via sr-only. */}
                 <a
                   href={privacyPolicyHref}
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex items-center gap-1 font-medium text-brand-700 underline decoration-brand-300 underline-offset-2 hover:text-brand-800"
+                  className="font-medium text-brand-700 underline decoration-brand-600 underline-offset-2 hover:text-brand-800 hover:decoration-brand-800"
                 >
                   privacy policy
-                  <ExternalLink className="size-3" aria-hidden="true" />
                   <span className="sr-only">
                     {' '}
                     (si apre in una nuova scheda)
