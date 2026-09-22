@@ -1,0 +1,28 @@
+# Netlify — ECOTER Academy (monorepo pnpm + Turborepo)
+#
+# La base directory resta la radice del repo (default): Netlify sceglie il package
+# manager dal lockfile presente nella base directory, e `pnpm-lock.yaml` +
+# `pnpm-workspace.yaml` stanno qui. Puntare la base su `apps/website` farebbe
+# ricadere l'install su npm e romperebbe le dipendenze `workspace:*`.
+# https://docs.netlify.com/build/configure-builds/manage-dependencies/
+
+[build]
+  # Turborepo costruisce solo il sito (e le sue dipendenze di workspace).
+  command = "pnpm turbo run build --filter=@ecoter/website"
+  # Relativa alla base directory (= radice repo). Il Next.js Runtime ricava da qui
+  # la posizione dell'app nel monorepo.
+  publish = "apps/website/.next"
+
+[build.environment]
+  # Stessa risoluzione di `lts/*` usata dalla CI (.github/workflows/ci.yml).
+  # NODE_VERSION accetta "qualsiasi stringa valida per nvm".
+  NODE_VERSION = "lts/*"
+
+# Next.js Runtime (adapter OpenNext). Trasforma in Netlify Functions le pagine SSR,
+# l'ISR e i route handler — incluse le API POST /api/contatti e /api/ottieni-corso —
+# e il middleware in Edge Functions.
+# Dichiarato qui e NON in package.json: così Netlify installa a ogni build l'ultima
+# versione dell'adapter, come raccomandato (pinnarlo richiederebbe la dipendenza).
+# https://docs.netlify.com/build/frameworks/framework-setup-guides/nextjs/overview/
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

@@ -42,6 +42,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# netlify (output locale di `netlify build` / Netlify CLI)
+.netlify
+
 # local QA screenshots (not committed)
 .qa/
 
