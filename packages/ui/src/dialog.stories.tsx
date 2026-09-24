@@ -74,7 +74,7 @@ export const Sheet: Story = {
           <DialogClose className={closeClass}>Chiudi</DialogClose>
         </div>
         <nav aria-label="Menu di esempio" className="flex flex-col p-3">
-          {['Soluzioni Aziendali', 'Chi Siamo', 'FAQ', 'Contatti'].map(
+          {['Aziende e professionisti', 'Chi Siamo', 'FAQ', 'Contatti'].map(
             (label) => (
               <a
                 key={label}

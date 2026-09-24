@@ -2,36 +2,23 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import {
-  HardHat,
-  Leaf,
-  HeartHandshake,
-  ArrowRight,
-  type LucideIcon,
-} from 'lucide-react'
-import { IconCircle, type IconCircleColor } from '@ecoter/ui'
+import { ArrowRight } from 'lucide-react'
+import { IconCircle } from '@ecoter/ui'
 import type { CategoryWithCount } from '@/types'
 import { Container } from '@/components/layout'
 import { areaHref } from '@/lib/catalog'
+import {
+  categoryIcon,
+  categoryIconColor,
+  defaultCategoryIcon,
+  defaultCategoryIconColor,
+} from '@/lib/category-ui'
 import {
   slideUp,
   slideUpGentle,
   staggerContainer,
   viewportOnce,
 } from '@/components/motion/variants'
-
-const iconMap: Record<string, LucideIcon> = {
-  HardHat,
-  Leaf,
-  HeartHandshake,
-}
-
-/* Same macro-category → colore mapping di `categoryIconColor` (lib/category-ui.ts) e dei Badge (Decision 018). */
-const colorMap: Record<string, IconCircleColor> = {
-  sicurezza: 'blue',
-  ambiente: 'brand',
-  'benessere-psico-sociale': 'amber',
-}
 
 type Props = {
   categories: CategoryWithCount[]
@@ -56,16 +43,19 @@ export function AziendeAmbitiSection({ categories }: Props) {
               Tre aree, un unico interlocutore
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-pretty text-neutral-600">
-              Copriamo l&apos;intero fabbisogno formativo della tua azienda,
-              dalla sicurezza obbligatoria alla gestione ambientale e al
-              benessere delle persone.
+              Copriamo l&apos;intero fabbisogno formativo di aziende e
+              professionisti, dalla sicurezza obbligatoria alla gestione
+              ambientale e al benessere delle persone.
             </p>
           </motion.div>
 
           <div className="grid gap-5 lg:grid-cols-3">
             {categories.map((category) => {
-              const Icon = iconMap[category.icon] ?? HardHat
-              const color = colorMap[category.slug] ?? 'brand'
+              // Icona e colore d'area dalle mappe condivise (Decision 018),
+              // le stesse del catalogo e della home.
+              const Icon = categoryIcon[category.icon] ?? defaultCategoryIcon
+              const color =
+                categoryIconColor[category.slug] ?? defaultCategoryIconColor
 
               return (
                 <motion.div key={category.slug} variants={slideUpGentle}>
