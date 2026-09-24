@@ -7,7 +7,6 @@ import {
   categorySchema,
   subcategorySchema,
   siteSettingsSchema,
-  featuredCoursesSchema,
 } from '@/lib/validation'
 import {
   resolveSubcategory,
@@ -19,7 +18,6 @@ const COURSES_DIR = join(CONTENT_DIR, 'courses')
 const CATEGORIES_DIR = join(CONTENT_DIR, 'categories')
 const SUBCATEGORIES_DIR = join(CONTENT_DIR, 'subcategories')
 const SETTINGS_FILE = join(CONTENT_DIR, 'settings', 'site.json')
-const FEATURED_FILE = join(CONTENT_DIR, 'settings', 'featured-courses.json')
 
 let errors = 0
 let validated = 0
@@ -31,10 +29,6 @@ const resolvedSubcategories = new Map<string, string | undefined>()
 
 /** Slug delle sotto-aree definite in `content/subcategories/`. */
 const knownSubcategories = new Set<string>()
-
-/** Slug dei corsi pubblicati, popolato da `validateCourses()` e usato da
- *  `validateFeaturedCourses()` per segnalare i refusi nella vetrina. */
-const publishedCourseSlugs = new Set<string>()
 
 function formatZodError(err: ZodError): string {
   return err.issues
@@ -59,9 +53,6 @@ function validateCourses(): void {
       const fm = courseFrontmatterSchema.parse(data)
       if (fm.category === SUBCATEGORIZED_CATEGORY) {
         resolvedSubcategories.set(filename, resolveSubcategory(fm))
-      }
-      if (fm.status === 'published') {
-        publishedCourseSlugs.add(filename.replace(/\.mdx$/, ''))
       }
       console.log(`  ✓ ${filename}`)
       validated++
@@ -220,60 +211,12 @@ function validateSettings(): void {
   }
 }
 
-/**
- * Vetrina della home (`featured-courses.json`): la forma del file è un errore
- * bloccante, uno slug che non corrisponde a un corso pubblicato è solo un
- * warning — a runtime viene saltato, e questa è la via di uscita voluta quando
- * un corso viene depubblicato senza aggiornare la vetrina. Il warning esiste
- * perché un refuso, altrimenti, sparirebbe in silenzio dalla home.
- */
-function validateFeaturedCourses(): void {
-  if (!existsSync(FEATURED_FILE)) {
-    console.warn(`[WARN] File corsi in evidenza non trovato: ${FEATURED_FILE}`)
-    return
-  }
-
-  console.log(`\n📂 Corsi in evidenza (home)`)
-
-  try {
-    const raw = readFileSync(FEATURED_FILE, 'utf-8')
-    const data: unknown = JSON.parse(raw)
-    const slugs = featuredCoursesSchema.parse(data)
-    console.log(`  ✓ featured-courses.json (${slugs.length} slug)`)
-    validated++
-
-    for (const slug of slugs) {
-      if (publishedCourseSlugs.has(slug)) {
-        console.log(`  • ${slug}`)
-      } else {
-        console.warn(
-          `  ⚠ ${slug}: nessun corso pubblicato con questo slug — verrà saltato in home`
-        )
-      }
-    }
-
-    if (slugs.length === 0) {
-      console.warn(
-        `  ⚠ vetrina vuota — la home ricade sui primi corsi del catalogo`
-      )
-    }
-  } catch (err) {
-    errors++
-    if (err instanceof ZodError) {
-      console.error(`  ✗ featured-courses.json\n${formatZodError(err)}`)
-    } else {
-      console.error(`  ✗ featured-courses.json: ${String(err)}`)
-    }
-  }
-}
-
 console.log('🔍 ECOTER Academy – Validazione contenuti\n')
 validateCourses()
 validateCategories()
 validateSubcategories()
 validateSubcategoryCoverage()
 validateSettings()
-validateFeaturedCourses()
 
 console.log(`\n${'─'.repeat(40)}`)
 if (errors === 0) {

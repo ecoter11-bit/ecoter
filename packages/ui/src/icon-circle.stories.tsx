@@ -84,7 +84,7 @@ export const Colors: Story = {
  * Uso reale — card valore/step con hover (transform composto dal
  * consumatore via `className`, non incorporato nel componente): passa
  * `group` sul wrapper e `transition-transform group-hover:scale-110`
- * sull'istanza, come in WhyEcoterSection / ComeFunzionaSection.
+ * sull'istanza, come in AziendeOffertaSection / AziendePercheSection.
  */
 export const InCard: Story = {
   name: 'Uso reale (in una card)',
@@ -110,7 +110,8 @@ export const InCard: Story = {
 
 /**
  * Step numerato — cerchio + badge numero sovrapposto (composizione esterna,
- * come in ComeFunzionaSection: il badge numero non fa parte del componente).
+ * come in AziendeComeLavoriamoSection: il badge numero non fa parte del
+ * componente).
  */
 export const NumberedStep: Story = {
   name: 'Step numerato (composizione)',
