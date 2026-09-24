@@ -26,7 +26,7 @@ const iconMap: Record<string, LucideIcon> = {
   HeartHandshake,
 }
 
-/* Same macro-category → colore mapping di AreaFormativeSection/Badge (Decision 018). */
+/* Same macro-category → colore mapping di `categoryIconColor` (lib/category-ui.ts) e dei Badge (Decision 018). */
 const colorMap: Record<string, IconCircleColor> = {
   sicurezza: 'blue',
   ambiente: 'brand',

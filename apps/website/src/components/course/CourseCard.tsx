@@ -36,14 +36,6 @@ type Props = {
    */
   headingLevel?: 2 | 3 | 4
   /**
-   * Mostra il badge "In evidenza" per i corsi con `featured: true`. Default
-   * `true` (catalogo, correlati). Va messo a `false` dove la sezione che
-   * contiene la card è già una vetrina — es. "Corsi in evidenza" in home:
-   * lì il badge non distingue nulla e, comparendo solo su alcune card, fa
-   * sembrare le altre meno in evidenza delle vicine.
-   */
-  showFeaturedBadge?: boolean
-  /**
    * Mostra il badge dell'area (Sicurezza, Ambiente, …). Default `true`. Va
    * messo a `false` negli elenchi che contengono una sola area — le pagine
    * di area e sotto-area del catalogo: lì il badge ripete su ogni card
@@ -58,7 +50,6 @@ type Props = {
 export function CourseCard({
   course,
   headingLevel = 3,
-  showFeaturedBadge = true,
   showCategoryBadge = true,
   className,
 }: Props) {
@@ -97,7 +88,7 @@ export function CourseCard({
           <Badge size="sm" color={levelColor}>
             {levelBadgeLabel[course.level]}
           </Badge>
-          {showFeaturedBadge && course.featured && (
+          {course.featured && (
             <Badge size="sm" color={featuredBadgeColor}>
               {featuredBadgeLabel}
             </Badge>

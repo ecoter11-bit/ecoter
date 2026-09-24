@@ -1,13 +1,30 @@
 'use client'
 
-import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { ExternalLink } from 'lucide-react'
 import { buttonVariants } from '@ecoter/ui'
 import { Container } from '@/components/layout'
+import { AreaLinkTile } from '@/components/catalog/AreaLinkTile'
 import { slideUp } from '@/components/motion/variants'
+import { areaHref } from '@/lib/catalog'
+import {
+  categoryIcon,
+  categoryIconColor,
+  defaultCategoryIcon,
+  defaultCategoryIconColor,
+} from '@/lib/category-ui'
+import { siteConfig } from '@/config/site'
+import { cn } from '@/lib/utils'
+import type { Category } from '@/types'
 import { HeroMesh } from './HeroMesh'
+
+/** Il minimo di un'area che serve ai bottoni: niente descrizioni né SEO nel bundle client. */
+export type HeroArea = Pick<Category, 'slug' | 'name' | 'icon'>
+
+type Props = {
+  /** Aree formative, nell'ordine del catalogo (`getAllCategories()`). */
+  areas: HeroArea[]
+}
 
 const heroContainer = {
   hidden: {},
@@ -16,7 +33,7 @@ const heroContainer = {
   },
 }
 
-export function HeroSection() {
+export function HeroSection({ areas }: Props) {
   return (
     <section
       aria-labelledby="hero-heading"
@@ -29,12 +46,12 @@ export function HeroSection() {
         <HeroMesh />
       </div>
 
-      <Container className="relative py-24 lg:py-36">
+      <Container className="relative py-20 lg:py-32">
         <motion.div
           variants={heroContainer}
           initial="hidden"
           animate="visible"
-          className="mx-auto max-w-3xl text-center"
+          className="text-center"
         >
           <motion.p variants={slideUp} className="mb-5 text-brand-600 overline">
             Formazione Professionale Accreditata
@@ -43,7 +60,7 @@ export function HeroSection() {
           <motion.h1
             id="hero-heading"
             variants={slideUp}
-            className="mb-6 font-heading text-4xl font-light tracking-tight text-balance text-neutral-950 sm:text-5xl lg:text-6xl"
+            className="mx-auto mb-6 max-w-3xl font-heading text-4xl font-light tracking-tight text-balance text-neutral-950 sm:text-5xl lg:text-6xl"
           >
             La formazione che mette{' '}
             <span className="text-brand-600">la tua azienda in regola.</span>
@@ -58,24 +75,52 @@ export function HeroSection() {
             direttamente in azienda — sempre aggiornata alle normative vigenti.
           </motion.p>
 
-          <motion.div
+          {/*
+            Un ingresso per area, dritto ai suoi corsi. Sono tre scelte alla
+            pari, non tre azioni principali in gara: per questo riquadri
+            chiari col colore dell'area nell'icona (`AreaLinkTile`), non tre
+            bottoni pieni. Sotto `lg` vanno in colonna: a tre per riga su un
+            tablet "Benessere psico-sociale" andrebbe a capo in tre righe.
+          */}
+          <motion.ul
             variants={slideUp}
-            className="flex flex-wrap items-center justify-center gap-4"
+            role="list"
+            aria-label="Aree formative"
+            className="mx-auto grid max-w-md gap-3 text-left lg:max-w-5xl lg:grid-cols-3"
           >
-            <Link
-              href="/corsi"
+            {areas.map((area) => (
+              <li key={area.slug}>
+                <AreaLinkTile
+                  href={areaHref(area.slug)}
+                  label={area.name}
+                  icon={categoryIcon[area.icon] ?? defaultCategoryIcon}
+                  color={
+                    categoryIconColor[area.slug] ?? defaultCategoryIconColor
+                  }
+                />
+              </li>
+            ))}
+          </motion.ul>
+
+          {/* Uscita verso la casa madre: azione secondaria, in una nuova
+              scheda. Stesso avviso per screen reader del link nel footer. */}
+          <motion.div variants={slideUp} className="mt-8">
+            <a
+              href={siteConfig.parentSite}
+              target="_blank"
+              rel="noopener"
               className={cn(
-                // `default` alone renders unstyled here — the shadcn --color-primary
-                // alias doesn't resolve in this app's Turbopack build (pre-existing,
-                // confirmed sitewide, see CtaFinaleSection for the same
-                // workaround). Overriding with the brand scale directly.
-                buttonVariants({ variant: 'default' }),
-                'h-12 gap-2 bg-brand-600 px-8 text-base font-semibold text-white hover:bg-brand-700'
+                buttonVariants({ variant: 'outline-brand' }),
+                'h-11 gap-2 px-6 text-sm font-semibold'
               )}
             >
-              Esplora i corsi
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
+              Sito del gruppo ECO-TER
+              <ExternalLink className="size-4" aria-hidden="true" />
+              <span className="sr-only">
+                {' '}
+                (si apre in una nuova scheda, sito ECO-TER Srl)
+              </span>
+            </a>
           </motion.div>
         </motion.div>
       </Container>

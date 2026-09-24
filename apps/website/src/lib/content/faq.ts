@@ -1,8 +1,9 @@
 import type { Faq } from '@/types'
 
 /**
- * Single source of truth for FAQ content — consumed by the homepage teaser
- * (`FaqPreviewSection`) and the full `/faq` page, so the two never drift.
+ * Single source of truth for FAQ content, rendered by the `/faq` page
+ * (`FaqAccordionSection`). The homepage no longer has a FAQ teaser (home
+ * essenziale, 24/09/2026): a new consumer should read from here too.
  * No `content/faq/*.json` yet (unauthored), so this lives as a plain module
  * like the rest of `src/lib/content/*` rather than a content file.
  */
