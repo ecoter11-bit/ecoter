@@ -1,4 +1,10 @@
+import { compareCatalogCourses } from '@/lib/catalog'
+import type { SearchIndexEntry } from '@/lib/course-search'
+import { getCategory } from './categories'
 import { getAllCourses, type CourseData, type CourseFilters } from './courses'
+import { getSubcategory } from './subcategories'
+
+export type { SearchIndexEntry } from '@/lib/course-search'
 
 export type SearchResult = {
   slug: string
@@ -75,26 +81,27 @@ export function searchCourses(options: SearchOptions = {}): SearchResult[] {
   return paginated.map(({ course, score }) => courseToResult(course, score))
 }
 
-export type SearchIndexEntry = {
-  slug: string
-  title: string
-  subtitle?: string
-  excerpt: string
-  category: string
-  level: string
-  modality: string[]
-  tags: string[]
-}
-
+/**
+ * Indice della ricerca dell'header: i corsi pubblicati nell'ordine del
+ * catalogo, con nomi di area e sotto-area già risolti. Lo serve
+ * `app/search-index.json/route.ts`, generato al build; la ricerca vera la fa
+ * il browser con `searchCourseIndex()` di `lib/course-search.ts`.
+ */
 export function buildSearchIndex(): SearchIndexEntry[] {
-  return getAllCourses({ status: 'published' }).map((c) => ({
-    slug: c.slug,
-    title: c.title,
-    subtitle: c.subtitle,
-    excerpt: c.excerpt,
-    category: c.category,
-    level: c.level,
-    modality: c.modality,
-    tags: c.tags,
-  }))
+  return getAllCourses({ status: 'published' })
+    .sort(compareCatalogCourses)
+    .map((c) => ({
+      slug: c.slug,
+      title: c.title,
+      subtitle: c.subtitle,
+      excerpt: c.excerpt,
+      code: c.code,
+      category: c.category,
+      categoryName: getCategory(c.category)?.name ?? c.category,
+      subcategoryName: c.subcategory
+        ? getSubcategory(c.subcategory)?.name
+        : undefined,
+      targetAudience: c.targetAudience,
+      tags: c.tags,
+    }))
 }

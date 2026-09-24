@@ -1,33 +1,54 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useSyncExternalStore } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Search } from 'lucide-react'
+import { buttonVariants, Kbd } from '@ecoter/ui'
 import { cn } from '@/lib/utils'
 import { siteConfig } from '@/config/site'
-import { courseCategories, mainNav } from '@/config/nav'
+import { isNavItemActive, mainNav } from '@/config/nav'
 import { AcademyTag, EcoterLogo } from '@/components/ui/LogoEcoter'
 import { Container } from './Container'
-import { MegaMenu } from './MegaMenu'
 import { MobileNav } from './MobileNav'
 import { SearchDialog } from './SearchDialog'
 
+const noSubscription = () => () => {}
+
+/**
+ * Etichetta della scorciatoia della ricerca: "⌘K" su Mac, "Ctrl K" altrove.
+ * Sul server (e al primo render di idratazione) vale "Ctrl K", poi React
+ * passa al valore del browser senza errori di idratazione.
+ */
+function useSearchShortcutLabel(): string {
+  return useSyncExternalStore(
+    noSubscription,
+    () => (/Mac|iPhone|iPad/.test(navigator.userAgent) ? '⌘K' : 'Ctrl K'),
+    () => 'Ctrl K'
+  )
+}
+
+/**
+ * Header del sito (MODIFICHE del 23/09/2026).
+ * - Sempre staccato dalla pagina: bordo e ombra fissi, non solo quando si
+ *   scorre.
+ * - Voci: Soluzioni Aziendali · Chi Siamo · FAQ · Contatti (niente più
+ *   "Corsi" e mega menu), le stesse del menu mobile. La voce della pagina
+ *   corrente è sottolineata, non solo colorata (WCAG 1.4.1).
+ * - Ricerca vera sui corsi (`SearchDialog`), anche con Ctrl/⌘+K. Tra `lg` e
+ *   `xl` (1024–1279px) la riga non ha posto per il bottone lungo "Cerca
+ *   corsi…": lì la ricerca è un'icona, come su mobile.
+ */
 export function Header() {
-  const [scrolled, setScrolled] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
+  const pathname = usePathname()
+  const shortcutLabel = useSearchShortcutLabel()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault()
-        setSearchOpen((v) => !v)
+    const onKey = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault()
+        setSearchOpen((isOpen) => !isOpen)
       }
     }
     document.addEventListener('keydown', onKey)
@@ -37,19 +58,15 @@ export function Header() {
   return (
     <>
       <header
-        className={cn(
-          'sticky top-0 z-40 w-full transition-[background-color,box-shadow,border-color] duration-200',
-          scrolled
-            ? 'border-b border-border bg-white/95 shadow-sm backdrop-blur-md'
-            : 'border-b border-transparent bg-white'
-        )}
+        className="sticky top-0 w-full border-b border-border bg-white/95 shadow-sm backdrop-blur-md"
+        style={{ zIndex: 'var(--z-index-sticky)' }}
       >
         <Container>
           <div className="flex h-16 items-center justify-between gap-4">
             {/* Logo */}
             <Link
               href="/"
-              className="flex shrink-0 items-center gap-3 rounded-lg focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none"
+              className="flex shrink-0 items-center gap-3 rounded-lg focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-hidden"
               aria-label={`${siteConfig.name} — torna alla homepage`}
             >
               <EcoterLogo height={34} priority />
@@ -61,55 +78,81 @@ export function Header() {
             </Link>
 
             {/* Desktop nav */}
-            <MegaMenu mainNav={mainNav} courseCategories={courseCategories} />
+            <nav
+              className="hidden items-center gap-0.5 lg:flex"
+              aria-label="Navigazione principale"
+            >
+              {mainNav.map((item) => {
+                const active = isNavItemActive(pathname, item.href)
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={active ? 'page' : undefined}
+                    className={cn(
+                      'rounded-lg px-3.5 py-2 text-sm font-medium whitespace-nowrap transition-colors',
+                      active
+                        ? 'bg-brand-50 text-brand-700 underline decoration-2 underline-offset-4'
+                        : 'text-neutral-700 hover:bg-neutral-100 hover:text-foreground'
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              })}
+            </nav>
 
             {/* Right actions */}
-            <div className="flex items-center gap-1.5">
-              {/* Search — desktop pill */}
+            <div className="flex shrink-0 items-center gap-1.5">
+              {/* Search — bottone lungo, solo da xl */}
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="hidden h-9 items-center gap-2 rounded-lg border border-border bg-neutral-50 pr-2.5 pl-3 text-sm text-muted-foreground transition-colors hover:border-neutral-300 hover:bg-white hover:text-foreground lg:flex"
+                aria-haspopup="dialog"
+                aria-keyshortcuts="Control+K Meta+K"
+                className="hidden h-9 items-center gap-2 rounded-lg border border-border bg-neutral-50 pr-2.5 pl-3 text-sm whitespace-nowrap text-neutral-600 transition-colors hover:border-neutral-300 hover:bg-white hover:text-foreground xl:flex"
               >
-                <Search className="h-3.5 w-3.5" aria-hidden="true" />
+                <Search className="size-3.5" aria-hidden="true" />
                 <span>Cerca corsi…</span>
-                <kbd className="ml-1.5 rounded border border-neutral-200 bg-white px-1 py-0.5 font-mono text-[10px] text-muted-foreground">
-                  ⌘K
-                </kbd>
+                <Kbd className="ml-1.5" aria-hidden="true">
+                  {shortcutLabel}
+                </Kbd>
               </button>
 
-              {/* Search — mobile icon */}
+              {/* Search — icona, sotto xl */}
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:bg-neutral-100 lg:hidden"
-                aria-label="Cerca"
+                aria-haspopup="dialog"
+                aria-keyshortcuts="Control+K Meta+K"
+                className={cn(
+                  buttonVariants({ variant: 'ghost', size: 'icon-lg' }),
+                  'text-neutral-600 xl:hidden'
+                )}
+                aria-label="Cerca corsi"
               >
-                <Search
-                  className="h-5 w-5 text-neutral-600"
-                  aria-hidden="true"
-                />
+                <Search className="size-5" aria-hidden="true" />
               </button>
 
               {/* CTA */}
               <Link
                 href="/contatti"
-                className="hidden h-9 items-center rounded-lg bg-brand-600 px-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-none sm:inline-flex"
+                className={cn(
+                  buttonVariants({ variant: 'default', size: 'lg' }),
+                  'hidden px-4 font-semibold sm:inline-flex'
+                )}
               >
                 Richiedi info
               </Link>
 
-              {/* Mobile hamburger */}
-              <MobileNav
-                mainNav={mainNav}
-                courseCategories={courseCategories}
-              />
+              {/* Mobile menu */}
+              <MobileNav items={mainNav} />
             </div>
           </div>
         </Container>
       </header>
 
-      <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
+      <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />
     </>
   )
 }
