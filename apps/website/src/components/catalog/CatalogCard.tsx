@@ -3,20 +3,21 @@ import { ArrowRight, type LucideIcon } from 'lucide-react'
 import { IconCircle, type IconCircleColor } from '@ecoter/ui'
 import { cn } from '@/lib/utils'
 import { formatCourseCount } from '@/lib/catalog'
+import { accentTextClass } from '@/lib/category-ui'
 
 /*
- * Colore della CTA e del filetto superiore, per colore d'area (stringhe
- * intere per lo scanner di Tailwind). CTA allo stop che regge AA su bianco
- * (blue-700 ≈10.5:1, brand-700 ≈6.9:1, amber-700 ≈5.9:1, eco-600 ≈6.6:1,
- * neutral-700 ≈9:1); filetto decorativo allo stop canonico, nascosto agli
- * screen reader. L'icona è `IconCircle` di `@ecoter/ui`, già verificato AA.
+ * Filetto superiore per colore d'area (stringhe intere per lo scanner di
+ * Tailwind): decorativo, allo stop canonico, nascosto agli screen reader.
+ * La CTA prende il colore d'area da `accentTextClass` (lo stop AA su
+ * bianco, condiviso con `CourseCard`). L'icona è `IconCircle` di
+ * `@ecoter/ui`, già verificato AA.
  */
-const colorStyles: Record<IconCircleColor, { cta: string; bar: string }> = {
-  neutral: { cta: 'text-neutral-700', bar: 'bg-neutral-400' },
-  brand: { cta: 'text-brand-700', bar: 'bg-brand-500' },
-  blue: { cta: 'text-blue-700', bar: 'bg-blue-500' },
-  eco: { cta: 'text-eco-600', bar: 'bg-eco-500' },
-  amber: { cta: 'text-amber-700', bar: 'bg-amber-400' },
+const barClass: Record<IconCircleColor, string> = {
+  neutral: 'bg-neutral-400',
+  brand: 'bg-brand-500',
+  blue: 'bg-blue-500',
+  eco: 'bg-eco-500',
+  amber: 'bg-amber-400',
 }
 
 type Props = {
@@ -60,7 +61,6 @@ export function CatalogCard({
   headingLevel = 3,
 }: Props) {
   const Heading = `h${headingLevel}` as 'h2' | 'h3'
-  const styles = colorStyles[color]
 
   return (
     <div
@@ -73,7 +73,7 @@ export function CatalogCard({
       <div
         className={cn(
           'absolute inset-x-0 top-0 h-0.5 opacity-0 transition-opacity duration-200 group-hover:opacity-100',
-          styles.bar
+          barClass[color]
         )}
         aria-hidden="true"
       />
@@ -100,7 +100,7 @@ export function CatalogCard({
         <span
           className={cn(
             'flex items-center gap-1.5 text-sm font-semibold transition-[gap] duration-200 group-hover:gap-2.5',
-            styles.cta
+            accentTextClass[color]
           )}
           aria-hidden="true"
         >

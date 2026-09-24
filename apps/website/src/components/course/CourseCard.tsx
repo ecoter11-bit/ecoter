@@ -13,6 +13,11 @@ import {
   modalityIcon,
   modalityLabel,
 } from '@/lib/badge-mappings'
+import {
+  accentGroupHoverTextClass,
+  accentTextClass,
+  categoryIconColor,
+} from '@/lib/category-ui'
 import type { Course } from '@/types'
 
 // Mirrors categoryBadgeColor's mapping onto the Decision 018 macro-category
@@ -47,6 +52,21 @@ type Props = {
   className?: string
 }
 
+/**
+ * Card di un corso: elenchi del catalogo e "corsi correlati" della scheda.
+ *
+ * Tutta la card porta alla scheda del corso, come le card delle aree
+ * (`CatalogCard`): il link è sul titolo e si allarga alla card intera con
+ * uno pseudo-elemento (`after:absolute after:inset-0`), così il nome
+ * accessibile del link resta il solo titolo. Al posto del vecchio bottone
+ * "Scopri" (richiesta di Davide del 24/09/2026: con il bottone non si capiva
+ * che la card intera era cliccabile) c'è "Vedi il corso", decorativo come
+ * "Vedi i corsi" delle aree e nel colore dell'area; nello stesso colore il
+ * titolo quando si passa sopra la card. Il focus da tastiera è disegnato
+ * sulla card intera (`has-[a:focus-visible]`); il link rinuncia al proprio
+ * contorno solo dove `:has()` è supportato. Transizioni solo su
+ * spostamento, ombra e bordo, perché il contorno di focus compaia subito.
+ */
 export function CourseCard({
   course,
   headingLevel = 3,
@@ -58,6 +78,7 @@ export function CourseCard({
   const categoryColor =
     categoryBadgeColor[course.category] ?? defaultCategoryBadgeColor
   const levelColor = levelBadgeColor[course.level] ?? 'neutral'
+  const accent = categoryIconColor[course.category] ?? 'neutral'
 
   const durationLabel = formatCourseDuration(course.duration)
 
@@ -67,7 +88,8 @@ export function CourseCard({
     <article
       className={cn(
         'group relative flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white',
-        'transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:shadow-xl',
+        'transition-[translate,box-shadow,border-color] duration-200 hover:-translate-y-1 hover:border-transparent hover:shadow-xl',
+        'has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-offset-2 has-[a:focus-visible]:outline-ring',
         className
       )}
     >
@@ -99,11 +121,17 @@ export function CourseCard({
             margine inferiore, così non resta una riga vuota nella card) */}
         <Heading
           className={cn(
-            'line-clamp-2 font-heading text-lg leading-snug font-bold text-neutral-950 transition-colors duration-200 group-hover:text-brand-700',
+            'line-clamp-2 font-heading text-lg leading-snug font-bold text-neutral-950 transition-colors duration-200',
+            accentGroupHoverTextClass[accent],
             course.subtitle ? 'mb-1.5' : 'mb-4'
           )}
         >
-          {course.title}
+          <Link
+            href={`/corsi/${course.slug}`}
+            className="after:absolute after:inset-0 supports-[selector(:has(*))]:outline-none"
+          >
+            {course.title}
+          </Link>
         </Heading>
         {course.subtitle && (
           <p className="mb-4 line-clamp-1 text-sm leading-relaxed text-muted-foreground">
@@ -140,20 +168,18 @@ export function CourseCard({
           {course.excerpt}
         </p>
 
-        {/* Footer */}
+        {/* Footer: indicazione visiva, il link è il titolo */}
         <div className="mt-5 flex items-center justify-end border-t border-neutral-100 pt-5">
-          <Link
-            href={`/corsi/${course.slug}`}
+          <span
             className={cn(
-              'flex items-center gap-1.5 rounded-lg bg-brand-600 px-4 py-2 text-xs font-semibold text-white',
-              'transition-all duration-200 group-hover:gap-2.5 hover:bg-brand-700',
-              'focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-600'
+              'flex items-center gap-1.5 text-sm font-semibold transition-[gap] duration-200 group-hover:gap-2.5',
+              accentTextClass[accent]
             )}
-            aria-label={`Scopri il corso ${course.title}`}
+            aria-hidden="true"
           >
-            Scopri
-            <ArrowRight className="size-3.5" aria-hidden="true" />
-          </Link>
+            Vedi il corso
+            <ArrowRight className="size-4" />
+          </span>
         </div>
       </div>
     </article>
