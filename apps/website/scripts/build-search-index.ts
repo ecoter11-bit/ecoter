@@ -9,7 +9,7 @@ if (!existsSync(GENERATED_DIR)) {
   mkdirSync(GENERATED_DIR, { recursive: true })
 }
 
-console.log('🔨 ECOTER Academy – Build search index\n')
+console.log('🔨 ECO-TER Academy – Build search index\n')
 
 const searchIndex = buildSearchIndex()
 const searchIndexPath = join(GENERATED_DIR, 'search-index.json')

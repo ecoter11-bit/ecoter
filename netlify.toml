@@ -1,4 +1,4 @@
-# Netlify — ECOTER Academy (monorepo pnpm + Turborepo)
+# Netlify — ECO-TER Academy (monorepo pnpm + Turborepo)
 #
 # La base directory resta la radice del repo (default): Netlify sceglie il package
 # manager dal lockfile presente nella base directory, e `pnpm-lock.yaml` +

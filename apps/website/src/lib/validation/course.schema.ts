@@ -37,7 +37,7 @@ export const courseFrontmatterSchema = z.object({
   subtitle: z.string().min(1).optional(),
   excerpt: z.string().optional(),
   category: z.string().min(1, 'Categoria obbligatoria'),
-  /** Codice di catalogo ECOTER (es. A06, C03): una lettera di area seguita
+  /** Codice di catalogo ECO-TER (es. A06, C03): una lettera di area seguita
    * da due cifre. Il prefisso alfabetico è la fonte da cui si deriva la
    * sotto-area dei corsi di sicurezza quando `subcategory` non è
    * esplicitata. */

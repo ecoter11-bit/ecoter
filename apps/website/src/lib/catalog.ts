@@ -34,7 +34,7 @@ function courseFamily(title: string): string {
  * Ordine dei corsi negli elenchi del catalogo.
  *
  * - Con codice di catalogo (Sicurezza, Ambiente): per codice, in ordine
- *   naturale (A01, A02 … A17, B01 …) — è l'ordine del catalogo ECOTER, che
+ *   naturale (A01, A02 … A17, B01 …) — è l'ordine del catalogo ECO-TER, che
  *   tiene vicini base, specifici e aggiornamenti della stessa figura.
  * - Senza codice (Benessere psico-sociale): per percorso, e dentro lo stesso
  *   percorso dal più breve al più lungo, cioè Base → Avanzato → Estensivo.

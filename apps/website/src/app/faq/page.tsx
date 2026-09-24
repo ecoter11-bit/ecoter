@@ -8,7 +8,7 @@ import { absoluteUrl } from '@/lib/utils'
 export const metadata: Metadata = {
   title: 'FAQ',
   description:
-    'Le risposte alle domande più frequenti su corsi, attestati, formazione in house e modalità di erogazione ECOTER Academy.',
+    'Le risposte alle domande più frequenti su corsi, attestati, formazione in house e modalità di erogazione ECO-TER Academy.',
   alternates: {
     canonical: absoluteUrl('/faq'),
   },

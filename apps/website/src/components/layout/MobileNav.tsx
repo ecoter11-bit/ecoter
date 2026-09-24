@@ -22,11 +22,11 @@ type MobileNavProps = {
   items: NavItem[]
 }
 
-/** Da `lg` in su c'è la navigazione desktop: il menu mobile non serve più. */
-const DESKTOP_QUERY = `(min-width: ${breakpoint.lg})`
+/** Da `xl` in su c'è la navigazione desktop: il menu a pannello non serve più. */
+const DESKTOP_QUERY = `(min-width: ${breakpoint.xl})`
 
 /**
- * Menu sotto `lg`: pannello laterale da destra, sul `Dialog` di
+ * Menu sotto `xl` (1280px): pannello laterale da destra, sul `Dialog` di
  * `@ecoter/ui` (placement `sheet`). Dal primitivo: focus dentro il pannello
  * finché è aperto, Esc e clic fuori per chiudere, focus che torna al
  * bottone, pagina sotto bloccata. Stesse voci dell'header desktop; quella
@@ -37,7 +37,7 @@ export function MobileNav({ items }: MobileNavProps) {
   const pathname = usePathname()
 
   // Se la finestra si allarga fino al layout desktop con il menu aperto,
-  // il pannello (nascosto da `lg:hidden`) lascerebbe la pagina bloccata.
+  // il pannello (nascosto da `xl:hidden`) lascerebbe la pagina bloccata.
   useEffect(() => {
     if (!open) return
     const query = window.matchMedia(DESKTOP_QUERY)
@@ -55,14 +55,14 @@ export function MobileNav({ items }: MobileNavProps) {
       <DialogTrigger
         className={cn(
           buttonVariants({ variant: 'ghost', size: 'icon-lg' }),
-          'text-neutral-700 lg:hidden'
+          'text-neutral-700 xl:hidden'
         )}
         aria-label="Apri il menu"
       >
         <Menu className="size-5" aria-hidden="true" />
       </DialogTrigger>
 
-      <DialogPopup placement="sheet" className="lg:hidden">
+      <DialogPopup placement="sheet" className="xl:hidden">
         <DialogTitle className="sr-only">Menu</DialogTitle>
 
         <div className="flex items-center justify-between border-b border-border px-5 py-4">

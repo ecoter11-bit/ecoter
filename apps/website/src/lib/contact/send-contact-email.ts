@@ -64,7 +64,7 @@ export async function sendContactEmail(
   const { error } = await resend.emails.send({
     from:
       process.env.CONTACT_FROM_EMAIL ??
-      'ECOTER Academy <onboarding@resend.dev>',
+      'ECO-TER Academy <onboarding@resend.dev>',
     to: toEmail,
     replyTo: values.email,
     subject: `Nuova richiesta informazioni da ${values.name}`,

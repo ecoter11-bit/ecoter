@@ -9,7 +9,7 @@ import { absoluteUrl } from '@/lib/utils'
 export const metadata: Metadata = {
   title: 'Contatti',
   description:
-    'Richiedi informazioni sui corsi ECOTER Academy: form dedicato, telefono, email e sede. Ti rispondiamo il prima possibile.',
+    'Richiedi informazioni sui corsi ECO-TER Academy: form dedicato, telefono, email e sede. Ti rispondiamo il prima possibile.',
   alternates: {
     canonical: absoluteUrl('/contatti'),
   },
@@ -60,7 +60,7 @@ export default async function ContattiPage({ searchParams }: Props) {
               className="mb-8"
             >
               Recapiti provvisori, ereditati dalla casa madre — in attesa di
-              conferma per ECOTER Academy.
+              conferma per ECO-TER Academy.
             </Alert>
           )}
 

@@ -211,7 +211,7 @@ function validateSettings(): void {
   }
 }
 
-console.log('🔍 ECOTER Academy – Validazione contenuti\n')
+console.log('🔍 ECO-TER Academy – Validazione contenuti\n')
 validateCourses()
 validateCategories()
 validateSubcategories()

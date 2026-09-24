@@ -40,7 +40,7 @@ export function MissioneAcademySection() {
           </motion.h2>
 
           <motion.p variants={slideUp} className="text-pretty text-neutral-600">
-            ECOTER Academy eroga formazione per aziende e professionisti in
+            ECO-TER Academy eroga formazione per aziende e professionisti in
             aula, online e blended, con attestati validi ai fini di legge. Ogni
             percorso è costruito sulla competenza tecnica e scientifica maturata
             da ECO-TER sul campo, non su contenuti standardizzati.

@@ -35,8 +35,8 @@ const buttonVariants = cva(
           'border-brand-600 bg-white text-brand-700 hover:bg-brand-50 focus-visible:ring-ring',
         /**
          * White outline for a CTA sitting on a dark surface (`neutral-950`, or
-         * a photo behind a `neutral-950/75` scrim — see the website's
-         * `CorsiInCalendarioSection`). The fill stays transparent on purpose:
+         * a photo behind a `neutral-950/75` scrim, like the photo bands the
+         * website's home used to have). The fill stays transparent on purpose:
          * every point of white added to the background lifts it toward the
          * text. Measured on the darkest-guaranteed case, a photo scrim whose
          * brightest composited pixel is L≈0.128 — white text reads 5.9:1 at

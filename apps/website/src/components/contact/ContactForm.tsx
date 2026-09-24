@@ -276,7 +276,7 @@ export function ContactForm({
                   il modulo è già compilato a metà e una navigazione normale
                   ne perderebbe il contenuto. Niente icona di link esterno —
                   quella resta riservata a chi esce davvero dal sito (footer,
-                  sito del gruppo); l'avviso di nuova scheda lo dà l'sr-only. */}
+                  sito di ECO-TER); l'avviso di nuova scheda lo dà l'sr-only. */}
               <a
                 href={privacyPolicyHref}
                 target="_blank"

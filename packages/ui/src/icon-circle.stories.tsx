@@ -32,6 +32,18 @@ const meta = {
   parameters: {
     layout: 'padded',
   },
+  // `inverse` vive solo su una superficie colorata: selezionandola dal
+  // control su canvas bianco si vedrebbe bianco su bianco e sembrerebbe un bug.
+  decorators: [
+    (Story, ctx) =>
+      ctx.args.color === 'inverse' ? (
+        <div className="w-fit rounded-2xl bg-brand-600 p-8">
+          <Story />
+        </div>
+      ) : (
+        <Story />
+      ),
+  ],
   tags: ['autodocs'],
   argTypes: {
     size: {
@@ -40,7 +52,7 @@ const meta = {
     },
     color: {
       control: 'select',
-      options: COLORS,
+      options: [...COLORS, 'inverse'],
     },
   },
 } satisfies Meta<typeof IconCircle>
@@ -76,6 +88,26 @@ export const Colors: Story = {
       {COLORS.map((color) => (
         <IconCircle key={color} color={color} icon={<StarIcon />} />
       ))}
+    </div>
+  ),
+}
+
+/**
+ * `inverse` è per un cerchio che sta sopra una superficie già colorata (qui
+ * `brand-600`, come i bottoni delle aree nella hero della home): velo bianco
+ * al 15% e icona bianca, 3.7:1 sul verde. Non è un colore d'area e su bianco
+ * sparirebbe, per questo ha una storia sua con lo sfondo giusto invece che
+ * in `Colors`.
+ */
+export const Inverse: Story = {
+  name: 'Inverse (su superficie colorata)',
+  args: { icon: <StarIcon /> },
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <div className="flex w-fit flex-wrap items-center gap-4 rounded-2xl bg-brand-600 p-8">
+      <IconCircle size="sm" color="inverse" icon={<StarIcon />} />
+      <IconCircle size="md" color="inverse" icon={<StarIcon />} />
+      <IconCircle size="lg" color="inverse" icon={<StarIcon />} />
     </div>
   ),
 }

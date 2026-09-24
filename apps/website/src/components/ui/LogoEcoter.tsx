@@ -28,7 +28,7 @@ export function EcoterLogo({
           ? '/brand/ecoter-logo-white.svg'
           : '/brand/ecoter-logo.svg'
       }
-      alt="ECOTER Academy"
+      alt="ECO-TER Academy"
       width={width}
       height={height}
       priority={priority}

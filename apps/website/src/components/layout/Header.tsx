@@ -29,15 +29,19 @@ function useSearchShortcutLabel(): string {
 }
 
 /**
- * Header del sito (MODIFICHE del 23/09/2026).
+ * Header del sito (MODIFICHE del 23 e del 24/09/2026).
  * - Sempre staccato dalla pagina: bordo e ombra fissi, non solo quando si
  *   scorre.
- * - Voci: Aziende e professionisti · Chi Siamo · FAQ · Contatti (niente più
- *   "Corsi" e mega menu), le stesse del menu mobile. La voce della pagina
- *   corrente è sottolineata, non solo colorata (WCAG 1.4.1).
- * - Ricerca vera sui corsi (`SearchDialog`), anche con Ctrl/⌘+K. Tra `lg` e
- *   `xl` (1024–1279px) la riga non ha posto per il bottone lungo "Cerca
- *   corsi…": lì la ricerca è un'icona, come su mobile.
+ * - Voci da `mainNav`: Calendario corsi · Aziende e professionisti · Chi
+ *   Siamo · FAQ · Contatti (niente più "Corsi" e mega menu), le stesse del
+ *   menu mobile. La voce della pagina corrente è sottolineata, non solo
+ *   colorata (WCAG 1.4.1).
+ * - Cinque voci stanno in riga solo da `xl` (1280px): sotto c'è il menu a
+ *   pannello (`MobileNav`), che così resta l'unico modo di navigare fino a
+ *   1279px invece di una riga che va a capo.
+ * - Ricerca vera sui corsi (`SearchDialog`), anche con Ctrl/⌘+K: bottone
+ *   lungo "Cerca corsi…" da `lg`, icona sotto. Se cambi le voci, riprova
+ *   la riga a 1280px con la barra di scorrimento: non deve sforare.
  */
 export function Header() {
   const [searchOpen, setSearchOpen] = useState(false)
@@ -79,7 +83,7 @@ export function Header() {
 
             {/* Desktop nav */}
             <nav
-              className="hidden items-center gap-0.5 lg:flex"
+              className="hidden items-center gap-0.5 xl:flex"
               aria-label="Navigazione principale"
             >
               {mainNav.map((item) => {
@@ -104,22 +108,27 @@ export function Header() {
 
             {/* Right actions */}
             <div className="flex shrink-0 items-center gap-1.5">
-              {/* Search — bottone lungo, solo da xl */}
+              {/* Search — bottone lungo, da lg */}
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
                 aria-haspopup="dialog"
                 aria-keyshortcuts="Control+K Meta+K"
-                className="hidden h-9 items-center gap-2 rounded-lg border border-border bg-neutral-50 pr-2.5 pl-3 text-sm whitespace-nowrap text-neutral-600 transition-colors hover:border-neutral-300 hover:bg-white hover:text-foreground xl:flex"
+                className="hidden h-9 items-center gap-2 rounded-lg border border-border bg-neutral-50 pr-2.5 pl-3 text-sm whitespace-nowrap text-neutral-600 transition-colors hover:border-neutral-300 hover:bg-white hover:text-foreground lg:flex"
               >
                 <Search className="size-3.5" aria-hidden="true" />
                 <span>Cerca corsi…</span>
-                <Kbd className="ml-1.5" aria-hidden="true">
+                {/* "Ctrl K" solo sotto `xl`: da `xl` quello spazio serve alle
+                    cinque voci del menu (a 1280px, con la barra di
+                    scorrimento classica di Windows, la riga ha ~1100px). La
+                    scorciatoia funziona comunque ed è dichiarata in
+                    `aria-keyshortcuts`. */}
+                <Kbd className="ml-1.5 xl:hidden" aria-hidden="true">
                   {shortcutLabel}
                 </Kbd>
               </button>
 
-              {/* Search — icona, sotto xl */}
+              {/* Search — icona, sotto lg */}
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
@@ -127,7 +136,7 @@ export function Header() {
                 aria-keyshortcuts="Control+K Meta+K"
                 className={cn(
                   buttonVariants({ variant: 'ghost', size: 'icon-lg' }),
-                  'text-neutral-600 xl:hidden'
+                  'text-neutral-600 lg:hidden'
                 )}
                 aria-label="Cerca corsi"
               >

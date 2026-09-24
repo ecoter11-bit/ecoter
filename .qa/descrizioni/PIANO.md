@@ -294,7 +294,7 @@ Tutti e 15 sono nell'Accordo. Attenzione: A01–A04 discendono **dalla stessa se
 **`addetti-alla-conduzione-di-carrelli-elevatori-semoventi`** · C05 — 12h
 - Accordo: **SÌ** — Parte II, §8.3.4 «…carrelli elevatori semoventi con conducente a bordo», Pag. 54-56. *1. Teorico-Tecnico (8 ore)* + parti pratiche (4 ore ciascuna per tipologia) + «Verifica».
 - Gaetano: nessun segno.
-- **Azione: `sostituzione-da-Accordo`**. 8+4 = 12h ✓. Da chiarire quale/quali parti pratiche eroga ECOTER (D6).
+- **Azione: `sostituzione-da-Accordo`**. 8+4 = 12h ✓. Da chiarire quale/quali parti pratiche eroga ECO-TER (D6).
 
 **`aggiornamento-addetti-carrelli-elevatori-semoventi`** · C06 — 4h
 - Accordo: **SÌ** — Parte III, §6. Gaetano: nessun segno.
@@ -482,7 +482,7 @@ Inoltre l'Accordo contiene parti **trasversali** non legate a un singolo corso, 
 
 **D6 — Numeri da confermare.**
 - `counseling` L03: Gaetano scrive «9.0 ore», il sito ha `9.2`; 11 incontri × 50 min = 9,17 h. Quale valore va pubblicato?
-- `addetti-alla-conduzione-di-carrelli-elevatori-semoventi` C05: l'Accordo articola più parti pratiche per tipologia di carrello; le 12h del sito corrispondono a teorico (8h) + **una** parte pratica (4h). Va indicato quale/quali abilitazioni ECOTER rilascia.
+- `addetti-alla-conduzione-di-carrelli-elevatori-semoventi` C05: l'Accordo articola più parti pratiche per tipologia di carrello; le 12h del sito corrispondono a teorico (8h) + **una** parte pratica (4h). Va indicato quale/quali abilitazioni ECO-TER rilascia.
 
 **D7 — Titolo PEI.** L'indice del `.docx` riporta «PEI – Persone idonee all'esecuzione (Norme CEI 11-27:2025 - CEI EN 61447)», il corpo del `.docx` «PEI – **Persona Idonea** (Norme CEI 11-27:2025)» con l'evidenziazione sul nome, il sito la versione lunga senza CEI EN 61447. Quale titolo e quali riferimenti normativi?
 

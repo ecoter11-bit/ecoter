@@ -11,7 +11,7 @@ import { absoluteUrl, formatCourseDuration } from '@/lib/utils'
 export const metadata: Metadata = {
   title: 'Ottieni corso',
   description:
-    'Richiedi l’attivazione di un corso ECOTER Academy: lasciaci i dati di fatturazione e ti ricontattiamo per confermare date e modalità. Nessun pagamento online.',
+    'Richiedi l’attivazione di un corso ECO-TER Academy: lasciaci i dati di fatturazione e ti ricontattiamo per confermare date e modalità. Nessun pagamento online.',
   alternates: {
     canonical: absoluteUrl('/ottieni-corso'),
   },

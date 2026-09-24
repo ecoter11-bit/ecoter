@@ -17,7 +17,7 @@ const LAST_UPDATED = '22 settembre 2026'
 export const metadata: Metadata = {
   title: 'Cookie Policy',
   description:
-    'Il sito ECOTER Academy utilizza esclusivamente cookie tecnici: nessun cookie di profilazione, marketing o analitico e nessun banner di consenso.',
+    'Il sito ECO-TER Academy utilizza esclusivamente cookie tecnici: nessun cookie di profilazione, marketing o analitico e nessun banner di consenso.',
   alternates: {
     canonical: absoluteUrl('/cookie-policy'),
   },

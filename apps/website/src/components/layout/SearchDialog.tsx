@@ -14,6 +14,7 @@ import {
 } from '@ecoter/ui'
 import { cn } from '@/lib/utils'
 import { CATALOG_PATH } from '@/lib/catalog'
+import { CALENDAR_PATH } from '@/config/nav'
 import {
   SEARCH_INDEX_URL,
   prepareSearchIndex,
@@ -39,6 +40,7 @@ const SUGGESTIONS = [
 
 const QUICK_LINKS = [
   { label: 'Tutti i corsi', href: CATALOG_PATH },
+  { label: 'Calendario corsi', href: CALENDAR_PATH },
   { label: 'Domande frequenti', href: '/faq' },
   { label: 'Aziende e professionisti', href: '/soluzioni/aziende' },
 ]

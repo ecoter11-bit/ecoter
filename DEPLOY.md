@@ -1,6 +1,6 @@
 # Deploy
 
-Guida per pubblicare `apps/website` (ECOTER Academy, Next.js 16) da questo monorepo pnpm + Turborepo.
+Guida per pubblicare `apps/website` (ECO-TER Academy, Next.js 16) da questo monorepo pnpm + Turborepo.
 
 Due piattaforme documentate, entrambe valide e alternative fra loro:
 

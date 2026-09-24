@@ -13,7 +13,7 @@ import { absoluteUrl } from '@/lib/utils'
 export const metadata: Metadata = {
   title: 'Chi Siamo',
   description:
-    'ECOTER Academy è la divisione formazione di ECO-TER Srl, società di ingegneria e servizi attiva dal 2002 in sicurezza sul lavoro, ambiente e sistemi di gestione.',
+    'ECO-TER Academy è la divisione formazione di ECO-TER Srl, società di ingegneria e servizi attiva dal 2002 in sicurezza sul lavoro, ambiente e sistemi di gestione.',
   alternates: {
     canonical: absoluteUrl('/chi-siamo'),
   },

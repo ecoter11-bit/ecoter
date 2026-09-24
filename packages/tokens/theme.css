@@ -259,7 +259,7 @@
 
 /* ─── CSS custom properties — design system root values ─────────────────── */
 :root {
-  /* shadcn semantic colors — mapped to ECOTER brand. Rebrand (2026-07-31):
+  /* shadcn semantic colors — mapped to ECO-TER brand. Rebrand (2026-07-31):
    * foreground/ink = #313132 (real corporate text color, verified on the
    * parent site — h2/body/links/footer all measured to this exact hex).
    * primary/ring = brand-600 (#4a7c22, the lightest green stop that clears

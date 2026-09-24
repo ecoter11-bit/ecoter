@@ -18,7 +18,7 @@ const LAST_UPDATED = '22 settembre 2026'
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
-    'Informativa sul trattamento dei dati personali raccolti tramite il sito ECOTER Academy: titolare, basi giuridiche, finalità, conservazione e diritti dell’interessato.',
+    'Informativa sul trattamento dei dati personali raccolti tramite il sito ECO-TER Academy: titolare, basi giuridiche, finalità, conservazione e diritti dell’interessato.',
   alternates: {
     canonical: absoluteUrl('/privacy-policy'),
   },

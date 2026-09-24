@@ -71,7 +71,7 @@ export function buildOrderEmailBody(
     '',
     `Consenso privacy: ${values.privacyConsent ? 'sì' : 'no'}`,
     '',
-    'Richiesta inviata dal form /ottieni-corso del sito ECOTER Academy. Nessun pagamento è stato incassato: contattare il cliente per il seguito.',
+    'Richiesta inviata dal form /ottieni-corso del sito ECO-TER Academy. Nessun pagamento è stato incassato: contattare il cliente per il seguito.',
   ].filter((entry): entry is string => entry !== null)
 
   return lines.join('\n')
@@ -112,7 +112,7 @@ export async function sendOrderEmail(
   const { error } = await resend.emails.send({
     from:
       process.env.CONTACT_FROM_EMAIL ??
-      'ECOTER Academy <onboarding@resend.dev>',
+      'ECO-TER Academy <onboarding@resend.dev>',
     to: toEmail,
     replyTo: values.email,
     subject,

@@ -18,7 +18,7 @@ import { absoluteUrl } from '@/lib/utils'
 export const metadata: Metadata = {
   title: 'Catalogo Corsi',
   description:
-    'Esplora il catalogo completo dei corsi di formazione professionale ECOTER Academy: sicurezza sul lavoro, ambiente e benessere psico-sociale.',
+    'Esplora il catalogo completo dei corsi di formazione professionale ECO-TER Academy: sicurezza sul lavoro, ambiente e benessere psico-sociale.',
   alternates: {
     canonical: absoluteUrl('/corsi'),
   },
