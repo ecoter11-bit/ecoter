@@ -12,13 +12,15 @@ export const CALENDAR_PATH = '/calendario-corsi'
  * Voci dell'header, uguali su desktop e nel menu mobile. MODIFICHE del
  * 23/09/2026: via "Corsi", dentro FAQ e Contatti; "Soluzioni Aziendali" è
  * diventata "Aziende e professionisti", con lo stesso indirizzo
- * `/soluzioni/aziende`. MODIFICHE del 24/09: prima voce "Calendario corsi".
+ * `/soluzioni/aziende`. MODIFICHE del 24/09: prima voce "Calendario corsi";
+ * "Aziende e professionisti" diventa "Formazione su misura" (scelta di
+ * Davide, dal titolo della pagina), sempre su `/soluzioni/aziende`.
  * Ai corsi si arriva dai bottoni delle aree in home, dalla ricerca e dal
  * footer.
  */
 export const mainNav: NavItem[] = [
   { label: 'Calendario corsi', href: CALENDAR_PATH },
-  { label: 'Aziende e professionisti', href: '/soluzioni/aziende' },
+  { label: 'Formazione su misura', href: '/soluzioni/aziende' },
   { label: 'Chi Siamo', href: '/chi-siamo' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contatti', href: '/contatti' },
@@ -44,7 +46,7 @@ export const footerNav = {
   company: {
     label: 'Azienda',
     items: [
-      { label: 'Aziende e professionisti', href: '/soluzioni/aziende' },
+      { label: 'Formazione su misura', href: '/soluzioni/aziende' },
       { label: 'Chi Siamo', href: '/chi-siamo' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Contatti', href: '/contatti' },

@@ -11,12 +11,14 @@ import {
 import { absoluteUrl } from '@/lib/utils'
 
 /*
- * "Aziende e professionisti" (prima "Soluzioni Aziendali", MODIFICHE del
- * 23/09/2026): la pagina parla anche ai professionisti. L'indirizzo resta
- * `/soluzioni/aziende`, così link e indicizzazione non cambiano.
+ * "Formazione su misura": prima "Soluzioni Aziendali", poi "Aziende e
+ * professionisti" (MODIFICHE del 23/09/2026), infine il nome preso dal
+ * titolo della pagina (scelta di Davide del 24/09). La pagina parla ad
+ * aziende e professionisti. L'indirizzo resta `/soluzioni/aziende`, così
+ * link e indicizzazione non cambiano.
  */
 export const metadata: Metadata = {
-  title: 'Aziende e professionisti',
+  title: 'Formazione su misura',
   description:
     'Formazione su misura per aziende e professionisti: analisi del fabbisogno, piani personalizzati, in sede, in aula o online, gestione completa di calendario, docenti e attestati.',
   alternates: {

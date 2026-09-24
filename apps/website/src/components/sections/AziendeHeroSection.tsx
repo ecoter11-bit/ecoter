@@ -36,10 +36,9 @@ export function AziendeHeroSection() {
           animate="visible"
           className="mx-auto max-w-3xl text-center"
         >
-          <motion.p variants={slideUp} className="mb-5 text-brand-600 overline">
-            Aziende e professionisti
-          </motion.p>
-
+          {/* Niente occhiello qui: il nome della pagina ("Formazione su
+              misura", dal 24/09/2026) apre già il titolo, e ripeterlo sopra
+              lo avrebbe fatto leggere due volte di fila. */}
           <motion.h1
             id="aziende-hero-heading"
             variants={slideUp}
