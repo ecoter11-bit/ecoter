@@ -3,44 +3,33 @@ import { areaHref } from '@/lib/catalog'
 export type NavItem = {
   label: string
   href: string
-  description?: string
 }
 
-export type NavCategory = {
-  label: string
-  href: string
-  icon: string
-  count?: number
-}
-
+/**
+ * Voci dell'header, uguali su desktop e nel menu mobile (MODIFICHE del
+ * 23/09/2026: via "Corsi", dentro FAQ e Contatti). Ai corsi si arriva dai
+ * bottoni delle aree in home, dalla ricerca e dal footer.
+ */
 export const mainNav: NavItem[] = [
-  { label: 'Corsi', href: '/corsi' },
   { label: 'Soluzioni Aziendali', href: '/soluzioni/aziende' },
   { label: 'Chi Siamo', href: '/chi-siamo' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Contatti', href: '/contatti' },
 ]
 
-export const courseCategories: NavCategory[] = [
-  {
-    label: 'Sicurezza sul Lavoro',
-    href: areaHref('sicurezza'),
-    icon: 'HardHat',
-  },
-  {
-    label: 'Ambiente',
-    href: areaHref('ambiente'),
-    icon: 'Leaf',
-  },
+export const courseCategories: NavItem[] = [
+  { label: 'Sicurezza sul Lavoro', href: areaHref('sicurezza') },
+  { label: 'Ambiente', href: areaHref('ambiente') },
   {
     label: 'Benessere psico-sociale',
     href: areaHref('benessere-psico-sociale'),
-    icon: 'HeartHandshake',
   },
 ]
 
 export const footerNav = {
   courses: {
     label: 'Corsi',
-    items: courseCategories.map((c) => ({ label: c.label, href: c.href })),
+    items: courseCategories,
   },
   company: {
     label: 'Azienda',
@@ -52,3 +41,8 @@ export const footerNav = {
     ],
   },
 } as const
+
+/** Voce attiva: la pagina stessa o una sua sotto-pagina. */
+export function isNavItemActive(pathname: string, href: string): boolean {
+  return pathname === href || pathname.startsWith(`${href}/`)
+}

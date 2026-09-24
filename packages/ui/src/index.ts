@@ -23,3 +23,13 @@ export { Select } from './select'
 export type { SelectOption } from './select'
 export { FormField } from './form-field'
 export type { FormFieldRenderProps } from './form-field'
+export {
+  Dialog,
+  DialogTrigger,
+  DialogClose,
+  DialogPopup,
+  DialogTitle,
+  DialogDescription,
+  dialogPopupVariants,
+} from './dialog'
+export { Kbd } from './kbd'
