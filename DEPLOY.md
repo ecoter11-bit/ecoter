@@ -40,6 +40,8 @@ Il repo pinna `"packageManager": "pnpm@11.17.0"` nel `package.json` di radice. *
 
 Senza quel campo Netlify userebbe il suo default (pnpm 10.x). Da ricordare: per limiti di Corepack **non si possono usare range semver** in `packageManager`, serve una versione esatta (come quella già pinnata).
 
+**Dal 24/09/2026 serve anche `MISE_PNPM_VERSION`** (già in `netlify.toml`, non va messa nella UI). Quel giorno l'immagine di build di Netlify è cambiata: pnpm ora arriva da mise, ma senza essere attivato ("pnpm installed but not activated"). L'install e il comando di radice partono, poi il `pnpm run build` che Turborepo lancia dentro `apps/website` passa dallo shim di mise e si ferma con `mise ERROR No version is set for shim: pnpm` (deploy di `484342a`, poi riparato). `MISE_PNPM_VERSION` dice a mise quale versione usare in ogni cartella. Deve essere uguale al `packageManager`: se aggiorni pnpm, aggiorna tutti e due.
+
 Se un build fallisce con errori tipo `Cannot find matching keyid` in fase di install, è la firma del pacchetto pnpm che il Corepack del build image non riconosce: si risolve aggiornando il pin di pnpm oppure, come workaround temporaneo, impostando `COREPACK_INTEGRITY_KEYS=0` fra le variabili d'ambiente. In caso di errori di import dei moduli in build, Netlify documenta `PNPM_FLAGS=--shamefully-hoist` — non serve con questa configurazione, tienilo come piano B.
 
 ### 4. Variabili d'ambiente

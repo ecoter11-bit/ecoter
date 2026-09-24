@@ -17,6 +17,13 @@
   # Stessa risoluzione di `lts/*` usata dalla CI (.github/workflows/ci.yml).
   # NODE_VERSION accetta "qualsiasi stringa valida per nvm".
   NODE_VERSION = "lts/*"
+  # Dal 24/09/2026 l'immagine di build di Netlify installa pnpm con mise invece
+  # che con Corepack, ma non lo attiva ("pnpm installed but not activated"): lo
+  # shim di mise non sa quale versione usare e il `pnpm run build` che Turborepo
+  # lancia dentro apps/website fallisce con "No version is set for shim: pnpm".
+  # Questa variabile gli dà la versione. Deve restare uguale a `packageManager`
+  # nel package.json di radice: se aggiorni pnpm, aggiorna anche qui.
+  MISE_PNPM_VERSION = "11.17.0"
 
 # Next.js Runtime (adapter OpenNext). Trasforma in Netlify Functions le pagine SSR,
 # l'ISR e i route handler — incluse le API POST /api/contatti e /api/ottieni-corso —
