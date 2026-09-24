@@ -1,3 +1,5 @@
+import { areaHref } from '@/lib/catalog'
+
 export type NavItem = {
   label: string
   href: string
@@ -11,11 +13,6 @@ export type NavCategory = {
   count?: number
 }
 
-export type NavGroup = {
-  label: string
-  items: NavItem[]
-}
-
 export const mainNav: NavItem[] = [
   { label: 'Corsi', href: '/corsi' },
   { label: 'Soluzioni Aziendali', href: '/soluzioni/aziende' },
@@ -25,29 +22,20 @@ export const mainNav: NavItem[] = [
 export const courseCategories: NavCategory[] = [
   {
     label: 'Sicurezza sul Lavoro',
-    href: '/corsi?step=3&cat=sicurezza',
+    href: areaHref('sicurezza'),
     icon: 'HardHat',
   },
   {
     label: 'Ambiente',
-    href: '/corsi?step=3&cat=ambiente',
+    href: areaHref('ambiente'),
     icon: 'Leaf',
   },
   {
     label: 'Benessere psico-sociale',
-    href: '/corsi?step=3&cat=benessere-psico-sociale',
+    href: areaHref('benessere-psico-sociale'),
     icon: 'HeartHandshake',
   },
 ]
-
-export const modalityNav: NavGroup = {
-  label: 'Modalità di erogazione',
-  items: [
-    { label: 'In Aula', href: '/corsi?step=3&mod=aula' },
-    { label: 'Online', href: '/corsi?step=3&mod=online' },
-    { label: 'Blended', href: '/corsi?step=3&mod=blended' },
-  ],
-}
 
 export const footerNav = {
   courses: {

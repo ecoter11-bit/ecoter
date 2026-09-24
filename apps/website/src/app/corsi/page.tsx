@@ -1,11 +1,18 @@
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
-import type { Course } from '@/types'
-import { getAllCourses } from '@/lib/content/courses'
 import { getAllCategoriesWithCount } from '@/lib/content/categories'
-import { getAllSubcategoriesWithCount } from '@/lib/content/subcategories'
-import { GuidedCatalog } from '@/components/catalog/GuidedCatalog'
-import { CourseGridSkeleton } from '@/components/course/CourseCardSkeleton'
+import { getAllSubcategories } from '@/lib/content/subcategories'
+import { areaHref } from '@/lib/catalog'
+import {
+  categoryIcon,
+  categoryIconColor,
+  defaultCategoryIcon,
+  defaultCategoryIconColor,
+} from '@/lib/category-ui'
+import { Container } from '@/components/layout'
+import { CatalogPageHeader } from '@/components/catalog/CatalogPageHeader'
+import { CatalogCard } from '@/components/catalog/CatalogCard'
+import { LegacyCatalogRedirect } from '@/components/catalog/LegacyCatalogRedirect'
 import { absoluteUrl } from '@/lib/utils'
 
 export const metadata: Metadata = {
@@ -17,59 +24,54 @@ export const metadata: Metadata = {
   },
 }
 
-function extractNormativeRefs(courses: Course[]): string[] {
-  return [...new Set(courses.flatMap((c) => c.normativeRef ?? []))].sort()
-}
-
-function CatalogFallback() {
-  return (
-    <div className="bg-neutral-25">
-      <div className="container-default py-10">
-        <div className="mb-6 h-4 w-32 animate-pulse rounded bg-neutral-200" />
-        <CourseGridSkeleton count={6} />
-      </div>
-    </div>
-  )
-}
-
+/** Catalogo, primo livello: la scelta dell'area. */
 export default function CatalogPage() {
-  const courseData = getAllCourses({ status: 'published' })
   const categories = getAllCategoriesWithCount()
-  const subcategories = getAllSubcategoriesWithCount()
-
-  /* Strip MDX body — only Course fields needed on client */
-  const courses: Course[] = courseData.map(
-    ({ body: _body, ...rest }) => rest as Course
-  )
-
-  const normativeRefs = extractNormativeRefs(courses)
+  const subareas = getAllSubcategories().map(({ slug, parent }) => ({
+    slug,
+    parent,
+  }))
 
   return (
     <>
-      {/* ─── Page hero ──────────────────────────────────────────────────── */}
-      <div className="border-b border-neutral-200 bg-white">
-        <div className="container-default py-10 lg:py-12">
-          <p className="mb-3 text-brand-600 overline">
-            Formazione professionale
-          </p>
-          <h1 className="font-heading text-3xl font-light tracking-tight text-balance text-neutral-950 lg:text-4xl">
-            Catalogo corsi
-          </h1>
-          <p className="mt-3 max-w-xl text-pretty text-neutral-600">
-            Trova il percorso formativo giusto per la tua azienda o il tuo ruolo
-            professionale — attestati validi ai fini di legge, sempre aggiornati
-            alle normative vigenti.
-          </p>
-        </div>
-      </div>
+      <CatalogPageHeader
+        overline="Formazione professionale"
+        title="Catalogo corsi"
+        description="Trova il percorso formativo giusto per la tua azienda o il tuo ruolo professionale — attestati validi ai fini di legge, sempre aggiornati alle normative vigenti."
+      />
 
-      {/* ─── Flusso guidato a 3 passi (scelta modalità → selezione → risultati) ── */}
-      <Suspense fallback={<CatalogFallback />}>
-        <GuidedCatalog
-          courses={courses}
-          categories={categories}
-          subcategories={subcategories}
-          normativeRefs={normativeRefs}
+      <section aria-labelledby="aree-heading" className="bg-neutral-25">
+        <Container className="py-10 lg:py-14">
+          <h2 id="aree-heading" className="sr-only">
+            Aree formative
+          </h2>
+          {/* Una colonna sotto i 1024px, tre sopra: stessa griglia delle aree
+              in home (a due colonne la terza card resterebbe sola). */}
+          <ul role="list" className="grid gap-5 lg:grid-cols-3">
+            {categories.map((category) => (
+              <li key={category.slug}>
+                <CatalogCard
+                  href={areaHref(category.slug)}
+                  title={category.name}
+                  description={category.description}
+                  count={category.courseCount}
+                  icon={categoryIcon[category.icon] ?? defaultCategoryIcon}
+                  color={
+                    categoryIconColor[category.slug] ?? defaultCategoryIconColor
+                  }
+                  ctaLabel="Esplora"
+                />
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      {/* Solo per i vecchi link `/corsi?cat=…&sub=…` — non disegna nulla. */}
+      <Suspense fallback={null}>
+        <LegacyCatalogRedirect
+          areas={categories.map((c) => c.slug)}
+          subareas={subareas}
         />
       </Suspense>
     </>

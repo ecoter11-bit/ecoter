@@ -15,6 +15,7 @@ import {
   getSubcategory,
 } from '@/lib/content'
 import { absoluteUrl, cn } from '@/lib/utils'
+import { areaHref, subareaHref } from '@/lib/catalog'
 import { buildCourseJsonLd } from '@/lib/seo/course-schema'
 import { categoryBadgeLabel } from '@/lib/badge-mappings'
 import { Breadcrumb, Container } from '@/components/layout'
@@ -108,13 +109,13 @@ export default async function CourseDetailPage({ params }: Props) {
               { label: 'Corsi', href: '/corsi' },
               {
                 label: categoryDisplayName,
-                href: `/corsi?step=3&cat=${course.category}`,
+                href: areaHref(course.category),
               },
               ...(subcategory
                 ? [
                     {
                       label: subcategory.name,
-                      href: `/corsi?step=3&cat=${course.category}&sub=${subcategory.slug}`,
+                      href: subareaHref(course.category, subcategory.slug),
                     },
                   ]
                 : []),
