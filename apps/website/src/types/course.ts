@@ -46,7 +46,7 @@ export type Course = {
   subtitle?: string
   excerpt: string
   category: string
-  /** Codice di catalogo ECOTER (es. A06). */
+  /** Codice di catalogo ECO-TER (es. A06). */
   code?: string
   /** Sotto-area risolta (solo `sicurezza`) — vedi `lib/content/subcategories.ts`. */
   subcategory?: string

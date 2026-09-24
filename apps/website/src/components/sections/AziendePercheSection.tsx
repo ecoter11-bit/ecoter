@@ -52,7 +52,7 @@ export function AziendePercheSection() {
         >
           <motion.div variants={staggerContainer} className="mb-14 text-center">
             <p className="mb-3 text-brand-700 overline">
-              Perché ECOTER Academy
+              Perché ECO-TER Academy
             </p>
             <h2
               id="perche-aziende-heading"

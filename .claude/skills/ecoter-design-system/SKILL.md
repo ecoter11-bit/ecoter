@@ -1,7 +1,7 @@
 ---
 name: ecoter-design-system
 description: >
-  Use whenever building or modifying a UI component for ECOTER Academy — a new
+  Use whenever building or modifying a UI component for ECO-TER Academy — a new
   component in packages/ui, a new variant/state on an existing one, or any
   page/section change in apps/website that touches visual styling. Enforces
   the token → component → variants/states → a11y → Storybook workflow,
@@ -11,7 +11,7 @@ description: >
   is design-system compliant.
 ---
 
-# ECOTER design system — how to build a component here
+# ECO-TER design system — how to build a component here
 
 This is the operating procedure for `packages/ui` and any styling work in `apps/website`. Read root `CLAUDE.md` first for the non-negotiable rules; this skill is the how-to.
 

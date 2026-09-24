@@ -1,6 +1,6 @@
-# ECOTER Academy
+# ECO-TER Academy
 
-Monorepo del sito di formazione professionale accreditata ECOTER Academy (sicurezza sul lavoro, qualità, ambiente, antincendio, management) — pnpm workspaces + Turborepo.
+Monorepo del sito di formazione professionale accreditata ECO-TER Academy (sicurezza sul lavoro, qualità, ambiente, antincendio, management) — pnpm workspaces + Turborepo.
 
 ## Struttura
 

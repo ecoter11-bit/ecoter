@@ -1,4 +1,4 @@
-# ECOTER Academy — manuale operativo
+# ECO-TER Academy — manuale operativo
 
 Sito di formazione professionale accreditata (sicurezza, ambiente, sistemi di gestione, benessere psico-sociale). Monorepo **pnpm + Turborepo**:
 

@@ -117,7 +117,7 @@ export function Footer({ privacyPolicyHref, cookiePolicyHref }: FooterProps) {
                 rel="noopener"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-700 transition-colors hover:text-brand-800"
               >
-                Sito del gruppo ECO-TER
+                Visita il sito di ECO-TER
                 <ExternalLink className="size-3.5" aria-hidden="true" />
                 {/* L'icona è decorativa: l'avviso di nuova scheda deve
                     arrivare anche a chi non la vede. Ora che le informative
@@ -140,7 +140,7 @@ export function Footer({ privacyPolicyHref, cookiePolicyHref }: FooterProps) {
                    * neutral-50 and is functionally invisible as a boundary
                    * (SC 1.4.11). */
                   className="flex h-8 w-8 items-center justify-center rounded-md border border-brand-600 bg-white text-brand-700 transition-colors hover:bg-brand-50"
-                  aria-label="Profilo LinkedIn di ECOTER Academy"
+                  aria-label="Profilo LinkedIn di ECO-TER Academy"
                 >
                   <LinkedinIcon className="h-4 w-4" aria-hidden="true" />
                 </a>

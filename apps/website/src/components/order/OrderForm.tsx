@@ -352,7 +352,7 @@ export function OrderForm({ course, courseOptions, privacyPolicyHref }: Props) {
                     {...field}
                     value={values.companyName}
                     onChange={(e) => updateField('companyName', e.target.value)}
-                    placeholder="ECOTER Srl"
+                    placeholder="ECO-TER Srl"
                     autoComplete="organization"
                   />
                 )}

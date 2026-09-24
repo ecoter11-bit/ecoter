@@ -39,7 +39,7 @@ export function ChiSiamoStorySection() {
               id="storia-heading"
               className="font-heading text-3xl font-light tracking-tight text-balance text-neutral-950 lg:text-4xl"
             >
-              ECOTER Academy è parte di ECO-TER
+              ECO-TER Academy è parte di ECO-TER
             </h2>
           </motion.div>
 
@@ -83,7 +83,7 @@ export function ChiSiamoStorySection() {
             </motion.p>
             <motion.p variants={slideUp}>
               <strong className="font-semibold text-neutral-950">
-                ECOTER Academy
+                ECO-TER Academy
               </strong>{' '}
               è la divisione formazione del gruppo: lo stesso team tecnico che
               segue cantieri, verifiche e sistemi di gestione porta in aula
@@ -102,7 +102,7 @@ export function ChiSiamoStorySection() {
                 'h-12 gap-2 px-8 text-base font-semibold'
               )}
             >
-              Visita il sito del gruppo ECO-TER
+              Visita il sito di ECO-TER
               <ExternalLink className="size-4" aria-hidden="true" />
               <span className="sr-only"> (si apre in una nuova scheda)</span>
             </a>

@@ -18,7 +18,7 @@ export const siteSettingsSchema = z.object({
   address: siteAddressSchema,
   hours: z.string().optional(),
   vatNumber: z.string().optional(),
-  /** True while the contact details above are inherited from the parent company and haven't been confirmed as ECOTER Academy's own — surfaced as a visible notice on /contatti, not just a content flag. */
+  /** True while the contact details above are inherited from the parent company and haven't been confirmed as ECO-TER Academy's own — surfaced as a visible notice on /contatti, not just a content flag. */
   contactInfoProvisional: z.boolean().default(false),
   contactInfoNote: z.string().optional(),
   social: z.object({

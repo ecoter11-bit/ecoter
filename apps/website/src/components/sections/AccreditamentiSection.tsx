@@ -52,7 +52,7 @@ export function AccreditamentiSection() {
                 prima di aggiungerlo: qui resta solo l'affermazione fattuale
                 concordata, senza date o codici non verificati. */}
             <p className="mt-2 max-w-md text-sm text-pretty text-neutral-600">
-              ECOTER Academy opera come ente di formazione accreditato.
+              ECO-TER Academy opera come ente di formazione accreditato.
             </p>
           </motion.div>
         </motion.div>

@@ -1,5 +1,4 @@
 export { HeroSection } from './HeroSection'
-export { CorsiInCalendarioSection } from './CorsiInCalendarioSection'
 export { FaqAccordionSection } from './FaqAccordionSection'
 export { CtaFinaleSection } from './CtaFinaleSection'
 export { ChiSiamoHeroSection } from './ChiSiamoHeroSection'

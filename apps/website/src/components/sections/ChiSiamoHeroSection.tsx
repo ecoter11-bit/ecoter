@@ -50,7 +50,7 @@ export function ChiSiamoHeroSection() {
             className="mx-auto max-w-xl text-lg leading-relaxed text-pretty text-neutral-600"
           >
             Dal 2002 affianchiamo aziende e professionisti su sicurezza,
-            ambiente e sistemi di gestione. ECOTER Academy porta in aula la
+            ambiente e sistemi di gestione. ECO-TER Academy porta in aula la
             stessa competenza tecnica maturata sul campo.
           </motion.p>
         </motion.div>

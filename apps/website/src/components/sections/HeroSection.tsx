@@ -7,12 +7,7 @@ import { Container } from '@/components/layout'
 import { AreaLinkTile } from '@/components/catalog/AreaLinkTile'
 import { slideUp } from '@/components/motion/variants'
 import { areaHref } from '@/lib/catalog'
-import {
-  categoryIcon,
-  categoryIconColor,
-  defaultCategoryIcon,
-  defaultCategoryIconColor,
-} from '@/lib/category-ui'
+import { categoryIcon, defaultCategoryIcon } from '@/lib/category-ui'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import type { Category } from '@/types'
@@ -76,17 +71,17 @@ export function HeroSection({ areas }: Props) {
           </motion.p>
 
           {/*
-            Un ingresso per area, dritto ai suoi corsi. Sono tre scelte alla
-            pari, non tre azioni principali in gara: per questo riquadri
-            chiari col colore dell'area nell'icona (`AreaLinkTile`), non tre
-            bottoni pieni. Sotto `lg` vanno in colonna: a tre per riga su un
-            tablet "Benessere psico-sociale" andrebbe a capo in tre righe.
+            Un ingresso per area, dritto ai suoi corsi: tre bottoni verdi
+            pieni (`AreaLinkTile`), ben staccati dallo sfondo e con la scritta
+            grande (MODIFICHE del 24/09/2026). Sotto `lg` vanno in colonna; da
+            `lg` in su tre per riga, su una fila larga fino a `max-w-6xl`
+            perché "Benessere psico-sociale" a 18px stia su una riga.
           */}
           <motion.ul
             variants={slideUp}
             role="list"
             aria-label="Aree formative"
-            className="mx-auto grid max-w-md gap-3 text-left lg:max-w-5xl lg:grid-cols-3"
+            className="mx-auto grid max-w-md gap-3 text-left lg:max-w-6xl lg:grid-cols-3 lg:gap-4"
           >
             {areas.map((area) => (
               <li key={area.slug}>
@@ -94,28 +89,26 @@ export function HeroSection({ areas }: Props) {
                   href={areaHref(area.slug)}
                   label={area.name}
                   icon={categoryIcon[area.icon] ?? defaultCategoryIcon}
-                  color={
-                    categoryIconColor[area.slug] ?? defaultCategoryIconColor
-                  }
                 />
               </li>
             ))}
           </motion.ul>
 
-          {/* Uscita verso la casa madre: azione secondaria, in una nuova
-              scheda. Stesso avviso per screen reader del link nel footer. */}
-          <motion.div variants={slideUp} className="mt-8">
+          {/* Uscita verso la casa madre: azione secondaria ma ben visibile
+              (bordo verde di 2px, scritta a 18px), in una nuova scheda.
+              Stesso avviso per screen reader del link nel footer. */}
+          <motion.div variants={slideUp} className="mt-10">
             <a
               href={siteConfig.parentSite}
               target="_blank"
               rel="noopener"
               className={cn(
                 buttonVariants({ variant: 'outline-brand' }),
-                'h-11 gap-2 px-6 text-sm font-semibold'
+                'h-14 gap-2.5 border-2 px-8 text-lg font-semibold'
               )}
             >
-              Sito del gruppo ECO-TER
-              <ExternalLink className="size-4" aria-hidden="true" />
+              Visita il sito di ECO-TER
+              <ExternalLink className="size-5" aria-hidden="true" />
               <span className="sr-only">
                 {' '}
                 (si apre in una nuova scheda, sito ECO-TER Srl)

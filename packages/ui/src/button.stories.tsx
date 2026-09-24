@@ -113,7 +113,7 @@ export const OutlineInverse: Story = {
       {/*
         Il fondo che decide davvero se la variante regge non è `neutral-950`
         pieno (~15:1, caso facile) ma una foto sotto la velatura
-        `bg-neutral-950/75` della sezione "Corsi in calendario": nel punto più
+        `bg-neutral-950/75` delle fasce fotografiche del sito: nel punto più
         chiaro la foto è bianco pieno, quindi il caso peggiore si riproduce
         qui, solo con token, velando del 75% una superficie bianca. È su
         questo pannello che vanno letti addon-a11y, hover e focus.

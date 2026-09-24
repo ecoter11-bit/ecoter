@@ -11,7 +11,7 @@ export const FAQS: Faq[] = [
   {
     id: 'faq-1',
     question:
-      'I corsi ECOTER Academy sono riconosciuti dalle autorità competenti?',
+      'I corsi ECO-TER Academy sono riconosciuti dalle autorità competenti?',
     answer:
       'Sì. Tutti i corsi sono progettati nel rispetto dei requisiti normativi vigenti (D.Lgs. 81/08, Accordo Stato-Regioni, ISO, D.M. 02/09/2021). Al termine di ogni percorso viene rilasciato un attestato di frequenza valido ai fini di legge.',
   },
@@ -48,7 +48,7 @@ export const FAQS: Faq[] = [
   },
   {
     id: 'faq-7',
-    question: 'A chi sono rivolti i corsi ECOTER Academy?',
+    question: 'A chi sono rivolti i corsi ECO-TER Academy?',
     answer:
       'I nostri percorsi si rivolgono sia a lavoratori, dirigenti, preposti e figure specialistiche (es. RSPP/ASPP, addetti alle emergenze) sia ad aziende ed enti che devono formare il proprio personale su sicurezza, ambiente e benessere organizzativo. Ogni scheda corso indica i destinatari specifici.',
   },

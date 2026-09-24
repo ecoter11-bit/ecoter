@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: 'ECOTER Academy',
-  shortName: 'ECOTER',
+  name: 'ECO-TER Academy',
+  shortName: 'ECO-TER',
   description:
     'Formazione professionale accreditata per aziende e professionisti. Corsi di sicurezza sul lavoro, ambiente e benessere psico-sociale.',
   /** Dominio reale, registrato su Aruba e intestato a ECO-TER SRL. */
@@ -8,11 +8,11 @@ export const siteConfig = {
   ogImage: '/og/default.jpg',
   locale: 'it_IT',
   language: 'it',
-  founder: 'ECOTER Srl',
+  founder: 'ECO-TER Srl',
   /**
    * Contact fields mirror `content/settings/site.json` (loaded via
    * `getSiteSettings()` for /contatti). `email` è la casella dedicata di
-   * ECOTER Academy; telefono e sede restano quelli della casa madre (ECOTER
+   * ECO-TER Academy; telefono e sede restano quelli della casa madre (ECO-TER
    * Srl, sicurezzalavoroeambiente.it). Keep both in sync until there's a
    * single source of truth; see `content/settings/site.json`'s
    * `contactInfoNote`.
@@ -29,12 +29,12 @@ export const siteConfig = {
   socials: {
     linkedin: 'https://www.linkedin.com/company/eco-ter-srl/',
   },
-  /** Parent company site (ECOTER Srl) — linked from the footer. */
+  /** Parent company site (ECO-TER Srl) — linked from the footer. */
   parentSite: 'https://sicurezzalavoroeambiente.it/',
   seo: {
     titleSeparator: '|',
-    titleTemplate: '%s | ECOTER Academy',
-    defaultTitle: 'ECOTER Academy — Formazione Professionale Accreditata',
+    titleTemplate: '%s | ECO-TER Academy',
+    defaultTitle: 'ECO-TER Academy — Formazione Professionale Accreditata',
     defaultDescription:
       'Corsi di formazione accreditati per aziende e professionisti: sicurezza sul lavoro, ambiente e benessere psico-sociale.',
   },

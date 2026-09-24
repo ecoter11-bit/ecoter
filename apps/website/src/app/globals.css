@@ -12,7 +12,7 @@
 @import 'shadcn/tailwind.css';
 @import '@ecoter/tokens/theme.css';
 
-/* Dark mode: DISABLED — ECOTER Academy is light-only */
+/* Dark mode: DISABLED — ECO-TER Academy is light-only */
 @custom-variant dark (&:is(.dark-never *));
 
 /* ─── Base styles ────────────────────────────────────────────────────────── */
