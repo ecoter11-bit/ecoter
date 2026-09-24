@@ -27,13 +27,13 @@ const OFFERTA: Offerta[] = [
     icon: ClipboardList,
     title: 'Su misura',
     description:
-      'Analizziamo il fabbisogno formativo della tua organizzazione e costruiamo un piano personalizzato per ruoli, settore e livello di rischio.',
+      'Analizziamo il fabbisogno formativo, dell’azienda o del singolo professionista, e costruiamo un piano personalizzato per ruolo, settore e livello di rischio.',
   },
   {
     icon: Building2,
     title: 'In house',
     description:
-      'Formazione erogata direttamente presso la tua sede, oltre alle modalità in aula, online e blended — la scelta si adatta alla tua organizzazione.',
+      'Formazione erogata direttamente presso la tua sede, oltre alle modalità in aula, online e blended — la scelta si adatta alle tue esigenze.',
   },
   {
     icon: FileCheck2,
@@ -59,7 +59,7 @@ export function AziendeOffertaSection() {
               id="offerta-heading"
               className="font-heading text-3xl font-light tracking-tight text-balance text-neutral-950 lg:text-4xl"
             >
-              Formazione pensata per la tua azienda
+              Formazione pensata per il tuo lavoro
             </h2>
           </motion.div>
 

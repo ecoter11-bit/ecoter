@@ -37,7 +37,7 @@ export function AziendeHeroSection() {
           className="mx-auto max-w-3xl text-center"
         >
           <motion.p variants={slideUp} className="mb-5 text-brand-600 overline">
-            Soluzioni Aziendali
+            Aziende e professionisti
           </motion.p>
 
           <motion.h1
@@ -46,16 +46,16 @@ export function AziendeHeroSection() {
             className="mb-6 font-heading text-4xl font-light tracking-tight text-balance text-neutral-950 sm:text-5xl"
           >
             Formazione su misura per{' '}
-            <span className="text-brand-600">la tua azienda.</span>
+            <span className="text-brand-600">aziende e professionisti.</span>
           </motion.h1>
 
           <motion.p
             variants={slideUp}
             className="mx-auto max-w-xl text-lg leading-relaxed text-pretty text-neutral-600"
           >
-            Analizziamo il fabbisogno formativo della tua organizzazione e
-            costruiamo un piano su misura — in azienda, in aula, online o
-            blended — con un unico interlocutore dalla richiesta
+            Analizziamo il fabbisogno formativo della tua azienda o del tuo
+            ruolo professionale e costruiamo un piano su misura — in azienda, in
+            aula, online o blended — con un unico interlocutore dalla richiesta
             all&apos;attestato.
           </motion.p>
 

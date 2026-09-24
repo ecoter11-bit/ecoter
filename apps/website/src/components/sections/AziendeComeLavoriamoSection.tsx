@@ -30,7 +30,7 @@ const STEPS: Step[] = [
     icon: Search,
     title: 'Analisi del fabbisogno',
     description:
-      'Ascoltiamo la tua organizzazione per capire ruoli, mansioni e obblighi normativi da coprire.',
+      'Ascoltiamo te o la tua organizzazione per capire ruoli, mansioni e obblighi normativi da coprire.',
   },
   {
     step: '02',

@@ -40,7 +40,7 @@ const SUGGESTIONS = [
 const QUICK_LINKS = [
   { label: 'Tutti i corsi', href: CATALOG_PATH },
   { label: 'Domande frequenti', href: '/faq' },
-  { label: 'Soluzioni aziendali', href: '/soluzioni/aziende' },
+  { label: 'Aziende e professionisti', href: '/soluzioni/aziende' },
 ]
 
 const MAX_RESULTS = 8

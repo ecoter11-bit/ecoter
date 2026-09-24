@@ -21,7 +21,7 @@ const VALORI: Valore[] = [
     icon: Microscope,
     title: 'Competenza tecnica ECO-TER',
     description:
-      "L'esperienza tecnica di ECO-TER su sicurezza, ambiente e sistemi di gestione, attiva dal 2002, è alla base di ogni percorso formativo che progettiamo per la tua azienda.",
+      "L'esperienza tecnica di ECO-TER su sicurezza, ambiente e sistemi di gestione, attiva dal 2002, è alla base di ogni percorso formativo che progettiamo, per le aziende come per i professionisti.",
   },
   {
     icon: UserCheck,
@@ -33,7 +33,7 @@ const VALORI: Valore[] = [
     icon: Wrench,
     title: 'Approccio pratico',
     description:
-      'Casi reali e strumenti applicabili da subito in azienda, non solo teoria da manuale — pensati per chi deve mettere in pratica quanto appreso.',
+      'Casi reali e strumenti applicabili da subito sul lavoro, non solo teoria da manuale — pensati per chi deve mettere in pratica quanto appreso.',
   },
 ]
 
@@ -58,7 +58,7 @@ export function AziendePercheSection() {
               id="perche-aziende-heading"
               className="font-heading text-3xl font-light tracking-tight text-balance text-neutral-950 lg:text-4xl"
             >
-              Il valore per la tua organizzazione
+              Il valore per te e per la tua azienda
             </h2>
           </motion.div>
 

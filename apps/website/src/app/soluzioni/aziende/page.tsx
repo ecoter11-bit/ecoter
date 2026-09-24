@@ -10,10 +10,15 @@ import {
 } from '@/components/sections'
 import { absoluteUrl } from '@/lib/utils'
 
+/*
+ * "Aziende e professionisti" (prima "Soluzioni Aziendali", MODIFICHE del
+ * 23/09/2026): la pagina parla anche ai professionisti. L'indirizzo resta
+ * `/soluzioni/aziende`, così link e indicizzazione non cambiano.
+ */
 export const metadata: Metadata = {
-  title: 'Soluzioni Aziendali',
+  title: 'Aziende e professionisti',
   description:
-    'Formazione su misura per la tua azienda: analisi del fabbisogno, piani personalizzati, in house o in aula, gestione completa di calendario, docenti e attestati.',
+    'Formazione su misura per aziende e professionisti: analisi del fabbisogno, piani personalizzati, in sede, in aula o online, gestione completa di calendario, docenti e attestati.',
   alternates: {
     canonical: absoluteUrl('/soluzioni/aziende'),
   },
