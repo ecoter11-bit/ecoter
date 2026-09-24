@@ -71,6 +71,21 @@ export function HeroSection({ areas }: Props) {
           </motion.p>
 
           {/*
+            "Scopri i nostri corsi" dice dove portano i bottoni (richiesta di
+            Davide del 24/09/2026: "chiarire che i bottoni portano ai
+            corsi"). È un h2 perché introduce il gruppo di link, e dà il nome
+            alla lista (`aria-labelledby`): con lo screen reader si sente
+            "Scopri i nostri corsi, elenco, 3 voci" prima delle aree.
+          */}
+          <motion.h2
+            id="hero-corsi-heading"
+            variants={slideUp}
+            className="mb-4 font-heading text-lg font-semibold text-balance text-neutral-950 sm:text-xl"
+          >
+            Scopri i nostri corsi
+          </motion.h2>
+
+          {/*
             Un ingresso per area, dritto ai suoi corsi: tre bottoni verdi
             pieni (`AreaLinkTile`), ben staccati dallo sfondo e con la scritta
             grande (MODIFICHE del 24/09/2026). Sotto `lg` vanno in colonna; da
@@ -80,7 +95,7 @@ export function HeroSection({ areas }: Props) {
           <motion.ul
             variants={slideUp}
             role="list"
-            aria-label="Aree formative"
+            aria-labelledby="hero-corsi-heading"
             className="mx-auto grid max-w-md gap-3 text-left lg:max-w-6xl lg:grid-cols-3 lg:gap-4"
           >
             {areas.map((area) => (
