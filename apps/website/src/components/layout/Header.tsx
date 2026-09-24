@@ -32,8 +32,8 @@ function useSearchShortcutLabel(): string {
  * Header del sito (MODIFICHE del 23 e del 24/09/2026).
  * - Sempre staccato dalla pagina: bordo e ombra fissi, non solo quando si
  *   scorre.
- * - Voci da `mainNav`: Calendario corsi · Aziende e professionisti · Chi
- *   Siamo · FAQ · Contatti (niente più "Corsi" e mega menu), le stesse del
+ * - Voci da `mainNav`: Calendario corsi · Formazione su misura · Chi Siamo
+ *   · FAQ · Contatti (niente più "Corsi" e mega menu), le stesse del
  *   menu mobile. La voce della pagina corrente è sottolineata, non solo
  *   colorata (WCAG 1.4.1).
  * - Cinque voci stanno in riga solo da `xl` (1280px): sotto c'è il menu a

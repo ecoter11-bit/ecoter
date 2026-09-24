@@ -42,7 +42,7 @@ const QUICK_LINKS = [
   { label: 'Tutti i corsi', href: CATALOG_PATH },
   { label: 'Calendario corsi', href: CALENDAR_PATH },
   { label: 'Domande frequenti', href: '/faq' },
-  { label: 'Aziende e professionisti', href: '/soluzioni/aziende' },
+  { label: 'Formazione su misura', href: '/soluzioni/aziende' },
 ]
 
 const MAX_RESULTS = 8
