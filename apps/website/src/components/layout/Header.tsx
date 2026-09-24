@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Search } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { siteConfig } from '@/config/site'
-import { courseCategories, mainNav, modalityNav } from '@/config/nav'
+import { courseCategories, mainNav } from '@/config/nav'
 import { AcademyTag, EcoterLogo } from '@/components/ui/LogoEcoter'
 import { Container } from './Container'
 import { MegaMenu } from './MegaMenu'
@@ -61,11 +61,7 @@ export function Header() {
             </Link>
 
             {/* Desktop nav */}
-            <MegaMenu
-              mainNav={mainNav}
-              courseCategories={courseCategories}
-              modalityNav={modalityNav}
-            />
+            <MegaMenu mainNav={mainNav} courseCategories={courseCategories} />
 
             {/* Right actions */}
             <div className="flex items-center gap-1.5">
@@ -107,7 +103,6 @@ export function Header() {
               <MobileNav
                 mainNav={mainNav}
                 courseCategories={courseCategories}
-                modalityNav={modalityNav}
               />
             </div>
           </div>

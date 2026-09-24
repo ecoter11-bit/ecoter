@@ -29,7 +29,7 @@ const STEPS: Step[] = [
     icon: Search,
     title: 'Trova il corso',
     description:
-      'Cerca nel catalogo per area tematica o usa il wizard per identificare il percorso obbligatorio per la tua figura professionale.',
+      'Sfoglia il catalogo per area tematica e scegli il percorso adatto alle tue esigenze.',
   },
   {
     step: '02',

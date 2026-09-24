@@ -12,6 +12,7 @@ import {
 import { buttonVariants } from '@ecoter/ui'
 import type { CategoryWithCount } from '@/types'
 import { Container } from '@/components/layout'
+import { areaHref } from '@/lib/catalog'
 import {
   slideUp,
   slideUpGentle,
@@ -113,7 +114,7 @@ export function AreaFormativeSection({ categories }: Props) {
               return (
                 <motion.div key={category.slug} variants={slideUpGentle}>
                   <Link
-                    href={`/corsi?step=3&cat=${category.slug}`}
+                    href={areaHref(category.slug)}
                     className={cn(
                       'group relative flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white p-7',
                       'transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-xl',

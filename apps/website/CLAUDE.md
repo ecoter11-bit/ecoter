@@ -9,7 +9,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 Next.js 16 (App Router, Turbopack) + React 19 + Tailwind v4 + MDX + framer-motion. `@ecoter/website` nel workspace pnpm.
 
-- `src/app/` — route: home, `/corsi` (catalogo, con `CatalogClient.tsx` lato client), manifest/robots/sitemap.
+- `src/app/` — route: home, catalogo, schede corso, manifest/robots/sitemap. Il catalogo è fatto di pagine statiche: `/corsi` (scelta dell'area) → `/corsi/area/[area]` (Sicurezza: le sotto-aree; le altre aree: l'elenco dei corsi) → `/corsi/area/[area]/[sottoarea]` (elenco dei corsi). Gli indirizzi si costruiscono solo con `src/lib/catalog.ts`. Niente stato del catalogo nei parametri dell'URL: in produzione `router.replace`/`push` che cambiano solo i parametri della stessa pagina statica non vengono applicati (in `next dev` sì) — per navigare usare link a pagine vere; se serve aggiornare i parametri, l'API History nativa (`window.history.replaceState`). Verificare sempre anche con `next build` + `next start`.
 - `src/components/sections/` — blocchi di homepage (Hero, WhyEcoter, AreaFormative, FaqPreview, CtaFinale, ...).
 - `src/components/layout/`, `src/components/catalog/`, `src/components/course/` — layout, catalogo, card corso.
 - `src/lib/content/` + `content/` alla radice del package — corsi/categorie/sotto-aree come MDX + JSON, validati da `src/lib/validation/*.schema.ts` (zod). Le **sotto-aree** (`content/subcategories/`) esistono solo per `sicurezza`: la sotto-area di un corso si deriva dal prefisso del `code` di catalogo (A-F) in `src/lib/content/subcategory-mapping.ts`, salvo `subcategory` esplicita in frontmatter; `pnpm validate` verifica che ogni corso di sicurezza ne abbia esattamente una.

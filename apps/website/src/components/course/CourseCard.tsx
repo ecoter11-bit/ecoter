@@ -28,11 +28,11 @@ const defaultCategoryBar = 'bg-neutral-400'
 type Props = {
   course: Course
   /**
-   * Livello dell'intestazione del titolo. Default `3`, come nella griglia
-   * piatta del catalogo. Nei risultati raggruppati per sotto-area la sezione
-   * ha già una `h3` col nome del gruppo, quindi le card scendono a `h4`:
-   * senza, la navigazione per intestazioni non distinguerebbe un gruppo da un
-   * corso (WCAG 1.3.1).
+   * Livello dell'intestazione del titolo. Default `3`: le liste di card
+   * stanno sotto una `h2` di sezione (anche solo per screen reader). Se una
+   * lista finisce sotto un'intestazione di gruppo `h3`, le card scendono a
+   * `h4`, altrimenti la navigazione per intestazioni non distinguerebbe un
+   * gruppo da un corso (WCAG 1.3.1).
    */
   headingLevel?: 2 | 3 | 4
   /**
@@ -43,6 +43,15 @@ type Props = {
    * sembrare le altre meno in evidenza delle vicine.
    */
   showFeaturedBadge?: boolean
+  /**
+   * Mostra il badge dell'area (Sicurezza, Ambiente, …). Default `true`. Va
+   * messo a `false` negli elenchi che contengono una sola area — le pagine
+   * di area e sotto-area del catalogo: lì il badge ripete su ogni card
+   * un'informazione che titolo della pagina, breadcrumb e filetto colorato
+   * in cima alla card danno già, e "Benessere psico-sociale", lungo, manda a
+   * capo la riga dei badge disallineando i titoli.
+   */
+  showCategoryBadge?: boolean
   className?: string
 }
 
@@ -50,6 +59,7 @@ export function CourseCard({
   course,
   headingLevel = 3,
   showFeaturedBadge = true,
+  showCategoryBadge = true,
   className,
 }: Props) {
   const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4'
@@ -79,9 +89,11 @@ export function CourseCard({
       <div className="flex flex-1 flex-col p-6">
         {/* Badges */}
         <div className="mb-4 flex flex-wrap items-center gap-2">
-          <Badge size="sm" color={categoryColor}>
-            {categoryBadgeLabel[course.category] ?? course.category}
-          </Badge>
+          {showCategoryBadge && (
+            <Badge size="sm" color={categoryColor}>
+              {categoryBadgeLabel[course.category] ?? course.category}
+            </Badge>
+          )}
           <Badge size="sm" color={levelColor}>
             {levelBadgeLabel[course.level]}
           </Badge>

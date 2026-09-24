@@ -17,7 +17,7 @@ import type { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { siteConfig } from '@/config/site'
 import { EcoterLogo } from '@/components/ui/LogoEcoter'
-import type { NavCategory, NavGroup, NavItem } from '@/config/nav'
+import type { NavCategory, NavItem } from '@/config/nav'
 
 const ICON_MAP: Record<string, LucideIcon> = {
   HardHat,
@@ -28,14 +28,9 @@ const ICON_MAP: Record<string, LucideIcon> = {
 type MobileNavProps = {
   mainNav: NavItem[]
   courseCategories: NavCategory[]
-  modalityNav: NavGroup
 }
 
-export function MobileNav({
-  mainNav,
-  courseCategories,
-  modalityNav,
-}: MobileNavProps) {
+export function MobileNav({ mainNav, courseCategories }: MobileNavProps) {
   const [open, setOpen] = useState(false)
   const [expandedSection, setExpandedSection] = useState<string | null>(null)
   const pathname = usePathname()
@@ -185,7 +180,7 @@ export function MobileNav({
                         className="overflow-hidden"
                       >
                         <div className="px-2 pt-1 pb-2">
-                          <p className="mb-1.5 px-2 text-[10px] font-semibold tracking-wider text-neutral-400 uppercase">
+                          <p className="mb-1.5 px-2 text-xs font-semibold tracking-wider text-muted-foreground uppercase">
                             Aree tematiche
                           </p>
                           <ul className="space-y-0.5" role="list">
@@ -209,29 +204,6 @@ export function MobileNav({
                                 </li>
                               )
                             })}
-                          </ul>
-
-                          <div className="my-3 border-t border-border" />
-
-                          <p className="mb-1.5 px-2 text-[10px] font-semibold tracking-wider text-neutral-400 uppercase">
-                            {modalityNav.label}
-                          </p>
-                          <ul className="space-y-0.5" role="list">
-                            {modalityNav.items.map((item) => (
-                              <li key={item.href}>
-                                <Link
-                                  href={item.href}
-                                  onClick={() => setOpen(false)}
-                                  className="flex items-center gap-2 rounded-lg px-2.5 py-2 text-sm text-neutral-700 transition-colors hover:bg-neutral-50 hover:text-foreground"
-                                >
-                                  <ChevronRight
-                                    className="h-3.5 w-3.5 text-neutral-400"
-                                    aria-hidden="true"
-                                  />
-                                  {item.label}
-                                </Link>
-                              </li>
-                            ))}
                           </ul>
                         </div>
                       </motion.div>
