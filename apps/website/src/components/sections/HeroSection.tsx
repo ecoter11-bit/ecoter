@@ -1,13 +1,15 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ExternalLink } from 'lucide-react'
+import { ArrowRight, ExternalLink } from 'lucide-react'
 import { buttonVariants } from '@ecoter/ui'
 import { Container } from '@/components/layout'
 import { AreaLinkTile } from '@/components/catalog/AreaLinkTile'
 import { slideUp } from '@/components/motion/variants'
 import { areaHref } from '@/lib/catalog'
 import { categoryIcon, defaultCategoryIcon } from '@/lib/category-ui'
+import { AVAILABLE_COURSES_PATH } from '@/config/nav'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import type { Category } from '@/types'
@@ -109,26 +111,44 @@ export function HeroSection({ areas }: Props) {
             ))}
           </motion.ul>
 
-          {/* Uscita verso la casa madre: azione secondaria ma ben visibile
-              (bordo verde di 2px, scritta a 18px), in una nuova scheda.
-              Stesso avviso per screen reader del link nel footer. */}
+          {/*
+            Due bottoni in colonna, larghi uguali (`inline-grid`: la colonna
+            prende la larghezza del più lungo; `px-4` sotto `sm` perché a
+            320px la colonna stia nei 288px utili). Sopra "Visita il catalogo",
+            giallo della palette (richiesta del 28/09/2026), verso la pagina
+            dei corsi disponibili, per ora "in arrivo". Sotto l'uscita verso
+            la casa madre: bordo verde di 2px, scritta a 18px, nuova scheda,
+            stesso avviso per screen reader del link nel footer.
+          */}
           <motion.div variants={slideUp} className="mt-10">
-            <a
-              href={siteConfig.parentSite}
-              target="_blank"
-              rel="noopener"
-              className={cn(
-                buttonVariants({ variant: 'outline-brand' }),
-                'h-14 gap-2.5 border-2 px-8 text-lg font-semibold'
-              )}
-            >
-              Visita il sito di ECO-TER
-              <ExternalLink className="size-5" aria-hidden="true" />
-              <span className="sr-only">
-                {' '}
-                (si apre in una nuova scheda, sito ECO-TER Srl)
-              </span>
-            </a>
+            <div className="inline-grid gap-3">
+              <Link
+                href={AVAILABLE_COURSES_PATH}
+                className={cn(
+                  buttonVariants({ variant: 'amber' }),
+                  'h-14 gap-2.5 border-2 px-4 text-lg font-semibold sm:px-8'
+                )}
+              >
+                Visita il catalogo
+                <ArrowRight className="size-5" aria-hidden="true" />
+              </Link>
+              <a
+                href={siteConfig.parentSite}
+                target="_blank"
+                rel="noopener"
+                className={cn(
+                  buttonVariants({ variant: 'outline-brand' }),
+                  'h-14 gap-2.5 border-2 px-4 text-lg font-semibold sm:px-8'
+                )}
+              >
+                Visita il sito di ECO-TER
+                <ExternalLink className="size-5" aria-hidden="true" />
+                <span className="sr-only">
+                  {' '}
+                  (si apre in una nuova scheda, sito ECO-TER Srl)
+                </span>
+              </a>
+            </div>
           </motion.div>
         </motion.div>
       </Container>
