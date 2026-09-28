@@ -34,6 +34,17 @@ const buttonVariants = cva(
         'outline-brand':
           'border-brand-600 bg-white text-brand-700 hover:bg-brand-50 focus-visible:ring-ring',
         /**
+         * Brand yellow — the logo's `#FFF200` (`amber-400`) as a fill, for a
+         * CTA that has to stand apart from the green ones. White text is
+         * ~1.2:1 on it, so the label is ink (`neutral-950`): ~11.1:1 at rest,
+         * ~6.8:1 over `hover:bg-amber-500`. The fill is only ~1.2:1 against
+         * white, so the edge comes from a `border-amber-600` (~3.4:1 on
+         * white, SC 1.4.11). Focus: the same solid ring with a 2px offset as
+         * `default` (`--ring`, ~5:1 on white).
+         */
+        amber:
+          'border-amber-600 bg-amber-400 text-neutral-950 hover:bg-amber-500 focus-visible:ring-ring focus-visible:ring-offset-2',
+        /**
          * White outline for a CTA sitting on a dark surface (`neutral-950`, or
          * a photo behind a `neutral-950/75` scrim, like the photo bands the
          * website's home used to have). The fill stays transparent on purpose:

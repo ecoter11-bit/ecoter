@@ -33,6 +33,7 @@ const meta = {
         'default',
         'outline',
         'outline-brand',
+        'amber',
         'outline-inverse',
         'secondary',
         'ghost',
@@ -80,6 +81,7 @@ export const AllVariants: Story = {
       <Button variant="default">Default</Button>
       <Button variant="outline">Outline</Button>
       <Button variant="outline-brand">Outline brand</Button>
+      <Button variant="amber">Amber</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="ghost">Ghost</Button>
       <Button variant="destructive">Destructive</Button>
