@@ -114,19 +114,24 @@ export function HeroSection({ areas }: Props) {
           {/*
             Due bottoni in colonna, larghi uguali (`inline-grid`: la colonna
             prende la larghezza del più lungo; `px-4` sotto `sm` perché a
-            320px la colonna stia nei 288px utili). Sopra "Visita il catalogo",
-            giallo della palette (richiesta del 28/09/2026), verso la pagina
-            dei corsi disponibili, per ora "in arrivo". Sotto l'uscita verso
-            la casa madre: bordo verde di 2px, scritta a 18px, nuova scheda,
-            stesso avviso per screen reader del link nel footer.
+            320px la colonna stia nei 288px utili). Sopra "Visita il catalogo"
+            (richiesta del 28/09/2026), verde pieno come i bottoni delle aree
+            (il giallo della prima versione è stato scartato il 29/09), verso
+            la pagina dei corsi disponibili, per ora "in arrivo". Il suo bordo
+            di 2px è dello stesso verde del fondo, anche all'hover: trasparente
+            lascerebbe vedere un filo di pagina (il `Button` ha
+            `bg-clip-padding`) e il verde sembrerebbe più stretto del bottone
+            sotto. Sotto l'uscita verso la casa madre: bordo verde di 2px,
+            scritta a 18px, nuova scheda, stesso avviso per screen reader del
+            link nel footer.
           */}
           <motion.div variants={slideUp} className="mt-10">
             <div className="inline-grid gap-3">
               <Link
                 href={AVAILABLE_COURSES_PATH}
                 className={cn(
-                  buttonVariants({ variant: 'amber' }),
-                  'h-14 gap-2.5 border-2 px-4 text-lg font-semibold sm:px-8'
+                  buttonVariants({ variant: 'default' }),
+                  'h-14 gap-2.5 border-2 border-primary px-4 text-lg font-semibold hover:border-brand-700 sm:px-8'
                 )}
               >
                 Visita il catalogo

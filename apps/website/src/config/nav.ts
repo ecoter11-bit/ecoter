@@ -9,10 +9,10 @@ export type NavItem = {
 export const CALENDAR_PATH = '/calendario-corsi'
 
 /**
- * Pagina "Catalogo" del bottone giallo in home (richiesta del 28/09/2026):
- * per il capo sono i corsi disponibili in questo momento, e per ora è "in
- * arrivo". Non è `CATALOG_PATH` (`/corsi`, in `lib/catalog.ts`), che è il
- * catalogo completo per aree.
+ * Pagina "Catalogo" del bottone "Visita il catalogo" in home (richiesta del
+ * 28/09/2026): per il capo sono i corsi disponibili in questo momento, e per
+ * ora è "in arrivo". Non è `CATALOG_PATH` (`/corsi`, in `lib/catalog.ts`),
+ * che è il catalogo completo per aree.
  */
 export const AVAILABLE_COURSES_PATH = '/catalogo'
 

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 }
 
 /**
- * Catalogo (richiesta del 28/09/2026): la pagina del bottone giallo
+ * Catalogo (richiesta del 28/09/2026): la pagina del bottone
  * "Visita il catalogo" in home. Per il capo sono i corsi disponibili in
  * questo momento. Non è il catalogo completo per aree (`/corsi`, "Catalogo
  * corsi").
