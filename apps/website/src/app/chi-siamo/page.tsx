@@ -6,7 +6,6 @@ import {
   ValoriSection,
   ClientiSection,
   AccreditamentiSection,
-  CtaFinaleSection,
 } from '@/components/sections'
 import { absoluteUrl } from '@/lib/utils'
 
@@ -28,7 +27,6 @@ export default function ChiSiamoPage() {
       <ValoriSection />
       <ClientiSection />
       <AccreditamentiSection />
-      <CtaFinaleSection />
     </>
   )
 }

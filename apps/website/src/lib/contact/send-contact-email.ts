@@ -16,9 +16,7 @@ function buildEmailBody(values: ContactFormValues): string {
     values.company ? `Azienda: ${values.company}` : null,
     `Email: ${values.email}`,
     values.phone ? `Telefono: ${values.phone}` : null,
-    values.courseInterest
-      ? `Corso/area di interesse: ${values.courseInterest}`
-      : null,
+    values.courseInterest ? `Corso: ${values.courseInterest}` : null,
     '',
     'Messaggio:',
     values.message,
@@ -67,7 +65,9 @@ export async function sendContactEmail(
       'ECO-TER Academy <onboarding@resend.dev>',
     to: toEmail,
     replyTo: values.email,
-    subject: `Nuova richiesta informazioni da ${values.name}`,
+    subject: values.courseInterest
+      ? `Richiesta informazioni sul corso "${values.courseInterest}" da ${values.name}`
+      : `Nuova richiesta informazioni da ${values.name}`,
     text: buildEmailBody(values),
   })
 

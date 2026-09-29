@@ -6,7 +6,6 @@ import {
   FormField,
   Input,
   Textarea,
-  Select,
   Checkbox,
   Alert,
   buttonVariants,
@@ -14,40 +13,47 @@ import {
 import { cn } from '@/lib/utils'
 import { contactFormSchema } from '@/lib/validation'
 import type { ContactFormValues, ContactFormErrors } from '@/lib/validation'
-import type { SelectOption } from '@ecoter/ui'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 
 type Props = {
-  courseOptions: SelectOption[]
-  initialCourseSlug?: string
+  /** Il corso della scheda da cui si arriva: fisso, non si sceglie nel modulo. */
+  course: { slug: string; title: string }
   privacyPolicyHref: string
 }
 
-const EMPTY_VALUES: ContactFormValues = {
-  name: '',
-  company: '',
-  email: '',
-  phone: '',
-  courseInterest: '',
-  message: '',
-  privacyConsent: false,
-  website: '',
+/**
+ * Modulo "Richiedi informazioni sul corso" (/richiedi-informazioni). Dal
+ * 29/09/2026 è l'unico modulo di richiesta informazioni del sito: Contatti ha
+ * solo i recapiti. Il corso arriva dalla scheda ed è fisso; nell'email va il
+ * nome del corso, non lo slug, così chi la riceve lo legge subito.
+ */
+function emptyValues(courseTitle: string): ContactFormValues {
+  return {
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    courseInterest: courseTitle,
+    message: '',
+    privacyConsent: false,
+    website: '',
+  }
 }
 
-export function ContactForm({
-  courseOptions,
-  initialCourseSlug,
-  privacyPolicyHref,
-}: Props) {
-  const [values, setValues] = useState<ContactFormValues>({
-    ...EMPTY_VALUES,
-    courseInterest: initialCourseSlug ?? '',
-  })
+export function ContactForm({ course, privacyPolicyHref }: Props) {
+  const [values, setValues] = useState<ContactFormValues>(() =>
+    emptyValues(course.title)
+  )
   const [errors, setErrors] = useState<ContactFormErrors>({})
   const [status, setStatus] = useState<Status>('idle')
   const [statusMessage, setStatusMessage] = useState<string>('')
+  /* Cresce a ogni invio non riuscito: anche se messaggio e stato restano
+   * uguali (secondo invio ancora con errori), l'effetto qui sotto riparte e
+   * il focus torna sull'avviso, che viene riletto (WCAG 3.3.1, 4.1.3). */
+  const [failedAttempts, setFailedAttempts] = useState(0)
   const firstErrorRef = useRef<HTMLDivElement>(null)
+  const successHeadingRef = useRef<HTMLHeadingElement>(null)
 
   /* Moves focus to the error banner once it actually renders — calling
    * `.focus()` synchronously right after `setStatus('error')` would target
@@ -57,7 +63,16 @@ export function ContactForm({
     if (status === 'error') {
       firstErrorRef.current?.focus()
     }
-  }, [status, statusMessage])
+  }, [status, statusMessage, failedAttempts])
+
+  /* Dopo l'invio il modulo sparisce: il focus va sul titolo della conferma,
+   * altrimenti resterebbe sul `body` e la conferma potrebbe non essere letta
+   * (una regione live che nasce già piena spesso non viene annunciata). */
+  useEffect(() => {
+    if (status === 'success') {
+      successHeadingRef.current?.focus()
+    }
+  }, [status])
 
   function updateField<K extends keyof ContactFormValues>(
     field: K,
@@ -81,6 +96,7 @@ export function ContactForm({
       setErrors(nextErrors)
       setStatus('error')
       setStatusMessage('Controlla i campi evidenziati e riprova.')
+      setFailedAttempts((n) => n + 1)
       return
     }
 
@@ -102,6 +118,7 @@ export function ContactForm({
       if (!response.ok || !body.ok) {
         setErrors(body.errors ?? {})
         setStatus('error')
+        setFailedAttempts((n) => n + 1)
         setStatusMessage(
           body.message ?? 'Invio non riuscito. Riprova più tardi.'
         )
@@ -110,9 +127,10 @@ export function ContactForm({
 
       setStatus('success')
       setStatusMessage('Richiesta inviata: ti risponderemo il prima possibile.')
-      setValues(EMPTY_VALUES)
+      setValues(emptyValues(course.title))
     } catch {
       setStatus('error')
+      setFailedAttempts((n) => n + 1)
       setStatusMessage(
         'Impossibile contattare il server. Controlla la connessione e riprova.'
       )
@@ -132,7 +150,11 @@ export function ContactForm({
         >
           <CheckCircle2 className="size-7" />
         </span>
-        <h3 className="font-heading text-xl font-bold text-neutral-950">
+        <h3
+          ref={successHeadingRef}
+          tabIndex={-1}
+          className="rounded-md font-heading text-xl font-bold text-neutral-950 outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        >
           Richiesta inviata
         </h3>
         <p className="max-w-sm text-sm text-neutral-600">{statusMessage}</p>
@@ -149,14 +171,17 @@ export function ContactForm({
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+      <p className="text-sm text-neutral-600">
+        I campi con * sono obbligatori.
+      </p>
+
       {status === 'error' && (
         <Alert
           ref={firstErrorRef}
           tone="error"
           icon={<AlertCircle className="size-4" />}
-          aria-live="assertive"
           tabIndex={-1}
-          className="outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+          className="outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         >
           {statusMessage}
         </Alert>
@@ -214,18 +239,15 @@ export function ContactForm({
         </FormField>
       </div>
 
-      <FormField
-        label="Corso o area di interesse"
-        hint="Facoltativo — ci aiuta a risponderti più velocemente"
-        error={errors.courseInterest}
-      >
+      <FormField label="Corso" hint="Precompilato dalla pagina del corso">
+        {/* `readOnly` nativo, senza `aria-readonly`: come in `OrderForm`,
+         * l'attributo HTML è già esposto nell'albero di accessibilità. */}
         {(field) => (
-          <Select
+          <Input
             {...field}
-            value={values.courseInterest}
-            onValueChange={(value) => updateField('courseInterest', value)}
-            placeholder="Seleziona un corso…"
-            items={courseOptions}
+            value={course.title}
+            readOnly
+            className="bg-neutral-50 text-neutral-700"
           />
         )}
       </FormField>
@@ -236,7 +258,7 @@ export function ContactForm({
             {...field}
             value={values.message}
             onChange={(e) => updateField('message', e.target.value)}
-            placeholder="Raccontaci le tue esigenze formative…"
+            placeholder="Scrivici cosa vuoi sapere sul corso…"
             rows={5}
           />
         )}

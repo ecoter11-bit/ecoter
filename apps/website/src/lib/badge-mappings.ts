@@ -2,24 +2,17 @@ import { Building2, Monitor, Combine, Home } from 'lucide-react'
 import type { BadgeColor } from '@ecoter/ui'
 
 /**
- * Category → Badge color, mapped onto the Decision 018 macro-category
- * palette (`@ecoter/tokens` `categoryColors`). Since 2.3 the catalog slugs
- * match the macro-categories 1:1 — no more consolidation needed here:
- *
- * - sicurezza               → `blue`  (D.Lgs. 81/08, RSPP/ASPP, attrezzature, lavori elettrici)
- * - ambiente                → `brand` (the rebrand's green)
- * - benessere-psico-sociale → `amber` (sportello di ascolto, coaching psicologico, assessment)
- *
- * `amber` is shared with `featuredBadgeColor` below — a
- * benessere-psico-sociale course marked "in evidenza" renders two amber
- * badges side by side. Label text (never color alone, WCAG 1.4.1) keeps
- * both badges distinguishable regardless. See
- * packages/ui/src/badge.stories.tsx "Uso nel catalogo".
+ * Category → Badge color. MODIFICHE del 29/09/2026: tutto il catalogo sta
+ * sul verde della home, quindi le tre aree usano `brand` (prima, con la
+ * palette per area della Decision 018, Sicurezza era `blue` e Benessere
+ * psico-sociale `amber`). Le aree restano distinte dal testo del badge, mai
+ * dal solo colore (WCAG 1.4.1). Stessa scelta in `categoryIconColor`
+ * (category-ui.ts).
  */
 export const categoryBadgeColor: Record<string, BadgeColor> = {
-  sicurezza: 'blue',
+  sicurezza: 'brand',
   ambiente: 'brand',
-  'benessere-psico-sociale': 'amber',
+  'benessere-psico-sociale': 'brand',
 }
 
 export const categoryBadgeLabel: Record<string, string> = {
@@ -48,7 +41,8 @@ export const levelBadgeLabel: Record<string, string> = {
   avanzato: 'Avanzato',
 }
 
-export const featuredBadgeColor: BadgeColor = 'amber'
+/** Verde anche "In evidenza" (29/09/2026): nella scheda del corso era l'ultimo badge giallo del catalogo. */
+export const featuredBadgeColor: BadgeColor = 'brand'
 export const featuredBadgeLabel = 'In evidenza'
 
 /** Modality → icon/label, shared by CourseCard and the course detail page's meta rows. */

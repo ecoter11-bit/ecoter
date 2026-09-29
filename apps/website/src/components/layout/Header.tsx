@@ -29,14 +29,14 @@ function useSearchShortcutLabel(): string {
 }
 
 /**
- * Header del sito (MODIFICHE del 23 e del 24/09/2026).
+ * Header del sito (MODIFICHE del 23, del 24 e del 29/09/2026).
  * - Sempre staccato dalla pagina: bordo e ombra fissi, non solo quando si
  *   scorre.
- * - Voci da `mainNav`: Calendario corsi · Formazione su misura · Chi Siamo
- *   · FAQ · Contatti (niente più "Corsi" e mega menu), le stesse del
- *   menu mobile. La voce della pagina corrente è sottolineata, non solo
+ * - Voci da `mainNav`: Formazione su misura · Chi Siamo · FAQ · Contatti
+ *   (niente più "Corsi" e mega menu; "Calendario corsi" tolto il 29/09),
+ *   le stesse del menu mobile. La voce della pagina corrente è sottolineata, non solo
  *   colorata (WCAG 1.4.1).
- * - Cinque voci stanno in riga solo da `xl` (1280px): sotto c'è il menu a
+ * - Le voci stanno in riga solo da `xl` (1280px): sotto c'è il menu a
  *   pannello (`MobileNav`), che così resta l'unico modo di navigare fino a
  *   1279px invece di una riga che va a capo.
  * - Ricerca vera sui corsi (`SearchDialog`), anche con Ctrl/⌘+K: bottone
@@ -119,7 +119,7 @@ export function Header() {
                 <Search className="size-3.5" aria-hidden="true" />
                 <span>Cerca corsi…</span>
                 {/* "Ctrl K" solo sotto `xl`: da `xl` quello spazio serve alle
-                    cinque voci del menu (a 1280px, con la barra di
+                    voci del menu (a 1280px, con la barra di
                     scorrimento classica di Windows, la riga ha ~1100px). La
                     scorciatoia funziona comunque ed è dichiarata in
                     `aria-keyshortcuts`. */}

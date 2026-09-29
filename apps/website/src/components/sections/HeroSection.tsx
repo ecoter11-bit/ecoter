@@ -9,7 +9,7 @@ import { AreaLinkTile } from '@/components/catalog/AreaLinkTile'
 import { slideUp } from '@/components/motion/variants'
 import { areaHref } from '@/lib/catalog'
 import { categoryIcon, defaultCategoryIcon } from '@/lib/category-ui'
-import { AVAILABLE_COURSES_PATH } from '@/config/nav'
+import { CALENDAR_PATH } from '@/config/nav'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 import type { Category } from '@/types'
@@ -43,13 +43,43 @@ export function HeroSection({ areas }: Props) {
         <HeroMesh />
       </div>
 
-      <Container className="relative py-20 lg:py-32">
+      <Container className="relative pt-6 pb-20 lg:pt-8 lg:pb-32">
         <motion.div
           variants={heroContainer}
           initial="hidden"
           animate="visible"
           className="text-center"
         >
+          {/*
+            Uscita verso la casa madre in alto a destra (MODIFICHE del
+            29/09/2026; prima era sotto i bottoni della hero). Sta nel flusso
+            della pagina e non sopra il titolo: sul telefono non copre nulla,
+            e viene letta per prima come si vede per prima. Bordo verde di 2px
+            e scritta semibold come prima; nuova scheda, con lo stesso avviso
+            per screen reader del link nel footer.
+          */}
+          <motion.div
+            variants={slideUp}
+            className="mb-8 flex justify-end lg:mb-14"
+          >
+            <a
+              href={siteConfig.parentSite}
+              target="_blank"
+              rel="noopener"
+              className={cn(
+                buttonVariants({ variant: 'outline-brand' }),
+                'h-11 gap-2 border-2 px-4 text-base font-semibold sm:px-5'
+              )}
+            >
+              Visita il sito di ECO-TER
+              <ExternalLink className="size-4" aria-hidden="true" />
+              <span className="sr-only">
+                {' '}
+                (si apre in una nuova scheda, sito ECO-TER Srl)
+              </span>
+            </a>
+          </motion.div>
+
           <motion.p variants={slideUp} className="mb-5 text-brand-600 overline">
             Formazione Professionale Accreditata
           </motion.p>
@@ -112,48 +142,25 @@ export function HeroSection({ areas }: Props) {
           </motion.ul>
 
           {/*
-            Due bottoni in colonna, larghi uguali (`inline-grid`: la colonna
-            prende la larghezza del più lungo; `px-4` sotto `sm` perché a
-            320px la colonna stia nei 288px utili). Sopra "Visita il catalogo"
-            (richiesta del 28/09/2026), verde pieno come i bottoni delle aree
-            (il giallo della prima versione è stato scartato il 29/09), verso
-            la pagina dei corsi disponibili, per ora "in arrivo". Il suo bordo
-            di 2px è dello stesso verde del fondo, anche all'hover: trasparente
-            lascerebbe vedere un filo di pagina (il `Button` ha
-            `bg-clip-padding`) e il verde sembrerebbe più stretto del bottone
-            sotto. Sotto l'uscita verso la casa madre: bordo verde di 2px,
-            scritta a 18px, nuova scheda, stesso avviso per screen reader del
-            link nel footer.
+            "Calendario corsi" (MODIFICHE del 29/09/2026) al posto di "Visita
+            il catalogo": stesso posto e stesso verde pieno dei bottoni delle
+            aree, verso il calendario delle prossime edizioni (per ora "date
+            in arrivo"). Il bordo di 2px è dello stesso verde del fondo, anche
+            all'hover: trasparente lascerebbe vedere un filo di pagina (il
+            `Button` ha `bg-clip-padding`). `px-4` sotto `sm` perché a 320px
+            stia nei 288px utili.
           */}
           <motion.div variants={slideUp} className="mt-10">
-            <div className="inline-grid gap-3">
-              <Link
-                href={AVAILABLE_COURSES_PATH}
-                className={cn(
-                  buttonVariants({ variant: 'default' }),
-                  'h-14 gap-2.5 border-2 border-primary px-4 text-lg font-semibold hover:border-brand-700 sm:px-8'
-                )}
-              >
-                Visita il catalogo
-                <ArrowRight className="size-5" aria-hidden="true" />
-              </Link>
-              <a
-                href={siteConfig.parentSite}
-                target="_blank"
-                rel="noopener"
-                className={cn(
-                  buttonVariants({ variant: 'outline-brand' }),
-                  'h-14 gap-2.5 border-2 px-4 text-lg font-semibold sm:px-8'
-                )}
-              >
-                Visita il sito di ECO-TER
-                <ExternalLink className="size-5" aria-hidden="true" />
-                <span className="sr-only">
-                  {' '}
-                  (si apre in una nuova scheda, sito ECO-TER Srl)
-                </span>
-              </a>
-            </div>
+            <Link
+              href={CALENDAR_PATH}
+              className={cn(
+                buttonVariants({ variant: 'default' }),
+                'h-14 gap-2.5 border-2 border-primary px-4 text-lg font-semibold hover:border-brand-700 sm:px-8'
+              )}
+            >
+              Calendario corsi
+              <ArrowRight className="size-5" aria-hidden="true" />
+            </Link>
           </motion.div>
         </motion.div>
       </Container>

@@ -6,7 +6,6 @@ import {
   AziendeComeLavoriamoSection,
   AziendeAmbitiSection,
   AziendePercheSection,
-  CtaFinaleSection,
 } from '@/components/sections'
 import { absoluteUrl } from '@/lib/utils'
 
@@ -36,7 +35,6 @@ export default function SoluzioniAziendePage() {
       <AziendeComeLavoriamoSection />
       <AziendeAmbitiSection categories={categories} />
       <AziendePercheSection />
-      <CtaFinaleSection />
     </>
   )
 }
