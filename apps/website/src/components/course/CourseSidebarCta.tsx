@@ -59,15 +59,19 @@ export function CourseSidebarCta({ course, className }: Props) {
       </div>
 
       <div className="mt-6 flex flex-col gap-2.5 border-t border-neutral-100 pt-5">
+        {/* Modulo con il corso già indicato (MODIFICHE del 29/09/2026:
+         * Contatti non ha più il modulo). */}
         <Link
-          href={`/contatti?corso=${course.slug}`}
+          href={`/richiedi-informazioni?corso=${course.slug}`}
           className={cn(
             buttonVariants({ variant: 'default' }),
-            'h-12 w-full gap-2 px-6 text-base font-semibold'
+            // Etichetta lunga: sotto i ~360px di schermo va su due righe
+            // invece di allargare la card oltre lo schermo.
+            'h-auto min-h-12 w-full gap-2 px-4 py-2.5 text-center text-base font-semibold whitespace-normal'
           )}
         >
-          <Mail className="size-4" aria-hidden="true" />
-          Richiedi informazioni
+          <Mail className="size-4 shrink-0" aria-hidden="true" />
+          Richiedi informazioni sul corso
         </Link>
 
         {/* Secondo CTA = richiesta d'acquisto, non un secondo canale di

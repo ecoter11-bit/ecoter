@@ -15,6 +15,10 @@ export const siteSettingsSchema = z.object({
   url: z.string(),
   email: z.string(),
   phone: z.string(),
+  /** Numeri diretti mostrati su /contatti accanto a `phone` (MODIFICHE del 29/09/2026): commerciale e responsabile della formazione. */
+  contactPhones: z
+    .array(z.object({ label: z.string(), number: z.string() }))
+    .default([]),
   address: siteAddressSchema,
   hours: z.string().optional(),
   vatNumber: z.string().optional(),

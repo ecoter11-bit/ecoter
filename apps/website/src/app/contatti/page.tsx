@@ -1,34 +1,34 @@
 import type { Metadata } from 'next'
 import { Mail, Phone, MapPin, Clock, AlertTriangle } from 'lucide-react'
 import { Alert } from '@ecoter/ui'
-import { getAllCourses, getSiteSettings } from '@/lib/content'
+import { getSiteSettings } from '@/lib/content'
 import { Container } from '@/components/layout'
-import { ContactForm } from '@/components/contact/ContactForm'
-import { absoluteUrl } from '@/lib/utils'
+import { absoluteUrl, telHref } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Contatti',
   description:
-    'Richiedi informazioni sui corsi ECO-TER Academy: form dedicato, telefono, email e sede. Ti rispondiamo il prima possibile.',
+    'I recapiti di ECO-TER Academy: commerciale, responsabile della formazione, email e sede a Pianoro (BO).',
   alternates: {
     canonical: absoluteUrl('/contatti'),
   },
 }
 
-type Props = {
-  searchParams: Promise<{ corso?: string }>
-}
-
-export default async function ContattiPage({ searchParams }: Props) {
-  const { corso } = await searchParams
+/**
+ * Contatti (MODIFICHE del 29/09/2026): solo i recapiti, nessun modulo. Chi
+ * vuole informazioni su un corso le chiede dalla scheda del corso, che porta
+ * al modulo di /richiedi-informazioni (i vecchi link `/contatti?corso=…`
+ * rimandano lì, vedi `next.config.ts`).
+ *
+ * In cima i numeri diretti (commerciale e responsabile della formazione),
+ * poi il numero dell'ufficio, l'email e gli orari; a lato la sede.
+ */
+export default function ContattiPage() {
   const settings = getSiteSettings()
 
-  const courseOptions = [
-    { label: 'Nessuno in particolare', value: '' },
-    ...getAllCourses({ status: 'published' }).map((course) => ({
-      label: course.title,
-      value: course.slug,
-    })),
+  const phones = [
+    ...settings.contactPhones,
+    { label: 'Ufficio', number: settings.phone },
   ]
 
   const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
@@ -45,8 +45,7 @@ export default async function ContattiPage({ searchParams }: Props) {
             Contatti
           </h1>
           <p className="mt-4 max-w-xl text-lg text-pretty text-neutral-600">
-            Raccontaci le esigenze formative della tua organizzazione: ti
-            risponderemo con un percorso su misura entro un giorno lavorativo.
+            Chiamaci o scrivici: ti rispondiamo entro un giorno lavorativo.
           </p>
         </Container>
       </div>
@@ -64,88 +63,84 @@ export default async function ContattiPage({ searchParams }: Props) {
             </Alert>
           )}
 
-          <div className="grid gap-10 lg:grid-cols-[1fr_360px] lg:gap-12">
-            {/* Form */}
+          <div className="grid gap-6 lg:grid-cols-[1fr_360px] lg:gap-8">
+            {/* Telefono, email, orari */}
             <div className="min-w-0 rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm lg:p-8">
-              <h2 className="mb-6 font-heading text-2xl font-bold text-neutral-950">
-                Richiedi informazioni
+              <h2 className="mb-6 flex items-center gap-2.5 font-heading text-2xl font-bold text-neutral-950">
+                <Phone
+                  className="size-5 shrink-0 text-brand-600"
+                  aria-hidden="true"
+                />
+                Chiamaci
               </h2>
-              <ContactForm
-                courseOptions={courseOptions}
-                initialCourseSlug={corso}
-                privacyPolicyHref={settings.privacyPolicy}
-              />
+              {/* Una riga per numero (etichetta a sinistra, numero a destra)
+                  fino a `xl`, dove i tre numeri stanno affiancati: con due
+                  colonne il terzo restava solo sulla seconda riga. */}
+              <dl className="grid gap-4 xl:grid-cols-3 xl:gap-5">
+                {phones.map((phone) => (
+                  <div
+                    key={phone.number}
+                    className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 xl:block"
+                  >
+                    <dt className="text-sm text-neutral-600">{phone.label}</dt>
+                    <dd className="xl:mt-1">
+                      <a
+                        href={telHref(phone.number)}
+                        className="font-heading text-lg font-semibold whitespace-nowrap text-neutral-950 underline decoration-brand-600/40 underline-offset-4 hover:text-brand-700 hover:decoration-brand-700"
+                      >
+                        {phone.number}
+                      </a>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+
+              <div className="mt-8 border-t border-neutral-100 pt-8">
+                <h2 className="mb-4 flex items-center gap-2.5 font-heading text-2xl font-bold text-neutral-950">
+                  <Mail
+                    className="size-5 shrink-0 text-brand-600"
+                    aria-hidden="true"
+                  />
+                  Scrivici
+                </h2>
+                <a
+                  href={`mailto:${settings.email}`}
+                  className="font-heading text-lg font-semibold break-all text-neutral-950 underline decoration-brand-600/40 underline-offset-4 hover:text-brand-700 hover:decoration-brand-700"
+                >
+                  {settings.email}
+                </a>
+              </div>
+
+              {settings.hours && (
+                <p className="mt-8 flex items-start gap-2.5 text-sm text-neutral-600">
+                  <Clock
+                    className="mt-0.5 size-4 shrink-0 text-brand-600"
+                    aria-hidden="true"
+                  />
+                  <span>
+                    <span className="sr-only">Orari: </span>
+                    {settings.hours}
+                  </span>
+                </p>
+              )}
             </div>
 
-            {/* Recapiti + mappa statica */}
+            {/* Sede + mappa statica */}
             <div className="flex flex-col gap-6">
               <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
-                <h2 className="mb-5 font-heading text-lg font-bold text-neutral-950">
-                  Recapiti
+                <h2 className="mb-4 flex items-center gap-2.5 font-heading text-lg font-bold text-neutral-950">
+                  <MapPin
+                    className="size-4 shrink-0 text-brand-600"
+                    aria-hidden="true"
+                  />
+                  Sede
                 </h2>
-                <div className="space-y-4 text-sm text-neutral-600">
-                  <div className="flex items-start gap-2.5">
-                    <MapPin
-                      className="mt-0.5 size-4 shrink-0 text-brand-600"
-                      aria-hidden="true"
-                    />
-                    <dl>
-                      <dt className="sr-only">Indirizzo</dt>
-                      <dd>
-                        {settings.address.street}
-                        <br />
-                        {settings.address.cap} {settings.address.city} (
-                        {settings.address.province})
-                      </dd>
-                    </dl>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <Phone
-                      className="size-4 shrink-0 text-brand-600"
-                      aria-hidden="true"
-                    />
-                    <dl>
-                      <dt className="sr-only">Telefono</dt>
-                      <dd>
-                        <a
-                          href={`tel:${settings.phone.replace(/\s+/g, '')}`}
-                          className="hover:text-brand-700"
-                        >
-                          {settings.phone}
-                        </a>
-                      </dd>
-                    </dl>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <Mail
-                      className="size-4 shrink-0 text-brand-600"
-                      aria-hidden="true"
-                    />
-                    <dl>
-                      <dt className="sr-only">Email</dt>
-                      <dd>
-                        <a
-                          href={`mailto:${settings.email}`}
-                          className="hover:text-brand-700"
-                        >
-                          {settings.email}
-                        </a>
-                      </dd>
-                    </dl>
-                  </div>
-                  {settings.hours && (
-                    <div className="flex items-start gap-2.5">
-                      <Clock
-                        className="mt-0.5 size-4 shrink-0 text-brand-600"
-                        aria-hidden="true"
-                      />
-                      <dl>
-                        <dt className="sr-only">Orari</dt>
-                        <dd>{settings.hours}</dd>
-                      </dl>
-                    </div>
-                  )}
-                </div>
+                <address className="text-sm text-neutral-600 not-italic">
+                  {settings.address.street}
+                  <br />
+                  {settings.address.cap} {settings.address.city} (
+                  {settings.address.province})
+                </address>
               </div>
 
               {/* Riquadro statico — nessuna dipendenza esterna/API key richiesta */}
@@ -165,6 +160,10 @@ export default async function ContattiPage({ searchParams }: Props) {
                 />
                 <span className="relative text-sm font-semibold">
                   Apri in Google Maps
+                  <span className="sr-only">
+                    {' '}
+                    (si apre in una nuova scheda)
+                  </span>
                 </span>
               </a>
             </div>

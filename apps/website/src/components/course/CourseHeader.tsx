@@ -47,7 +47,9 @@ export function CourseHeader({ course }: Props) {
             )
           })}
           {course.featured && (
-            <Badge color={featuredBadgeColor}>{featuredBadgeLabel}</Badge>
+            <Badge variant="solid" color={featuredBadgeColor}>
+              {featuredBadgeLabel}
+            </Badge>
           )}
         </div>
 

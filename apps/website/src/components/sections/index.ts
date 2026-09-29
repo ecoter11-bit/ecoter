@@ -1,6 +1,5 @@
 export { HeroSection } from './HeroSection'
 export { FaqAccordionSection } from './FaqAccordionSection'
-export { CtaFinaleSection } from './CtaFinaleSection'
 export { ChiSiamoHeroSection } from './ChiSiamoHeroSection'
 export { ChiSiamoStorySection } from './ChiSiamoStorySection'
 export { MissioneAcademySection } from './MissioneAcademySection'

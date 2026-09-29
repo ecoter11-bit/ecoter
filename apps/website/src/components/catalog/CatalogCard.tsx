@@ -27,7 +27,7 @@ type Props = {
   /** Corsi pubblicati raggiungibili da questa card. */
   count: number
   icon: LucideIcon
-  /** Colore dell'area (Decision 018): Sicurezza e sotto-aree `blue`, Ambiente `brand`, Benessere `amber`. */
+  /** Colore dell'area, da `categoryIconColor`: dal 29/09/2026 `brand` (verde) per tutte le aree. */
   color: IconCircleColor
   /** Etichetta visiva della freccia in fondo (decorativa: il nome del link è il titolo). */
   ctaLabel?: string

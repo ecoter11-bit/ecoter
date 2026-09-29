@@ -14,10 +14,9 @@ type Props = {
  * ricerca del sito.
  *
  * Tre colonne solo da 1280px: fra 1024 e 1279px la terza colonna stringe le
- * card tanto che il titolo, tagliato a due righe, perde la parte che
- * distingue i corsi della stessa famiglia ("… – Base / Avanzato /
- * Estensivo", "… – 48h / 16h"), che qui stanno uno accanto all'altro.
- * Il badge d'area è nascosto: l'elenco contiene una sola area.
+ * card tanto che i titoli lunghi vanno a capo su quattro o cinque righe, e i
+ * corsi della stessa famiglia ("… – Base / Avanzato / Estensivo", "… – 48h
+ * / 16h") si distinguono solo in fondo al titolo.
  */
 export function CatalogCourseGrid({ courses, heading }: Props) {
   return (
@@ -34,7 +33,7 @@ export function CatalogCourseGrid({ courses, heading }: Props) {
           <ul role="list" className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {courses.map((course) => (
               <li key={course.slug}>
-                <CourseCard course={course} showCategoryBadge={false} />
+                <CourseCard course={course} />
               </li>
             ))}
           </ul>

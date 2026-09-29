@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { FaqAccordionSection, CtaFinaleSection } from '@/components/sections'
+import Link from 'next/link'
+import { FaqAccordionSection } from '@/components/sections'
 import { Container } from '@/components/layout'
 import { FAQS } from '@/lib/content/faq'
 import { buildFaqJsonLd } from '@/lib/seo/faq-schema'
@@ -33,14 +34,19 @@ export default function FaqPage() {
           </h1>
           <p className="mt-4 max-w-xl text-lg text-pretty text-neutral-600">
             Le risposte alle domande che ci vengono poste più spesso su corsi,
-            attestati e modalità di erogazione. Non trovi quello che cerchi?
-            Scrivici.
+            attestati e modalità di erogazione. Non trovi quello che cerchi?{' '}
+            <Link
+              href="/contatti"
+              className="font-medium text-brand-700 underline underline-offset-4 hover:text-brand-800"
+            >
+              Scrivici
+            </Link>
+            .
           </p>
         </Container>
       </div>
 
       <FaqAccordionSection />
-      <CtaFinaleSection />
     </>
   )
 }

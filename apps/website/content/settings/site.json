@@ -5,6 +5,16 @@
   "url": "https://ecoteracademy.it",
   "email": "academy@eco-ter.com",
   "phone": "+39 051 4690064",
+  "contactPhones": [
+    {
+      "label": "Commerciale",
+      "number": "+39 345 369 2048"
+    },
+    {
+      "label": "Responsabile formazione",
+      "number": "+39 370 366 3339"
+    }
+  ],
   "address": {
     "street": "Via del Lavoro, 2",
     "city": "Pianoro",

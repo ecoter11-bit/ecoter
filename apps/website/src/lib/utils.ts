@@ -90,3 +90,8 @@ export function formatCourseDuration(duration: Course['duration']): string {
       : ['giorno', 'giorni']
   return `${duration.hours}h · ${duration.days} ${pluralize(duration.days, singular, plural)}`
 }
+
+/** Numero di telefono → link `tel:` ("+39 345 369 2048" → "tel:+393453692048"). */
+export function telHref(number: string): string {
+  return `tel:${number.replace(/\s+/g, '')}`
+}
