@@ -41,6 +41,17 @@ export const levelBadgeLabel: Record<string, string> = {
   avanzato: 'Avanzato',
 }
 
+/**
+ * Aree in cui si mostra il badge del livello (MODIFICHE del 30/09/2026):
+ * solo Benessere psico-sociale. Sugli altri corsi il livello resta nei
+ * contenuti ma non compare.
+ */
+const LEVEL_BADGE_CATEGORIES = new Set(['benessere-psico-sociale'])
+
+export function levelBadgeShownFor(category: string): boolean {
+  return LEVEL_BADGE_CATEGORIES.has(category)
+}
+
 /** Verde anche "In evidenza" (29/09/2026): nella scheda del corso era l'ultimo badge giallo del catalogo. */
 export const featuredBadgeColor: BadgeColor = 'brand'
 export const featuredBadgeLabel = 'In evidenza'
