@@ -10,7 +10,6 @@ import {
 import {
   getCourse,
   getAllCourseSlugs,
-  getCoursesByCategory,
   getCategory,
   getSubcategory,
 } from '@/lib/content'
@@ -23,8 +22,6 @@ import { CourseHeader } from '@/components/course/CourseHeader'
 import { CourseMdxContent } from '@/components/course/CourseMdxContent'
 import { CourseCurriculum } from '@/components/course/CourseCurriculum'
 import { CourseSidebarCta } from '@/components/course/CourseSidebarCta'
-import { RelatedCourses } from '@/components/course/RelatedCourses'
-import type { Course } from '@/types'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -81,11 +78,6 @@ export default async function CourseDetailPage({ params }: Props) {
   const subcategory = course.subcategory
     ? getSubcategory(course.subcategory)
     : undefined
-
-  const related = getCoursesByCategory(course.category)
-    .filter((c) => c.slug !== course.slug)
-    .slice(0, 3)
-    .map(({ body: _b, ...rest }) => rest as Course)
 
   const jsonLd = buildCourseJsonLd(course)
   const hasAudienceOrPrereqs =
@@ -301,8 +293,6 @@ export default async function CourseDetailPage({ params }: Props) {
           </div>
         </Container>
       </div>
-
-      <RelatedCourses courses={related} categoryLabel={categoryDisplayName} />
     </>
   )
 }

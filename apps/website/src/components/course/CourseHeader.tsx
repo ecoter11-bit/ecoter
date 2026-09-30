@@ -9,6 +9,7 @@ import {
   featuredBadgeLabel,
   levelBadgeColor,
   levelBadgeLabel,
+  levelBadgeShownFor,
   modalityIcon,
   modalityLabel,
 } from '@/lib/badge-mappings'
@@ -22,6 +23,10 @@ export function CourseHeader({ course }: Props) {
   const categoryColor =
     categoryBadgeColor[course.category] ?? defaultCategoryBadgeColor
   const levelColor = levelBadgeColor[course.level] ?? 'neutral'
+  /* MODIFICHE del 30/09/2026: il livello (Base / Intermedio / Avanzato) si
+   * mostra solo sui servizi di Benessere psico-sociale, dove distingue
+   * percorsi diversi dello stesso servizio; sugli altri corsi è tolto. */
+  const showLevel = levelBadgeShownFor(course.category)
   const primaryNorm = course.normativeRef?.[0]
 
   return (
@@ -32,7 +37,9 @@ export function CourseHeader({ course }: Props) {
           <Badge color={categoryColor}>
             {categoryBadgeLabel[course.category] ?? course.category}
           </Badge>
-          <Badge color={levelColor}>{levelBadgeLabel[course.level]}</Badge>
+          {showLevel && (
+            <Badge color={levelColor}>{levelBadgeLabel[course.level]}</Badge>
+          )}
           {course.modality.map((m) => {
             const Icon = modalityIcon[m] ?? Clock
             return (

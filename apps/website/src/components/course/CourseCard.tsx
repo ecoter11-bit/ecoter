@@ -18,7 +18,8 @@ type Props = {
 }
 
 /**
- * Card di un corso: elenchi del catalogo e "Altri corsi" della scheda.
+ * Card di un corso negli elenchi del catalogo (aree e sotto-aree). Dal
+ * 30/09/2026 la scheda del corso non suggerisce più "Altri corsi".
  *
  * MODIFICHE del 29/09/2026: solo il nome del corso e un bottone verde per
  * andare al corso — niente livello, durata, modalità, normativa né
