@@ -21,6 +21,8 @@ import { Container } from '@/components/layout'
 import { CatalogPageHeader } from '@/components/catalog/CatalogPageHeader'
 import { CatalogCard } from '@/components/catalog/CatalogCard'
 import { CatalogCourseGrid } from '@/components/catalog/CatalogCourseGrid'
+import { ButtonLinkCard } from '@/components/catalog/ButtonLinkCard'
+import { getPercorsi } from '@/config/percorsi'
 
 type Props = {
   params: Promise<{ area: string }>
@@ -64,8 +66,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 /**
  * Catalogo, secondo livello. Un'area divisa in sotto-aree (oggi solo
- * Sicurezza sul Lavoro) mostra le sotto-aree da scegliere; le altre mostrano
- * direttamente l'elenco dei loro corsi.
+ * Sicurezza sul Lavoro) mostra le sotto-aree da scegliere; un'area divisa in
+ * percorsi (oggi solo Benessere psico-sociale, MODIFICHE del 06/10/2026)
+ * mostra i bottoni dei percorsi, senza il conteggio dei corsi; le altre
+ * mostrano direttamente l'elenco dei loro corsi.
  */
 export default async function AreaPage({ params }: Props) {
   const { area } = await params
@@ -114,6 +118,41 @@ export default async function AreaPage({ params }: Props) {
                       subcategoryIcon[subarea.icon] ?? defaultSubcategoryIcon
                     }
                     color={color}
+                  />
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </section>
+      </>
+    )
+  }
+
+  const percorsi = getPercorsi(category.slug)
+  if (percorsi.length > 0) {
+    return (
+      <>
+        <CatalogPageHeader
+          overline="Area formativa"
+          title={category.name}
+          description={category.description}
+          breadcrumb={breadcrumb}
+        />
+        <section aria-labelledby="percorsi-heading" className="bg-neutral-25">
+          <Container className="py-10 lg:py-14">
+            <h2 id="percorsi-heading" className="sr-only">
+              Percorsi di {category.name}
+            </h2>
+            <ul
+              role="list"
+              className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+            >
+              {percorsi.map((percorso) => (
+                <li key={percorso.slug}>
+                  <ButtonLinkCard
+                    href={subareaHref(category.slug, percorso.slug)}
+                    title={percorso.title}
+                    ctaLabel="Vedi il percorso"
                   />
                 </li>
               ))}

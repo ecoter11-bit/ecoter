@@ -12,6 +12,7 @@ import {
 import { Container } from '@/components/layout'
 import { CatalogPageHeader } from '@/components/catalog/CatalogPageHeader'
 import { CatalogCard } from '@/components/catalog/CatalogCard'
+import { getPercorsi } from '@/config/percorsi'
 import { LegacyCatalogRedirect } from '@/components/catalog/LegacyCatalogRedirect'
 import { absoluteUrl } from '@/lib/utils'
 
@@ -54,7 +55,13 @@ export default function CatalogPage() {
                   href={areaHref(category.slug)}
                   title={category.name}
                   description={category.description}
-                  count={category.courseCount}
+                  /* Benessere psico-sociale è diviso in percorsi: niente
+                     conteggio dei corsi (MODIFICHE del 06/10/2026). */
+                  count={
+                    getPercorsi(category.slug).length > 0
+                      ? undefined
+                      : category.courseCount
+                  }
                   icon={categoryIcon[category.icon] ?? defaultCategoryIcon}
                   color={
                     categoryIconColor[category.slug] ?? defaultCategoryIconColor

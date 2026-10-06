@@ -24,8 +24,8 @@ type Props = {
   href: string
   title: string
   description: string
-  /** Corsi pubblicati raggiungibili da questa card. */
-  count: number
+  /** Corsi pubblicati raggiungibili da questa card (se manca, niente conteggio). */
+  count?: number
   icon: LucideIcon
   /** Colore dell'area, da `categoryIconColor`: dal 29/09/2026 `brand` (verde) per tutte le aree. */
   color: IconCircleColor
@@ -95,7 +95,7 @@ export function CatalogCard({
 
       <div className="mt-6 flex items-center justify-between gap-4 border-t border-neutral-100 pt-5">
         <span className="text-xs font-medium text-neutral-600">
-          {formatCourseCount(count)}
+          {count != null && formatCourseCount(count)}
         </span>
         <span
           className={cn(

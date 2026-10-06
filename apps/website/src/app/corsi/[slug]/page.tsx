@@ -15,6 +15,7 @@ import {
 } from '@/lib/content'
 import { absoluteUrl, cn } from '@/lib/utils'
 import { areaHref, subareaHref } from '@/lib/catalog'
+import { percorsoOfCourse } from '@/config/percorsi'
 import { buildCourseJsonLd } from '@/lib/seo/course-schema'
 import { categoryBadgeLabel } from '@/lib/badge-mappings'
 import { Breadcrumb, Container } from '@/components/layout'
@@ -78,6 +79,8 @@ export default async function CourseDetailPage({ params }: Props) {
   const subcategory = course.subcategory
     ? getSubcategory(course.subcategory)
     : undefined
+  /* Benessere psico-sociale: il corso è un livello di un percorso. */
+  const percorso = percorsoOfCourse(course)
 
   const jsonLd = buildCourseJsonLd(course)
   const hasAudienceOrPrereqs =
@@ -108,6 +111,14 @@ export default async function CourseDetailPage({ params }: Props) {
                     {
                       label: subcategory.name,
                       href: subareaHref(course.category, subcategory.slug),
+                    },
+                  ]
+                : []),
+              ...(percorso
+                ? [
+                    {
+                      label: percorso.title,
+                      href: subareaHref(course.category, percorso.slug),
                     },
                   ]
                 : []),

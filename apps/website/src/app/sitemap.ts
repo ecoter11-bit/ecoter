@@ -6,6 +6,7 @@ import {
   getAllSubcategories,
 } from '@/lib/content'
 import { areaHref, subareaHref } from '@/lib/catalog'
+import { PERCORSI } from '@/config/percorsi'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url
@@ -87,6 +88,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   )
 
+  const percorsoRoutes: MetadataRoute.Sitemap = PERCORSI.map((percorso) => ({
+    url: `${baseUrl}${subareaHref(percorso.area, percorso.slug)}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }))
+
   const courseRoutes: MetadataRoute.Sitemap = getAllCourses().map((course) => ({
     url: `${baseUrl}/corsi/${course.slug}`,
     lastModified: new Date(course.updatedAt),
@@ -94,5 +102,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticRoutes, ...areaRoutes, ...subareaRoutes, ...courseRoutes]
+  return [
+    ...staticRoutes,
+    ...areaRoutes,
+    ...subareaRoutes,
+    ...percorsoRoutes,
+    ...courseRoutes,
+  ]
 }
