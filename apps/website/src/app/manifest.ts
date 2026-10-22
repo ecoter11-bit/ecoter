@@ -8,10 +8,10 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: siteConfig.shortName,
     description: siteConfig.description,
     start_url: '/',
-    display: 'standalone',
+    // 'browser': il sito è una vetrina, Chrome non deve proporre "Installa app".
+    display: 'browser',
     background_color: neutral[25],
     theme_color: brand[500],
-    orientation: 'portrait-primary',
     icons: [
       {
         src: '/favicon/icon-192.png',
