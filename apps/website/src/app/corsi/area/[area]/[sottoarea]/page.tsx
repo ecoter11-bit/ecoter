@@ -64,10 +64,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const categoria = getCategory(area)
   if (percorso && categoria) {
     const title = `${percorso.title} – ${categoria.name}`
-    const description = livelli(percorso)[0]?.excerpt ?? categoria.description
     return buildPageMetadata({
       title,
-      description,
+      description: percorso.description,
       path: subareaHref(area, percorso.slug),
     })
   }

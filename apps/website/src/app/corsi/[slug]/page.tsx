@@ -13,9 +13,9 @@ import {
   getCategory,
   getSubcategory,
 } from '@/lib/content'
-import { cn } from '@/lib/utils'
+import { cn, formatCourseDuration } from '@/lib/utils'
 import { areaHref, subareaHref } from '@/lib/catalog'
-import { percorsoOfCourse } from '@/config/percorsi'
+import { levelLabel, percorsoOfCourse } from '@/config/percorsi'
 import { buildCourseJsonLd } from '@/lib/seo/course-schema'
 import { buildPageMetadata } from '@/lib/seo/page-metadata'
 import { serializeJsonLd } from '@/lib/seo/json-ld'
@@ -43,12 +43,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = course.seo.title ?? course.title
   const description = course.seo.description ?? course.excerpt
 
+  /* Livelli di un percorso di Benessere: stesso excerpt per tutti, quindi
+     livello e durata in coda alla description ("Livello Base: 5 incontri da
+     50 minuti."), dagli stessi dati che la pagina mostra. */
+  const percorso = percorsoOfCourse(course)
+  const livello = percorso ? levelLabel(course.title) : undefined
+  const durata = formatCourseDuration(course.duration)
+  const fullDescription = percorso
+    ? `${description} ${livello ? `Livello ${livello}` : 'Durata'}: ${durata}.`
+    : description
+
   return {
     ...buildPageMetadata({
       title,
-      description,
+      description: fullDescription,
       path: `/corsi/${course.slug}`,
       type: 'article',
+      // Oltre 60 caratteri il " | ECO-TER Academy" verrebbe troncato nei
+      // risultati di ricerca: il nome del sito resta in og:site_name.
+      absoluteTitle: title.length > 60,
     }),
     keywords:
       course.seo.keywords && course.seo.keywords.length > 0
