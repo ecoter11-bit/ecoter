@@ -7,7 +7,7 @@ import {
   AziendeAmbitiSection,
   AziendePercheSection,
 } from '@/components/sections'
-import { absoluteUrl } from '@/lib/utils'
+import { buildPageMetadata } from '@/lib/seo/page-metadata'
 
 /*
  * "Formazione su misura": prima "Soluzioni Aziendali", poi "Aziende e
@@ -17,12 +17,12 @@ import { absoluteUrl } from '@/lib/utils'
  * link e indicizzazione non cambiano.
  */
 export const metadata: Metadata = {
-  title: 'Formazione su misura',
-  description:
-    'Formazione su misura per aziende e professionisti: analisi del fabbisogno, piani personalizzati, in sede, in aula o online, gestione completa di calendario, docenti e attestati.',
-  alternates: {
-    canonical: absoluteUrl('/soluzioni/aziende'),
-  },
+  ...buildPageMetadata({
+    title: 'Formazione su misura',
+    description:
+      'Formazione su misura per aziende e professionisti: analisi del fabbisogno, piani personalizzati, in sede, in aula o online, gestione completa di calendario, docenti e attestati.',
+    path: '/soluzioni/aziende',
+  }),
 }
 
 export default function SoluzioniAziendePage() {

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { buildSocialMetadata } from '@/lib/seo/page-metadata'
 import { siteConfig } from './site'
 
 export const defaultMetadata: Metadata = {
@@ -32,28 +33,13 @@ export const defaultMetadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  openGraph: {
-    type: 'website',
-    locale: siteConfig.locale,
+  // Valgono per la home: le altre pagine li ridefiniscono con
+  // `buildPageMetadata` (vedi `lib/seo/page-metadata.ts`).
+  ...buildSocialMetadata({
+    title: siteConfig.seo.defaultTitle,
+    description: siteConfig.seo.defaultDescription,
     url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: siteConfig.seo.defaultTitle,
-    description: siteConfig.seo.defaultDescription,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: siteConfig.seo.defaultTitle,
-    description: siteConfig.seo.defaultDescription,
-    images: [siteConfig.ogImage],
-  },
+  }),
   alternates: {
     canonical: siteConfig.url,
   },

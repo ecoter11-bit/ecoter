@@ -5,15 +5,16 @@ import { buttonVariants, IconCircle } from '@ecoter/ui'
 import { Container } from '@/components/layout'
 import { CatalogPageHeader } from '@/components/catalog/CatalogPageHeader'
 import { CATALOG_PATH } from '@/lib/catalog'
-import { absoluteUrl, cn } from '@/lib/utils'
+import { cn } from '@/lib/utils'
+import { buildPageMetadata } from '@/lib/seo/page-metadata'
 
 export const metadata: Metadata = {
-  title: 'Calendario corsi',
-  description:
-    'Le prossime edizioni dei corsi ECO-TER Academy. Le date sono in arrivo: scrivici per sapere quando parte il corso che ti interessa.',
-  alternates: {
-    canonical: absoluteUrl('/calendario-corsi'),
-  },
+  ...buildPageMetadata({
+    title: 'Calendario corsi',
+    description:
+      'Le prossime edizioni dei corsi ECO-TER Academy. Le date sono in arrivo: scrivici per sapere quando parte il corso che ti interessa.',
+    path: '/calendario-corsi',
+  }),
 }
 
 /**

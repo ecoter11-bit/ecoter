@@ -4,15 +4,15 @@ import { FaqAccordionSection } from '@/components/sections'
 import { Container } from '@/components/layout'
 import { FAQS } from '@/lib/content/faq'
 import { buildFaqJsonLd } from '@/lib/seo/faq-schema'
-import { absoluteUrl } from '@/lib/utils'
+import { buildPageMetadata } from '@/lib/seo/page-metadata'
 
 export const metadata: Metadata = {
-  title: 'FAQ',
-  description:
-    'Le risposte alle domande più frequenti su corsi, attestati, formazione in house e modalità di erogazione ECO-TER Academy.',
-  alternates: {
-    canonical: absoluteUrl('/faq'),
-  },
+  ...buildPageMetadata({
+    title: 'FAQ',
+    description:
+      'Le risposte alle domande più frequenti su corsi, attestati, formazione in house e modalità di erogazione ECO-TER Academy.',
+    path: '/faq',
+  }),
 }
 
 export default function FaqPage() {

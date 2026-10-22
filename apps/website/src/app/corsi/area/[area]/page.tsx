@@ -16,7 +16,7 @@ import {
 } from '@/lib/catalog'
 import { categoryIconColor, defaultCategoryIconColor } from '@/lib/category-ui'
 import { defaultSubcategoryIcon, subcategoryIcon } from '@/lib/subcategory-ui'
-import { absoluteUrl } from '@/lib/utils'
+import { buildPageMetadata } from '@/lib/seo/page-metadata'
 import { Container } from '@/components/layout'
 import { CatalogPageHeader } from '@/components/catalog/CatalogPageHeader'
 import { CatalogCard } from '@/components/catalog/CatalogCard'
@@ -50,17 +50,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? seoTitle
     : `${category.name} – ${seoTitle}`
   const description = category.seo.description ?? category.description
-  const url = absoluteUrl(areaHref(category.slug))
 
   return {
-    title,
-    description,
+    ...buildPageMetadata({ title, description, path: areaHref(category.slug) }),
     keywords:
       category.seo.keywords && category.seo.keywords.length > 0
         ? category.seo.keywords
         : undefined,
-    alternates: { canonical: url },
-    openGraph: { title, description, url },
   }
 }
 

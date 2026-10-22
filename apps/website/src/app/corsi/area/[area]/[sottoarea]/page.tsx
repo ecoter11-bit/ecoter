@@ -13,7 +13,7 @@ import {
   formatCourseCount,
   subareaHref,
 } from '@/lib/catalog'
-import { absoluteUrl } from '@/lib/utils'
+import { buildPageMetadata } from '@/lib/seo/page-metadata'
 import { CatalogPageHeader } from '@/components/catalog/CatalogPageHeader'
 import { CatalogCourseGrid } from '@/components/catalog/CatalogCourseGrid'
 import { PercorsoLivelli } from '@/components/catalog/PercorsoLivelli'
@@ -65,28 +65,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (percorso && categoria) {
     const title = `${percorso.title} – ${categoria.name}`
     const description = livelli(percorso)[0]?.excerpt ?? categoria.description
-    const url = absoluteUrl(subareaHref(area, percorso.slug))
-    return {
+    return buildPageMetadata({
       title,
       description,
-      alternates: { canonical: url },
-      openGraph: { title, description, url },
-    }
+      path: subareaHref(area, percorso.slug),
+    })
   }
   const resolved = resolve(area, sottoarea)
   if (!resolved) return {}
 
   const { subarea, category } = resolved
-  const title = `${subarea.name} – Corsi ${category.name}`
-  const description = subarea.description
-  const url = absoluteUrl(subareaHref(category.slug, subarea.slug))
-
-  return {
-    title,
-    description,
-    alternates: { canonical: url },
-    openGraph: { title, description, url },
-  }
+  return buildPageMetadata({
+    title: `${subarea.name} – Corsi ${category.name}`,
+    description: subarea.description,
+    path: subareaHref(category.slug, subarea.slug),
+  })
 }
 
 /**

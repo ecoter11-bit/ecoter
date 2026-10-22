@@ -6,15 +6,16 @@ import { getCourse, getSiteSettings } from '@/lib/content'
 import { Container } from '@/components/layout'
 import { ContactForm } from '@/components/contact/ContactForm'
 import { modalityIcon, modalityLabel } from '@/lib/badge-mappings'
-import { absoluteUrl, formatCourseDuration, telHref } from '@/lib/utils'
+import { formatCourseDuration, telHref } from '@/lib/utils'
+import { buildPageMetadata } from '@/lib/seo/page-metadata'
 
 export const metadata: Metadata = {
-  title: 'Richiedi informazioni sul corso',
-  description:
-    'Chiedi informazioni su un corso ECO-TER Academy: ti rispondiamo entro un giorno lavorativo.',
-  alternates: {
-    canonical: absoluteUrl('/richiedi-informazioni'),
-  },
+  ...buildPageMetadata({
+    title: 'Richiedi informazioni sul corso',
+    description:
+      'Chiedi informazioni su un corso ECO-TER Academy: ti rispondiamo entro un giorno lavorativo.',
+    path: '/richiedi-informazioni',
+  }),
   /* Come /ottieni-corso: ha senso solo raggiunta da una scheda
    * (`?corso=<slug>`), quindi resta fuori da Google e dalla sitemap. */
   robots: { index: false, follow: true },

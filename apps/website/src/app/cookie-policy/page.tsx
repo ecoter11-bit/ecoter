@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Prose, ProseColophon } from '@ecoter/ui'
 import { Container } from '@/components/layout'
-import { absoluteUrl } from '@/lib/utils'
+import { buildPageMetadata } from '@/lib/seo/page-metadata'
 
 /**
  * Testo legale approvato — stessa provenienza e stesse regole della
@@ -15,12 +15,12 @@ import { absoluteUrl } from '@/lib/utils'
 const LAST_UPDATED = '22 settembre 2026'
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy',
-  description:
-    'Il sito ECO-TER Academy utilizza esclusivamente cookie tecnici: nessun cookie di profilazione, marketing o analitico e nessun banner di consenso.',
-  alternates: {
-    canonical: absoluteUrl('/cookie-policy'),
-  },
+  ...buildPageMetadata({
+    title: 'Cookie Policy',
+    description:
+      'Il sito ECO-TER Academy utilizza esclusivamente cookie tecnici: nessun cookie di profilazione, marketing o analitico e nessun banner di consenso.',
+    path: '/cookie-policy',
+  }),
 }
 
 export default function CookiePolicyPage() {

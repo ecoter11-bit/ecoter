@@ -8,61 +8,57 @@ import {
 import { areaHref, subareaHref } from '@/lib/catalog'
 import { PERCORSI } from '@/config/percorsi'
 
+/**
+ * Niente `lastModified` per le pagine statiche e del catalogo: con
+ * `new Date()` ogni build le dichiarava tutte modificate. Le schede corso
+ * lo hanno solo se il frontmatter porta una data (`updatedAt`/`publishedAt`).
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${baseUrl}/corsi`,
-      lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/calendario-corsi`,
-      lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/soluzioni/aziende`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/faq`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/chi-siamo`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/contatti`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.2,
     },
     {
       url: `${baseUrl}/cookie-policy`,
-      lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.2,
     },
@@ -73,7 +69,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const areaRoutes: MetadataRoute.Sitemap = getAllCategories().map(
     (category) => ({
       url: `${baseUrl}${areaHref(category.slug)}`,
-      lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
     })
@@ -82,7 +77,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const subareaRoutes: MetadataRoute.Sitemap = getAllSubcategories().map(
     (subarea) => ({
       url: `${baseUrl}${subareaHref(subarea.parent, subarea.slug)}`,
-      lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.7,
     })
@@ -90,14 +84,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const percorsoRoutes: MetadataRoute.Sitemap = PERCORSI.map((percorso) => ({
     url: `${baseUrl}${subareaHref(percorso.area, percorso.slug)}`,
-    lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.7,
   }))
 
   const courseRoutes: MetadataRoute.Sitemap = getAllCourses().map((course) => ({
     url: `${baseUrl}/corsi/${course.slug}`,
-    lastModified: new Date(course.updatedAt),
+    lastModified: course.lastModified,
     changeFrequency: 'weekly',
     priority: 0.7,
   }))

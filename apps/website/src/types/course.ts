@@ -68,6 +68,12 @@ export type Course = {
   status: CourseStatus
   publishedAt: string
   updatedAt: string
+  /**
+   * Ultima modifica dichiarata nel frontmatter (`updatedAt`, altrimenti
+   * `publishedAt`). A differenza dei due campi sopra non ricade sulla data
+   * della build: senza date resta `undefined` e la sitemap omette il campo.
+   */
+  lastModified?: string
 }
 
 export type CourseCard = Pick<
