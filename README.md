@@ -1,6 +1,8 @@
 # ECO-TER Academy
 
-Monorepo del sito di formazione professionale accreditata ECO-TER Academy (sicurezza sul lavoro, qualità, ambiente, antincendio, management) — pnpm workspaces + Turborepo.
+Monorepo del sito di formazione professionale accreditata ECO-TER Academy (https://ecoteracademy.it) — pnpm workspaces + Turborepo. Le aree del catalogo sono tre: **Sicurezza sul Lavoro**, **Ambiente** e **Benessere psico-sociale**.
+
+Repository pubblico [`ecoter11-bit/ecoter`](https://github.com/ecoter11-bit/ecoter), pubblicato su Netlify: vedi [`DEPLOY.md`](./DEPLOY.md).
 
 ## Struttura
 
