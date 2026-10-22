@@ -48,6 +48,10 @@ yarn-error.log*
 # local QA screenshots (not committed)
 .qa/
 
+# Codex: copie locali di CLAUDE.md e .claude/skills (la fonte resta .claude/)
+/AGENTS.md
+/.agents/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
