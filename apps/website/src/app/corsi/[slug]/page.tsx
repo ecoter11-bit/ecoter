@@ -18,6 +18,7 @@ import { areaHref, subareaHref } from '@/lib/catalog'
 import { percorsoOfCourse } from '@/config/percorsi'
 import { buildCourseJsonLd } from '@/lib/seo/course-schema'
 import { buildPageMetadata } from '@/lib/seo/page-metadata'
+import { serializeJsonLd } from '@/lib/seo/json-ld'
 import { categoryBadgeLabel } from '@/lib/badge-mappings'
 import { Breadcrumb, Container } from '@/components/layout'
 import { CourseHeader } from '@/components/course/CourseHeader'
@@ -86,7 +87,7 @@ export default async function CourseDetailPage({ params }: Props) {
       {/* Trusted, build-time-generated JSON (Course frontmatter), not user input */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
 
       <div className="bg-white">
