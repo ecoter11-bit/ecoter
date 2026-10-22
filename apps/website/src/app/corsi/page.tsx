@@ -14,15 +14,15 @@ import { CatalogPageHeader } from '@/components/catalog/CatalogPageHeader'
 import { CatalogCard } from '@/components/catalog/CatalogCard'
 import { getPercorsi } from '@/config/percorsi'
 import { LegacyCatalogRedirect } from '@/components/catalog/LegacyCatalogRedirect'
-import { absoluteUrl } from '@/lib/utils'
+import { buildPageMetadata } from '@/lib/seo/page-metadata'
 
 export const metadata: Metadata = {
-  title: 'Catalogo Corsi',
-  description:
-    'Esplora il catalogo completo dei corsi di formazione professionale ECO-TER Academy: sicurezza sul lavoro, ambiente e benessere psico-sociale.',
-  alternates: {
-    canonical: absoluteUrl('/corsi'),
-  },
+  ...buildPageMetadata({
+    title: 'Catalogo Corsi',
+    description:
+      'Esplora il catalogo completo dei corsi di formazione professionale ECO-TER Academy: sicurezza sul lavoro, ambiente e benessere psico-sociale.',
+    path: '/corsi',
+  }),
 }
 
 /** Catalogo, primo livello: la scelta dell'area. */

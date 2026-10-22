@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Prose, ProseColophon } from '@ecoter/ui'
 import { Container } from '@/components/layout'
-import { absoluteUrl } from '@/lib/utils'
+import { buildPageMetadata } from '@/lib/seo/page-metadata'
 
 /**
  * Testo legale approvato — vedi
@@ -16,12 +16,12 @@ import { absoluteUrl } from '@/lib/utils'
 const LAST_UPDATED = '22 settembre 2026'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description:
-    'Informativa sul trattamento dei dati personali raccolti tramite il sito ECO-TER Academy: titolare, basi giuridiche, finalità, conservazione e diritti dell’interessato.',
-  alternates: {
-    canonical: absoluteUrl('/privacy-policy'),
-  },
+  ...buildPageMetadata({
+    title: 'Privacy Policy',
+    description:
+      'Informativa sul trattamento dei dati personali raccolti tramite il sito ECO-TER Academy: titolare, basi giuridiche, finalità, conservazione e diritti dell’interessato.',
+    path: '/privacy-policy',
+  }),
 }
 
 export default function PrivacyPolicyPage() {

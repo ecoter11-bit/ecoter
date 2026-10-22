@@ -13,10 +13,11 @@ import {
   getCategory,
   getSubcategory,
 } from '@/lib/content'
-import { absoluteUrl, cn } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 import { areaHref, subareaHref } from '@/lib/catalog'
 import { percorsoOfCourse } from '@/config/percorsi'
 import { buildCourseJsonLd } from '@/lib/seo/course-schema'
+import { buildPageMetadata } from '@/lib/seo/page-metadata'
 import { categoryBadgeLabel } from '@/lib/badge-mappings'
 import { Breadcrumb, Container } from '@/components/layout'
 import { CourseHeader } from '@/components/course/CourseHeader'
@@ -40,27 +41,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { body: _body, ...course } = courseData
   const title = course.seo.title ?? course.title
   const description = course.seo.description ?? course.excerpt
-  const url = absoluteUrl(`/corsi/${course.slug}`)
 
   return {
-    title,
-    description,
+    ...buildPageMetadata({
+      title,
+      description,
+      path: `/corsi/${course.slug}`,
+      type: 'article',
+    }),
     keywords:
       course.seo.keywords && course.seo.keywords.length > 0
         ? course.seo.keywords
         : undefined,
-    alternates: { canonical: url },
-    openGraph: {
-      type: 'article',
-      title,
-      description,
-      url,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-    },
   }
 }
 

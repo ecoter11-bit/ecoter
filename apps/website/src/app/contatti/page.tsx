@@ -3,15 +3,16 @@ import { Mail, Phone, MapPin, Clock, AlertTriangle } from 'lucide-react'
 import { Alert } from '@ecoter/ui'
 import { getSiteSettings } from '@/lib/content'
 import { Container } from '@/components/layout'
-import { absoluteUrl, telHref } from '@/lib/utils'
+import { telHref } from '@/lib/utils'
+import { buildPageMetadata } from '@/lib/seo/page-metadata'
 
 export const metadata: Metadata = {
-  title: 'Contatti',
-  description:
-    'I recapiti di ECO-TER Academy: commerciale, responsabile della formazione, email e sede a Pianoro (BO).',
-  alternates: {
-    canonical: absoluteUrl('/contatti'),
-  },
+  ...buildPageMetadata({
+    title: 'Contatti',
+    description:
+      'I recapiti di ECO-TER Academy: commerciale, responsabile della formazione, email e sede a Pianoro (BO).',
+    path: '/contatti',
+  }),
 }
 
 /**

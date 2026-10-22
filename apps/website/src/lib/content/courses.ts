@@ -60,6 +60,7 @@ function parseCourseFile(filepath: string, filename: string): CourseData {
     status: fm.status,
     publishedAt: fm.publishedAt ?? today,
     updatedAt: fm.updatedAt ?? today,
+    lastModified: fm.updatedAt ?? fm.publishedAt,
     body: content.trim(),
   }
 }

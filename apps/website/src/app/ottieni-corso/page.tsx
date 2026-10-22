@@ -6,15 +6,16 @@ import { getAllCourses, getCourse, getSiteSettings } from '@/lib/content'
 import { Container } from '@/components/layout'
 import { OrderForm } from '@/components/order/OrderForm'
 import { modalityIcon, modalityLabel } from '@/lib/badge-mappings'
-import { absoluteUrl, formatCourseDuration } from '@/lib/utils'
+import { formatCourseDuration } from '@/lib/utils'
+import { buildPageMetadata } from '@/lib/seo/page-metadata'
 
 export const metadata: Metadata = {
-  title: 'Ottieni corso',
-  description:
-    'Richiedi l’attivazione di un corso ECO-TER Academy: lasciaci i dati di fatturazione e ti ricontattiamo per confermare date e modalità. Nessun pagamento online.',
-  alternates: {
-    canonical: absoluteUrl('/ottieni-corso'),
-  },
+  ...buildPageMetadata({
+    title: 'Ottieni corso',
+    description:
+      'Richiedi l’attivazione di un corso ECO-TER Academy: lasciaci i dati di fatturazione e ti ricontattiamo per confermare date e modalità. Nessun pagamento online.',
+    path: '/ottieni-corso',
+  }),
   /* Pagina transazionale, utile solo raggiunta da un corso (`?corso=<slug>`):
    * fuori da quel contesto non ha contenuto proprio da indicizzare. `follow`
    * resta attivo, i link interni vanno seguiti normalmente. */
