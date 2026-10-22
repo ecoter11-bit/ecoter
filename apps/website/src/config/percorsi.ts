@@ -17,6 +17,12 @@ export type Percorso = {
   title: string
   /** Tag dei corsi (livelli) che fanno parte del percorso. */
   tag: string
+  /**
+   * Meta description della pagina del percorso: testo del documento "Servizi
+   * per aziende", parola per parola. Diversa dall'excerpt dei livelli, così le
+   * pagine non hanno la stessa description.
+   */
+  description: string
 }
 
 export const PERCORSI: Percorso[] = [
@@ -25,18 +31,24 @@ export const PERCORSI: Percorso[] = [
     area: 'benessere-psico-sociale',
     title: 'Sportello di ascolto',
     tag: 'sportello-di-ascolto',
+    description:
+      'Uno spazio individuale e riservato dedicato ai lavoratori per affrontare situazioni di stress, difficoltà relazionali e momenti di disagio, favorendo consapevolezza e risorse personali.',
   },
   {
     slug: 'coaching-individuale',
     area: 'benessere-psico-sociale',
     title: 'Coaching individuale',
     tag: 'coaching-psicologico',
+    description:
+      'Un percorso finalizzato a sviluppare risorse personali utili ad affrontare con maggiore consapevolezza ed efficacia le situazioni professionali.',
   },
   {
     slug: 'analisi-delle-risorse-e-delle-competenze',
     area: 'benessere-psico-sociale',
     title: 'Analisi delle risorse e delle competenze',
     tag: 'assessment',
+    description:
+      'Un percorso individuale per analizzare caratteristiche personali, competenze, punti di forza e aree di sviluppo, a supporto della crescita professionale e delle decisioni organizzative.',
   },
 ]
 

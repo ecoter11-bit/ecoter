@@ -62,27 +62,32 @@ type PageInput = {
   /** Percorso della pagina, es. `/corsi/rspp-modulo-a`. */
   path: string
   type?: 'website' | 'article'
+  /** `true`: il titolo resta com'è, senza " | ECO-TER Academy". */
+  absoluteTitle?: boolean
 }
 
 /**
  * `title`, `description`, canonical, `openGraph` e `twitter` di una pagina.
- * Nei tag social il titolo prende il nome del sito come nel `<title>`: il
- * template di `title` non si applica a `og:title`.
+ * Nei tag social il titolo è uguale al `<title>` (il template di `title` non
+ * si applica da solo a `og:title`).
  */
 export function buildPageMetadata({
   title,
   description,
   path,
   type,
+  absoluteTitle = false,
 }: PageInput): Metadata {
   const url = absoluteUrl(path)
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical: url },
     ...buildSocialMetadata({
-      title: siteConfig.seo.titleTemplate.replace('%s', title),
+      title: absoluteTitle
+        ? title
+        : siteConfig.seo.titleTemplate.replace('%s', title),
       description,
       url,
       type,

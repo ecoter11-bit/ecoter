@@ -13,7 +13,7 @@ export const FAQS: Faq[] = [
     question:
       'I corsi ECO-TER Academy sono riconosciuti dalle autorità competenti?',
     answer:
-      'Sì. Tutti i corsi sono progettati nel rispetto dei requisiti normativi vigenti (D.Lgs. 81/08, Accordo Stato-Regioni, ISO, D.M. 02/09/2021). Al termine di ogni percorso viene rilasciato un attestato di frequenza valido ai fini di legge.',
+      'Sì. Tutti i corsi sono progettati nel rispetto dei requisiti normativi vigenti (D.Lgs. 81/08, Accordo Stato-Regioni). Al termine di ogni percorso viene rilasciato un attestato di frequenza valido ai fini di legge.',
   },
   {
     id: 'faq-2',
@@ -31,13 +31,13 @@ export const FAQS: Faq[] = [
     id: 'faq-4',
     question: 'Qual è la differenza tra formazione in aula, online e blended?',
     answer:
-      'La formazione in aula consente interazione diretta con il docente ed è obbligatoria per alcune tipologie di corsi (es. antincendio con parte pratica). La formazione online (FAD) è flessibile e accessibile da qualsiasi dispositivo; è ammessa dalla normativa per la maggior parte dei percorsi teorici. La modalità blended combina le due cose, alternando moduli online e sessioni in aula o pratiche. La modalità disponibile è indicata nella scheda di ciascun corso.',
+      'La formazione in aula consente interazione diretta con il docente ed è obbligatoria per alcune tipologie di corsi (es. conduzione di carrelli elevatori o di PLE, con parte pratica). La formazione online (FAD) è flessibile e accessibile da qualsiasi dispositivo; è ammessa dalla normativa per la maggior parte dei percorsi teorici. La modalità blended combina le due cose, alternando moduli online e sessioni in aula o pratiche. La modalità disponibile è indicata nella scheda di ciascun corso.',
   },
   {
     id: 'faq-5',
     question: "Come funziona l'iscrizione a un corso?",
     answer:
-      "Puoi richiedere l'iscrizione dalla pagina del corso che ti interessa o tramite il modulo contatti, indicando le informazioni richieste. Il nostro team ti risponde per confermare disponibilità, date e modalità di pagamento, e ti guida fino al perfezionamento dell'iscrizione.",
+      'Puoi richiedere l\'iscrizione dalla pagina del corso che ti interessa, con il bottone "Richiedi informazioni sul corso", indicando le informazioni richieste. Il nostro team ti risponde per confermare disponibilità, date e modalità di pagamento, e ti guida fino al perfezionamento dell\'iscrizione.',
   },
   {
     id: 'faq-6',
