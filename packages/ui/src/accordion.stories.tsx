@@ -9,6 +9,10 @@ import { Badge } from './badge'
  * primitive, not re-implemented here. Interact with any story below (Tab,
  * Enter/Space, mouse click) to see focus and open/close states live — the
  * a11y addon's "Violations" tab should show 0.
+ *
+ * `keepMounted` è attivo di default: i pannelli chiusi restano nel DOM con
+ * `hidden` (ispeziona l'HTML di qualunque storia), così il loro testo è
+ * nell'HTML servito dal sito. Passa `keepMounted={false}` per smontarli.
  */
 const meta = {
   title: 'Components/Accordion',
@@ -73,6 +77,33 @@ export const MultipleOpen: Story = {
       <AccordionItem value="c">
         <AccordionTrigger>Terzo pannello</AccordionTrigger>
         <AccordionPanel>Chiuso finché non lo apri.</AccordionPanel>
+      </AccordionItem>
+    </Accordion>
+  ),
+}
+
+/**
+ * Pannelli chiusi nel DOM (default `keepMounted`): il secondo e il terzo
+ * pannello sono nell'HTML con `hidden` — invisibili, fuori dall'albero di
+ * accessibilità, ma leggibili dai motori di ricerca. Il trigger resta con
+ * `aria-expanded="false"`. Ispeziona l'HTML della storia per vederli.
+ */
+export const PannelliChiusiNelDom: Story = {
+  name: 'Pannelli chiusi nel DOM',
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <Accordion defaultValue={['a']}>
+      <AccordionItem value="a">
+        <AccordionTrigger>Aperto</AccordionTrigger>
+        <AccordionPanel>Visibile e letto dagli screen reader.</AccordionPanel>
+      </AccordionItem>
+      <AccordionItem value="b">
+        <AccordionTrigger>Chiuso</AccordionTrigger>
+        <AccordionPanel>Nel DOM con `hidden` finché non lo apri.</AccordionPanel>
+      </AccordionItem>
+      <AccordionItem value="c">
+        <AccordionTrigger>Chiuso anche questo</AccordionTrigger>
+        <AccordionPanel>Anche questo testo è nell&apos;HTML.</AccordionPanel>
       </AccordionItem>
     </Accordion>
   ),
