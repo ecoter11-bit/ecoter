@@ -27,13 +27,21 @@ function ChevronDownIcon(props: React.ComponentProps<'svg'>) {
   )
 }
 
+/**
+ * `keepMounted` di default: i pannelli chiusi restano nell'HTML (con
+ * `hidden`, quindi invisibili e fuori dall'albero di accessibilità). Senza,
+ * nell'HTML servito c'è solo il pannello aperto — e il testo delle altre
+ * risposte delle FAQ esisterebbe solo nel JSON-LD FAQPage.
+ */
 function Accordion({
   className,
+  keepMounted = true,
   ...props
 }: AccordionPrimitive.Root.Props) {
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"
+      keepMounted={keepMounted}
       className={cn(
         'flex flex-col divide-y divide-neutral-200 overflow-hidden rounded-2xl border border-neutral-200 bg-white',
         className
