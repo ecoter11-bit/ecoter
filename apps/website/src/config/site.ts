@@ -6,6 +6,8 @@ export const siteConfig = {
   /** Dominio reale, registrato su Aruba e intestato a ECO-TER SRL. */
   url: 'https://ecoteracademy.it',
   ogImage: '/og/default.jpg',
+  /** Logo dell'header (`LogoEcoter`), usato anche nei dati strutturati. */
+  logo: '/brand/ecoter-logo.svg',
   locale: 'it_IT',
   language: 'it',
   founder: 'ECO-TER Srl',

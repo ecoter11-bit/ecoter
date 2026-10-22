@@ -5,6 +5,8 @@ import { defaultMetadata } from '@/config/seo'
 import { SiteLayout } from '@/components/layout'
 import { MotionProvider } from '@/components/motion/MotionProvider'
 import { getSiteSettings } from '@/lib/content'
+import { serializeJsonLd } from '@/lib/seo/json-ld'
+import { buildSiteJsonLd } from '@/lib/seo/organization-schema'
 import './globals.css'
 
 /* ─── Fonts ───────────────────────────────────────────────────────────────── */
@@ -55,6 +57,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-background text-foreground antialiased">
+        {/* Trusted, build-time-generated JSON (site.json + siteConfig), not user input */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: serializeJsonLd(buildSiteJsonLd(settings)),
+          }}
+        />
         <MotionProvider>
           <SiteLayout
             privacyPolicyHref={settings.privacyPolicy}

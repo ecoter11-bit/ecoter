@@ -1,5 +1,6 @@
 import { siteConfig } from '@/config/site'
 import { absoluteUrl } from '@/lib/utils'
+import { ORGANIZATION_ID } from '@/lib/seo/organization-schema'
 import type { Course, CourseModality } from '@/types'
 
 const courseModeByModality: Record<CourseModality, string> = {
@@ -26,10 +27,13 @@ export function buildCourseJsonLd(course: Course): Record<string, unknown> {
     description: course.seo.description ?? course.excerpt,
     url,
     inLanguage: 'it',
+    // L'organizzazione completa è nel `@graph` del layout: qui basta il
+    // riferimento, con nome e indirizzo per chi legge il blocco da solo.
     provider: {
-      '@type': 'Organization',
-      name: siteConfig.founder,
-      sameAs: siteConfig.url,
+      '@type': 'EducationalOrganization',
+      '@id': ORGANIZATION_ID,
+      name: siteConfig.name,
+      url: absoluteUrl(''),
     },
     hasCourseInstance: course.modality.map((modality) => ({
       '@type': 'CourseInstance',

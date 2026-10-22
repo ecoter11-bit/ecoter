@@ -3,7 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ChevronRight, Home } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { absoluteUrl, cn } from '@/lib/utils'
+import { serializeJsonLd } from '@/lib/seo/json-ld'
 
 export type BreadcrumbItem = {
   label: string
@@ -55,41 +56,44 @@ export function Breadcrumb({ items, className }: BreadcrumbProps) {
 
   if (resolved.length === 0) return null
 
+  /* BreadcrumbList in JSON-LD, con gli stessi elementi visibili (Home compresa)
+     e indirizzi assoluti. Prima erano microdati sugli elementi della lista. */
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [{ label: 'Home', href: '' }, ...resolved].map(
+      (item, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: item.label,
+        item: absoluteUrl(item.href),
+      })
+    ),
+  }
+
   return (
     <nav aria-label="Breadcrumb" className={cn(className)}>
-      <ol
-        className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground"
-        itemScope
-        itemType="https://schema.org/BreadcrumbList"
-      >
-        <li
-          itemScope
-          itemType="https://schema.org/ListItem"
-          itemProp="itemListElement"
-        >
+      {/* Trusted JSON: etichette e indirizzi decisi dalle pagine, non input utente */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
+      />
+      <ol className="flex flex-wrap items-center gap-1 text-sm text-muted-foreground">
+        <li>
           <Link
             href="/"
             className="flex items-center transition-colors hover:text-foreground"
-            itemProp="item"
             aria-label="Home"
           >
             <Home className="h-3.5 w-3.5" aria-hidden="true" />
           </Link>
-          <meta itemProp="name" content="Home" />
-          <meta itemProp="position" content="1" />
         </li>
 
         {resolved.map((item, i) => {
           const isLast = i === resolved.length - 1
 
           return (
-            <li
-              key={item.href}
-              className="flex items-center gap-1"
-              itemScope
-              itemType="https://schema.org/ListItem"
-              itemProp="itemListElement"
-            >
+            <li key={item.href} className="flex items-center gap-1">
               <ChevronRight
                 className="h-3.5 w-3.5 text-neutral-300"
                 aria-hidden="true"
@@ -98,7 +102,6 @@ export function Breadcrumb({ items, className }: BreadcrumbProps) {
                 <span
                   className="font-medium text-foreground"
                   aria-current="page"
-                  itemProp="name"
                 >
                   {item.label}
                 </span>
@@ -106,12 +109,10 @@ export function Breadcrumb({ items, className }: BreadcrumbProps) {
                 <Link
                   href={item.href}
                   className="transition-colors hover:text-foreground"
-                  itemProp="item"
                 >
-                  <span itemProp="name">{item.label}</span>
+                  {item.label}
                 </Link>
               )}
-              <meta itemProp="position" content={String(i + 2)} />
             </li>
           )
         })}

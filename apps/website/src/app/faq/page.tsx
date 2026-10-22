@@ -4,6 +4,7 @@ import { FaqAccordionSection } from '@/components/sections'
 import { Container } from '@/components/layout'
 import { FAQS } from '@/lib/content/faq'
 import { buildFaqJsonLd } from '@/lib/seo/faq-schema'
+import { serializeJsonLd } from '@/lib/seo/json-ld'
 import { buildPageMetadata } from '@/lib/seo/page-metadata'
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function FaqPage() {
       {/* Trusted, build-time-generated JSON (static FAQ content), not user input */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }}
       />
 
       <div className="border-b border-neutral-200 bg-white">
